@@ -1,4 +1,4 @@
 #!/bin/bash
 topaz -l -q << EOF
-input setup.gs
+input importToGemStone.gs
 EOF

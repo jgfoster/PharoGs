@@ -1,14 +1,15 @@
-| fileStream set |
+| fileStream pools |
 fileStream := (FileStream forceNewFileNamed: 'pools.gs')
 	text; yourself.
-set := IdentitySet new.
+pools := IdentitySet new.
 ProtoObject withAllSubclasses do: [:eachClass | 
-	set addAll: eachClass sharedPools.
+	pools addAll: eachClass sharedPools.
 ].
 fileStream 
 	nextPutAll: 'output push pools.out only'; lf;
 	nextPutAll: 'errorCount'; lf.
-set do: [:eachSharedPool | 
+pools := pools asSortedCollection: [:a :b | a name <= b name].
+pools do: [:eachSharedPool | 
 	fileStream 
 		nextPutAll: 'run'; lf;
 		nextPutAll: '(PharoPools at: #';
@@ -31,5 +32,5 @@ fileStream
 	nextPutAll: 'errorCount'; lf;
 	close.
 
-Transcript show: 'pools count = ' , set size printString; cr.
+Transcript show: 'pools count = ' , pools size printString; cr.
 SmalltalkImage current snapshot: false andQuit: true.

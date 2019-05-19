@@ -1,35 +1,6 @@
 output push pools.out only
 errorCount
 run
-(PharoPools at: #EventSensorConstants ifAbsentPut: [SymbolDictionary new name: #EventSensorConstants])
-	at: #BlueButtonBit ifAbsentPut: [nil];
-	at: #CommandKeyBit ifAbsentPut: [nil];
-	at: #CtrlKeyBit ifAbsentPut: [nil];
-	at: #EventKeyChar ifAbsentPut: [nil];
-	at: #EventKeyDown ifAbsentPut: [nil];
-	at: #EventKeyUp ifAbsentPut: [nil];
-	at: #EventTypeDragDropFiles ifAbsentPut: [nil];
-	at: #EventTypeKeyboard ifAbsentPut: [nil];
-	at: #EventTypeMenu ifAbsentPut: [nil];
-	at: #EventTypeMouse ifAbsentPut: [nil];
-	at: #EventTypeNone ifAbsentPut: [nil];
-	at: #EventTypeWindow ifAbsentPut: [nil];
-	at: #OptionKeyBit ifAbsentPut: [nil];
-	at: #RedButtonBit ifAbsentPut: [nil];
-	at: #ShiftKeyBit ifAbsentPut: [nil];
-	at: #WindowEventActivated ifAbsentPut: [nil];
-	at: #WindowEventClose ifAbsentPut: [nil];
-	at: #WindowEventIconise ifAbsentPut: [nil];
-	at: #WindowEventMetricChange ifAbsentPut: [nil];
-	at: #WindowEventPaint ifAbsentPut: [nil];
-	at: #YellowButtonBit ifAbsentPut: [nil];
-	yourself.
-%
-run
-(PharoPools at: #MCMockAPoolDictionary ifAbsentPut: [SymbolDictionary new name: #MCMockAPoolDictionary])
-	yourself.
-%
-run
 (PharoPools at: #ChronologyConstants ifAbsentPut: [SymbolDictionary new name: #ChronologyConstants])
 	at: #DayNames ifAbsentPut: [nil];
 	at: #DaysInMonth ifAbsentPut: [nil];
@@ -41,6 +12,68 @@ run
 	at: #SecondsInHour ifAbsentPut: [nil];
 	at: #SecondsInMinute ifAbsentPut: [nil];
 	at: #SqueakEpoch ifAbsentPut: [nil];
+	yourself.
+%
+run
+(PharoPools at: #FFIConstants ifAbsentPut: [SymbolDictionary new name: #FFIConstants])
+	at: #FFIAtomicTypeMask ifAbsentPut: [nil];
+	at: #FFIAtomicTypeShift ifAbsentPut: [nil];
+	at: #FFICallFlagThreaded ifAbsentPut: [nil];
+	at: #FFICallTypeApi ifAbsentPut: [nil];
+	at: #FFICallTypeCDecl ifAbsentPut: [nil];
+	at: #FFICallTypesMask ifAbsentPut: [nil];
+	at: #FFIErrorAddressNotFound ifAbsentPut: [nil];
+	at: #FFIErrorAttemptToPassVoid ifAbsentPut: [nil];
+	at: #FFIErrorBadAddress ifAbsentPut: [nil];
+	at: #FFIErrorBadArg ifAbsentPut: [nil];
+	at: #FFIErrorBadArgs ifAbsentPut: [nil];
+	at: #FFIErrorBadAtomicType ifAbsentPut: [nil];
+	at: #FFIErrorBadExternalFunction ifAbsentPut: [nil];
+	at: #FFIErrorBadExternalLibrary ifAbsentPut: [nil];
+	at: #FFIErrorBadReturn ifAbsentPut: [nil];
+	at: #FFIErrorCallFrameTooBig ifAbsentPut: [nil];
+	at: #FFIErrorCallType ifAbsentPut: [nil];
+	at: #FFIErrorCoercionFailed ifAbsentPut: [nil];
+	at: #FFIErrorGenericError ifAbsentPut: [nil];
+	at: #FFIErrorIntAsPointer ifAbsentPut: [nil];
+	at: #FFIErrorInvalidPointer ifAbsentPut: [nil];
+	at: #FFIErrorModuleNotFound ifAbsentPut: [nil];
+	at: #FFIErrorNoModule ifAbsentPut: [nil];
+	at: #FFIErrorNotFunction ifAbsentPut: [nil];
+	at: #FFIErrorStructSize ifAbsentPut: [nil];
+	at: #FFIErrorWrongType ifAbsentPut: [nil];
+	at: #FFIFlagAtomic ifAbsentPut: [nil];
+	at: #FFIFlagPointer ifAbsentPut: [nil];
+	at: #FFIFlagStructure ifAbsentPut: [nil];
+	at: #FFINoCalloutAvailable ifAbsentPut: [nil];
+	at: #FFIStructSizeMask ifAbsentPut: [nil];
+	at: #FFITypeBool ifAbsentPut: [nil];
+	at: #FFITypeDoubleFloat ifAbsentPut: [nil];
+	at: #FFITypeSignedByte ifAbsentPut: [nil];
+	at: #FFITypeSignedChar ifAbsentPut: [nil];
+	at: #FFITypeSignedInt ifAbsentPut: [nil];
+	at: #FFITypeSignedLongLong ifAbsentPut: [nil];
+	at: #FFITypeSignedShort ifAbsentPut: [nil];
+	at: #FFITypeSingleFloat ifAbsentPut: [nil];
+	at: #FFITypeUnsignedByte ifAbsentPut: [nil];
+	at: #FFITypeUnsignedChar ifAbsentPut: [nil];
+	at: #FFITypeUnsignedInt ifAbsentPut: [nil];
+	at: #FFITypeUnsignedLongLong ifAbsentPut: [nil];
+	at: #FFITypeUnsignedShort ifAbsentPut: [nil];
+	at: #FFITypeVoid ifAbsentPut: [nil];
+	yourself.
+%
+run
+(PharoPools at: #GZipConstants ifAbsentPut: [SymbolDictionary new name: #GZipConstants])
+	at: #GZipAsciiFlag ifAbsentPut: [nil];
+	at: #GZipCommentFlag ifAbsentPut: [nil];
+	at: #GZipContinueFlag ifAbsentPut: [nil];
+	at: #GZipDeflated ifAbsentPut: [nil];
+	at: #GZipEncryptFlag ifAbsentPut: [nil];
+	at: #GZipExtraField ifAbsentPut: [nil];
+	at: #GZipMagic ifAbsentPut: [nil];
+	at: #GZipNameFlag ifAbsentPut: [nil];
+	at: #GZipReservedFlags ifAbsentPut: [nil];
 	yourself.
 %
 run
@@ -131,6 +164,17 @@ run
 	yourself.
 %
 run
+(PharoPools at: #VTermOutputStyles ifAbsentPut: [SymbolDictionary new name: #VTermOutputStyles])
+	at: #Blink ifAbsentPut: [nil];
+	at: #Bold ifAbsentPut: [nil];
+	at: #InvisibleFont ifAbsentPut: [nil];
+	at: #ResetStyle ifAbsentPut: [nil];
+	at: #Reverse ifAbsentPut: [nil];
+	at: #Standout ifAbsentPut: [nil];
+	at: #Underline ifAbsentPut: [nil];
+	yourself.
+%
+run
 (PharoPools at: #ZipConstants ifAbsentPut: [SymbolDictionary new name: #ZipConstants])
 	at: #BaseDistance ifAbsentPut: [nil];
 	at: #BaseLength ifAbsentPut: [nil];
@@ -164,19 +208,6 @@ run
 	at: #StoredBlock ifAbsentPut: [nil];
 	at: #WindowMask ifAbsentPut: [nil];
 	at: #WindowSize ifAbsentPut: [nil];
-	yourself.
-%
-run
-(PharoPools at: #GZipConstants ifAbsentPut: [SymbolDictionary new name: #GZipConstants])
-	at: #GZipAsciiFlag ifAbsentPut: [nil];
-	at: #GZipCommentFlag ifAbsentPut: [nil];
-	at: #GZipContinueFlag ifAbsentPut: [nil];
-	at: #GZipDeflated ifAbsentPut: [nil];
-	at: #GZipEncryptFlag ifAbsentPut: [nil];
-	at: #GZipExtraField ifAbsentPut: [nil];
-	at: #GZipMagic ifAbsentPut: [nil];
-	at: #GZipNameFlag ifAbsentPut: [nil];
-	at: #GZipReservedFlags ifAbsentPut: [nil];
 	yourself.
 %
 run

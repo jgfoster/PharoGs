@@ -2,23 +2,10 @@ output push globals.out only
 errorCount
 run
 Smalltalk
-	at: #Display put: nil;
 	at: #Processor put: nil;
-	at: #Sensor put: nil;
 	at: #SourceFiles put: nil;
+	at: #SystemOrganisation put: nil;
 	at: #SystemOrganization put: nil;
-	at: #TApplyingOnClassSide put: nil;
-	at: #TBehavior put: nil;
-	at: #TBehaviorCategorization put: nil;
-	at: #TChunkVisitor put: nil;
-	at: #TClass put: nil;
-	at: #TClassDescription put: nil;
-	at: #TComparable put: nil;
-	at: #TComposingDescription put: nil;
-	at: #TRBProgramNodeVisitor put: nil;
-	at: #TSortable put: nil;
-	at: #TTranscript put: nil;
-	at: #TTransformationCompatibility put: nil;
 	at: #Transcript put: nil;
 	at: #Undeclared put: nil;
 	at: #superclass put: nil;

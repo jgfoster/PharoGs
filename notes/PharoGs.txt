@@ -1,0 +1,39 @@
+Approaches:
+
+1.	Replace existing classes with methods in env0.
+	Very difficult to bootstrap/debug
+	VM might have knowledge of inst vars and implementation
+	
+2.	New classes with methods in env0.
+	Won't work for classes known to the VM (including compiler literals such as Array)
+
+3.	Existing classes with methods in env2.
+	Different hierarchy and variables
+	
+4.	Hybrid: existing classes when required by VM (compiler literals, Exceptions, Behavior, etc.)
+	Seperated classes whenever possible (including non-literal Collections and Magnitudes)
+	Methods in env2
+	
+	
+Missing class hierarchy
+
+GemStone has some extra classes in the hierarchy (e.g., Character Collection above String)
+	These can be ignored by giving them no behavior in env2
+Pharo has some extra classes in the hierarchy
+	Most (e.g., HashedCollection above Dictionary) will be fine when we use Pharo's classes
+	Only two needed: ProtoObject above Object and ArrayedCollection above Array
+	GemStone allows inserting an environent-specific MethodDictionary lookup 
+
+	
+Replacement methods:
+
+1.	In place (env2 of actual class)
+	Can make previous code harder to read (save in comments?)
+	Need way to identify replacements for code management (pragmas?)
+	
+2.	With extra environment-specific MethodDictionary lookup
+	GemStone:Object has replacement methods while inheriting from Pharo:Object with Pharo methods
+	Do we do this for every Pharo class? Only those that require overrides?
+	
+
+Array superclassForEnv: 2 put: ArrayedCollection

@@ -91,14 +91,6 @@ run
 %
 errorCount
 run
-| names |
-names := #().
-names do: [:each | 
-	(Exception classVarNames includes: each) ifFalse: [
-		Exception addClassVarName: each]].
-%
-errorCount
-run
 (Object indexableSubclass: 'Path'
 	instVarNames: #()
 	classVars: #()
@@ -190,14 +182,6 @@ run
 %
 errorCount
 run
-| names |
-names := #().
-names do: [:each | 
-	(Magnitude classVarNames includes: each) ifFalse: [
-		Magnitude addClassVarName: each]].
-%
-errorCount
-run
 (Object indexableSubclass: 'AdditionalMethodState'
 	instVarNames: #( method selector)
 	classVars: #()
@@ -273,14 +257,6 @@ run
 	description: '0'
 	options: #()
 ) category: 'System-Announcements-Logging'.
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(Collection classVarNames includes: each) ifFalse: [
-		Collection addClassVarName: each]].
 %
 errorCount
 run
@@ -393,14 +369,6 @@ names := #( ClassProperties ObsoleteSubclasses).
 names do: [:each | 
 	(Behavior classVarNames includes: each) ifFalse: [
 		Behavior addClassVarName: each]].
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(BlockClosure classVarNames includes: each) ifFalse: [
-		BlockClosure addClassVarName: each]].
 %
 errorCount
 run
@@ -737,14 +705,6 @@ run
 %
 errorCount
 run
-| names |
-names := #().
-names do: [:each | 
-	(ExceptionSet classVarNames includes: each) ifFalse: [
-		ExceptionSet addClassVarName: each]].
-%
-errorCount
-run
 (Object subclass: 'ExternalObject'
 	instVarNames: #( handle)
 	classVars: #()
@@ -1005,14 +965,6 @@ run
 %
 errorCount
 run
-| names |
-names := #().
-names do: [:each | 
-	(Message classVarNames includes: each) ifFalse: [
-		Message addClassVarName: each]].
-%
-errorCount
-run
 (Object subclass: 'MessageSend'
 	instVarNames: #( receiver selector arguments)
 	classVars: #()
@@ -1127,14 +1079,6 @@ run
 	description: '1'
 	options: #()
 ) category: 'Kernel-BasicObjects'.
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(Pragma classVarNames includes: each) ifFalse: [
-		Pragma addClassVarName: each]].
 %
 errorCount
 run
@@ -1546,14 +1490,6 @@ run
 	description: '1'
 	options: #()
 ) category: 'Network-UUID-Base'.
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(UndefinedObject classVarNames includes: each) ifFalse: [
-		UndefinedObject addClassVarName: each]].
 %
 errorCount
 run
@@ -4833,22 +4769,6 @@ run
 %
 errorCount
 run
-| names |
-names := #().
-names do: [:each | 
-	(Error classVarNames includes: each) ifFalse: [
-		Error addClassVarName: each]].
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(Notification classVarNames includes: each) ifFalse: [
-		Notification addClassVarName: each]].
-%
-errorCount
-run
 (Exception subclass: 'Exit'
 	instVarNames: #( status)
 	classVars: #()
@@ -4859,14 +4779,6 @@ run
 	description: '1'
 	options: #()
 ) category: 'System-CommandLine-Exceptions'.
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(Halt classVarNames includes: each) ifFalse: [
-		Halt addClassVarName: each]].
 %
 errorCount
 run
@@ -5299,14 +5211,6 @@ run
 %
 errorCount
 run
-| names |
-names := #().
-names do: [:each | 
-	(Number classVarNames includes: each) ifFalse: [
-		Number addClassVarName: each]].
-%
-errorCount
-run
 (Magnitude subclass: 'Timespan'
 	instVarNames: #( start duration)
 	classVars: #()
@@ -5679,14 +5583,6 @@ run
 %
 errorCount
 run
-| names |
-names := #().
-names do: [:each | 
-	(SequenceableCollection classVarNames includes: each) ifFalse: [
-		SequenceableCollection addClassVarName: each]].
-%
-errorCount
-run
 (Collection subclass: 'Array2D'
 	instVarNames: #( contents numberOfColumns numberOfRows)
 	classVars: #()
@@ -5970,14 +5866,6 @@ run
 	description: '0'
 	options: #()
 ) category: 'Kernel-Chronology-Extras'.
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(ClassDescription classVarNames includes: each) ifFalse: [
-		ClassDescription addClassVarName: each]].
 %
 errorCount
 run
@@ -10648,14 +10536,6 @@ run
 %
 errorCount
 run
-| names |
-names := #().
-names do: [:each | 
-	(ArithmeticError classVarNames includes: each) ifFalse: [
-		ArithmeticError addClassVarName: each]].
-%
-errorCount
-run
 (Error subclass: 'AssertionFailure'
 	instVarNames: #()
 	classVars: #()
@@ -10666,14 +10546,6 @@ run
 	description: '1'
 	options: #()
 ) category: 'Kernel-Exceptions'.
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(CannotReturn classVarNames includes: each) ifFalse: [
-		CannotReturn addClassVarName: each]].
 %
 errorCount
 run
@@ -10778,14 +10650,6 @@ run
 	description: '1'
 	options: #()
 ) category: 'Collections-Abstract-Errors'.
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(MessageNotUnderstood classVarNames includes: each) ifFalse: [
-		MessageNotUnderstood addClassVarName: each]].
 %
 errorCount
 run
@@ -11387,14 +11251,6 @@ run
 %
 errorCount
 run
-| names |
-names := #().
-names do: [:each | 
-	(Warning classVarNames includes: each) ifFalse: [
-		Warning addClassVarName: each]].
-%
-errorCount
-run
 (Notification subclass: 'ProcessAlreadyTerminating'
 	instVarNames: #()
 	classVars: #()
@@ -11923,14 +11779,6 @@ run
 %
 errorCount
 run
-| names |
-names := #().
-names do: [:each | 
-	(Integer classVarNames includes: each) ifFalse: [
-		Integer addClassVarName: each]].
-%
-errorCount
-run
 (Timespan subclass: 'Date'
 	instVarNames: #()
 	classVars: #()
@@ -12435,22 +12283,6 @@ run
 	description: '1'
 	options: #()
 ) category: 'CodeImportCommandLineHandlers-Base'.
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(Class classVarNames includes: each) ifFalse: [
-		Class addClassVarName: each]].
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(Metaclass classVarNames includes: each) ifFalse: [
-		Metaclass addClassVarName: each]].
 %
 errorCount
 run
@@ -15236,14 +15068,6 @@ run
 %
 errorCount
 run
-| names |
-names := #().
-names do: [:each | 
-	(FloatingPointException classVarNames includes: each) ifFalse: [
-		FloatingPointException addClassVarName: each]].
-%
-errorCount
-run
 (ArithmeticError subclass: 'NaNException'
 	instVarNames: #()
 	classVars: #()
@@ -15254,14 +15078,6 @@ run
 	description: '1'
 	options: #()
 ) category: 'Kernel-Exceptions'.
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(ZeroDivide classVarNames includes: each) ifFalse: [
-		ZeroDivide addClassVarName: each]].
 %
 errorCount
 run
@@ -16318,30 +16134,6 @@ run
 %
 errorCount
 run
-| names |
-names := #().
-names do: [:each | 
-	(ScaledDecimal classVarNames includes: each) ifFalse: [
-		ScaledDecimal addClassVarName: each]].
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(LargeInteger classVarNames includes: each) ifFalse: [
-		LargeInteger addClassVarName: each]].
-%
-errorCount
-run
-| names |
-names := #( minVal maxVal).
-names do: [:each | 
-	(SmallInteger classVarNames includes: each) ifFalse: [
-		SmallInteger addClassVarName: each]].
-%
-errorCount
-run
 (ClassAnnouncement subclass: 'ClassAdded'
 	instVarNames: #( classAdded classCategory)
 	classVars: #()
@@ -17110,22 +16902,6 @@ run
 errorCount
 run
 | names |
-names := #().
-names do: [:each | 
-	(Array classVarNames includes: each) ifFalse: [
-		Array addClassVarName: each]].
-%
-errorCount
-run
-| names |
-names := #().
-names do: [:each | 
-	(ByteArray classVarNames includes: each) ifFalse: [
-		ByteArray addClassVarName: each]].
-%
-errorCount
-run
-| names |
 names := #( AsciiOrder CSLineEnders CSNonSeparators CSSeparators CaseInsensitiveOrder CaseSensitiveOrder CrLfExchangeTable LowercasingTable Tokenish TypeTable UppercasingTable).
 names do: [:each | 
 	(String classVarNames includes: each) ifFalse: [
@@ -17302,7 +17078,7 @@ run
 %
 errorCount
 run
-(Class subclass: 'Trait'
+(NoSubclasses subclass: 'Trait'
 	instVarNames: #( users)
 	classVars: #()
 	classInstVars: #( users)

@@ -1,3 +1,4 @@
+WinPlatform yourself.
 Transcript show: 'method count = '.
 [
 | cr lf tab block stream1 reservedSelectors list count compileErrors keepGs |
@@ -17,84 +18,11 @@ reservedSelectors := #(
 ).
 compileErrors := 
 #(
-	#(#AdditionalMethodState #metaLinkOptions)
-	#(#Behavior #metaLinkOptions)
-	#('CCompilationContext class' #default)
-	#(#ChunkReadStream #parseLangTagFor:)
-	#(#Class #category)
-	#('CompilationContext class' #default)
-	#('CompilationContext class' #optionsDescription)
-	#(#CompiledMethod #metaLinkOptions)
-	#(#ConfigurationCommandLineHandler #printConfigurations:)
-	#('Context class' #runSimulated:)
-	#(#ExternalType #asPointerType:)
-	#(#Form #fillAlpha:)
-	#(#HashedCollection #metaLinkOptions)
-	#(#HEExtendedInstaller #existingClass:)
-	#(#HEExtendedInstaller #existingTrait:)
-	#(#HEInstaller #existingTrait:)
-	#('InstructionStream class' #compiler)
-	#(#IRBytecodeDecompiler #jump:)
-	#(#IRPrinterV2 #visitPopIntoRemoteTemp:)
-	#(#IRPrinterV2 #visitPushRemoteTemp:)
-	#(#IRPrinterV2 #visitStoreRemoteTemp:)
-	#(#IRReconstructor #createTempVectorNamed:withVars:)
-	#('Job class' #exampleCurrentValue)
-	#('LanguageEnvironment class' #initKnownEnvironments)
-	#('LanguageEnvironment class' #localeID:)
-	#(#MCMcdReader #loadPatch)
-	#(#MCMczReader #loadDefinitions)
-	#(#MCPatch #initializeWithBase:target:)
-	#(#MCVersion #withAllDependenciesDo:)
-	#('MetaLink class' #defaultOptions)
-	#(#MetaLink #level)
-	#(#MethodDictionary #metaLinkOptions)
-	#(#MultiByteFileStream #nextChunk)
-	#(#MultiByteFileStream #nextPreamble)
-	#(#Object #mustBeBooleanInMagic:)
-	#(#Object #mustBeBooleanCompileExpression:andCache:)
-	#('OpalCompiler class' #defaultOptions)
-	#(#PharoChangesCondenser #reset)
-	#(#Pragma #analogousCodeTo:)
-	#(#Pragma #hasLiteral:)
-	#(#Pragma #hasLiteralSuchThat:)
 	#(#Pragma #selector)
 	#(#Pragma #selector:)
-	#(#Process #isActive:)
-	#(#Process #isMeta)
-	#(#Process #level)
-	#(#Process #rfeffectiveProcess)
-	#(#Process #shiftLevelDown)
-	#(#Process #shiftLevelUp)
-	#(#ProcessorScheduler #rfactiveProcess)
-	#(#Protocol #initialize)
-	#(#ProtoObject #metaLinkOptions)
-	#(#RBMethodNode #metaLinkOptions)
-	#(#RBProgramNode #comments:)
-	#(#ReflectiveMethod #metaLinkOptions)
-	#(#Set #metaLinkOptions)
-	#(#SmalltalkImage #metaLinkOptions)
-	#(#SmalltalkImage #newSpecialObjectsArray)
-	#(#SourceFileArray #flushChangesFile)
-	#(#SourceFileArray #readOnlyCopy)
-	#(#StdioStream #next:)
-	#(#Stream #next:put:)
-	#(#String #withNoLineLongerThan:)
-	#(#TemporaryVariable #hash)
-	#('Text class' #fromString:)
-	#('Text class' #initialize)
-	#('TextFontChange class' #defaultFontChange)
-	#(#Trait #category)
-	#(#TraitDescription fileOutLocalMethodsInCategory:on:)
-	#(#UIManager #spawnNewProcess)
-	#(#UTF16TextConverter #nextFromStream:)
-	#(#VirtualMachine #metaLinkOptions)
-	#(#WinPlatform #getEnvironmentVariable:into:size:)
-	#(#WinPlatform #multiByteToWideCharacterCodepage:flags:input:inputLen:output:outputLen:)
-	#(#WinPlatform #setEnvironmentVariable:value:)
-	#(#WinPlatform #wideCharacterToMultiByteCodepage:flags:input:inputLen:output:outputLen:)
-	#(#ZdcPluginSSLSession #serverName:)
-	#(#ZnImageExampleDelegate #html)
+	#('SmallInteger class' #maxVal)
+	#('SmallInteger class' #minVal)
+	#('SmallInteger class' #startUp:)
 ).
 keepGs := #(	"classes known to the VM that need to use the GemStone one"
 	Array ArithmeticError Behavior BlockClosure Boolean ByteArray CannotReturn 
@@ -104,7 +32,7 @@ keepGs := #(	"classes known to the VM that need to use the GemStone one"
 	ProcessorScheduler ScaledDecimal SequenceableCollection SmallInteger String 
 	Symbol UndefinedObject Warning ZeroDivide
 ).
-stream1 := (FileStream forceNewFileNamed: 'methods.gs') text
+stream1 := ('methods.gs' asFileReference writeStream)
 	nextPutAll: 'errorCount'; lf;
 	nextPutAll: 'output push methods.out only'; lf;
 	nextPutAll: 'set compile_env: 0'; lf;
@@ -118,11 +46,11 @@ list := true
 	ifFalse: [Array with: Object].
 list do: [ :eachClass | 
 	eachClass isMeta ifFalse: [ | path stream2 |
+
 		path := 'classes/' , eachClass name , '.gs'.
 		stream1 
 			nextPutAll: 'input '; nextPutAll: path; lf.
-		stream2 := (FileStream forceNewFileNamed: path) 
-			text; 
+		stream2 := (path asFileReference writeStream) 
 			nextPutAll: 'output push output/';
 			nextPutAll: eachClass name;
 			nextPutAll: '.out only'; lf;
@@ -188,7 +116,6 @@ list do: [ :eachClass |
 				].
 				(compileErrors anySatisfy: [:pair | 
 					pair first = eachBehavior name and: [pair last == eachSelector]]) ifTrue: [
-						| i |
 						i :=  source indexOf: lf.
 						(source at: i - 1) == $. ifTrue: [i := i - 1].
 						source := ((source copyFrom: 1 to: i - 1) copyReplaceAll: 'pointerSize' with: 'pointerSizeX'), lf asString , 
@@ -228,5 +155,8 @@ stream1
 Transcript show: count printString; cr.
 ] on: Error do: [:ex | 
 	Transcript show: ex description; cr.
+	ex signalerContext stack do: [:each |
+		Transcript show: each; cr.
+	].
 ].
 SmalltalkImage current snapshot: false andQuit: true.

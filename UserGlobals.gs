@@ -1,4 +1,3 @@
-
 ! ------- Create dictionary if it is not present
 run
 | aSymbol names userProfile |
@@ -11,6 +10,7 @@ names := userProfile symbolList names.
 	userProfile insertDictionary: symbolDictionary at: names size + 1.
 ].
 %
+set compile_env: 0
 ! ------------------- Class definition for ArrayTestCase
 expectvalue /Class
 doit
@@ -27,6 +27,7 @@ expectvalue /Class
 doit
 ArrayTestCase category: 'Kernel'
 %
+set compile_env: 0
 ! ------------------- Class definition for CharacterTestCase
 expectvalue /Class
 doit
@@ -43,6 +44,7 @@ expectvalue /Class
 doit
 CharacterTestCase category: 'Kernel'
 %
+set compile_env: 0
 ! ------------------- Class definition for SmallIntegerTestCase
 expectvalue /Class
 doit
@@ -71,20 +73,19 @@ ArrayTestCase class removeAllMethods.
 set compile_env: 0
 category: 'other'
 method: ArrayTestCase
-test_size
-
-	self
-		assert: #() @env2:size == 0;
-		yourself
-%
-set compile_env: 0
-category: 'other'
-method: ArrayTestCase
 test_printString
 
 	self
 		assert: #(1 2 3) @env0:printString = 'anArray( 1, 2, 3)';
 		assert: #(1 2 3) @env2:printString = '#(1 2 3)';
+		yourself
+%
+category: 'other'
+method: ArrayTestCase
+test_size
+
+	self
+		assert: #() @env2:size == 0;
 		yourself
 %
 

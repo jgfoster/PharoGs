@@ -24,7 +24,7 @@ input importGsEdits.tpz
 
 output push UserGlobals.out only
 errorCount
-input userGlobals.gs
+input UserGlobals.gs
 errorCount
 output pop
 

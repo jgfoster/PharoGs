@@ -1,56 +1,13 @@
 output push importGsEdits.out only
 errorCount
-input methods/AdditionalMethodState.gs
 input methods/ArrayedCollection.gs
 input methods/Behavior.gs
 input methods/ByteString.gs
-input methods/CCompilationContext.gs
 input methods/Character.gs
-input methods/ChunkReadStream.gs
-input methods/Class.gs
-input methods/CompilationContext.gs
-input methods/CompiledMethod.gs
-input methods/ConfigurationCommandLineHandler.gs
-input methods/Context.gs
-input methods/Form.gs
-input methods/HashedCollection.gs
-input methods/InstructionStream.gs
-input methods/IRBytecodeDecompiler.gs
-input methods/IRPrinterV2.gs
-input methods/IRReconstructor.gs
-input methods/Job.gs
-input methods/MCMcdReader.gs
-input methods/MCMczReader.gs
-input methods/MCPatch.gs
-input methods/MCVersion.gs
-input methods/MetaLink.gs
-input methods/MethodDictionary.gs
-input methods/MultiByteFileStream.gs
 input methods/Object.gs
-input methods/OpalCompiler.gs
-input methods/PharoChangesCondenser.gs
-input methods/Protocol.gs
 input methods/ProtoObject.gs
-input methods/RBMethodNode.gs
-input methods/RBProgramNode.gs
-input methods/ReflectiveMethod.gs
-input methods/Set.gs
 input methods/SmallInteger.gs
-input methods/SmalltalkImage.gs
-input methods/SourceFileArray.gs
-input methods/StdioStream.gs
 input methods/String.gs
-input methods/TemporaryVariable.gs
-input methods/Text.gs
-input methods/TextFontChange.gs
-input methods/Trait.gs
-input methods/TraitDescription.gs
-input methods/UIManager.gs
-input methods/UTF16TextConverter.gs
-input methods/VirtualMachine.gs
-input methods/WriteStream.gs
-input methods/ZdcPluginSSLSession.gs
-input methods/ZnImageExampleDelegate.gs
 errorCount
 output pop
 errorCount

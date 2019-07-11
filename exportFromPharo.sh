@@ -16,6 +16,9 @@ fi
 if [ -f classes/Object.gs ]; then
   rm classes/*
 fi
+if [ -f output/Object.out ]; then
+  rm output/*
+fi
 Pharo patches.st
 Pharo globals.st
 Pharo pools.st

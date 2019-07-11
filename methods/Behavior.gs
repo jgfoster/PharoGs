@@ -1,5 +1,38 @@
 set compile_env: 2
 
+category: 'adding/removing methods'
+method: Behavior
+adoptInstance: anInstance 
+	"Change the class of anInstance to me. 
+	Primitive (found in Cog and new VMs)  follows the same rules as primitiveChangeClassTo:, but returns the 	class rather than the modified instance" 
+
+	<PharoGs> 
+	anInstance @env0:changeClassTo: self. 
+	^self
+%
+
+category: 'accessing instances and variables'
+method: Behavior
+allInstances 
+	"Answer all instances of the receiver." 
+
+	<PharoGs> 
+	^self realClass @env0:allInstances
+%
+
+category: 'accessing instances and variables'
+method: Behavior
+allInstancesOrNil 
+	"Answer all instances of the receiver." 
+	
+	<PharoGs> 
+	[
+		^self realClass @env0:allInstances
+	] @env0:on: AlmostOutOfMemory do: [:ex | 
+		^nil
+	]
+%
+
 category: 'instance creation'
 method: Behavior
 basicNew 
@@ -17,22 +50,18 @@ basicNew
 	^self @env0:basicNew
 %
 
-category: 'instance creation'
-classmethod: ByteString
-basicNew: sizeRequested 
-	"Primitive. Answer an instance of this class with the number of indexable 
-	 variables specified by the argument, sizeRequested.  Fail if this class is not 
-	 indexable or if the argument is not a positive Integer, or if there is not 
-	 enough memory available. Essential. See Object documentation whatIsAPrimitive. 
-	 
-	 If the primitive fails because space is low then the scavenger will run before the 
-	 method is activated.  Check args and retry via handleFailingBasicNew: if they're OK." 
-
-	<primitive: 53>
+category: 'accessing instances and variables'
+method: Behavior
+someInstance 
+	"Primitive. Answer the first instance in the enumeration of all instances  
+	of the receiver. Fails if there are none. Essential. See Object  
+	documentation whatIsAPrimitive." 
+	
 	<PharoGs> 
-	self isVariable ifFalse: 
-		[self error: self printString, ' cannot have variable sized instances']. 
-	^self @env0:basicNew: sizeRequested
+	| list |
+	list := SystemRepository @env0:listInstances: { self } limit: 1.
+	(list @env0:at: 1) == 0 @env0:ifTrue: [self @env0:error: 'No instances!'].
+	^(list @env0:at: 2) @env0:at: 1.
 %
 
 set compile_env: 0

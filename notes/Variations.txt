@@ -1,4 +1,4 @@
-CLASS                   PHARO               GEMSTONE
+CLASS                   PHARO super         GEMSTONE super
 ---------------------   ----------------    -------------------
 Object                  ProtoObject         nil                 
 Exception               Object              AbstractException   

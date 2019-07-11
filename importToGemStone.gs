@@ -34,6 +34,8 @@ Object superclassForEnv: 2 put: ProtoObject.
 Object class superclassForEnv: 2 put: ProtoObject class.
 Array superclassForEnv: 2 put: ArrayedCollection.
 Array class superclassForEnv: 2 put: ArrayedCollection class.
+SmallFloat64 superclassForEnv: 2 put: Float.
+SmallFloat64 class superclassForEnv: 2 put: Float class.
 String superclassForEnv: 2 put: ArrayedCollection.
 String class superclassForEnv: 2 put: ArrayedCollection class.
 true

@@ -37,10 +37,13 @@ Smalltalk
 	at: #Warning put: (Globals at: #Warning);
 	at: #ZeroDivide put: (Globals at: #ZeroDivide);
 
-	at: #ArithmeticError	put: (Globals at: #NumericError);
-	at: #ClassDescription	put: (Globals at: #Module);
-	at: #Metaclass 		put: (Globals at: #Metaclass3);
-	at: #ScaledDecimal 	put: (Globals at: #FixedPoint);
+	at: #ArithmeticError	put: (Globals at: #NumericError	);
+	at: #BoxedFloat64 	put: (Globals at: #Float		);
+	at: #ClassDescription	put: (Globals at: #Module		);
+	at: #Float 			put: (Globals at: #BinaryFloat	);
+	at: #Metaclass 		put: (Globals at: #Metaclass3	);
+	at: #ScaledDecimal 	put: (Globals at: #FixedPoint	);
+	at: #SmallFloat64 	put: (Globals at: #SmallDouble	);
 	yourself.
 %
 errorCount
@@ -16340,32 +16343,6 @@ run
 	description: '5'
 	options: #()
 ) category: 'System-Finalization-Ephemerons'.
-%
-errorCount
-run
-(NoSubclasses subclass: 'BoxedFloat64'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #BoxedFloat64 ifAbsent: [nil])
-	description: '10'
-	options: #()
-) category: 'Kernel-Numbers'.
-%
-errorCount
-run
-(NoSubclasses subclass: 'SmallFloat64'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #SmallFloat64 ifAbsent: [nil])
-	description: '7'
-	options: #()
-) category: 'Kernel-Numbers'.
 %
 errorCount
 run

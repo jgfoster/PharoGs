@@ -8,7 +8,7 @@ method: SmallInteger
 	SmallInteger. Essential. No Lookup. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 260>
-	<pharoGs> 
+	<PharoGs> 
 	^ super * aNumber
 %
 
@@ -163,7 +163,7 @@ asFloat
 	Essential. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 138>
-	<pharoGs> 
+	<PharoGs> 
 	^self @env0:asFloat
 %
 
@@ -175,9 +175,53 @@ bitAnd: arg
 	Numbers are interpreted as having 2's-complement representation. 
 	Essential.  See Object documentation whatIsAPrimitive." 
 
-	<primitive: 740>
-	<pharoGs> 
+	<primitive: 14>
+	<PharoGs> 
 	^self @env0:bitAnd: arg
+%
+
+category: 'bit manipulation'
+method: SmallInteger
+bitOr: arg  
+	"Primitive. Answer an Integer whose bits are the logical OR of the 
+	receiver's bits and those of the argument, arg. 
+	Numbers are interpreted as having 2's-complement representation. 
+	Essential.  See Object documentation whatIsAPrimitive." 
+
+	<primitive: 15>
+	<PharoGs> 
+	^self @env0:bitOr: arg
+%
+
+category: 'bit manipulation'
+method: SmallInteger
+bitXor: arg  
+	"Primitive. Answer an Integer whose bits are the logical XOR of the 
+	receiver's bits and those of the argument, arg. 
+	Numbers are interpreted as having 2's-complement representation. 
+	Essential.  See Object documentation whatIsAPrimitive." 
+
+	<primitive: 16>
+	<PharoGs> 
+	^self @env0:bitXor: arg
+%
+
+category: 'bit manipulation'
+method: SmallInteger
+hashMultiply 
+	"This is a multiplication of hashes by 1664525 mod 2^28 written to avoid overflowing into large integers. 
+	 The primitive is able to perform the operation with modulo arihmetic. 
+	 
+	Example of usage: 
+	  hash 
+	    ^ (super hash + variableName hash) hashMultiply 	 
+	" 
+
+	<PharoGs> 
+	| low | 
+	low := self bitAnd: 16383. 
+	^(16r260D * low + ((16r260D * (self bitShift: -14) + (16r0065 * low) bitAnd: 16383) * 16384)) 
+			bitAnd: 16r0FFFFFFF
 %
 
 category: 'arithmetic'
@@ -206,8 +250,21 @@ method: SmallInteger
 	No Lookup. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 264>
-	<pharoGs> 
+	<PharoGs> 
 	^ super \\ aNumber 	"will use // to compute it if primitive fails"
+%
+
+category: 'arithmetic'
+method: SmallInteger
+~= aNumber  
+	"Primitive. Compare the receiver with the argument and answer true if 
+	the receiver is not equal to the argument. Otherwise answer false. Fail if 
+	the argument is not a SmallInteger. Essential. No Lookup. See Object 
+	documentation whatIsAPrimitive." 
+
+	<primitive: 8> 
+	<PharoGs> 
+	^super ~= aNumber
 %
 
 set compile_env: 0

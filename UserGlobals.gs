@@ -45,6 +45,40 @@ doit
 CharacterTestCase category: 'Kernel'
 %
 set compile_env: 0
+! ------------------- Class definition for IntegerTestCase
+expectvalue /Class
+doit
+TestCase subclass: 'IntegerTestCase'
+  instVarNames: #()
+  classVars: #()
+  classInstVars: #()
+  poolDictionaries: #()
+  inDictionary: UserGlobals
+  options: #()
+
+%
+expectvalue /Class
+doit
+IntegerTestCase category: 'Kernel'
+%
+set compile_env: 0
+! ------------------- Class definition for LargeIntegerTestCase
+expectvalue /Class
+doit
+TestCase subclass: 'LargeIntegerTestCase'
+  instVarNames: #()
+  classVars: #()
+  classInstVars: #()
+  poolDictionaries: #()
+  inDictionary: UserGlobals
+  options: #()
+
+%
+expectvalue /Class
+doit
+LargeIntegerTestCase category: 'Kernel'
+%
+set compile_env: 0
 ! ------------------- Class definition for SmallIntegerTestCase
 expectvalue /Class
 doit
@@ -71,6 +105,34 @@ ArrayTestCase class removeAllMethods.
 ! ------------------- Class methods for ArrayTestCase
 ! ------------------- Instance methods for ArrayTestCase
 set compile_env: 0
+category: 'other'
+method: ArrayTestCase
+test_atWrap_
+
+	self
+		assert: (#(11 22 33) @env2:atWrap: 2) == 22;
+		assert: (#(11 22 33) @env2:atWrap: 3) == 33;
+		assert: (#(11 22 33) @env2:atWrap: 4) == 11;
+		yourself
+%
+category: 'other'
+method: ArrayTestCase
+test_atWrap_put_
+
+	self
+		assert: ((#(11 22 33) copy @env2:atWrap: 2 put: 2; yourself) at: 2) == 2;
+		assert: ((#(11 22 33) copy @env2:atWrap: 3 put: 3; yourself) at: 3) == 3;
+		assert: ((#(11 22 33) copy @env2:atWrap: 4 put: 4; yourself) at: 1) == 4;
+		yourself
+%
+category: 'other'
+method: ArrayTestCase
+test_C_new_
+
+	self
+		assert: (Array @env2:new: 3) size == 3;
+		yourself
+%
 category: 'other'
 method: ArrayTestCase
 test_printString
@@ -144,6 +206,200 @@ test_asHTMLString
 
 	self
 		assert: $< @env2:asHTMLString = '&lt;';
+		yourself
+%
+category: 'other'
+method: CharacterTestCase
+test_asInteger
+
+	self
+		assert: $a @env2:asInteger == 97;
+		yourself
+%
+
+! ------------------- Remove existing behavior from IntegerTestCase
+expectvalue /Metaclass3       
+doit
+IntegerTestCase removeAllMethods.
+IntegerTestCase class removeAllMethods.
+%
+! ------------------- Class methods for IntegerTestCase
+! ------------------- Instance methods for IntegerTestCase
+set compile_env: 0
+category: 'other'
+method: IntegerTestCase
+test_bitAnd_
+
+	| int |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		assert: (int + 3 @env2:bitAnd: 1) == 1;
+		assert: (int + 3 perform: #bitAnd: env: 2 withArguments: #(1)) == 1;
+		yourself
+%
+category: 'other'
+method: IntegerTestCase
+test_bitOr_
+
+	| int |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		assert: (int + 4 @env2:bitOr: 1) = (int + 5);
+		assert: (int + 4 perform: #bitOr: env: 2 withArguments: #(1)) = (int + 5);
+		yourself
+%
+
+! ------------------- Remove existing behavior from LargeIntegerTestCase
+expectvalue /Metaclass3       
+doit
+LargeIntegerTestCase removeAllMethods.
+LargeIntegerTestCase class removeAllMethods.
+%
+! ------------------- Class methods for LargeIntegerTestCase
+! ------------------- Instance methods for LargeIntegerTestCase
+set compile_env: 0
+category: 'other'
+method: LargeIntegerTestCase
+testAdd
+
+	| int x |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		assert: (x := int @env2:+ 1) = (int + 1);
+		yourself
+%
+category: 'other'
+method: LargeIntegerTestCase
+testDivide
+
+	| int x |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		assert: (x := int @env2:/ 2) = (int / 2);
+		yourself
+%
+category: 'other'
+method: LargeIntegerTestCase
+testGreaterThan
+
+	| int |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		deny: int @env2:> (int + 1);
+		deny: int @env2:> (int + 0);
+		assert: int @env2:> (int - 1);
+		yourself
+%
+category: 'other'
+method: LargeIntegerTestCase
+testGreaterThanOrEqualTo
+
+	| int |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		deny: int @env2:>= (int + 1);
+		assert: int @env2:>= (int + 0);
+		assert: int @env2:>= (int - 1);
+		yourself
+%
+category: 'other'
+method: LargeIntegerTestCase
+testIntegerDivide
+
+	| int x |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		assert: (x := int @env2:// 3) = (int // 3);
+		yourself
+%
+category: 'other'
+method: LargeIntegerTestCase
+testLessThan
+
+	| int |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		assert: int @env2:< (int + 1);
+		deny: int @env2:< (int + 0);
+		deny: int @env2:< (int - 1);
+		yourself
+%
+category: 'other'
+method: LargeIntegerTestCase
+testLessThanOrEqualTo
+
+	| int |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		assert: int @env2:<= (int + 1);
+		assert: int @env2:<= (int + 0);
+		deny: int @env2:<= (int - 1);
+		yourself
+%
+category: 'other'
+method: LargeIntegerTestCase
+testMultiply
+
+	| int x |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		assert: (x := int @env2:* 2) = (2 * int);
+		yourself
+%
+category: 'other'
+method: LargeIntegerTestCase
+testRemainder
+
+	| int x |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		assert: (x := int @env2:\\ 3) = (int \\ 3);
+		yourself
+%
+category: 'other'
+method: LargeIntegerTestCase
+testSubtract
+
+	| int x |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		assert: (x := int @env2:- int) == 0;
+		yourself
+%
+category: 'other'
+method: LargeIntegerTestCase
+test_quo_
+
+	| int |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		assert: (int @env2:quo: 3) == (int quo: 3);
+		assert: (int @env2:quo: 7) == (int quo: 7);
+		yourself
+%
+category: 'other'
+method: LargeIntegerTestCase
+test_rem_
+
+	| int |
+	int := 16rFFFFFFFFFFFFFFF + 1.
+	self
+		assert: (int isKindOf: LargeInteger);
+		assert: (int @env2:rem: 3) == (int rem: 3);
+		assert: (int @env2:rem: 7) == (int rem: 7);
 		yourself
 %
 
@@ -233,6 +489,15 @@ testModulo
 %
 category: 'other'
 method: SmallIntegerTestCase
+testNotEquals
+
+	self
+		assert: 0 @env2:~= 1;
+		assert: (0 perform: #~= env: 2 withArguments: #(1));
+		yourself
+%
+category: 'other'
+method: SmallIntegerTestCase
 testPlus
 
 	self
@@ -297,6 +562,24 @@ test_bitAnd_
 	self
 		assert: (3 @env2:bitAnd: 1) == 1;
 		assert: (3 perform: #bitAnd: env: 2 withArguments: #(1)) == 1;
+		yourself
+%
+category: 'other'
+method: SmallIntegerTestCase
+test_bitOr_
+
+	self
+		assert: (3 @env2:bitOr: 1) == 3;
+		assert: (3 perform: #bitOr: env: 2 withArguments: #(1)) == 3;
+		yourself
+%
+category: 'other'
+method: SmallIntegerTestCase
+test_bitXor_
+
+	self
+		assert: (3 @env2:bitXor: 1) == 2;
+		assert: (3 perform: #bitXor: env: 2 withArguments: #(1)) == 2;
 		yourself
 %
 category: 'other'

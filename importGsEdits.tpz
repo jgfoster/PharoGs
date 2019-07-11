@@ -1,9 +1,14 @@
 output push importGsEdits.out only
 errorCount
+input methods/Adler32.gs
+input methods/Array.gs
 input methods/ArrayedCollection.gs
 input methods/Behavior.gs
 input methods/ByteString.gs
 input methods/Character.gs
+input methods/Integer.gs
+input methods/LargeInteger.gs
+input methods/Number.gs
 input methods/Object.gs
 input methods/ProtoObject.gs
 input methods/SmallInteger.gs

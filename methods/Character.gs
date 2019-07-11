@@ -16,6 +16,7 @@ method: Character
 	"Primitive. Answer if the receiver and the argument are the 
 	 same object (have the same object pointer). Optional. See 
 	 Object documentation whatIsAPrimitive." 
+
 	<PharoGs> 
 	"optimized selector, so no primitive"
 	^self == aCharacter
@@ -26,10 +27,21 @@ method: Character
 asciiValue 
 	"Answer the receiver's character code. 
 	 This will be ascii for characters with value <= 127, 
-	 and Unicode for those with higher values." 
+	 and Unicode for those with higher values."
+
 	<primitive: 71>
 	<PharoGs> 
 	self @env0:codePoint
+%
+
+category: 'accessing'
+method: Character
+asInteger 
+	"Answer the receiver's character code." 
+
+	<primitive: 71>
+	<PharoGs> 
+	^self @env0:asInteger
 %
 
 category: 'comparing'
@@ -39,6 +51,7 @@ basicIdentityHash
 	 The value answered is unsigned. It can in theory be in the full 
 	 poisitive SmallInteger range, but based on Unicode, it is fair 
 	 to assume that the value is in the range [ 0 ; 16r3FFFFF ]" 
+
 	<primitive: 71>
 	<PharoGs> 
 	self @env0:hash
@@ -49,6 +62,7 @@ method: Character
 hash 
 	"Hash is reimplemented because = is implemented. 
 	 Answer the receiver's character code." 
+
 	<primitive: 71>
 	<PharoGs> 
 	self @env0:hash

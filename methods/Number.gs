@@ -7,7 +7,7 @@ method: Number
 	value is the argument. Optional. No Lookup. See Object documentation  
 	whatIsAPrimitive." 
 
-	<PharoGs> 
+	<PharoGsDone> 
     ^Point x: self y: y
 %
 

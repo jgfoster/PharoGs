@@ -8,7 +8,7 @@ method: SmallInteger
 	SmallInteger. Essential. No Lookup. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 260>
-	<PharoGs> 
+	<PharoGsDone> 
 	^ super * aNumber
 %
 
@@ -21,7 +21,7 @@ method: SmallInteger
 	whatIsAPrimitive." 
 
 	<primitive: 258>
-	<PharoGs> 
+	<PharoGsDone> 
 	^super + aNumber
 %
 
@@ -34,7 +34,7 @@ method: SmallInteger
 	whatIsAPrimitive." 
 
 	<primitive: 259>
-	<PharoGs> 
+	<PharoGsDone> 
 	^super - aNumber
 %
 
@@ -47,7 +47,7 @@ method: SmallInteger
 	Essential. No Lookup. See Object documentation whatIsAPrimitive. " 
 
 	<primitive: 261>
-	<PharoGs> 
+	<PharoGsDone> 
 	aNumber isZero ifTrue: [^(ZeroDivide dividend: self) signal]. 
 	^(aNumber isMemberOf: SmallInteger) 
 		ifTrue: [(Fraction numerator: self denominator: aNumber) reduced] 
@@ -63,7 +63,7 @@ method: SmallInteger
 	Essential. No Lookup. See Object documentation whatIsAPrimitive. " 
 
 	<primitive: 12>
-	<PharoGs> 
+	<PharoGsDone> 
 	^ super // aNumber 	"Do with quo: if primitive fails"
 %
 
@@ -76,7 +76,7 @@ method: SmallInteger
 	documentation whatIsAPrimitive. " 
 
 	<primitive: 7>
-	<PharoGs> 
+	<PharoGsDone> 
 	^super = aNumber
 %
 
@@ -89,7 +89,7 @@ method: SmallInteger
 	See Object documentation whatIsAPrimitive." 
 
 	<primitive: 6>
-	<PharoGs> 
+	<PharoGsDone> 
 	^super >= aNumber
 %
 
@@ -102,7 +102,7 @@ method: SmallInteger
 	Object documentation whatIsAPrimitive." 
 
 	<primitive: 3> 
-	<PharoGs>
+	<PharoGsDone>
 	^super < aNumber
 %
 
@@ -115,7 +115,7 @@ method: SmallInteger
 	Object documentation whatIsAPrimitive." 
 
 	<primitive: 21> 
-	<PharoGs>
+	<PharoGsDone>
 	^super <= aNumber
 %
 
@@ -128,7 +128,7 @@ method: SmallInteger
 	documentation whatIsAPrimitive." 
 
 	<primitive: 4>
-	<PharoGs> 
+	<PharoGsDone> 
 	^super > aNumber
 %
 
@@ -141,7 +141,7 @@ bitShift: arg
 	Essential.  See Object documentation whatIsAPrimitive." 
 
 	<primitive: 17>
-	<PharoGs> 
+	<PharoGsDone> 
 	self >= 0 ifTrue: [^ super bitShift: arg]. 
 	^ arg >= 0 
 		ifTrue: [(self negated bitShift: arg) negated] 
@@ -152,7 +152,7 @@ category: 'converting'
 method: SmallInteger
 asCharacter
 
-	<PharoGs> 
+	<PharoGsDone> 
 	^Character @env0:codePoint: self
 %
 
@@ -163,7 +163,7 @@ asFloat
 	Essential. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 138>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:asFloat
 %
 
@@ -176,7 +176,7 @@ bitAnd: arg
 	Essential.  See Object documentation whatIsAPrimitive." 
 
 	<primitive: 14>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:bitAnd: arg
 %
 
@@ -189,7 +189,7 @@ bitOr: arg
 	Essential.  See Object documentation whatIsAPrimitive." 
 
 	<primitive: 15>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:bitOr: arg
 %
 
@@ -202,7 +202,7 @@ bitXor: arg
 	Essential.  See Object documentation whatIsAPrimitive." 
 
 	<primitive: 16>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:bitXor: arg
 %
 
@@ -217,7 +217,7 @@ hashMultiply
 	    ^ (super hash + variableName hash) hashMultiply 	 
 	" 
 
-	<PharoGs> 
+	<PharoGsDone> 
 	| low | 
 	low := self bitAnd: 16383. 
 	^(16r260D * low + ((16r260D * (self bitShift: -14) + (16r0065 * low) bitAnd: 16383) * 16384)) 
@@ -241,6 +241,33 @@ quo: aNumber
 	^self @env0:quo: aNumber
 %
 
+category: '*Reflectivity'
+method: SmallInteger
+rfMinus: aNumber  
+	"Primitive. Subtract the argument from the receiver and answer with the 
+	result if it is a SmallInteger. Fail if the argument or the result is not a 
+	SmallInteger. Essential. No Lookup. See Object documentation 
+	whatIsAPrimitive." 
+
+	<PharoGsDone>
+	(Reflection classOf: aNumber) == SmallInteger
+		ifFalse: [self @env0:error: 'Argument must be a SmallInteger'].
+	^self - aNumber
+%
+
+category: '*Reflectivity'
+method: SmallInteger
+rfPlus: aNumber  
+	"Primitive. Add the receiver to the argument and answer with the result 
+	if it is a SmallInteger. Fail if the argument or the result is not a 
+	SmallInteger  Essential  No Lookup. See Object documentation whatIsAPrimitive." 
+
+	<PharoGsDone>
+	(Reflection classOf: aNumber) == SmallInteger
+		ifFalse: [self @env0:error: 'Argument must be a SmallInteger'].
+	^self + aNumber
+%
+
 category: 'arithmetic'
 method: SmallInteger
 \\ aNumber  
@@ -250,7 +277,7 @@ method: SmallInteger
 	No Lookup. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 264>
-	<PharoGs> 
+	<PharoGsDone> 
 	^ super \\ aNumber 	"will use // to compute it if primitive fails"
 %
 
@@ -263,7 +290,7 @@ method: SmallInteger
 	documentation whatIsAPrimitive." 
 
 	<primitive: 8> 
-	<PharoGs> 
+	<PharoGsDone> 
 	^super ~= aNumber
 %
 

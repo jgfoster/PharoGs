@@ -36,33 +36,47 @@ filter1 := [:source |
 	] whileTrue: [
 		| next |
 		next := readStream next.
+		
+		"deal with comments"
 		(next == $" and: [prev ~~ $$]) ifTrue: [
 			writeStream nextPut: $"; nextPutAll: (readStream upTo: $"); nextPut: $".
 			prev := $".
 		] ifFalse: [
+
+		"deal with strings"
 		(next == $' and: [prev ~~ $$]) ifTrue: [
 			writeStream nextPut: $'; nextPutAll: (readStream upTo: $'); nextPut: $'.
 			prev := $'.
 		] ifFalse: [
+		
+		"deal with start of literal Array"
 		(next == $# and: [readStream peekFor: $(]) ifTrue: [
 			writeStream nextPutAll: '#('.
 			prev := $(.
 			literalArrayDepth := literalArrayDepth + 1.
 		] ifFalse: [
+
+		"here we are inside a literal array"
 		literalArrayDepth > 0 ifTrue: [
-			(next == $( and: [prev ~~ $#]) ifTrue: [
-				writeStream nextPut: next.
+
+			"a nested literal array"
+			(next == $( and: [prev ~~ $# and: [prev ~~ $$]]) ifTrue: [
+				writeStream nextPutAll: '#('.
 				prev := next.
 				literalArrayDepth := literalArrayDepth + 1.
 			] ifFalse: [
+
+			"end of a literal array"
 			next == $) ifTrue: [
 				writeStream nextPut: next.
 				prev := next.
 				literalArrayDepth := literalArrayDepth - 1.
 			] ifFalse: [
+			
+			"handle binary selectors (this is why we are doing the work)"
 			(next isSpecial and: [prev ~~ $$]) ifTrue: [
 				prev ~~ $# ifTrue: [
-					writeStream nextPut: $#.
+					writeStream nextPutAll: ' #'.
 					prev := $#.
 				].
 				writeStream nextPut: next.
@@ -72,10 +86,14 @@ filter1 := [:source |
 				] whileTrue: [
 					writeStream nextPut: (prev := readStream next).
 				].
+			
+			"other characters inside a literal array"
 			] ifFalse: [
 				writeStream nextPut: next.
 				prev := next.
 			]]]
+
+		"other characters outside of a literal array"
 		] ifFalse: [
 			writeStream nextPut: next.
 			prev := next.

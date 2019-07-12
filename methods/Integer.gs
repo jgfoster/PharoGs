@@ -9,7 +9,7 @@ bitAnd: arg
 	Essential.  See Object documentation whatIsAPrimitive." 
 
 	<primitive: 740>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:bitAnd: arg
 %
 
@@ -21,7 +21,7 @@ bitOr: n
 
     <primitive: 741>
 	| norm | 
-	<PharoGs> 
+	<PharoGsDone> 
 	norm := n normalize. 
 	^ self 
 		digitLogic: norm 
@@ -37,7 +37,7 @@ bitXor: n
 
     <primitive: 743>
 	| norm | 
-	<PharoGs> 
+	<PharoGsDone> 
 	norm := n normalize. 
 	^ self 
 		digitLogic: norm 

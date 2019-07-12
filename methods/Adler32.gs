@@ -14,7 +14,7 @@ update: adler from: start to: stop in: aCollection
         } 
         return (s2 << 16) + s1; 
 " 
-	<PharoGs> 
+	<PharoGsDone> 
 "	<primitive: 'primitiveUpdateAdler32' module: 'ZipPlugin'> "
 	 
 	| s1 s2 | 

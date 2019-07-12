@@ -12,7 +12,7 @@ basicNew: sizeRequested
 	 method is activated.  Check args and retry via handleFailingBasicNew: if they're OK." 
 
 	<primitive: 53>
-	<PharoGs> 
+	<PharoGsDone> 
 	self isVariable ifFalse: 
 		[self error: self printString, ' cannot have variable sized instances']. 
 	^self @env0:basicNew: sizeRequested
@@ -24,7 +24,7 @@ replaceFrom: start to: stop with: replacement startingAt: repStart
 	"Primitive. This destructively replaces elements from start to stop in the receiver starting at index, repStart, in the collection, replacement. Answer the receiver. Range checks are performed in the primitive only. Optional. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 297>
-	<PharoGs> 
+	<PharoGsDone> 
 	replacement class == WideString ifTrue: [ 
 		self becomeForward: (WideString from: self). 
 	].  
@@ -40,7 +40,7 @@ at: index put: aCharacter
 	whatIsAPrimitive." 
 
 	<primitive: 293>
-	<PharoGs> 
+	<PharoGsDone> 
 	aCharacter isCharacter 
 		ifFalse:[^self errorImproperStore].
 	aCharacter isOctetCharacter ifFalse:[

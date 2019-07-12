@@ -11,7 +11,7 @@ basicIdentityHash
 	Do not override, use #identityHash instead" 
 
 	<primitive: 321>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:class
 %
 
@@ -22,7 +22,7 @@ class
 	Object documentation whatIsAPrimitive." 
 
 	<primitive: 610>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:class
 %
 
@@ -31,7 +31,7 @@ method: ProtoObject
 instVarsInclude: anObject 
 "Answers true if anObject is among my named or indexed instance variables, and false otherwise" 
 
-	<PharoGs> 
+	<PharoGsDone> 
 	1 to: self class instSize do: 
 		[:i | (self instVarAt: i) == anObject ifTrue: [^ true]]. 
 	1 to: self basicSize do: 
@@ -46,7 +46,7 @@ nextInstance
 	enumeration of all instances of this class. Fails if all instances have been  
 	enumerated. Essential. See Object documentation whatIsAPrimitive." 
 
-	<PharoGs> 
+	<PharoGsError> 
 	self @env0:error: 'Not supported in GemStone'
 %
 
@@ -57,7 +57,7 @@ nextObject
 	enumeration of all objects. Return 0 when all objects have been  
 	enumerated." 
 
-	<PharoGs> 
+	<PharoGsError> 
 	self @env0:error: 'Not supported in GemStone'
 %
 
@@ -69,7 +69,7 @@ rfIsEqual: anObject
 	any other class! Essential. No Lookup. Do not override in any subclass.  
 	See Object documentation whatIsAPrimitive." 
 	<metaLinkOptions: #( #+ optionDisabledLink)> 
-	<PharoGs> 
+	<PharoGsDone> 
 
 	^(Reflection oopOf: self) == (Reflection oopOf: anObject)
 %
@@ -82,7 +82,7 @@ _reservedSelector_equal_equal_: anObject
 	any other class! Essential. No Lookup. Do not override in any subclass.  
 	See Object documentation whatIsAPrimitive." 
 
-	<PharoGs> 
+	<PharoGsDone> 
 	^self == anObject
 %
 
@@ -94,7 +94,7 @@ _reservedSelector_tilde_tilde_: anObject
 	any other class! Optional (Assuming == is essential). No Lookup. Do not override in any subclass.  
 	See Object documentation whatIsAPrimitive." 
 
-	<PharoGs> 
+	<PharoGsDone> 
 	^self ~~ anObject
 %
 

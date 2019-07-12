@@ -9,7 +9,7 @@ method: LargeInteger
 	Object documentation whatIsAPrimitive. " 
 
     <primitive: 260>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:* anInteger
 %
 
@@ -22,7 +22,7 @@ method: LargeInteger
 	Object documentation whatIsAPrimitive." 
 
     <primitive: 258>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:+ anInteger
 %
 
@@ -35,7 +35,7 @@ method: LargeInteger
 	Object documentation whatIsAPrimitive." 
 
     <primitive: 259>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:- anInteger
 %
 
@@ -49,7 +49,7 @@ method: LargeInteger
 	Object documentation whatIsAPrimitive. " 
 
     <primitive: 261>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:/ anInteger
 %
 
@@ -63,7 +63,7 @@ method: LargeInteger
 	Optional. See Object documentation whatIsAPrimitive. " 
 
     <primitive: 263>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:/ anInteger
 %
 
@@ -76,7 +76,7 @@ method: LargeInteger
 	Optional. See Object documentation whatIsAPrimitive." 
 
     <primitive: 20>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:< anInteger
 %
 
@@ -89,7 +89,7 @@ method: LargeInteger
 	than 2-to-the-30th (1073741824). Optional. See Object documentation whatIsAPrimitive." 
 
     <primitive: 21>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:<= anInteger
 %
 
@@ -102,7 +102,7 @@ method: LargeInteger
 	2-to-the-30th (1073741824). Optional. See Object documentation whatIsAPrimitive." 
 
     <primitive: 22>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:> anInteger
 %
 
@@ -115,7 +115,7 @@ method: LargeInteger
 	less than 2-to-the-30th (1073741824). Optional. See Object documentation whatIsAPrimitive." 
 
     <primitive: 23>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:> anInteger
 %
 
@@ -129,7 +129,7 @@ quo: anInteger
 	Object documentation whatIsAPrimitive." 
 
     <primitive: 262>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:quo: anInteger
 %
 
@@ -139,7 +139,7 @@ rem: aNumber
 	"Remainder defined in terms of quo:. See super rem:. 
 	This is defined only to speed up case of large integers." 
 
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:rem: aNumber
 %
 
@@ -153,7 +153,7 @@ method: LargeInteger
 	2-to-the-30th (1073741824). Optional. See Object documentation whatIsAPrimitive." 
 
     <primitive: 264>
-	<PharoGs> 
+	<PharoGsDone> 
 	aNumber isInteger 
 		ifTrue: 
 			[| neg qr q r | 
@@ -176,7 +176,7 @@ method: LargeNegativeInteger
 normalize 
 	"Check for leading zeroes and return shortened copy if so" 
 
-	<PharoGs> 
+	<PharoGsDone> 
     ^self + 0
 %
 
@@ -187,7 +187,7 @@ method: LargePositiveInteger
 normalize 
 	"Check for leading zeroes and return shortened copy if so" 
 
-	<PharoGs> 
+	<PharoGsDone> 
     ^self + 0
 %
 

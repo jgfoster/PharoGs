@@ -4,7 +4,7 @@ method: String
 at: anIndex
 
 	<primitive: 69>
-	<PharoGs>
+	<PharoGsDone>
 	self primitiveFailed
 %
 set compile_env: 0

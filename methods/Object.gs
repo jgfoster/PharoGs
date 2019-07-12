@@ -10,7 +10,7 @@ at: index
 	that the index can be a float." 
 
 	<primitive: 32>
-	<PharoGs> 
+	<PharoGsDone> 
 	index isInteger ifTrue: 
 		[self class isVariable 
 			ifTrue: [self errorSubscriptBounds: index] 
@@ -30,7 +30,7 @@ at: index put: value
 	stored. Essential. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 268>
-	<PharoGs> 
+	<PharoGsDone> 
 	index isInteger  
 		ifTrue: [self class isVariable 
 			ifTrue: [(index between: 1 and: self size) 
@@ -54,7 +54,7 @@ basicAt: index
 	Object documentation whatIsAPrimitive." 
 
 	<primitive: 32>
-	<PharoGs> 
+	<PharoGsDone> 
 	index isInteger ifTrue: [self errorSubscriptBounds: index]. 
 	index isNumber 
 		ifTrue: [^self basicAt: index asInteger] 
@@ -72,7 +72,7 @@ basicAt: index put: value
 	documentation whatIsAPrimitive." 
 
 	<primitive: 268>
-	<PharoGs> 
+	<PharoGsDone> 
 	index isInteger  
 		ifTrue: [self class isVariable 
 			ifTrue: [(index between: 1 and: self size) 
@@ -95,7 +95,7 @@ basicSize
 	override in any subclass. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 32>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:basicSize
 %
 
@@ -105,7 +105,7 @@ clone
 	"Answer a shallow copy of the receiver." 
 
 	<primitive: 885>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:shallowCopy
 %
 
@@ -115,7 +115,7 @@ copyFrom: anotherObject
 	"Copy to myself all instance variables I have in common with anotherObject.  This is dangerous because it ignores an object's control over its own inst vars.  " 
 
 	| mine his | 
-	<PharoGs> 
+	<PharoGsDone> 
 	mine := self class allInstVarNames. 
 	his := anotherObject class allInstVarNames. 
 	1 to: (mine size min: his size) do: [:ind | 
@@ -135,7 +135,7 @@ instVarAt: index
 	 variable or indexed variable. Essential. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 611>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:instVarAt: index
 %
 
@@ -148,7 +148,7 @@ instVarAt: index put: anObject
 	 variable or indexed variable. Essential. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 604>
-	<PharoGs> 
+	<PharoGsDone> 
 	 (index isInteger  
 		and: [ index between: 1 and: self class instSize + self basicSize])  
 			ifFalse: [ ^ self errorSubscriptBounds: index ]. 
@@ -164,7 +164,7 @@ isPinnedInMemory
 	 that it will not be moved, which can make it easier to pass objects out through 
 	 the FFI." 
 
-	<PharoGs> 
+	<PharoGsDone> 
 	^false "GemStone does not 'pin' objects in memory"
 %
 
@@ -179,7 +179,7 @@ isReadOnlyObject
 	 primitive to fail with a #'no modification' error code." 
 
 	<primitive: 36>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self class isImmediateClass
 %
 
@@ -192,7 +192,7 @@ perform: aSymbol
 	 
 	<primitive: 2004>
 	<reflective: #object:performMessageWith:> 
-	<PharoGs> 
+	<PharoGsDone> 
 	^ self perform: aSymbol withArguments: (Array new: 0)
 %
 
@@ -205,7 +205,7 @@ perform: aSymbol with: anObject
 	 
 	<primitive: 2004>
 	<reflective: #object:performMessageWith:> 
-	<PharoGs> 
+	<PharoGsDone> 
 	^ self perform: aSymbol withArguments: (Array with: anObject)
 %
 
@@ -218,7 +218,7 @@ perform: aSymbol with: firstObject with: secondObject
 
 	<primitive: 2004>
 	<reflective: #object:performMessageWith:> 
-	<PharoGs> 
+	<PharoGsDone> 
 	^ self perform: aSymbol withArguments: (Array with: firstObject with: secondObject)
 %
 
@@ -231,7 +231,7 @@ perform: aSymbol with: firstObject with: secondObject with: thirdObject
 
 	<primitive: 2004>
 	<reflective: #object:performMessageWith:> 
-	<PharoGs> 
+	<PharoGsDone> 
 	^ self perform: aSymbol 
 		withArguments: {firstObject . secondObject . thirdObject}
 %
@@ -245,7 +245,7 @@ perform: aSymbol with: firstObject with: secondObject with: thirdObject with: fo
 
 	<primitive: 2004>
 	<reflective: #object:performMessageWith:> 
-	<PharoGs> 
+	<PharoGsDone> 
 	^ self perform: aSymbol 
 		withArguments: (Array with: firstObject with: secondObject with: thirdObject with: fourthObject)
 %
@@ -260,7 +260,7 @@ perform: selector withArguments: argArray
 
 	<primitive: 2005>
 	<reflective: #object:performMessageWithArgs:> 
-	<PharoGs> 
+	<PharoGsDone> 
 	^ self perform: selector withArguments: argArray inSuperclass: self class
 %
 
@@ -274,7 +274,7 @@ perform: selector withArguments: argArray inSuperclass: lookupClass
 	Primitive. Essential. See Object documentation whatIsAPrimitive." 
 	 
 	<reflective: #object:performMessageInSuperclass:> 
-	<PharoGs> 
+	<PharoGsError> 
 	self @env0:error: 'Not supported in GemStone'
 %
 
@@ -285,7 +285,7 @@ primitiveChangeClassTo: anObject
 	Note: The primitive will fail in most cases that you think might work. This is mostly because of a) the difference between compact and non-compact classes, and b) because of differences in the format. As an example, '(Array new: 3) primitiveChangeClassTo: Morph basicNew' would fail for three of the reasons mentioned above. Array is compact, Morph is not (failure #1). Array is variable and Morph is fixed (different format - failure #2). Morph is a fixed-field-only object and the array is too short (failure #3). 
 	The facility is really provided for certain, very specific applications (mostly related to classes changing shape) and not for casual use." 
 
-	<PharoGs> 
+	<PharoGsDone> 
 	self @env0:changeClassTo: anObject class.
 %
 
@@ -298,7 +298,7 @@ setPinnedInMemory: aBoolean
 	 it easier to pass objects out through the FFI. Objects are unpinnned when created. 
 	 This primitive either pins or unpins an object, and answers if it was already pinned." 
 
-	<PharoGs> 
+	<PharoGsError> 
 	aBoolean ifTrue: [
 		self @env0:error: 'GemStone does not support pinning in memory'.
 	].
@@ -310,7 +310,7 @@ shallowCopy
 	"Answer a copy of the receiver which shares the receiver's instance variables. It should never be overridden. I'm invoked from the copy template method. Subclasses that need to specialize the copy should specialize the postCopy hook method." 
 	 
 	<primitive: 885>
-	<PharoGs> 
+	<PharoGsDone> 
 	^self @env0:shallowCopy
 %
 
@@ -327,13 +327,13 @@ setIsReadOnlyObject: aBoolean
 	 Note: Some objects can't be read-only, currently contexts and objects related 
 	 to process scheduling (Processor, Process instances, Semaphore instances, ...)" 
 
-	<PharoGs> 
+	<PharoGsError> 
 	aBoolean
 		ifTrue: [self @env0:immediateInvariant]
 		ifFalse: [self @env0:error: 'VM does not support removing read-only state']
 %
 
-category: 'private'
+category: 'accessing'
 method: Object
 size 
 	"Primitive. Answer the number of indexable variables in the receiver.  
@@ -341,9 +341,20 @@ size
 	documentation whatIsAPrimitive." 
 
 	<primitive: 0>
-	<PharoGs> 
+	<PharoGsDone> 
 	self class isVariable ifFalse: [self errorNotIndexable]. 
 	^ 0
+%
+
+category: 'accessing'
+method: Object
+sizeInMemory 
+	"self class isImmediateClass 
+		ifTrue: [ ^ 0 ]. 
+	^ self class isVariable 
+		ifTrue: [ self class byteSizeOfInstanceOfSize: self basicSize ] 
+		ifFalse: [ self class byteSizeOfInstance ] "
+	^self @env0:physicalSize
 %
 
 category: 'reflective operations'
@@ -352,7 +363,7 @@ someObject
 	"Primitive. Answer the first object in the enumeration of all 
 	 objects." 
 
-	<PharoGs> 
+	<PharoGsDone> 
 	^self
 %
 
@@ -365,7 +376,7 @@ species
 	the species of the original collection.  Species and class are not always the  
 	same.  For example, the species of Interval is Array." 
 
-	<PharoGs> 
+	<PharoGsDone> 
 	^self class
 %
 

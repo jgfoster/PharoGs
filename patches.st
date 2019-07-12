@@ -1,30 +1,23 @@
+"
+While our goal is to work with an officially-distributed Pharo minimal image,
+there may be some things that need to be modified in order to load in GemStone.
 
+One approach is to build our own minimal image (modify the Git checkout and 
+use bootstrap to create the needed image). This takes about 15 minutes, so
+is a bit of a barrier to rapid development.
+
+This script provides a way to load modified packages into the otherwise 
+minimal image. Each time a new minimal image is created with bootstrap, the
+list of reloaded packages can be cleared.
+"
 Metacello new
   baseline: 'Tonel';
   repository: 'github://pharo-vcs/tonel:v1.0.12';
   load.
+Transcript cr.
 !
 | list reader |
 list := OrderedCollection new
-    add: '/Users/jfoster/code/pharo/src/' -> 'Collections-Sequenceable';
-    add: '/Users/jfoster/code/pharo/src/' -> 'DeprecatedFileStream';
-    add: '/Users/jfoster/code/pharo/src/' -> 'FFI-Kernel';
-    add: '/Users/jfoster/code/pharo/src/' -> 'Hermes';
-    add: '/Users/jfoster/code/pharo/src/' -> 'Hermes-Extensions';
-    add: '/Users/jfoster/code/pharo/src/' -> 'Kernel';
-    add: '/Users/jfoster/code/pharo/src/' -> 'Metacello-Bitbucket';
-    add: '/Users/jfoster/code/pharo/src/' -> 'Metacello-GitHub';
-    add: '/Users/jfoster/code/pharo/src/' -> 'MonticelloFileTree-Core';
-    add: '/Users/jfoster/code/pharo/src/' -> 'Multilingual-Languages';
-    add: '/Users/jfoster/code/pharo/src/' -> 'OpalCompiler-Core';
-    add: '/Users/jfoster/code/pharo/src/' -> 'Reflectivity';
-    add: '/Users/jfoster/code/pharo/src/' -> 'RPackage-Core';
-    add: '/Users/jfoster/code/pharo/src/' -> 'Shift-ClassInstaller';
-    add: '/Users/jfoster/code/pharo/src/' -> 'Slot-Core';
-    add: '/Users/jfoster/code/pharo/src/' -> 'System-Finalization';
-    add: '/Users/jfoster/code/pharo/src/' -> 'System-Platforms';
-    add: '/Users/jfoster/code/pharo/src/' -> 'System-Sources';
-    add: '/Users/jfoster/code/pharo/src/' -> 'System-Support';
 "
     add: '/Users/jfoster/code/pharo/src/' -> 'XXX';
 "
@@ -37,5 +30,6 @@ list do: [:each |
     reader loadPackage.
     reader definitions do: [:each | each load].
 ].
+!
 SmalltalkImage current snapshot: true andQuit: true.
 !

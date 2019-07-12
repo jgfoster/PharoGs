@@ -1835,19 +1835,6 @@ run
 %
 errorCount
 run
-(Object subclass: 'SymbolicBytecode'
-	instVarNames: #( description method offset bytes)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #SymbolicBytecode ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'Debugging-Core'.
-%
-errorCount
-run
 (Object subclass: 'InstructionClient'
 	instVarNames: #()
 	classVars: #()
@@ -1861,6 +1848,19 @@ run
 %
 errorCount
 run
+(Object subclass: 'SymbolicBytecode'
+	instVarNames: #( description method offset bytes)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #SymbolicBytecode ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'Debugging-Core'.
+%
+errorCount
+run
 (Object subclass: 'DosTimestamp'
 	instVarNames: #( value)
 	classVars: #()
@@ -1868,19 +1868,6 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #DosTimestamp ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'Kernel-Chronology-Extras'.
-%
-errorCount
-run
-(Object subclass: 'Stopwatch'
-	instVarNames: #( timespans state)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #Stopwatch ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'Kernel-Chronology-Extras'.
@@ -1913,6 +1900,19 @@ run
 %
 errorCount
 run
+(Object subclass: 'Stopwatch'
+	instVarNames: #( timespans state)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #Stopwatch ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'Kernel-Chronology-Extras'.
+%
+errorCount
+run
 (Object subclass: 'EncodedCharSet'
 	instVarNames: #()
 	classVars: #( EncodedCharSets)
@@ -1939,19 +1939,6 @@ run
 %
 errorCount
 run
-(Object subclass: 'CompoundTextConverterState'
-	instVarNames: #( g0Size g1Size g0Leading g1Leading charSize streamPosition)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #CompoundTextConverterState ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'Multilingual-TextConversion-Utilities'.
-%
-errorCount
-run
 (Object subclass: 'TextConverter'
 	instVarNames: #( latin1Map latin1Encodings)
 	classVars: #()
@@ -1962,6 +1949,19 @@ run
 	description: '1'
 	options: #()
 ) category: 'Multilingual-TextConversion-TextConverter'.
+%
+errorCount
+run
+(Object subclass: 'CompoundTextConverterState'
+	instVarNames: #( g0Size g1Size g0Leading g1Leading charSize streamPosition)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #CompoundTextConverterState ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'Multilingual-TextConversion-Utilities'.
 %
 errorCount
 run
@@ -2017,26 +2017,13 @@ run
 %
 errorCount
 run
-(Object subclass: 'RBParseTreeRule'
-	instVarNames: #( searchTree owner)
+(Object subclass: 'NumberParser'
+	instVarNames: #( sourceStream base neg integerPart fractionPart exponent scale nDigits lastNonZero requestor failBlock)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBParseTreeRule ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Matching'.
-%
-errorCount
-run
-(Object subclass: 'RBParser'
-	instVarNames: #( scanner currentToken nextToken errorBlock source comments pragmas)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBParser ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #NumberParser ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'AST-Core-Parser'.
@@ -2056,19 +2043,6 @@ run
 %
 errorCount
 run
-(Object subclass: 'RBScanner'
-	instVarNames: #( stream buffer tokenStart currentCharacter characterType classificationTable comments errorBlock)
-	classVars: #( CascadePatternCharacter KeywordPatternCharacter PatternVariableCharacter)
-	classInstVars: #( classificationTable)
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBScanner ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Parser'.
-%
-errorCount
-run
 (Object subclass: 'RBToken'
 	instVarNames: #( sourcePointer comments)
 	classVars: #()
@@ -2082,19 +2056,6 @@ run
 %
 errorCount
 run
-(Object subclass: 'NumberParser'
-	instVarNames: #( sourceStream base neg integerPart fractionPart exponent scale nDigits lastNonZero requestor failBlock)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #NumberParser ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Parser'.
-%
-errorCount
-run
 (Object subclass: 'RBProgramNodeVisitor'
 	instVarNames: #()
 	classVars: #()
@@ -2105,6 +2066,45 @@ run
 	description: '0'
 	options: #()
 ) category: 'AST-Core-Visitors'.
+%
+errorCount
+run
+(Object subclass: 'RBParser'
+	instVarNames: #( scanner currentToken nextToken errorBlock source comments pragmas)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBParser ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Parser'.
+%
+errorCount
+run
+(Object subclass: 'RBParseTreeRule'
+	instVarNames: #( searchTree owner)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBParseTreeRule ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Matching'.
+%
+errorCount
+run
+(Object subclass: 'RBScanner'
+	instVarNames: #( stream buffer tokenStart currentCharacter characterType classificationTable comments errorBlock)
+	classVars: #( CascadePatternCharacter KeywordPatternCharacter PatternVariableCharacter)
+	classInstVars: #( classificationTable)
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBScanner ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Parser'.
 %
 errorCount
 run
@@ -2147,120 +2147,16 @@ run
 %
 errorCount
 run
-(Object subclass: 'OCCompilerASTPlugin'
-	instVarNames: #( ast)
+(Object subclass: 'IRRemoteArray'
+	instVarNames: #( size index)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCCompilerASTPlugin ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Translator'.
-%
-errorCount
-run
-(Object subclass: 'IRVisitor'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRVisitor ifAbsent: [nil])
-	description: '0'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Manipulation'.
-%
-errorCount
-run
-(Object subclass: 'IRBytecodeGenerator'
-	instVarNames: #( encoder seqOrder orderSeq seqBytes jumps literals lastLiteral currentSeqId currentSeqNum bytes lastSpecialReturn primitiveBytes instrMaps instrMap stacks stack numArgs properties numberOfTemps additionalLiterals forceLongForm primNumber encoderClass inBlock compilationContext)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRBytecodeGenerator ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #IRRemoteArray ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-Bytecode'.
-%
-errorCount
-run
-(Object subclass: 'IRPrimitive'
-	instVarNames: #( primitiveNum spec)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRPrimitive ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Bytecode'.
-%
-errorCount
-run
-(Object subclass: 'IRMethod'
-	instVarNames: #( sourceNode startSequence numArgs properties tempMap pragmas additionalLiterals compiledMethod compilationContext irPrimitive)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRMethod ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(Object subclass: 'IRStackCount'
-	instVarNames: #( start position length)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRStackCount ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Bytecode'.
-%
-errorCount
-run
-(Object subclass: 'OCCompilerDynamicASTPlugin'
-	instVarNames: #( priority transformBlock)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCCompilerDynamicASTPlugin ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Translator'.
-%
-errorCount
-run
-(Object subclass: 'IRBytecodeScope'
-	instVarNames: #( temps numArgs ownTempVectors copiedValues)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRBytecodeScope ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Bytecode'.
-%
-errorCount
-run
-(Object subclass: 'OCAbstractVariable'
-	instVarNames: #( scope usage)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCAbstractVariable ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Semantics'.
 %
 errorCount
 run
@@ -2277,45 +2173,6 @@ run
 %
 errorCount
 run
-(Object subclass: 'IRInstruction'
-	instVarNames: #( sourceNode bytecodeIndex sequence)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRInstruction ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(Object subclass: 'CompilationContext'
-	instVarNames: #( requestor failBlock noPattern class logged interactive options environment productionEnvironment parserClass semanticAnalyzerClass astTranslatorClass bytecodeGeneratorClass compiledMethodTrailer forSyntaxHighlighting encoderClass astTransformPlugins requestorScopeClass bindings)
-	classVars: #( BytecodeBackend DefaultOptions DefaultTransformationPlugins)
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #CompilationContext ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-FrontEnd'.
-%
-errorCount
-run
-(Object subclass: 'IRRemoteArray'
-	instVarNames: #( size index)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRRemoteArray ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Bytecode'.
-%
-errorCount
-run
 (Object subclass: 'IRSequence'
 	instVarNames: #( sequence orderNumber method)
 	classVars: #()
@@ -2326,19 +2183,6 @@ run
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(Object subclass: 'AbstractCompiler'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #AbstractCompiler ifAbsent: [nil])
-	description: '0'
-	options: #()
-) category: 'OpalCompiler-Core-FrontEnd'.
 %
 errorCount
 run
@@ -2355,6 +2199,162 @@ run
 %
 errorCount
 run
+(Object subclass: 'AbstractCompiler'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #AbstractCompiler ifAbsent: [nil])
+	description: '0'
+	options: #()
+) category: 'OpalCompiler-Core-FrontEnd'.
+%
+errorCount
+run
+(Object subclass: 'IRVisitor'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRVisitor ifAbsent: [nil])
+	description: '0'
+	options: #()
+) category: 'OpalCompiler-Core-IR-Manipulation'.
+%
+errorCount
+run
+(Object subclass: 'OCAbstractVariable'
+	instVarNames: #( scope usage)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCAbstractVariable ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Semantics'.
+%
+errorCount
+run
+(Object subclass: 'CompilationContext'
+	instVarNames: #( requestor failBlock noPattern class logged interactive options environment productionEnvironment parserClass semanticAnalyzerClass astTranslatorClass bytecodeGeneratorClass compiledMethodTrailer forSyntaxHighlighting encoderClass astTransformPlugins requestorScopeClass bindings)
+	classVars: #( BytecodeBackend DefaultOptions DefaultTransformationPlugins)
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #CompilationContext ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-FrontEnd'.
+%
+errorCount
+run
+(Object subclass: 'IRBytecodeScope'
+	instVarNames: #( temps numArgs ownTempVectors copiedValues)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRBytecodeScope ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Bytecode'.
+%
+errorCount
+run
+(Object subclass: 'IRBytecodeGenerator'
+	instVarNames: #( encoder seqOrder orderSeq seqBytes jumps literals lastLiteral currentSeqId currentSeqNum bytes lastSpecialReturn primitiveBytes instrMaps instrMap stacks stack numArgs properties numberOfTemps additionalLiterals forceLongForm primNumber encoderClass inBlock compilationContext)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRBytecodeGenerator ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Bytecode'.
+%
+errorCount
+run
+(Object subclass: 'IRStackCount'
+	instVarNames: #( start position length)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRStackCount ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Bytecode'.
+%
+errorCount
+run
+(Object subclass: 'IRInstruction'
+	instVarNames: #( sourceNode bytecodeIndex sequence)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRInstruction ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-IR-Nodes'.
+%
+errorCount
+run
+(Object subclass: 'IRPrimitive'
+	instVarNames: #( primitiveNum spec)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRPrimitive ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Bytecode'.
+%
+errorCount
+run
+(Object subclass: 'OCCompilerASTPlugin'
+	instVarNames: #( ast)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCCompilerASTPlugin ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Translator'.
+%
+errorCount
+run
+(Object subclass: 'IRMethod'
+	instVarNames: #( sourceNode startSequence numArgs properties tempMap pragmas additionalLiterals compiledMethod compilationContext irPrimitive)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRMethod ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-IR-Nodes'.
+%
+errorCount
+run
+(Object subclass: 'OCCompilerDynamicASTPlugin'
+	instVarNames: #( priority transformBlock)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCCompilerDynamicASTPlugin ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Translator'.
+%
+errorCount
+run
 (Object subclass: 'CodeExporter'
 	instVarNames: #()
 	classVars: #()
@@ -2365,32 +2365,6 @@ run
 	description: '0'
 	options: #()
 ) category: 'CodeExport-Base'.
-%
-errorCount
-run
-(Object subclass: 'FileCompilerRequestor'
-	instVarNames: #( contents fileReference interactive)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #FileCompilerRequestor ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'CodeImport-Utilities'.
-%
-errorCount
-run
-(Object subclass: 'CodeImporter'
-	instVarNames: #( readStream codeDeclarations parserClass requestor logSource)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #CodeImporter ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'CodeImport-Base'.
 %
 errorCount
 run
@@ -2420,6 +2394,32 @@ run
 %
 errorCount
 run
+(Object subclass: 'CodeImporter'
+	instVarNames: #( readStream codeDeclarations parserClass requestor logSource)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #CodeImporter ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'CodeImport-Base'.
+%
+errorCount
+run
+(Object subclass: 'FileCompilerRequestor'
+	instVarNames: #( contents fileReference interactive)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #FileCompilerRequestor ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'CodeImport-Utilities'.
+%
+errorCount
+run
 (Object subclass: 'ChunkFileFormatParser'
 	instVarNames: #( readStream parsedDeclarations classSelector classTraitSelector commentStampSelector methodsForSelector reorganizeSelector)
 	classVars: #()
@@ -2446,32 +2446,6 @@ run
 %
 errorCount
 run
-(Object subclass: 'FileSystemResolver'
-	instVarNames: #( next)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #FileSystemResolver ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'FileSystem-Core-Base-Resolver'.
-%
-errorCount
-run
-(Object subclass: 'FileSystemDirectoryEntry'
-	instVarNames: #( reference)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #FileSystemDirectoryEntry ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'FileSystem-Core-Public'.
-%
-errorCount
-run
 (Object subclass: 'FileSystemVisitor'
 	instVarNames: #()
 	classVars: #()
@@ -2482,6 +2456,19 @@ run
 	description: '0'
 	options: #()
 ) category: 'FileSystem-Core-Base-Visitors'.
+%
+errorCount
+run
+(Object subclass: 'FileSystemPermission'
+	instVarNames: #( posixPermission)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #FileSystemPermission ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'FileSystem-Core-Public'.
 %
 errorCount
 run
@@ -2511,13 +2498,13 @@ run
 %
 errorCount
 run
-(Object subclass: 'FileSystemPermission'
-	instVarNames: #( posixPermission)
+(Object subclass: 'FileSystemDirectoryEntry'
+	instVarNames: #( reference)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #FileSystemPermission ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #FileSystemDirectoryEntry ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'FileSystem-Core-Public'.
@@ -2537,19 +2524,6 @@ run
 %
 errorCount
 run
-(Object subclass: 'FileSystemStore'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #FileSystemStore ifAbsent: [nil])
-	description: '0'
-	options: #()
-) category: 'FileSystem-Core-Kernel'.
-%
-errorCount
-run
 (Object subclass: 'FileSystemGuide'
 	instVarNames: #( visitor work selectChildren)
 	classVars: #()
@@ -2563,29 +2537,29 @@ run
 %
 errorCount
 run
-(Object subclass: 'TraitChange'
-	instVarNames: #( addedSelectors removedSelectors updatedSelectors)
+(Object subclass: 'FileSystemStore'
+	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #TraitChange ifAbsent: [nil])
-	description: '1'
+	newVersionOf: (Smalltalk at: #FileSystemStore ifAbsent: [nil])
+	description: '0'
 	options: #()
-) category: 'TraitsV2-Changes'.
+) category: 'FileSystem-Core-Kernel'.
 %
 errorCount
 run
-(Object subclass: 'TraitedClass'
-	instVarNames: #()
+(Object subclass: 'FileSystemResolver'
+	instVarNames: #( next)
 	classVars: #()
-	classInstVars: #( users)
+	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #TraitedClass ifAbsent: [nil])
-	description: '0'
+	newVersionOf: (Smalltalk at: #FileSystemResolver ifAbsent: [nil])
+	description: '1'
 	options: #()
-) category: 'TraitsV2-Base'.
+) category: 'FileSystem-Core-Base-Resolver'.
 %
 errorCount
 run
@@ -2615,16 +2589,29 @@ run
 %
 errorCount
 run
-(Object subclass: 'TraitTransformation'
+(Object subclass: 'TraitedClass'
 	instVarNames: #()
+	classVars: #()
+	classInstVars: #( users)
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #TraitedClass ifAbsent: [nil])
+	description: '0'
+	options: #()
+) category: 'TraitsV2-Base'.
+%
+errorCount
+run
+(Object subclass: 'TraitChange'
+	instVarNames: #( addedSelectors removedSelectors updatedSelectors)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #TraitTransformation ifAbsent: [nil])
-	description: '0'
+	newVersionOf: (Smalltalk at: #TraitChange ifAbsent: [nil])
+	description: '1'
 	options: #()
-) category: 'TraitsV2-Compatibility-Composition'.
+) category: 'TraitsV2-Changes'.
 %
 errorCount
 run
@@ -2641,13 +2628,13 @@ run
 %
 errorCount
 run
-(Object subclass: 'TraitComposition'
+(Object subclass: 'TraitTransformation'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #TraitComposition ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #TraitTransformation ifAbsent: [nil])
 	description: '0'
 	options: #()
 ) category: 'TraitsV2-Compatibility-Composition'.
@@ -2664,6 +2651,19 @@ run
 	description: '0'
 	options: #()
 ) category: 'TraitsV2-Compatibility-Base'.
+%
+errorCount
+run
+(Object subclass: 'TraitComposition'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #TraitComposition ifAbsent: [nil])
+	description: '0'
+	options: #()
+) category: 'TraitsV2-Compatibility-Composition'.
 %
 errorCount
 run
@@ -7576,6 +7576,19 @@ run
 %
 errorCount
 run
+(InstructionClient subclass: 'InstVarRefLocator'
+	instVarNames: #( bingo)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #InstVarRefLocator ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'Debugging-Core'.
+%
+errorCount
+run
 (InstructionClient subclass: 'BlockLocalTempCounter'
 	instVarNames: #( stackPointer scanner blockEnd joinOffsets)
 	classVars: #()
@@ -7602,19 +7615,6 @@ run
 %
 errorCount
 run
-(InstructionClient subclass: 'InstVarRefLocator'
-	instVarNames: #( bingo)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #InstVarRefLocator ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'Debugging-Core'.
-%
-errorCount
-run
 (InstructionClient subclass: 'IRBytecodeDecompiler'
 	instVarNames: #( instructionStream irBuilder newTempVector scopeStack)
 	classVars: #()
@@ -7628,19 +7628,6 @@ run
 %
 errorCount
 run
-(EncodedCharSet subclass: 'Latin1'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #( rightHalfSequence)
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #Latin1 ifAbsent: [nil])
-	description: '0'
-	options: #()
-) category: 'Multilingual-Encodings-CharSets'.
-%
-errorCount
-run
 (EncodedCharSet subclass: 'Unicode'
 	instVarNames: #()
 	classVars: #( Cc Cf Cn Co Cs DecimalProperty GeneralCategory Ll Lm Lo Lt Lu Mc Me Mn Nd Nl No Pc Pd Pe Pf Pi Po Ps Sc Sk Sm So ToCasefold ToLower ToUpper Zl Zp Zs nonCharacters)
@@ -7648,6 +7635,19 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #Unicode ifAbsent: [nil])
+	description: '0'
+	options: #()
+) category: 'Multilingual-Encodings-CharSets'.
+%
+errorCount
+run
+(EncodedCharSet subclass: 'Latin1'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #( rightHalfSequence)
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #Latin1 ifAbsent: [nil])
 	description: '0'
 	options: #()
 ) category: 'Multilingual-Encodings-CharSets'.
@@ -7693,13 +7693,13 @@ run
 %
 errorCount
 run
-(LanguageEnvironment subclass: 'Latin1Environment'
+(LanguageEnvironment subclass: 'Latin2Environment'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #Latin1Environment ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #Latin2Environment ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'Multilingual-Languages-Environments'.
@@ -7719,13 +7719,13 @@ run
 %
 errorCount
 run
-(LanguageEnvironment subclass: 'Latin2Environment'
+(LanguageEnvironment subclass: 'Latin1Environment'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #Latin2Environment ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #Latin1Environment ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'Multilingual-Languages-Environments'.
@@ -7758,55 +7758,16 @@ run
 %
 errorCount
 run
-(RBParseTreeRule subclass: 'RBReplaceRule'
-	instVarNames: #( verificationBlock)
+(RBToken subclass: 'RBValueToken'
+	instVarNames: #( value)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBReplaceRule ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBValueToken ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'AST-Core-Matching'.
-%
-errorCount
-run
-(RBParseTreeRule subclass: 'RBSearchRule'
-	instVarNames: #( answerBlock)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBSearchRule ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Matching'.
-%
-errorCount
-run
-(RBParser subclass: 'RBPatternParser'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBPatternParser ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Parser'.
-%
-errorCount
-run
-(RBScanner subclass: 'RBPatternScanner'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBPatternScanner ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Parser'.
+) category: 'AST-Core-Tokens'.
 %
 errorCount
 run
@@ -7823,42 +7784,16 @@ run
 %
 errorCount
 run
-(RBToken subclass: 'RBValueToken'
-	instVarNames: #( value)
-	classVars: #()
+(RBProgramNodeVisitor subclass: 'RBNullFormatter'
+	instVarNames: #( codeStream)
+	classVars: #( FormatAsYouReadPolicy)
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBValueToken ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBNullFormatter ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'AST-Core-Tokens'.
-%
-errorCount
-run
-(RBProgramNodeVisitor subclass: 'RBAbstractBlockVisitor'
-	instVarNames: #( visitBlock)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBAbstractBlockVisitor ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Visitors'.
-%
-errorCount
-run
-(RBProgramNodeVisitor subclass: 'RBDumpVisitor'
-	instVarNames: #( stream)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBDumpVisitor ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Visitors'.
+) category: 'AST-Core-Formatter'.
 %
 errorCount
 run
@@ -7888,16 +7823,16 @@ run
 %
 errorCount
 run
-(RBProgramNodeVisitor subclass: 'BISimpleFormatter'
-	instVarNames: #( codeStream indent lookaheadCode originalSource lineStart)
-	classVars: #( FormatAsYouReadPolicy)
+(RBProgramNodeVisitor subclass: 'RBDumpVisitor'
+	instVarNames: #( stream)
+	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #BISimpleFormatter ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBDumpVisitor ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'AST-Core-Formatter'.
+) category: 'AST-Core-Visitors'.
 %
 errorCount
 run
@@ -7914,29 +7849,29 @@ run
 %
 errorCount
 run
-(RBProgramNodeVisitor subclass: 'RBNullFormatter'
-	instVarNames: #( codeStream)
-	classVars: #( FormatAsYouReadPolicy)
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBNullFormatter ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Formatter'.
-%
-errorCount
-run
-(RBProgramNodeVisitor subclass: 'OCASTSemanticAnalyzer'
-	instVarNames: #( scope blockcounter compilationContext)
+(RBProgramNodeVisitor subclass: 'RBAbstractBlockVisitor'
+	instVarNames: #( visitBlock)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCASTSemanticAnalyzer ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBAbstractBlockVisitor ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'OpalCompiler-Core-Semantics'.
+) category: 'AST-Core-Visitors'.
+%
+errorCount
+run
+(RBProgramNodeVisitor subclass: 'BISimpleFormatter'
+	instVarNames: #( codeStream indent lookaheadCode originalSource lineStart)
+	classVars: #( FormatAsYouReadPolicy)
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #BISimpleFormatter ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Formatter'.
 %
 errorCount
 run
@@ -7948,6 +7883,19 @@ run
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #OCASTSemanticCleaner ifAbsent: [nil])
 	description: '0'
+	options: #()
+) category: 'OpalCompiler-Core-Semantics'.
+%
+errorCount
+run
+(RBProgramNodeVisitor subclass: 'OCASTSemanticAnalyzer'
+	instVarNames: #( scope blockcounter compilationContext)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCASTSemanticAnalyzer ifAbsent: [nil])
+	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-Semantics'.
 %
@@ -7979,16 +7927,55 @@ run
 %
 errorCount
 run
-(RBNode subclass: 'RBProgramNode'
-	instVarNames: #( parent properties)
-	classVars: #( FormatterClass)
+(RBParser subclass: 'RBPatternParser'
+	instVarNames: #()
+	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBProgramNode ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBPatternParser ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'AST-Core-Nodes'.
+) category: 'AST-Core-Parser'.
+%
+errorCount
+run
+(RBParseTreeRule subclass: 'RBReplaceRule'
+	instVarNames: #( verificationBlock)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBReplaceRule ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Matching'.
+%
+errorCount
+run
+(RBParseTreeRule subclass: 'RBSearchRule'
+	instVarNames: #( answerBlock)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBSearchRule ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Matching'.
+%
+errorCount
+run
+(RBScanner subclass: 'RBPatternScanner'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBPatternScanner ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Parser'.
 %
 errorCount
 run
@@ -8005,26 +7992,26 @@ run
 %
 errorCount
 run
-(OCAbstractScope subclass: 'OCEnvironmentScope'
-	instVarNames: #( environment)
-	classVars: #()
+(RBNode subclass: 'RBProgramNode'
+	instVarNames: #( parent properties)
+	classVars: #( FormatterClass)
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCEnvironmentScope ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBProgramNode ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'OpalCompiler-Core-Semantics'.
+) category: 'AST-Core-Nodes'.
 %
 errorCount
 run
-(OCAbstractScope subclass: 'OCRequestorScope'
-	instVarNames: #( requestor compilationContext)
+(OCAbstractScope subclass: 'OCExtraBindingScope'
+	instVarNames: #( bindings)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCRequestorScope ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #OCExtraBindingScope ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-Semantics'.
@@ -8044,19 +8031,6 @@ run
 %
 errorCount
 run
-(OCAbstractScope subclass: 'OCAbstractMethodScope'
-	instVarNames: #( thisContextVar tempVars copiedVars tempVector id)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCAbstractMethodScope ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Semantics'.
-%
-errorCount
-run
 (OCAbstractScope subclass: 'OCClassScope'
 	instVarNames: #( class)
 	classVars: #()
@@ -8070,16 +8044,81 @@ run
 %
 errorCount
 run
-(OCAbstractScope subclass: 'OCExtraBindingScope'
-	instVarNames: #( bindings)
+(OCAbstractScope subclass: 'OCAbstractMethodScope'
+	instVarNames: #( thisContextVar tempVars copiedVars tempVector id)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCExtraBindingScope ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #OCAbstractMethodScope ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-Semantics'.
+%
+errorCount
+run
+(OCAbstractScope subclass: 'OCRequestorScope'
+	instVarNames: #( requestor compilationContext)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCRequestorScope ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Semantics'.
+%
+errorCount
+run
+(OCAbstractScope subclass: 'OCEnvironmentScope'
+	instVarNames: #( environment)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCEnvironmentScope ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Semantics'.
+%
+errorCount
+run
+(IRBuilder subclass: 'IRReconstructor'
+	instVarNames: #( temps remoteTemps closureCopiedValues)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRReconstructor ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Bytecode'.
+%
+errorCount
+run
+(AbstractCompiler subclass: 'OpalCompiler'
+	instVarNames: #( ast source context receiver compilationContext compilationContextClass)
+	classVars: #()
+	classInstVars: #( overlayEnvironment)
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OpalCompiler ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-FrontEnd'.
+%
+errorCount
+run
+(IRVisitor subclass: 'IRFix'
+	instVarNames: #( prevInstr storePopToFix retToFix)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRFix ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-IR-Manipulation'.
 %
 errorCount
 run
@@ -8109,45 +8148,6 @@ run
 %
 errorCount
 run
-(IRVisitor subclass: 'IRFix'
-	instVarNames: #( prevInstr storePopToFix retToFix)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRFix ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Manipulation'.
-%
-errorCount
-run
-(IRStackCount subclass: 'IRClosureStackCount'
-	instVarNames: #( numMethodTempVars)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRClosureStackCount ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Bytecode'.
-%
-errorCount
-run
-(OCAbstractVariable subclass: 'OCUndeclaredVariable'
-	instVarNames: #( name)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCUndeclaredVariable ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Semantics'.
-%
-errorCount
-run
 (OCAbstractVariable subclass: 'OCAbstractLocalVariable'
 	instVarNames: #( name)
 	classVars: #()
@@ -8155,19 +8155,6 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #OCAbstractLocalVariable ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Semantics'.
-%
-errorCount
-run
-(OCAbstractVariable subclass: 'OCLiteralVariable'
-	instVarNames: #( assoc)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCLiteralVariable ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-Semantics'.
@@ -8187,26 +8174,52 @@ run
 %
 errorCount
 run
-(IRBuilder subclass: 'IRReconstructor'
-	instVarNames: #( temps remoteTemps closureCopiedValues)
+(OCAbstractVariable subclass: 'OCUndeclaredVariable'
+	instVarNames: #( name)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRReconstructor ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #OCUndeclaredVariable ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Semantics'.
+%
+errorCount
+run
+(OCAbstractVariable subclass: 'OCLiteralVariable'
+	instVarNames: #( assoc)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCLiteralVariable ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Semantics'.
+%
+errorCount
+run
+(IRStackCount subclass: 'IRClosureStackCount'
+	instVarNames: #( numMethodTempVars)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRClosureStackCount ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-Bytecode'.
 %
 errorCount
 run
-(IRInstruction subclass: 'IRPushFullClosure'
-	instVarNames: #( compiledBlock copiedValues)
+(IRInstruction subclass: 'IRPushDup'
+	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRPushFullClosure ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #IRPushDup ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-IR-Nodes'.
@@ -8226,19 +8239,6 @@ run
 %
 errorCount
 run
-(IRInstruction subclass: 'IRPushLiteral'
-	instVarNames: #( literal)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRPushLiteral ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
 (IRInstruction subclass: 'IRPop'
 	instVarNames: #()
 	classVars: #()
@@ -8246,6 +8246,19 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #IRPop ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-IR-Nodes'.
+%
+errorCount
+run
+(IRInstruction subclass: 'IRPushLiteral'
+	instVarNames: #( literal)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRPushLiteral ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-IR-Nodes'.
@@ -8265,13 +8278,13 @@ run
 %
 errorCount
 run
-(IRInstruction subclass: 'IRTempVector'
-	instVarNames: #( name vars)
+(IRInstruction subclass: 'IRPushFullClosure'
+	instVarNames: #( compiledBlock copiedValues)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRTempVector ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #IRPushFullClosure ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-IR-Nodes'.
@@ -8291,32 +8304,6 @@ run
 %
 errorCount
 run
-(IRInstruction subclass: 'IRReturn'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRReturn ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(IRInstruction subclass: 'IRPushDup'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRPushDup ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
 (IRInstruction subclass: 'IRAccess'
 	instVarNames: #()
 	classVars: #()
@@ -8330,29 +8317,29 @@ run
 %
 errorCount
 run
-(AbstractCompiler subclass: 'OpalCompiler'
-	instVarNames: #( ast source context receiver compilationContext compilationContextClass)
+(IRInstruction subclass: 'IRTempVector'
+	instVarNames: #( name vars)
 	classVars: #()
-	classInstVars: #( overlayEnvironment)
+	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OpalCompiler ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #IRTempVector ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'OpalCompiler-Core-FrontEnd'.
+) category: 'OpalCompiler-Core-IR-Nodes'.
 %
 errorCount
 run
-(CodeChunk subclass: 'StyleChunk'
+(IRInstruction subclass: 'IRReturn'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #StyleChunk ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #IRReturn ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'CodeImport-Chunks'.
+) category: 'OpalCompiler-Core-IR-Nodes'.
 %
 errorCount
 run
@@ -8363,6 +8350,19 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #DoItChunk ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'CodeImport-Chunks'.
+%
+errorCount
+run
+(CodeChunk subclass: 'StyleChunk'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #StyleChunk ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'CodeImport-Chunks'.
@@ -8382,78 +8382,13 @@ run
 %
 errorCount
 run
-(FileSystemResolver subclass: 'PlatformResolver'
-	instVarNames: #()
+(FileSystemVisitor subclass: 'AbstractEnumerationVisitor'
+	instVarNames: #( out block)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #PlatformResolver ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'FileSystem-Core-Base-Resolver'.
-%
-errorCount
-run
-(FileSystemResolver subclass: 'InteractiveResolver'
-	instVarNames: #( cache)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #InteractiveResolver ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'FileSystem-Core-Base-Resolver'.
-%
-errorCount
-run
-(FileSystemResolver subclass: 'SystemResolver'
-	instVarNames: #()
-	classVars: #( UserLocalDirectory)
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #SystemResolver ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'FileSystem-Core-Base-Resolver'.
-%
-errorCount
-run
-(FileSystemDirectoryEntry subclass: 'DiskDirectoryEntry'
-	instVarNames: #( statAttributes accessAttributes)
-	classVars: #( Primitives)
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #DiskDirectoryEntry ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'FileSystem-Core-Public'.
-%
-errorCount
-run
-(FileSystemDirectoryEntry subclass: 'MemoryDirectoryEntry'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #MemoryDirectoryEntry ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'FileSystem-Core-Public'.
-%
-errorCount
-run
-(FileSystemVisitor subclass: 'CopyVisitor'
-	instVarNames: #( source dest)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #CopyVisitor ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #AbstractEnumerationVisitor ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'FileSystem-Core-Base-Visitors'.
@@ -8473,13 +8408,13 @@ run
 %
 errorCount
 run
-(FileSystemVisitor subclass: 'AbstractEnumerationVisitor'
-	instVarNames: #( out block)
+(FileSystemVisitor subclass: 'CopyVisitor'
+	instVarNames: #( source dest)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #AbstractEnumerationVisitor ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #CopyVisitor ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'FileSystem-Core-Base-Visitors'.
@@ -8538,29 +8473,29 @@ run
 %
 errorCount
 run
-(FileSystemStore subclass: 'DiskStore'
-	instVarNames: #( maxFileNameLength)
-	classVars: #( CurrentFS DefaultWorkingDirectory)
+(FileSystemDirectoryEntry subclass: 'MemoryDirectoryEntry'
+	instVarNames: #()
+	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #DiskStore ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #MemoryDirectoryEntry ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'FileSystem-Disk-Store'.
+) category: 'FileSystem-Core-Public'.
 %
 errorCount
 run
-(FileSystemStore subclass: 'MemoryStore'
-	instVarNames: #( root)
-	classVars: #( CurrentFS)
+(FileSystemDirectoryEntry subclass: 'DiskDirectoryEntry'
+	instVarNames: #( statAttributes accessAttributes)
+	classVars: #( Primitives)
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #MemoryStore ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #DiskDirectoryEntry ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'FileSystem-Memory-Store'.
+) category: 'FileSystem-Core-Public'.
 %
 errorCount
 run
@@ -8603,29 +8538,68 @@ run
 %
 errorCount
 run
-(TaAbstractComposition subclass: 'TaCompositionElement'
-	instVarNames: #( innerClass)
-	classVars: #()
+(FileSystemStore subclass: 'DiskStore'
+	instVarNames: #( maxFileNameLength)
+	classVars: #( CurrentFS DefaultWorkingDirectory)
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #TaCompositionElement ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #DiskStore ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'TraitsV2-Compositions'.
+) category: 'FileSystem-Disk-Store'.
 %
 errorCount
 run
-(TaAbstractComposition subclass: 'TaEmptyComposition'
+(FileSystemStore subclass: 'MemoryStore'
+	instVarNames: #( root)
+	classVars: #( CurrentFS)
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #MemoryStore ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'FileSystem-Memory-Store'.
+%
+errorCount
+run
+(FileSystemResolver subclass: 'PlatformResolver'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #TaEmptyComposition ifAbsent: [nil])
-	description: '0'
+	newVersionOf: (Smalltalk at: #PlatformResolver ifAbsent: [nil])
+	description: '1'
 	options: #()
-) category: 'TraitsV2-Compositions'.
+) category: 'FileSystem-Core-Base-Resolver'.
+%
+errorCount
+run
+(FileSystemResolver subclass: 'SystemResolver'
+	instVarNames: #()
+	classVars: #( UserLocalDirectory)
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #SystemResolver ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'FileSystem-Core-Base-Resolver'.
+%
+errorCount
+run
+(FileSystemResolver subclass: 'InteractiveResolver'
+	instVarNames: #( cache)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #InteractiveResolver ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'FileSystem-Core-Base-Resolver'.
 %
 errorCount
 run
@@ -8655,16 +8629,29 @@ run
 %
 errorCount
 run
-(TraitTransformation subclass: 'TraitExclusion'
+(TaAbstractComposition subclass: 'TaEmptyComposition'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #TraitExclusion ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #TaEmptyComposition ifAbsent: [nil])
 	description: '0'
 	options: #()
-) category: 'TraitsV2-Compatibility-Composition'.
+) category: 'TraitsV2-Compositions'.
+%
+errorCount
+run
+(TaAbstractComposition subclass: 'TaCompositionElement'
+	instVarNames: #( innerClass)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #TaCompositionElement ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'TraitsV2-Compositions'.
 %
 errorCount
 run
@@ -8675,6 +8662,19 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #TraitAlias ifAbsent: [nil])
+	description: '0'
+	options: #()
+) category: 'TraitsV2-Compatibility-Composition'.
+%
+errorCount
+run
+(TraitTransformation subclass: 'TraitExclusion'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #TraitExclusion ifAbsent: [nil])
 	description: '0'
 	options: #()
 ) category: 'TraitsV2-Compatibility-Composition'.
@@ -10956,19 +10956,6 @@ run
 %
 errorCount
 run
-(Error subclass: 'OCAbortCompilation'
-	instVarNames: #( sourceCode)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCAbortCompilation ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Exception'.
-%
-errorCount
-run
 (Error subclass: 'OCSemanticError'
 	instVarNames: #( compilationContext node)
 	classVars: #()
@@ -10976,6 +10963,19 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #OCSemanticError ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Exception'.
+%
+errorCount
+run
+(Error subclass: 'OCAbortCompilation'
+	instVarNames: #( sourceCode)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCAbortCompilation ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-Exception'.
@@ -11489,19 +11489,6 @@ run
 %
 errorCount
 run
-(Notification subclass: 'OCSemanticWarning'
-	instVarNames: #( compilationContext node)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCSemanticWarning ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Exception'.
-%
-errorCount
-run
 (Notification subclass: 'ReparseAfterSourceEditing'
 	instVarNames: #( newSource)
 	classVars: #()
@@ -11509,6 +11496,19 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #ReparseAfterSourceEditing ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Exception'.
+%
+errorCount
+run
+(Notification subclass: 'OCSemanticWarning'
+	instVarNames: #( compilationContext node)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCSemanticWarning ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-Exception'.
@@ -11991,19 +11991,6 @@ run
 %
 errorCount
 run
-(Timespan subclass: 'Month'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: { ChronologyConstants. }
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #Month ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'Kernel-Chronology-Extras'.
-%
-errorCount
-run
 (Timespan subclass: 'Week'
 	instVarNames: #()
 	classVars: #( StartDay)
@@ -12011,6 +11998,19 @@ run
 	poolDictionaries: { ChronologyConstants. }
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #Week ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'Kernel-Chronology-Extras'.
+%
+errorCount
+run
+(Timespan subclass: 'Month'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: { ChronologyConstants. }
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #Month ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'Kernel-Chronology-Extras'.
@@ -12225,19 +12225,6 @@ run
 %
 errorCount
 run
-(JobAnnouncement subclass: 'JobEnd'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #JobEnd ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'Jobs-Announcements'.
-%
-errorCount
-run
 (JobAnnouncement subclass: 'JobStart'
 	instVarNames: #()
 	classVars: #()
@@ -12245,6 +12232,19 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #JobStart ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'Jobs-Announcements'.
+%
+errorCount
+run
+(JobAnnouncement subclass: 'JobEnd'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #JobEnd ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'Jobs-Announcements'.
@@ -13213,26 +13213,13 @@ run
 %
 errorCount
 run
-(ByteTextConverter subclass: 'CP1250TextConverter'
+(ByteTextConverter subclass: 'MacRomanTextConverter'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #CP1250TextConverter ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'Multilingual-TextConversion-TextConverter'.
-%
-errorCount
-run
-(ByteTextConverter subclass: 'ISO88592TextConverter'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #ISO88592TextConverter ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #MacRomanTextConverter ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'Multilingual-TextConversion-TextConverter'.
@@ -13252,13 +13239,26 @@ run
 %
 errorCount
 run
-(ByteTextConverter subclass: 'MacRomanTextConverter'
+(ByteTextConverter subclass: 'ISO88592TextConverter'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #MacRomanTextConverter ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #ISO88592TextConverter ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'Multilingual-TextConversion-TextConverter'.
+%
+errorCount
+run
+(ByteTextConverter subclass: 'CP1250TextConverter'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #CP1250TextConverter ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'Multilingual-TextConversion-TextConverter'.
@@ -13291,58 +13291,6 @@ run
 %
 errorCount
 run
-(RBReplaceRule subclass: 'RBBlockReplaceRule'
-	instVarNames: #( replaceBlock)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBBlockReplaceRule ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Matching'.
-%
-errorCount
-run
-(RBReplaceRule subclass: 'RBStringReplaceRule'
-	instVarNames: #( replaceTree)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBStringReplaceRule ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Matching'.
-%
-errorCount
-run
-(RBAssignmentToken subclass: 'RBShortAssignmentToken'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBShortAssignmentToken ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Tokens'.
-%
-errorCount
-run
-(RBValueToken subclass: 'RBErrorToken'
-	instVarNames: #( cause location)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBErrorToken ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Tokens'.
-%
-errorCount
-run
 (RBValueToken subclass: 'RBSpecialCharacterToken'
 	instVarNames: #()
 	classVars: #()
@@ -13356,32 +13304,6 @@ run
 %
 errorCount
 run
-(RBValueToken subclass: 'RBIdentifierToken'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBIdentifierToken ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Tokens'.
-%
-errorCount
-run
-(RBValueToken subclass: 'RBKeywordToken'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBKeywordToken ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Tokens'.
-%
-errorCount
-run
 (RBValueToken subclass: 'RBBinarySelectorToken'
 	instVarNames: #()
 	classVars: #()
@@ -13389,19 +13311,6 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #RBBinarySelectorToken ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Tokens'.
-%
-errorCount
-run
-(RBValueToken subclass: 'RBPatternBlockToken'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBPatternBlockToken ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'AST-Core-Tokens'.
@@ -13434,6 +13343,84 @@ run
 %
 errorCount
 run
+(RBValueToken subclass: 'RBPatternBlockToken'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBPatternBlockToken ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Tokens'.
+%
+errorCount
+run
+(RBValueToken subclass: 'RBIdentifierToken'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBIdentifierToken ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Tokens'.
+%
+errorCount
+run
+(RBValueToken subclass: 'RBErrorToken'
+	instVarNames: #( cause location)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBErrorToken ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Tokens'.
+%
+errorCount
+run
+(RBValueToken subclass: 'RBKeywordToken'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBKeywordToken ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Tokens'.
+%
+errorCount
+run
+(RBAssignmentToken subclass: 'RBShortAssignmentToken'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBShortAssignmentToken ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Tokens'.
+%
+errorCount
+run
+(RBParseTreeSearcher subclass: 'RBParseTreeRewriter'
+	instVarNames: #( tree)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBParseTreeRewriter ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Matching'.
+%
+errorCount
+run
 (RBAbstractBlockVisitor subclass: 'RBCommentNodeVisitor'
 	instVarNames: #()
 	classVars: #()
@@ -13441,19 +13428,6 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #RBCommentNodeVisitor ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Visitors'.
-%
-errorCount
-run
-(RBAbstractBlockVisitor subclass: 'RBParseErrorNodeVisitor'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBParseErrorNodeVisitor ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'AST-Core-Visitors'.
@@ -13473,16 +13447,16 @@ run
 %
 errorCount
 run
-(RBParseTreeSearcher subclass: 'RBParseTreeRewriter'
-	instVarNames: #( tree)
+(RBAbstractBlockVisitor subclass: 'RBParseErrorNodeVisitor'
+	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBParseTreeRewriter ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBParseErrorNodeVisitor ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'AST-Core-Matching'.
+) category: 'AST-Core-Visitors'.
 %
 errorCount
 run
@@ -13499,19 +13473,6 @@ run
 %
 errorCount
 run
-(OCASTTranslator subclass: 'OCASTTranslatorForEffect'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCASTTranslatorForEffect ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Translator'.
-%
-errorCount
-run
 (OCASTTranslator subclass: 'OCASTTranslatorForValue'
 	instVarNames: #()
 	classVars: #()
@@ -13519,6 +13480,19 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #OCASTTranslatorForValue ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Translator'.
+%
+errorCount
+run
+(OCASTTranslator subclass: 'OCASTTranslatorForEffect'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCASTTranslatorForEffect ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-Translator'.
@@ -13551,26 +13525,39 @@ run
 %
 errorCount
 run
-(RBProgramNode subclass: 'RBReturnNode'
-	instVarNames: #( return value)
+(RBReplaceRule subclass: 'RBStringReplaceRule'
+	instVarNames: #( replaceTree)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBReturnNode ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBStringReplaceRule ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'AST-Core-Nodes'.
+) category: 'AST-Core-Matching'.
 %
 errorCount
 run
-(RBProgramNode subclass: 'RBSequenceNode'
-	instVarNames: #( leftBar rightBar statements periods temporaries)
+(RBReplaceRule subclass: 'RBBlockReplaceRule'
+	instVarNames: #( replaceBlock)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBSequenceNode ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBBlockReplaceRule ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Matching'.
+%
+errorCount
+run
+(RBProgramNode subclass: 'RBMethodNode'
+	instVarNames: #( scope selector keywordsPositions body source arguments pragmas replacements nodeReplacements compilationContext)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBMethodNode ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'AST-Core-Nodes'.
@@ -13590,19 +13577,6 @@ run
 %
 errorCount
 run
-(RBProgramNode subclass: 'RBMethodNode'
-	instVarNames: #( scope selector keywordsPositions body source arguments pragmas replacements nodeReplacements compilationContext)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBMethodNode ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Nodes'.
-%
-errorCount
-run
 (RBProgramNode subclass: 'RBPragmaNode'
 	instVarNames: #( selector keywordsPositions arguments left right)
 	classVars: #()
@@ -13610,6 +13584,32 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #RBPragmaNode ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Nodes'.
+%
+errorCount
+run
+(RBProgramNode subclass: 'RBSequenceNode'
+	instVarNames: #( leftBar rightBar statements periods temporaries)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBSequenceNode ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Nodes'.
+%
+errorCount
+run
+(RBProgramNode subclass: 'RBReturnNode'
+	instVarNames: #( return value)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBReturnNode ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'AST-Core-Nodes'.
@@ -13655,19 +13655,6 @@ run
 %
 errorCount
 run
-(OCAbstractLocalVariable subclass: 'OCTempVariable'
-	instVarNames: #( escaping)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCTempVariable ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Semantics'.
-%
-errorCount
-run
 (OCAbstractLocalVariable subclass: 'OCSpecialVariable'
 	instVarNames: #()
 	classVars: #()
@@ -13675,6 +13662,19 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #OCSpecialVariable ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Semantics'.
+%
+errorCount
+run
+(OCAbstractLocalVariable subclass: 'OCTempVariable'
+	instVarNames: #( escaping)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCTempVariable ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-Semantics'.
@@ -13701,6 +13701,84 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #IRPushClosureCopy ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-IR-Nodes'.
+%
+errorCount
+run
+(IRAccess subclass: 'IRPushReceiver'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRPushReceiver ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-IR-Nodes'.
+%
+errorCount
+run
+(IRAccess subclass: 'IRTempAccess'
+	instVarNames: #( name)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRTempAccess ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-IR-Nodes'.
+%
+errorCount
+run
+(IRAccess subclass: 'IRPushThisContext'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRPushThisContext ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-IR-Nodes'.
+%
+errorCount
+run
+(IRAccess subclass: 'IRInstVarAccess'
+	instVarNames: #( index)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRInstVarAccess ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-IR-Nodes'.
+%
+errorCount
+run
+(IRAccess subclass: 'IRLiteralVariableAccess'
+	instVarNames: #( association)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRLiteralVariableAccess ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-IR-Nodes'.
+%
+errorCount
+run
+(IRReturn subclass: 'IRReturnLiteral'
+	instVarNames: #( literal)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRReturnLiteral ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-IR-Nodes'.
@@ -13746,97 +13824,6 @@ run
 %
 errorCount
 run
-(IRReturn subclass: 'IRReturnLiteral'
-	instVarNames: #( literal)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRReturnLiteral ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(IRAccess subclass: 'IRInstVarAccess'
-	instVarNames: #( index)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRInstVarAccess ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(IRAccess subclass: 'IRPushThisContext'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRPushThisContext ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(IRAccess subclass: 'IRLiteralVariableAccess'
-	instVarNames: #( association)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRLiteralVariableAccess ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(IRAccess subclass: 'IRTempAccess'
-	instVarNames: #( name)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRTempAccess ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(IRAccess subclass: 'IRPushReceiver'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRPushReceiver ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(BehaviorOwnedChunk subclass: 'MethodChunk'
-	instVarNames: #( categoryName stamp)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #MethodChunk ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'CodeImport-Chunks'.
-%
-errorCount
-run
 (BehaviorOwnedChunk subclass: 'ClassOrganizationChunk'
 	instVarNames: #()
 	classVars: #()
@@ -13863,55 +13850,29 @@ run
 %
 errorCount
 run
-(PlatformResolver subclass: 'WindowsResolver'
-	instVarNames: #()
+(BehaviorOwnedChunk subclass: 'MethodChunk'
+	instVarNames: #( categoryName stamp)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #WindowsResolver ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #MethodChunk ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'FileSystem-Core-Base-Resolver'.
+) category: 'CodeImport-Chunks'.
 %
 errorCount
 run
-(PlatformResolver subclass: 'UnixResolver'
+(AbstractEnumerationVisitor subclass: 'SelectVisitor'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #UnixResolver ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #SelectVisitor ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'FileSystem-Core-Base-Resolver'.
-%
-errorCount
-run
-(PlatformResolver subclass: 'MacOSResolver'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #MacOSResolver ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'FileSystem-Core-Base-Resolver'.
-%
-errorCount
-run
-(DiskDirectoryEntry subclass: 'DiskSymlinkDirectoryEntry'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #DiskSymlinkDirectoryEntry ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'FileSystem-Core-Public'.
+) category: 'FileSystem-Core-Base-Visitors'.
 %
 errorCount
 run
@@ -13928,16 +13889,16 @@ run
 %
 errorCount
 run
-(AbstractEnumerationVisitor subclass: 'SelectVisitor'
+(DiskDirectoryEntry subclass: 'DiskSymlinkDirectoryEntry'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #SelectVisitor ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #DiskSymlinkDirectoryEntry ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'FileSystem-Core-Base-Visitors'.
+) category: 'FileSystem-Core-Public'.
 %
 errorCount
 run
@@ -13967,13 +13928,52 @@ run
 %
 errorCount
 run
-(TaCompositionElement subclass: 'TaClassCompositionElement'
+(PlatformResolver subclass: 'MacOSResolver'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #TaClassCompositionElement ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #MacOSResolver ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'FileSystem-Core-Base-Resolver'.
+%
+errorCount
+run
+(PlatformResolver subclass: 'WindowsResolver'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #WindowsResolver ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'FileSystem-Core-Base-Resolver'.
+%
+errorCount
+run
+(PlatformResolver subclass: 'UnixResolver'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #UnixResolver ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'FileSystem-Core-Base-Resolver'.
+%
+errorCount
+run
+(TaSingleComposition subclass: 'TaRenameSlot'
+	instVarNames: #( oldName newName)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #TaRenameSlot ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'TraitsV2-Compositions'.
@@ -13987,19 +13987,6 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #TaAliasMethod ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'TraitsV2-Compositions'.
-%
-errorCount
-run
-(TaSingleComposition subclass: 'TaRenameSlot'
-	instVarNames: #( oldName newName)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #TaRenameSlot ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'TraitsV2-Compositions'.
@@ -14026,6 +14013,19 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #TaRemoveSlot ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'TraitsV2-Compositions'.
+%
+errorCount
+run
+(TaCompositionElement subclass: 'TaClassCompositionElement'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #TaClassCompositionElement ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'TraitsV2-Compositions'.
@@ -15605,6 +15605,19 @@ run
 %
 errorCount
 run
+(OCSemanticError subclass: 'OCStoreIntoSpecialVariableError'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCStoreIntoSpecialVariableError ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Exception'.
+%
+errorCount
+run
 (OCSemanticError subclass: 'OCStoreIntoReadOnlyVariableError'
 	instVarNames: #()
 	classVars: #()
@@ -15618,16 +15631,16 @@ run
 %
 errorCount
 run
-(OCSemanticError subclass: 'OCStoreIntoSpecialVariableError'
+(FileSystemError subclass: 'FileExists'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCStoreIntoSpecialVariableError ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #FileExists ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'OpalCompiler-Core-Exception'.
+) category: 'FileSystem-Core-Kernel-Errors'.
 %
 errorCount
 run
@@ -15644,19 +15657,6 @@ run
 %
 errorCount
 run
-(FileSystemError subclass: 'FileAttributeNotSupported'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #FileAttributeNotSupported ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'FileSystem-Core-Kernel'.
-%
-errorCount
-run
 (FileSystemError subclass: 'IllegalName'
 	instVarNames: #( name)
 	classVars: #()
@@ -15664,6 +15664,19 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #IllegalName ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'FileSystem-Core-Kernel-Errors'.
+%
+errorCount
+run
+(FileSystemError subclass: 'DirectoryDoesNotExist'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #DirectoryDoesNotExist ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'FileSystem-Core-Kernel-Errors'.
@@ -15683,29 +15696,16 @@ run
 %
 errorCount
 run
-(FileSystemError subclass: 'FileExists'
+(FileSystemError subclass: 'FileAttributeNotSupported'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #FileExists ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #FileAttributeNotSupported ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'FileSystem-Core-Kernel-Errors'.
-%
-errorCount
-run
-(FileSystemError subclass: 'DirectoryDoesNotExist'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #DirectoryDoesNotExist ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'FileSystem-Core-Kernel-Errors'.
+) category: 'FileSystem-Core-Kernel'.
 %
 errorCount
 run
@@ -16008,19 +16008,6 @@ run
 %
 errorCount
 run
-(OCSemanticWarning subclass: 'OCUndeclaredVariableWarning'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCUndeclaredVariableWarning ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Exception'.
-%
-errorCount
-run
 (OCSemanticWarning subclass: 'OCShadowVariableWarning'
 	instVarNames: #( shadowedVar)
 	classVars: #()
@@ -16028,6 +16015,19 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #OCShadowVariableWarning ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Exception'.
+%
+errorCount
+run
+(OCSemanticWarning subclass: 'OCUndeclaredVariableWarning'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCUndeclaredVariableWarning ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-Exception'.
@@ -17459,19 +17459,6 @@ run
 %
 errorCount
 run
-(RBLiteralToken subclass: 'RBMultiKeywordLiteralToken'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBMultiKeywordLiteralToken ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Tokens'.
-%
-errorCount
-run
 (RBLiteralToken subclass: 'RBNumberLiteralToken'
 	instVarNames: #()
 	classVars: #()
@@ -17479,6 +17466,19 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #RBNumberLiteralToken ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Tokens'.
+%
+errorCount
+run
+(RBLiteralToken subclass: 'RBMultiKeywordLiteralToken'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBMultiKeywordLiteralToken ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'AST-Core-Tokens'.
@@ -17511,42 +17511,16 @@ run
 %
 errorCount
 run
-(RBValueNode subclass: 'RBParseErrorNode'
-	instVarNames: #( errorMessage value start)
+(RBMethodNode subclass: 'RBPatternMethodNode'
+	instVarNames: #( isList)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBParseErrorNode ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBPatternMethodNode ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'AST-Core-Nodes'.
-%
-errorCount
-run
-(RBValueNode subclass: 'RBAssignmentNode'
-	instVarNames: #( variable assignment value)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBAssignmentNode ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Nodes'.
-%
-errorCount
-run
-(RBValueNode subclass: 'RBLiteralNode'
-	instVarNames: #( start stop)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBLiteralNode ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Nodes'.
+) category: 'AST-Core-Pattern'.
 %
 errorCount
 run
@@ -17563,26 +17537,13 @@ run
 %
 errorCount
 run
-(RBValueNode subclass: 'RBArrayNode'
-	instVarNames: #( left right statements periods)
+(RBValueNode subclass: 'RBParseErrorNode'
+	instVarNames: #( errorMessage value start)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBArrayNode ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Nodes'.
-%
-errorCount
-run
-(RBValueNode subclass: 'RBMessageNode'
-	instVarNames: #( receiver selector keywordsPositions arguments)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBMessageNode ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBParseErrorNode ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'AST-Core-Nodes'.
@@ -17602,6 +17563,19 @@ run
 %
 errorCount
 run
+(RBValueNode subclass: 'RBArrayNode'
+	instVarNames: #( left right statements periods)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBArrayNode ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Nodes'.
+%
+errorCount
+run
 (RBValueNode subclass: 'RBBlockNode'
 	instVarNames: #( left right colons arguments bar body scope)
 	classVars: #()
@@ -17615,16 +17589,42 @@ run
 %
 errorCount
 run
-(RBMethodNode subclass: 'RBPatternMethodNode'
-	instVarNames: #( isList)
+(RBValueNode subclass: 'RBAssignmentNode'
+	instVarNames: #( variable assignment value)
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBPatternMethodNode ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBAssignmentNode ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'AST-Core-Pattern'.
+) category: 'AST-Core-Nodes'.
+%
+errorCount
+run
+(RBValueNode subclass: 'RBMessageNode'
+	instVarNames: #( receiver selector keywordsPositions arguments)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBMessageNode ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Nodes'.
+%
+errorCount
+run
+(RBValueNode subclass: 'RBLiteralNode'
+	instVarNames: #( start stop)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBLiteralNode ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Nodes'.
 %
 errorCount
 run
@@ -17648,6 +17648,58 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #OCOptimizedBlockScope ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Semantics'.
+%
+errorCount
+run
+(OCSpecialVariable subclass: 'OCThisContextVariable'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCThisContextVariable ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Semantics'.
+%
+errorCount
+run
+(OCSpecialVariable subclass: 'OCSuperVariable'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCSuperVariable ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Semantics'.
+%
+errorCount
+run
+(OCSpecialVariable subclass: 'OCSelfVariable'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCSelfVariable ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-Semantics'.
+%
+errorCount
+run
+(OCTempVariable subclass: 'OCVectorTempVariable'
+	instVarNames: #( vectorName)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #OCVectorTempVariable ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-Semantics'.
@@ -17680,55 +17732,68 @@ run
 %
 errorCount
 run
-(OCTempVariable subclass: 'OCVectorTempVariable'
-	instVarNames: #( vectorName)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCVectorTempVariable ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-Semantics'.
-%
-errorCount
-run
-(OCSpecialVariable subclass: 'OCThisContextVariable'
+(IRTempAccess subclass: 'IRStoreTemp'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCThisContextVariable ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #IRStoreTemp ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'OpalCompiler-Core-Semantics'.
+) category: 'OpalCompiler-Core-IR-Nodes'.
 %
 errorCount
 run
-(OCSpecialVariable subclass: 'OCSelfVariable'
+(IRTempAccess subclass: 'IRPushTemp'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCSelfVariable ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #IRPushTemp ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'OpalCompiler-Core-Semantics'.
+) category: 'OpalCompiler-Core-IR-Nodes'.
 %
 errorCount
 run
-(OCSpecialVariable subclass: 'OCSuperVariable'
+(IRTempAccess subclass: 'IRPopIntoTemp'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #OCSuperVariable ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #IRPopIntoTemp ifAbsent: [nil])
 	description: '1'
 	options: #()
-) category: 'OpalCompiler-Core-Semantics'.
+) category: 'OpalCompiler-Core-IR-Nodes'.
+%
+errorCount
+run
+(IRTempAccess subclass: 'IRRemoteTempAccess'
+	instVarNames: #( tempVectorName)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRRemoteTempAccess ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-IR-Nodes'.
+%
+errorCount
+run
+(IRInstVarAccess subclass: 'IRPopIntoInstVar'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRPopIntoInstVar ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'OpalCompiler-Core-IR-Nodes'.
 %
 errorCount
 run
@@ -17752,19 +17817,6 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #IRPushInstVar ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(IRInstVarAccess subclass: 'IRPopIntoInstVar'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRPopIntoInstVar ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-IR-Nodes'.
@@ -17804,58 +17856,6 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #IRStoreLiteralVariable ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(IRTempAccess subclass: 'IRPopIntoTemp'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRPopIntoTemp ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(IRTempAccess subclass: 'IRRemoteTempAccess'
-	instVarNames: #( tempVectorName)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRRemoteTempAccess ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(IRTempAccess subclass: 'IRStoreTemp'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRStoreTemp ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'OpalCompiler-Core-IR-Nodes'.
-%
-errorCount
-run
-(IRTempAccess subclass: 'IRPushTemp'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRPushTemp ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-IR-Nodes'.
@@ -18961,58 +18961,6 @@ run
 %
 errorCount
 run
-(RBLiteralNode subclass: 'RBLiteralArrayNode'
-	instVarNames: #( isByteArray contents)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBLiteralArrayNode ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Nodes'.
-%
-errorCount
-run
-(RBLiteralNode subclass: 'RBLiteralValueNode'
-	instVarNames: #( value sourceText)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBLiteralValueNode ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Nodes'.
-%
-errorCount
-run
-(RBMessageNode subclass: 'RBPatternMessageNode'
-	instVarNames: #( isList isCascadeList)
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBPatternMessageNode ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Pattern'.
-%
-errorCount
-run
-(RBMessageNode subclass: 'RFMessageNode'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RFMessageNode ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'Reflectivity-Compiler'.
-%
-errorCount
-run
 (RBVariableNode subclass: 'RBPatternVariableNode'
 	instVarNames: #( recurseInto isList isLiteral isStatement isAnything)
 	classVars: #()
@@ -19026,13 +18974,39 @@ run
 %
 errorCount
 run
-(RBVariableNode subclass: 'RBGlobalNode'
+(RBVariableNode subclass: 'RBSelfNode'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBGlobalNode ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBSelfNode ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Nodes'.
+%
+errorCount
+run
+(RBVariableNode subclass: 'RBInstanceVariableNode'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBInstanceVariableNode ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Nodes'.
+%
+errorCount
+run
+(RBVariableNode subclass: 'RBTemporaryNode'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBTemporaryNode ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'AST-Core-Nodes'.
@@ -19065,13 +19039,13 @@ run
 %
 errorCount
 run
-(RBVariableNode subclass: 'RBInstanceVariableNode'
+(RBVariableNode subclass: 'RBGlobalNode'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBInstanceVariableNode ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RBGlobalNode ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'AST-Core-Nodes'.
@@ -19085,32 +19059,6 @@ run
 	poolDictionaries: {}
 	inDictionary: Smalltalk
 	newVersionOf: (Smalltalk at: #RBSuperNode ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Nodes'.
-%
-errorCount
-run
-(RBVariableNode subclass: 'RBTemporaryNode'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBTemporaryNode ifAbsent: [nil])
-	description: '1'
-	options: #()
-) category: 'AST-Core-Nodes'.
-%
-errorCount
-run
-(RBVariableNode subclass: 'RBSelfNode'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #RBSelfNode ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'AST-Core-Nodes'.
@@ -19156,13 +19104,65 @@ run
 %
 errorCount
 run
-(IRRemoteTempAccess subclass: 'IRStoreRemoteTemp'
+(RBMessageNode subclass: 'RBPatternMessageNode'
+	instVarNames: #( isList isCascadeList)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBPatternMessageNode ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Pattern'.
+%
+errorCount
+run
+(RBMessageNode subclass: 'RFMessageNode'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRStoreRemoteTemp ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #RFMessageNode ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'Reflectivity-Compiler'.
+%
+errorCount
+run
+(RBLiteralNode subclass: 'RBLiteralValueNode'
+	instVarNames: #( value sourceText)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBLiteralValueNode ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Nodes'.
+%
+errorCount
+run
+(RBLiteralNode subclass: 'RBLiteralArrayNode'
+	instVarNames: #( isByteArray contents)
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #RBLiteralArrayNode ifAbsent: [nil])
+	description: '1'
+	options: #()
+) category: 'AST-Core-Nodes'.
+%
+errorCount
+run
+(IRRemoteTempAccess subclass: 'IRPopIntoRemoteTemp'
+	instVarNames: #()
+	classVars: #()
+	classInstVars: #()
+	poolDictionaries: {}
+	inDictionary: Smalltalk
+	newVersionOf: (Smalltalk at: #IRPopIntoRemoteTemp ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-IR-Nodes'.
@@ -19182,13 +19182,13 @@ run
 %
 errorCount
 run
-(IRRemoteTempAccess subclass: 'IRPopIntoRemoteTemp'
+(IRRemoteTempAccess subclass: 'IRStoreRemoteTemp'
 	instVarNames: #()
 	classVars: #()
 	classInstVars: #()
 	poolDictionaries: {}
 	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #IRPopIntoRemoteTemp ifAbsent: [nil])
+	newVersionOf: (Smalltalk at: #IRStoreRemoteTemp ifAbsent: [nil])
 	description: '1'
 	options: #()
 ) category: 'OpalCompiler-Core-IR-Nodes'.

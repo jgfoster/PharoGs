@@ -1,7 +1,7 @@
 WinPlatform yourself.
 Transcript show: 'method count = '.
 [
-| cr lf tab block stream1 reservedSelectors list count keepGs filter1 filter2 |
+| cr lf tab block stream1 reservedSelectors count keepGs filter1 filter2 |
 cr := Character cr.
 lf := Character lf.
 tab := Character tab.
@@ -25,6 +25,7 @@ keepGs := #(	"classes known to the VM that need to use the GemStone one"
 	Symbol UndefinedObject Warning ZeroDivide
 ).
 
+"some blocks need to be separate to get Pharo to compile"
 "special handling for binary selectors in a literal array"
 filter1 := [:source |	
 	| i j literalArrayDepth prev readStream writeStream |
@@ -117,8 +118,7 @@ filter2 := [:behavior :selector :source |
 	flag ifTrue: [
 		| i |
 		i :=  source indexOf: lf.
-		(i > 1 and: [source at: i - 1]) == $. ifTrue: [i := i - 1].
-		((source copyFrom: 1 to: i - 1) copyReplaceAll: 'pointerSize' with: 'pointerSizeX'), lf asString , 
+		(source copyFrom: 1 to: i - 1), lf asString , 
 			'	<compileError>' , lf asString , '"' , 
 			((source copyFrom: i to: source size) copyReplaceAll: '"' with: '""') , '"'.
 	] ifFalse: [
@@ -136,10 +136,7 @@ stream1 := ('methods.gs' asFileReference writeStream)
 	nextPutAll: 'symbolList := GsSession currentSession symbolList.'; lf;
 	nextPutAll: 'symbolList add: (symbolList remove: PharoPools) after: Smalltalk.'; lf;
 	nextPut: $%; lf.
-list := true
-	ifTrue: [ProtoObject withAllSubclasses]
-	ifFalse: [Array with: Object].
-list do: [ :eachClass | 
+ProtoObject withAllSubclasses do: [ :eachClass | 
 	eachClass isMeta ifFalse: [ | path stream2 |
 
 		"generate file-in for methods"

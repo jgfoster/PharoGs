@@ -10,6 +10,9 @@ Session.vim
 PharoDebug.log
 Pharo-minimal.changes
 Pharo-minimal.image
-james/classes/*
 classes
 pharo
+pools.gs
+globals.gs
+classes.gs
+methods.gs

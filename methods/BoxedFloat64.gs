@@ -147,7 +147,7 @@ basicAt: index
 	they are always in big-endian/PowerPC order." 
 
 	<PharoGsError>
-	self @env0:error: 'Does GemStone store a BinaryFloat in big-endian format?'
+	self @env0:error: 'Does GemStone store a BoxedFloat64 in big-endian format?'
 %
 
 category: 'accessing'
@@ -165,7 +165,7 @@ basicAt: index put: value
 	they are always in big-endian/PowerPC order." 
 
 	<PharoGsError>
-	self @env0:error: 'Does GemStone store a BinaryFloat in big-endian format?'
+	self @env0:error: 'Does GemStone store a BoxedFloat64 in big-endian format?'
 %
 
 category: 'math functions'

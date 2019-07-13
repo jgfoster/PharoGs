@@ -76,11 +76,12 @@ rfIsEqual: anObject
 
 category: 'comparing'
 method: ProtoObject
-_reservedSelector_equal_equal_: anObject  
+_gsReservedSelector_equal_equal_: anObject  
 	"Primitive. Answer whether the receiver and the argument are the same  
 	object (have the same object pointer). Do not redefine the message == in  
 	any other class! Essential. No Lookup. Do not override in any subclass.  
 	See Object documentation whatIsAPrimitive." 
+	"The above Pharo code attempts to compile a reserved selector so we place it here for reference" 
 
 	<PharoGsDone> 
 	^self == anObject
@@ -88,14 +89,45 @@ _reservedSelector_equal_equal_: anObject
 
 category: 'comparing'
 method: ProtoObject
-_reservedSelector_tilde_tilde_: anObject 
+_gsReservedSelector_tilde_tilde_: anObject 
 	"Primitive. Answer whether the receiver and the argument are different objects 
 	(do not have the same object pointer). Do not redefine the message ~~ in  
 	any other class! Optional (Assuming == is essential). No Lookup. Do not override in any subclass.  
 	See Object documentation whatIsAPrimitive." 
+	"The above Pharo code attempts to compile a reserved selector so we place it here for reference" 
 
 	<PharoGsDone> 
 	^self ~~ anObject
+%
+
+category: '*Reflectivity'
+method: ProtoObject
+rFwithArgs: argArray executeMethod: compiledMethod 
+	"Execute compiledMethod against the receiver and args in argArray" 
+	"This method is used by reflectivity internally. All meta-links are ignored" 
+	<disableReflectivity> 
+	<PharoGsError>
+
+	self @env0:error: 'Not supported in GemStone'
+%
+
+category: 'apply primitives'
+method: ProtoObject
+tryPrimitive: primIndex withArgs: argumentArray 
+	"This method is a template that the Smalltalk simulator uses to  
+	execute primitives. See Object documentation whatIsAPrimitive." 
+	<PharoGsError>
+
+	self @env0:error: 'Not supported in GemStone'
+%
+
+category: 'executing'
+method: ProtoObject
+withArgs: argArray executeMethod: compiledMethod 
+	"Execute compiledMethod against the receiver and args in argArray" 
+	<PharoGsError>
+
+	self @env0:error: 'Not supported in GemStone'
 %
 
 set compile_env: 0

@@ -31,7 +31,6 @@ keepGs
 	add: #BoxedFloat64; 
 	add: #ClassDescription; 
 	add: #Metaclass; 
-	add: #Process;
 	add: #ScaledDecimal; 
 	add: #SmallFloat64; 
 	yourself.
@@ -41,7 +40,6 @@ fileStream lf;
 	tab; nextPutAll: 'at: #ClassDescription	put: (Globals at: #Module		);'; lf;
 	tab; nextPutAll: 'at: #Float 			put: (Globals at: #BinaryFloat	);'; lf;	
 	tab; nextPutAll: 'at: #Metaclass 		put: (Globals at: #Metaclass3	);'; lf;
-	tab; nextPutAll: 'at: #Process 			put: (Globals at: #GsProcess	);'; lf;	
 	tab; nextPutAll: 'at: #ScaledDecimal 	put: (Globals at: #FixedPoint	);'; lf;	
 	tab; nextPutAll: 'at: #SmallFloat64 	put: (Globals at: #SmallDouble	);'; lf;	
 	tab; nextPutAll: 'yourself.'; lf;

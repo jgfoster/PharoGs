@@ -21,7 +21,7 @@ Also, a portability layer by definition contains only things that exist in all d
 
 ## Development Process
 
-The current approach is to export _all_ class and methods from a Pharo [minimal image](https://files.pharo.org/get-files/80/pharo-minimal.zip) (to which sources has been added) using the `exportFromPharo.sh` script. Using four `.st` files, this script generates a set of `.gs` files that can be loaded into GemStone using [Topaz](https://downloads.gemtalksystems.com/docs/GemStone64/3.5.x/GS64-Topaz-3.5.pdf).
+The current approach is to export _all_ class and methods from a Pharo [minimal image](https://files.pharo.org/get-files/80/pharo-minimal.zip) (to which sources has been added) using the `exportFromPharo.sh` script. Using the `.st` files, this script generates a set of `.gs` files that can be loaded into GemStone using [Topaz](https://downloads.gemtalksystems.com/docs/GemStone64/3.5.x/GS64-Topaz-3.5.pdf).
 
 Although the goal is to work with an standard Pharo image, some modifications may be required to the Pharo code base for this to work. These changes are being submitted back to the base, but until they are all incorporated you need to work on a local fork. To do this obtain a copy of [Pharo8.0](https://github.com/pharo-project/pharo.git) and use bootstrap to get a new minimal image:
 
@@ -29,4 +29,3 @@ Although the goal is to work with an standard Pharo image, some modifications ma
 BRANCH_NAME=Pharo8.0 BUILD_NUMBER=42 BOOTSTRAP_ARCH=32 \
   time ./bootstrap/scripts/bootstrap.sh # this takes about 15 minutes
 ```
- 

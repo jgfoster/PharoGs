@@ -12,4 +12,7 @@ Pharo-minimal.changes
 Pharo-minimal.image
 classes
 pharo
+pools.gs
+globals.gs
 classes.gs
+methods.gs

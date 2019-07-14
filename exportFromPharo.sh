@@ -3,7 +3,7 @@ if [ ! -d pharo ]; then
   mkdir -p pharo
 fi
 if [ ! -d pharo/Pharo.app ]; then
-  cp -r ~/Documents/Pharo/vms/70-x86/Pharo.app ./pharo
+  cp -r ~/Documents/Pharo/vms/80-x86/Pharo.app ./pharo
   cp ~/code/pharo/pharo-vm/PharoV60.sources ./pharo
 fi
 cp ~/code/pharo/bootstrap-cache/Pharo8.0-SNAPSHOT-metacello-32bit-*.changes ./pharo/Pharo8.0.changes

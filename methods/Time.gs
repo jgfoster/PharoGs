@@ -13,7 +13,7 @@ millisecondClockValue
 %
 
 category: 'primitives'
-method: Time
+classmethod: Time
 primMillisecondClock 
 	"Primitive. Answer the number of milliseconds since the millisecond clock 
 	 was last reset or rolled over. Answer zero if the primitive fails. 
@@ -25,7 +25,7 @@ primMillisecondClock
 %
 
 category: 'primitives'
-method: Time
+classmethod: Time
 primUTCMicrosecondsClock 
 	"Answer the number of micro-seconds ellapsed since Squeak epoch. 
 	That is since 00:00 on the morning of January 1, 1901 UTC. 

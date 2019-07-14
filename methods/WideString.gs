@@ -1,0 +1,53 @@
+set compile_env: 2
+
+category: 'accessing'
+method: WideString
+at: index 
+	"Answer the Character stored in the field of the receiver indexed by the 
+	 argument.  Primitive.  Fail if the index argument is not an Integer or is out 
+	 of bounds.  Essential.  See Object documentation whatIsAPrimitive." 
+
+     <primitive: 655>
+	<PharoGsDone>
+    ^self @env0:at: index 
+%
+
+category: 'accessing'
+method: WideString
+at: index put: aCharacter 
+	"Store the Character into the field of the receiver indicated by the index. 
+	 Primitive.  Fail if the index is not an Integer or is out of bounds, or if the 
+	 argument is not a Character.  Essential.  See Object documentation whatIsAPrimitive." 
+
+     <primitive: 667>
+	<PharoGsDone>
+    ^self @env0:at: index put: aCharacter
+%
+
+category: 'accessing'
+method: WideString
+replaceFrom: start to: stop with: replacement startingAt: repStart  
+
+     <primitive: 777>
+	<PharoGsDone>
+    ^self @env0:replaceFrom: start to: stop with: replacement startingAt: repStart  
+%
+
+category: 'accessing'
+method: WideString
+wordAt: index 
+
+     <primitive: 1073>
+	<PharoGsDone>
+    ^self @env0:codePointAt: index
+%
+
+category: 'accessing'
+method: WideString
+wordAt: index put: anInteger 
+
+	<PharoGsDone>
+    ^self at: index put: (Character withValue: anInteger)
+%
+
+set compile_env: 0

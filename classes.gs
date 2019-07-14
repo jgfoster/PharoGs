@@ -37,13 +37,17 @@ Smalltalk
 	at: #Warning put: (Globals at: #Warning);
 	at: #ZeroDivide put: (Globals at: #ZeroDivide);
 
-	at: #ArithmeticError	put: (Globals at: #NumericError	);
-	at: #BoxedFloat64 	put: (Globals at: #Float		);
-	at: #ClassDescription	put: (Globals at: #Module		);
-	at: #Float 			put: (Globals at: #BinaryFloat	);
-	at: #Metaclass 		put: (Globals at: #Metaclass3	);
-	at: #ScaledDecimal 	put: (Globals at: #FixedPoint	);
-	at: #SmallFloat64 	put: (Globals at: #SmallDouble	);
+	at: #ArithmeticError	put: (Globals at: #NumericError		);
+	at: #BoxedFloat64 	put: (Globals at: #Float			);
+	at: #ByteString	 	put: (Globals at: #String			);
+	at: #ByteSymbol	 	put: (Globals at: #Symbol			);
+	at: #ClassDescription	put: (Globals at: #Module			);
+	at: #Float 			put: (Globals at: #BinaryFloat		);
+	at: #Metaclass 		put: (Globals at: #Metaclass3		);
+	at: #ScaledDecimal 	put: (Globals at: #FixedPoint		);
+	at: #SmallFloat64 	put: (Globals at: #SmallDouble		);
+	at: #WideString	 	put: (Globals at: #QuadByteString	);
+	at: #WideSymbol	 	put: (Globals at: #QuadByteSymbol	);
 	yourself.
 %
 errorCount
@@ -18837,15 +18841,11 @@ run
 %
 errorCount
 run
-(String byteSubclass: 'ByteString'
-	classVars: #( NonAsciiMap)
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #ByteString ifAbsent: [nil])
-	description: '16'
-	options: #()
-) category: 'Collections-Strings-Base'.
+| names |
+names := #( NonAsciiMap).
+names do: [:each | 
+	(ByteString classVarNames includes: each) ifFalse: [
+		ByteString addClassVarName: each]].
 %
 errorCount
 run
@@ -18854,19 +18854,6 @@ names := #( NewSymbols OneCharacterSymbols SelectorTable SymbolTable).
 names do: [:each | 
 	(Symbol classVarNames includes: each) ifFalse: [
 		Symbol addClassVarName: each]].
-%
-errorCount
-run
-(String subclass: 'WideString'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #WideString ifAbsent: [nil])
-	description: '10'
-	options: #()
-) category: 'Collections-Strings-Base'.
 %
 errorCount
 run
@@ -19452,31 +19439,6 @@ run
 	description: '24'
 	options: #()
 ) category: 'Kernel-Methods'.
-%
-errorCount
-run
-(NoSubclasses byteSubclass: 'ByteSymbol'
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #ByteSymbol ifAbsent: [nil])
-	description: '16'
-	options: #()
-) category: 'Collections-Strings-Base'.
-%
-errorCount
-run
-(NoSubclasses subclass: 'WideSymbol'
-	instVarNames: #()
-	classVars: #()
-	classInstVars: #()
-	poolDictionaries: {}
-	inDictionary: Smalltalk
-	newVersionOf: (Smalltalk at: #WideSymbol ifAbsent: [nil])
-	description: '10'
-	options: #()
-) category: 'Collections-Strings-Base'.
 %
 errorCount
 run

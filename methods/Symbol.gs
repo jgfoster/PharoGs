@@ -1,7 +1,7 @@
 set compile_env: 2
 
 category: 'system primitives'
-classmethod: Symbol
+method: Symbol
 flushCache 
 	"Tell the virtual machine to remove all entries with this symbol as a selector 
     from its method lookup caches, if it has any.  

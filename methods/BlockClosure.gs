@@ -269,7 +269,7 @@ value: firstArg value: secondArg value: thirdArg
 	<PharoGsDone> 
 
     ^ self valueWithArguments: {  firstArg . secondArg . thirdArg }
-    %
+%
 
 category: 'evaluating'
 method: BlockClosure

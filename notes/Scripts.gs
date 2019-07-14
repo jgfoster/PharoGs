@@ -2,7 +2,7 @@
 
 	| environment methods symbol |
 	environment := 2.
-	symbol := #'PharoGs'.
+	symbol := #'PharoPrimitive'.
 	methods := (Globals at: #IdentitySet) new.
 	(Globals at: #System) myUserProfile symbolList do: [:eachDict | 
 		eachDict do: [:eachGlobal | 

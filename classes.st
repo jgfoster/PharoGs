@@ -29,21 +29,27 @@ keepGs do: [:each |
 keepGs 
 	add: #ArithmeticError; 
 	add: #BoxedFloat64; 
+	add: #ByteString;
+	add: #ByteSymbol;
 	add: #ClassDescription; 
 	add: #Metaclass; 
-	add: #Process;
 	add: #ScaledDecimal; 
 	add: #SmallFloat64; 
+	add: #WideString;
+	add: #WideSymbol;
 	yourself.
 fileStream lf;
-	tab; nextPutAll: 'at: #ArithmeticError	put: (Globals at: #NumericError	);'; lf;
-	tab; nextPutAll: 'at: #BoxedFloat64 	put: (Globals at: #Float		);'; lf;	
-	tab; nextPutAll: 'at: #ClassDescription	put: (Globals at: #Module		);'; lf;
-	tab; nextPutAll: 'at: #Float 			put: (Globals at: #BinaryFloat	);'; lf;	
-	tab; nextPutAll: 'at: #Metaclass 		put: (Globals at: #Metaclass3	);'; lf;
-	tab; nextPutAll: 'at: #Process 			put: (Globals at: #GsProcess	);'; lf;	
-	tab; nextPutAll: 'at: #ScaledDecimal 	put: (Globals at: #FixedPoint	);'; lf;	
-	tab; nextPutAll: 'at: #SmallFloat64 	put: (Globals at: #SmallDouble	);'; lf;	
+	tab; nextPutAll: 'at: #ArithmeticError	put: (Globals at: #NumericError		);'; lf;
+	tab; nextPutAll: 'at: #BoxedFloat64 	put: (Globals at: #Float			);'; lf;	
+	tab; nextPutAll: 'at: #ByteString	 	put: (Globals at: #String			);'; lf;	
+	tab; nextPutAll: 'at: #ByteSymbol	 	put: (Globals at: #Symbol			);'; lf;	
+	tab; nextPutAll: 'at: #ClassDescription	put: (Globals at: #Module			);'; lf;
+	tab; nextPutAll: 'at: #Float 			put: (Globals at: #BinaryFloat		);'; lf;	
+	tab; nextPutAll: 'at: #Metaclass 		put: (Globals at: #Metaclass3		);'; lf;
+	tab; nextPutAll: 'at: #ScaledDecimal 	put: (Globals at: #FixedPoint		);'; lf;	
+	tab; nextPutAll: 'at: #SmallFloat64 	put: (Globals at: #SmallDouble		);'; lf;	
+	tab; nextPutAll: 'at: #WideString	 	put: (Globals at: #QuadByteString	);'; lf;	
+	tab; nextPutAll: 'at: #WideSymbol	 	put: (Globals at: #QuadByteSymbol	);'; lf;	
 	tab; nextPutAll: 'yourself.'; lf;
 	nextPut: $%; lf;
 	nextPutAll: 'errorCount'; lf;
@@ -83,6 +89,10 @@ count := 0.
 				next class notNil ifTrue: [
 					next class instVarNames do: [:each | 
 						fileStream space; nextPutAll: each.
+					].
+					"special case to wrap a GsFile instance"
+					name class name == #'StandardFileStream' ifTrue: [
+						fileStream nextPutAll: ' gsFile'.
 					].
 				].
 				fileStream 

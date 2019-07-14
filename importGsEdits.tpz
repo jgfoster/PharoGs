@@ -8,9 +8,18 @@ input methods/BlockClosure.gs
 input methods/BoxedFloat64.gs
 input methods/ByteArray.gs
 input methods/ByteString.gs
+input methods/ByteSymbol.gs
 input methods/Character.gs
+input methods/DeflateStream.gs
 input methods/DependentsArray.gs
+input methods/DoubleByteArray.gs
+input methods/DoubleWordArray.gs
+input methods/FastInflateStream.gs
+input methods/FileStream.gs
+input methods/FloatArray.gs
 input methods/Integer.gs
+input methods/IntegerArray.gs
+input methods/Interval.gs
 input methods/LargeInteger.gs
 input methods/LocalTimeZone.gs
 input methods/Number.gs
@@ -23,6 +32,12 @@ input methods/SmallInteger.gs
 input methods/String.gs
 input methods/Symbol.gs
 input methods/Time.gs
+input methods/WeakArray.gs
+input methods/WideString.gs
+input methods/WideSymbol.gs
+input methods/WordArray.gs
+input methods/ZipEncoder.gs
+input methods/ZipWriteStream.gs
 errorCount
 output pop
 errorCount

@@ -21,8 +21,8 @@ keepGs := #(	"classes known to the VM that need to use the GemStone one"
 	Character Class ClassDescription Collection Error Exception ExceptionSet 
 	Float FloatingPointException Halt Integer LargeInteger Magnitude Message 
 	MessageNotUnderstood Metaclass Notification Number Object Pragma 
-	ProcessorScheduler ScaledDecimal SequenceableCollection SmallInteger String 
-	Symbol UndefinedObject Warning ZeroDivide
+	ProcessorScheduler ScaledDecimal Semaphore SequenceableCollection 
+	SmallInteger String Symbol UndefinedObject Warning ZeroDivide
 ).
 
 "some blocks need to be separate to get Pharo to compile"
@@ -225,6 +225,13 @@ ProtoObject withAllSubclasses do: [ :eachClass |
 
 				"special handling for methods we know won't compile"
 				source := filter2 value: eachBehavior value: eachSelector value: source.
+
+				"special handling for Semaphore"
+				eachBehavior == Semaphore ifTrue: [
+					source := source 
+						copyReplaceAll: 'excessSignals'
+						with: 'signalCount'.
+				].
 
 				"method category and instance or class side"
 				stream2 lf;

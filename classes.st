@@ -4,8 +4,8 @@ keepGs := #(	"classes known to the VM that need to use the GemStone one"
 	Array Behavior BlockClosure Boolean ByteArray CannotReturn Character 
 	Class Collection Error Exception ExceptionSet Float FloatingPointException Halt 
 	Integer LargeInteger Magnitude Message MessageNotUnderstood Notification 
-	Number Object Pragma ProcessorScheduler SequenceableCollection SmallInteger String 
-	Symbol UndefinedObject Warning ZeroDivide
+	Number Object Pragma ProcessorScheduler Semaphore SequenceableCollection 
+	SmallInteger String Symbol UndefinedObject Warning ZeroDivide
 ) asOrderedCollection.
 noSubclasses := #(
 	Behavior BlockClosure Boolean Class ExceptionSet LargeInteger Symbol

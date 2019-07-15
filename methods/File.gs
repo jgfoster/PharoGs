@@ -454,7 +454,6 @@ sizeOrNil: id
 category: 'primitives-file'
 classmethod: File
 stdioHandles 
-	<PharoPrimitive> 
 
     <PharoGsDone>
     ^Array @env0:with: GsFile stdin with: GsFile stdout with: GsFile stderr

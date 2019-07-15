@@ -90,10 +90,6 @@ count := 0.
 					next class instVarNames do: [:each | 
 						fileStream space; nextPutAll: each.
 					].
-					"special case to wrap a GsFile instance"
-					name class name == #'StandardFileStream' ifTrue: [
-						fileStream nextPutAll: ' gsFile'.
-					].
 				].
 				fileStream 
 					nextPutAll: ').'; lf;

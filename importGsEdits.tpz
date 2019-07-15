@@ -3,6 +3,7 @@ errorCount
 input methods/Adler32.gs
 input methods/Array.gs
 input methods/ArrayedCollection.gs
+input methods/AsyncFile.gs
 input methods/Behavior.gs
 input methods/BlockClosure.gs
 input methods/BoxedFloat64.gs
@@ -14,7 +15,12 @@ input methods/DeflateStream.gs
 input methods/DependentsArray.gs
 input methods/DoubleByteArray.gs
 input methods/DoubleWordArray.gs
+input methods/ExternalAddress.gs
+input methods/ExternalFunction.gs
+input methods/ExternalLibrary.gs
 input methods/FastInflateStream.gs
+input methods/File.gs
+input methods/FileReference.gs
 input methods/FileStream.gs
 input methods/FloatArray.gs
 input methods/Integer.gs
@@ -24,11 +30,13 @@ input methods/LargeInteger.gs
 input methods/LocalTimeZone.gs
 input methods/Number.gs
 input methods/Object.gs
+input methods/PlatformResolver.gs
 input methods/Process.gs
 input methods/ProcessorScheduler.gs
 input methods/ProtoObject.gs
 input methods/SmallFloat64.gs
 input methods/SmallInteger.gs
+input methods/StandardFileStream.gs
 input methods/String.gs
 input methods/Symbol.gs
 input methods/Time.gs

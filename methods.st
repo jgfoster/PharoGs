@@ -107,19 +107,22 @@ filter1 := [:source |
 filter2 := [:behavior :selector :source | 
 	| compileErrors flag |
 	compileErrors := #(
+		#(#MethodDictionary $*)
 		#(#Pragma #selector)
 		#(#Pragma #selector:)
+		#(#ProtoObjectTest $*)
 		#('SmallInteger class' #maxVal)
 		#('SmallInteger class' #minVal)
 		#('SmallInteger class' #startUp:)
 	).
 	flag := compileErrors anySatisfy: [:pair | 
-		(pair first == $* or: [pair first = behavior name]) and: [pair last == selector]].
+		(pair first == $* or: [pair first = behavior name]) 
+		and: [pair last == $* or: [pair last == selector]]].
 	flag ifTrue: [
 		| i |
 		i :=  source indexOf: lf.
 		(source copyFrom: 1 to: i - 1), lf asString , 
-			'	<compileError>' , lf asString , '"' , 
+			'	<PharoCompileError>' , lf asString , '"' , 
 			((source copyFrom: i to: source size) copyReplaceAll: '"' with: '""') , '"'.
 	] ifFalse: [
 		source
@@ -265,6 +268,8 @@ ProtoObject withAllSubclasses do: [ :eachClass |
 stream1 
 	nextPutAll: 'errorCount'; lf;
 	nextPutAll: 'output pop'; lf;
+	nextPut: (Character codePoint: 33); "bang should not be present in Pharo source"
+	nextPutAll: ' return from methods.out'; lf;
 	nextPutAll: 'errorCount'; lf;
 	close.
 Transcript show: count printString; cr.

@@ -11,24 +11,26 @@ minimal image. Each time a new minimal image is created with bootstrap, the
 list of reloaded packages can be cleared.
 "
 Metacello new
+  repository: 'github://pharo-vcs/tonel';
   baseline: 'Tonel';
-  repository: 'github://pharo-vcs/tonel:v1.0.12';
-  load.
+  load: 'core'.
 Transcript cr.
 !
-| list reader |
+| list |
 list := OrderedCollection new
+    add: '/Users/jfoster/code/pharo/src/' -> 'Monticello';
+    add: '/Users/jfoster/code/pharo/src/' -> 'SUnit-Core';
+    add: '/Users/jfoster/code/pharo/src/' -> 'Kernel-Tests';
 "
     add: '/Users/jfoster/code/pharo/src/' -> 'XXX';
 "
     yourself.
-list do: [:each | 
+list do: [:each | | reader |
     Transcript show: each value; cr.
     reader := TonelReader 
         on: each key asFileReference
         fileName: each value.
-    reader loadPackage.
-    reader definitions do: [:each | each load].
+    (MCSnapshot fromDefinitions: reader definitions) install.
 ].
 !
 SmalltalkImage current snapshot: true andQuit: true.

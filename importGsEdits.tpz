@@ -6,11 +6,13 @@ input methods/ArrayedCollection.gs
 input methods/AsyncFile.gs
 input methods/Behavior.gs
 input methods/BlockClosure.gs
+input methods/Boolean.gs
 input methods/BoxedFloat64.gs
 input methods/ByteArray.gs
 input methods/ByteString.gs
 input methods/ByteSymbol.gs
 input methods/Character.gs
+input methods/Class.gs
 input methods/CompiledCode.gs
 input methods/CompiledMethod.gs
 input methods/Context.gs
@@ -38,8 +40,9 @@ input methods/Interval.gs
 input methods/LargeInteger.gs
 input methods/LocalTimeZone.gs
 input methods/MD5.gs
-input methods/NetNameResolver.gs
+input methods/MethodDictionary.gs
 input methods/MirrorPrimitives.gs
+input methods/NetNameResolver.gs
 input methods/Number.gs
 input methods/Object.gs
 input methods/OSPlatform.gs
@@ -72,4 +75,5 @@ input methods/ZipEncoder.gs
 input methods/ZipWriteStream.gs
 errorCount
 output pop
+! return from importGsEdits.out
 errorCount

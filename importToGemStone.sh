@@ -4,5 +4,5 @@ if [ ! -d ./output ]; then
 fi
 rm output/*
 topaz -l -q << EOF
-input importToGemStone.gs
+input importToGemStone.tpz
 EOF

@@ -1,3 +1,25 @@
+set compile_env: 0
+
+category: 'Enumerating'
+method: Behavior
+_persistentMethodDicts
+  "Returns an Array of the persistent method dictionaries for all environments"
+
+ methDicts 
+   ifNil:[ ^ #() ]
+   ifNotNil:[ :mds | 
+     mds _isArray ifTrue:[ | arr |
+       arr := { } .
+       1 to: mds size by: 4 do:[:j |
+         (mds at: j) ifNotNil:[:aDict | arr add: aDict ]
+       ].
+       ^ arr
+     ] ifFalse:[
+      ^ { mds } 
+     ]
+   ].
+%
+
 set compile_env: 2
 
 category: 'adding/removing methods'
@@ -196,6 +218,24 @@ someInstance
 	list := SystemRepository @env0:listInstances: { self } limit: 1.
 	(list @env0:at: 1) == 0 @env0:ifTrue: [self @env0:error: 'No instances!'].
 	^(list @env0:at: 2) @env0:at: 1.
+%
+
+category: 'accessing'
+method: Behavior
+methodDict
+       "The method dictionary of a class can be nil when we want to use the #cannotInterpret: hook. Indeed when a class dictionary is nil, the VM sends the message cannotInterpret: to the receiver but starting the look up in the superclass of the class whose method dictionary was nil. 
+	 Now the system relies that when the message methodDict is sent to a class a method dictionary is returned. In order to prevent the complaints of tools and IDE unaware of this feature, we fool them by providing an empty MethodDictionary. This will hopefully work in most cases, but the tools will loose the ability to modify the behaviour of this behavior. The user of #cannotInterpret: should be aware of this." 
+	<PharoGsDone>
+	^(self @env0:persistentMethodDictForEnv: 2) @env2:ifNil: [MethodDictionary new]
+%
+
+category: 'accessing method dictionary'
+method: Behavior
+methodDict: aDictionary 
+	<PharoGsDone>
+	^self 
+		@env0:persistentMethodDictForEnv: 2 
+		put: aDictionary
 %
 
 set compile_env: 0

@@ -11,4 +11,12 @@ method: Number
     ^Point x: self y: y
 %
 
+category: 'private'
+method: Number
+_nonZeroGte: aNumber
+
+	<PharoGsDone>
+	^self @env0:_nonZeroGte: aNumber
+%
+
 set compile_env: 0

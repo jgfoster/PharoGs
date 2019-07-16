@@ -19,8 +19,13 @@ fi
 if [ -f output/Object.out ]; then
   rm output/*
 fi
-Pharo patches.st
-Pharo globals.st
-Pharo pools.st
-Pharo classes.st
-Pharo methods.st
+if [ -f PharoGs.tpz ]; then
+  rm PharoGs.tpz
+fi
+if [ -f PharoGs.out ]; then
+  rm *.out
+fi
+if [ -f PharoDebug.log ]; then
+  rm PharoDebug.log
+fi
+Pharo exportFromPharo.st

@@ -16,19 +16,12 @@ errorCount
 commit
 logout
 login
-input globals.gs
-input pools.gs
-input classes.gs
-input methods.gs
+input PharoGs.tpz
+! return from PharoGs.tpz
 input importGsEdits.tpz
+! return from importGsEdits.out
+errorCount
 
-output push UserGlobals.out only
-errorCount
-input UserGlobals.gs
-errorCount
-output pop
-
-errorCount
 run
 Object superclassForEnv: 2 put: ProtoObject.
 Object class superclassForEnv: 2 put: ProtoObject class.

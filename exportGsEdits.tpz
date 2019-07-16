@@ -1,3 +1,5 @@
+! If you edit in GemStone, then this script can export your edits
+
 run
 | classes environment fileStream symbolList |
 classes := Array new.

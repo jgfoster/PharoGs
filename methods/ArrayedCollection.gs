@@ -6,7 +6,7 @@ size
 	"Answer how many elements the receiver contains." 
 
 	<primitive: 0>
-	<PharoGsDone> 
+	<PharoGs> 
 	^ self basicSize
 %
 

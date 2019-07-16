@@ -4,7 +4,7 @@ category: 'private'
 method: ZipEncoder
 privateSendBlock: literalStream with: distanceStream with: litTree with: distTree 
 	"Send the current block using the encodings from the given literal/length and distance tree" 
-	<PharoGsDone> 
+	<PharoGs> 
 
 	| lit dist code extra sum | 
 	sum := 0. 

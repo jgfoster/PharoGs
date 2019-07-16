@@ -5,7 +5,7 @@ method: ZipWriteStream
 deflateBlock: lastIndex chainLength: chainLength goodMatch: goodMatch 
 	"^DeflatePlugin doPrimitive:#primitiveDeflateBlock" 
 
-    <PharoGsDone>
+    <PharoGs>
 	^super deflateBlock: lastIndex chainLength: chainLength goodMatch: goodMatch
 %
 

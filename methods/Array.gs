@@ -8,7 +8,7 @@ new: sizeRequested
 	 
 	This is a shortcut (direct call of primitive, no #initialize, for performance" 
     <primitive: 53>
-	<PharoGsDone> 
+	<PharoGs> 
 	^ self basicNew: sizeRequested  "Exceptional conditions will be handled in basicNew:"
 %
 
@@ -25,7 +25,7 @@ atWrap: index
     "(#(11 22 33) atWrap: 4) >>> 11" 
      
 	<primitive: 699>
-    <PharoGsDone> 
+    <PharoGs> 
     ^ self at: index - 1 \\ self size + 1
 %
 
@@ -35,7 +35,7 @@ atWrap: index put: anObject
 	"Optimized to go through the primitive if possible" 
 	"Can't use primitive since GemStone can increase Array size!"
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^ self at: index - 1 \\ self size + 1 put: anObject
 %
 
@@ -87,7 +87,7 @@ replaceFrom: start to: stop with: replacement startingAt: repStart
 	"Primitive. This destructively replaces elements from start to stop in the receiver starting at index, repStart, in the collection, replacement. Answer the receiver. Range checks are performed in the primitive only. Optional. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 608>
-	<PharoGsDone> 
+	<PharoGs> 
 	super replaceFrom: start to: stop with: replacement startingAt: repStart
 %
 

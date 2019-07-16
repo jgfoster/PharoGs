@@ -11,7 +11,7 @@ basicReplaceFrom: start to: stop with: replacement startingAt: repStart
     Optional. See Object documentation whatIsAPrimitive." 
 
     <primitive: 608>
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:replaceFrom: start to: stop with: replacement startingAt: repStart
 %
 

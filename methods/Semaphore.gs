@@ -8,7 +8,7 @@ signal
 	proceed. If no process is waiting, remember the excess signal. Essential.  
 	See Object documentation whatIsAPrimitive." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^self @env0:signal
 %
 
@@ -20,7 +20,7 @@ wait
 	suspended until one is sent. Essential. See Object documentation  
 	whatIsAPrimitive." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^self @env0:wait
 %
 

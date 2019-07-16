@@ -4,7 +4,7 @@ category: 'stdio'
 classmethod: FileStream
 stdioHandles 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^Array @env0:with: GsFile stdin with: GsFile stdout with: GsFile stderr
 %
 

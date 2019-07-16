@@ -6,7 +6,7 @@ value: anInteger
 	"Answer the Character whose value is anInteger." 
 
 	<primitive: 72>
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:codePoint: anInteger
 %
 
@@ -17,7 +17,7 @@ method: Character
 	 same object (have the same object pointer). Optional. See 
 	 Object documentation whatIsAPrimitive." 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	"optimized selector, so no primitive"
 	^self == aCharacter
 %
@@ -30,7 +30,7 @@ asciiValue
 	 and Unicode for those with higher values."
 
 	<primitive: 71>
-	<PharoGsDone> 
+	<PharoGs> 
 	self @env0:codePoint
 %
 
@@ -40,7 +40,7 @@ asInteger
 	"Answer the receiver's character code." 
 
 	<primitive: 71>
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:asInteger
 %
 
@@ -53,7 +53,7 @@ basicIdentityHash
 	 to assume that the value is in the range [ 0 ; 16r3FFFFF ]" 
 
 	<primitive: 71>
-	<PharoGsDone> 
+	<PharoGs> 
 	self @env0:hash
 %
 
@@ -64,7 +64,7 @@ hash
 	 Answer the receiver's character code." 
 
 	<primitive: 71>
-	<PharoGsDone> 
+	<PharoGs> 
 	self @env0:hash
 %
 

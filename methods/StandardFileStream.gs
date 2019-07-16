@@ -5,7 +5,7 @@ method: StandardFileStream
 primAtEnd: id 
 	"Answer true if the file position is at the end of the file." 
     
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:atEnd
 %
 
@@ -14,7 +14,7 @@ method: StandardFileStream
 primClose: id 
 	"Close this file." 
     
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:close
 %
 
@@ -23,7 +23,7 @@ method: StandardFileStream
 primCloseNoError: id 
 	"Close this file. Don't raise an error if the primitive fails." 
     
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:close
 %
 
@@ -54,7 +54,7 @@ primFlush: id
 	own internal buffer to minimize write() syscalls. This flushes that buffer. 
 	On Windows this and primSync: do the same thing." 
     
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:flush
 %
 
@@ -63,7 +63,7 @@ method: StandardFileStream
 primGetPosition: id 
 	"Get this files current position." 
     
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:position
 %
 
@@ -78,7 +78,7 @@ primOpen: fileName writable: writableFlag
 		if the file exists, open it read-only 
 		else return nil" 
     
-    <PharoGsDone>
+    <PharoGs>
     | gsFile |
     writableFlag ifTrue: [
         gsFile := GsFile @env0:openWriteOnServer: fileName.
@@ -96,7 +96,7 @@ primRead: id into: byteArray startingAt: startIndex count: count
 	"Read up to count bytes of data from this file into the given string or byte 
     array starting at the given index. Answer the number of bytes actually read." 
     
-    <PharoGsDone>
+    <PharoGs>
     | bytes actualCount |
     bytes := ByteArray new: count.
     actualCount := id @env0:next: count into: bytes.
@@ -113,7 +113,7 @@ method: StandardFileStream
 primSetPosition: id to: anInteger 
 	"Set this file to the given position." 
     
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:position: anInteger
 %
 
@@ -122,7 +122,7 @@ method: StandardFileStream
 primSize: id 
 	"Answer the size of this file." 
     
-    <PharoGsDone>
+    <PharoGs>
     | size |
     size := id @env0:fileSize.
     size == nil ifTrue: [self @env0:error: GsFile @env0:lastErrorString].
@@ -135,7 +135,7 @@ primSizeNoError: id
 	"Answer the size of this file. Answer nil if the primitive fails; 
     this indicates that the file handle has become stale." 
     
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:fileSize.
 %
 
@@ -145,7 +145,7 @@ primSync: id
 	"On Unix, this syncs any written or flushed data still in the kernel file 
 	system buffers to disk. On Windows this and primFlush: do the same thing" 
     
-    <PharoGsDone>
+    <PharoGs>
     (id @env0:sync) == nil ifTrue: [self @env0:error: id @env0:lastErrorString].
 %
 
@@ -164,7 +164,7 @@ primWrite: id from: stringOrByteArray startingAt: startIndex count: count
 	"Write count bytes onto this file from the given string or byte array 
     starting at the given index. Answer the number of bytes written." 
 
-    <PharoGsDone>
+    <PharoGs>
     | bytes |
     bytes := stringOrByteArray @env0:copyFrom: startIndex to: startIndex + count - 1.
     ^id @env0:write count from: bytes

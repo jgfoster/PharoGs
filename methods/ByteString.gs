@@ -12,7 +12,7 @@ basicNew: sizeRequested
 	 method is activated.  Check args and retry via handleFailingBasicNew: if they're OK." 
 
 	<primitive: 53>
-	<PharoGsDone> 
+	<PharoGs> 
 	self isVariable ifFalse: 
 		[self error: self printString, ' cannot have variable sized instances']. 
 	^self @env0:basicNew: sizeRequested
@@ -23,7 +23,7 @@ classmethod: ByteString
 compare: string1 with: string2 collated: order 
 	"Return 1, 2 or 3, if string1 is <, =, or > string2, with the collating order of characters given by the order array." 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	| len1 len2 c1 c2 | 
 	len1 := string1 size. 
 	len2 := string2 size. 
@@ -41,7 +41,7 @@ category: 'primitives'
 classmethod: ByteString
 findFirstInString: aString  inSet: inclusionMap  startingAt: start 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	| i stringSize | 
 	inclusionMap size ~= 256 ifTrue: [ ^0 ]. 
 	i := start. 
@@ -56,7 +56,7 @@ category: 'primitives'
 classmethod: ByteString
 indexOfAscii: anInteger inString: aString startingAt: start 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	| stringSize | 
 	stringSize := aString size. 
 	start to: stringSize do: [:pos | 
@@ -68,7 +68,7 @@ category: 'primitives'
 classmethod: ByteString
 stringHash: aString initialHash: speciesHash 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	| stringSize hash low | 
 	stringSize := aString size. 
 	hash := speciesHash bitAnd: 16rFFFFFFF. 
@@ -86,7 +86,7 @@ classmethod: ByteString
 translate: aString from: start  to: stop  table: table 
 	"translate the characters in the string by the given table, in place" 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	start to: stop do: [ :i | 
 		aString at: i put: (table at: (aString basicAt: i) + 1) ]
 %
@@ -97,7 +97,7 @@ replaceFrom: start to: stop with: replacement startingAt: repStart
 	"Primitive. This destructively replaces elements from start to stop in the receiver starting at index, repStart, in the collection, replacement. Answer the receiver. Range checks are performed in the primitive only. Optional. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 297>
-	<PharoGsDone> 
+	<PharoGs> 
 	replacement class == WideString ifTrue: [ 
 		self becomeForward: (WideString from: self). 
 	].  
@@ -112,7 +112,7 @@ at: index
 	is out of bounds. Essential. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 69>
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:at: index
 %
 
@@ -125,7 +125,7 @@ at: index put: aCharacter
 	whatIsAPrimitive." 
 
 	<primitive: 293>
-	<PharoGsDone> 
+	<PharoGs> 
 	aCharacter isCharacter 
 		ifFalse:[^self errorImproperStore].
 	aCharacter isOctetCharacter ifFalse:[
@@ -146,7 +146,7 @@ method: ByteString
 byteAt: index 
 
 	<primitive: 69>
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:at: index
 %
 
@@ -155,7 +155,7 @@ method: ByteString
 byteAt: index put: value 
 
 	<primitive: 293>
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:at: index put: value
 %
 

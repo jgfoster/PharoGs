@@ -8,7 +8,7 @@ millisecondClockValue
 	Answer 0 if the primitive fails." 
 
     <primitive: 651>
-	<PharoGsDone>
+	<PharoGs>
     ^self @env0:_primitiveFailed: #millisecondClockValue
 %
 
@@ -20,7 +20,7 @@ primMillisecondClock
 	As an alternative you can use #primUTCMillisecondsClock which does not overflow." 
 
     <primitive: 651>
-	<PharoGsDone>
+	<PharoGs>
     ^self @env0:_primitiveFailed: #primMillisecondClock
 %
 
@@ -39,7 +39,7 @@ year1970 := (Globals at: #DateAndTime) year: 1970 day: 1 hour: 0 minute: 0 secon
 (year1970 - year1901) asSeconds * 1000 * 1000.
  2177452800000000
     "
-	<PharoGsDone>
+	<PharoGs>
 
     ^((Globals @env0:at: #System) 
         @env0:_timeGmtFloat * 1000000) asInteger    "since January 1, 1970"

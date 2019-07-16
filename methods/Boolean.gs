@@ -6,7 +6,7 @@ method: Boolean
 	"Evaluating conjunction. Evaluate the argument. Then answer true if 
 	both the receiver and the argument are true."
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:& aBoolean
 %
 
@@ -17,7 +17,7 @@ and: alternativeBlock
 	the argument, alternativeBlock; otherwise answer false without 
 	evaluating the argument."
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:and: [alternativeBlock @env2: value]
 %
 
@@ -26,7 +26,7 @@ method: Boolean
 asBit
 	"convert myself to an Integer representing 1 for true and 0 for false"
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self ifTrue: [1] ifFalse: [0]
 %
 
@@ -39,7 +39,7 @@ ifFalse: alternativeBlock
 	receiver is nonBoolean. Execution does not actually reach here because 
 	the expression is compiled in-line."
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:ifFalse: [alternativeBlock value]
 %
 
@@ -47,7 +47,7 @@ category: 'controlling'
 method: Boolean
 ifFalse: falseAlternativeBlock ifTrue: trueAlternativeBlock
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self ifTrue: [trueAlternativeBlock value] ifFalse: [falseAlternativeBlock value]
 %
 
@@ -60,7 +60,7 @@ ifTrue: alternativeBlock
 	receiver is nonBoolean. Execution does not actually reach here because 
 	the expression is compiled in-line."
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:ifTrue: [alternativeBlock @env2:value]
 %
 
@@ -68,7 +68,7 @@ category: 'controlling'
 method: Boolean
 ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self ifTrue: [trueAlternativeBlock value] ifFalse: [falseAlternativeBlock value]
 %
 
@@ -78,7 +78,7 @@ not
 	"Negation. Answer true if the receiver is false, answer false if the 
 	receiver is true."
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:not
 %
 
@@ -89,7 +89,7 @@ or: alternativeBlock
 	the argument, alternativeBlock; otherwise answer true without 
 	evaluating the argument."
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:or: [alternativeBlock value]
 %
 
@@ -97,7 +97,7 @@ category: 'controlling'
 method: Boolean
 xor: alternativeBlock
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self ifTrue: [alternativeBlock not] ifFalse: [alternativeBlock]
 %
 
@@ -107,7 +107,7 @@ method: Boolean
 	"Evaluating disjunction (OR). Evaluate the argument. Then answer true 
 	if either the receiver or the argument is true."
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:or: [aBoolean]
 %
 

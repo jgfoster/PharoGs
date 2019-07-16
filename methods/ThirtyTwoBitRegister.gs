@@ -5,7 +5,7 @@ method: ThirtyTwoBitRegister
 copy 
 	"Use the clone primitive for speed." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^super copy
 %
 

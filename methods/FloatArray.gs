@@ -3,7 +3,7 @@ set compile_env: 2
 category: 'comparing'
 method: FloatArray
 = aFloatArray  
-    <PharoGsDone>
+    <PharoGs>
 
 	| length | 
 	aFloatArray class = self class ifFalse: [^ false]. 
@@ -18,7 +18,7 @@ category: 'accessing'
 method: FloatArray
 at: index 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^Float fromIEEE32Bit: (self basicAt: index)
 %
 
@@ -26,7 +26,7 @@ category: 'accessing'
 method: FloatArray
 at: index put: value 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	value isFloat  
 		ifTrue:[self basicAt: index put: value asIEEE32BitWord] 
 		ifFalse:[self at: index put: value asFloat]. 
@@ -39,7 +39,7 @@ dot: aFloatVector
 	"Primitive. Return the dot product of the receiver and the argument. 
 	Fail if the argument is not of the same size as the receiver." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     | result | 
 	self size = aFloatVector size ifFalse:[^self error:'Must be equal size']. 
 	result := 0.0. 
@@ -52,7 +52,7 @@ category: 'comparing'
 method: FloatArray
 hash 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	| result | 
 	result := 0. 
 	1 to: self size do:[:i| result := result + (self basicAt: i) ]. 
@@ -63,7 +63,7 @@ category: 'primitives-plugin'
 method: FloatArray
 primAddArray: floatArray 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: self size do:[:i| self at: i put: (self at: i) + (floatArray at: i)].
 %
 
@@ -71,7 +71,7 @@ category: 'primitives-plugin'
 method: FloatArray
 primAddScalar: scalarValue 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: self size do:[:i| self at: i put: (self at: i) + scalarValue].
 %
 
@@ -79,7 +79,7 @@ category: 'primitives-plugin'
 method: FloatArray
 primDivArray: floatArray 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: self size do:[:i| self at: i put: (self at: i) / (floatArray at: i)].
 %
 
@@ -87,7 +87,7 @@ category: 'primitives-plugin'
 method: FloatArray
 primDivScalar: scalarValue 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: self size do:[:i| self at: i put: (self at: i) / scalarValue].
 %
 
@@ -95,7 +95,7 @@ category: 'primitives-plugin'
 method: FloatArray
 primMulArray: floatArray 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: self size do:[:i| self at: i put: (self at: i) * (floatArray at: i)].
 %
 
@@ -103,7 +103,7 @@ category: 'primitives-plugin'
 method: FloatArray
 primMulScalar: scalarValue 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: self size do:[:i| self at: i put: (self at: i) * scalarValue]. 
 %
 
@@ -111,7 +111,7 @@ category: 'primitives-plugin'
 method: FloatArray
 primSubArray: floatArray 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: self size do:[:i| self at: i put: (self at: i) - (floatArray at: i)].
 %
 
@@ -119,7 +119,7 @@ category: 'primitives-plugin'
 method: FloatArray
 primSubScalar: scalarValue 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: self size do:[:i| self at: i put: (self at: i) - scalarValue].
 %
 
@@ -129,7 +129,7 @@ replaceFrom: start to: stop with: replacement startingAt: repStart
 	"Primitive. This destructively replaces elements from start to stop in the receiver starting at index, repStart, in the collection, replacement. Answer the receiver. Range checks are performed in the primitive only. Optional. See Object documentation whatIsAPrimitive." 
 
     <primitive: 608>
-	<PharoGsDone> 
+	<PharoGs> 
     self @env0:replaceFrom: start to: stop with: replacement startingAt: repStart
 %
 
@@ -137,7 +137,7 @@ category: 'primitives-plugin'
 method: FloatArray
 sum 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^ super sum
 %
 

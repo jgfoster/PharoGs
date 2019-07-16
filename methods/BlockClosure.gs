@@ -4,7 +4,7 @@ category: 'accessing'
 method: BlockClosure
 copiedValueAt: i 
 
-    <PharoGsDone>
+    <PharoGs>
 	^self basicAt: i
 %
 
@@ -25,7 +25,7 @@ ensure: aBlock
     error is generated. "
 
     <primitive: 2017>  "marks frame with ENSURE_Mark_NIL, always fails"
-    <PharoGsDone>
+    <PharoGs>
     | result |
     result := self value.  "execute the receiver"
     self @env0:_removeEnsure ifNotNil: [:b | 
@@ -65,7 +65,7 @@ ifCurtailed: aBlock
     which were evaluated using either #ensure: or #ifCurtailed: the respective 
     terminationBlocks will be executed in the reverse of the order in which 
     the corresponding receiver blocks were evaluated."
-    <PharoGsDone>
+    <PharoGs>
 
     | wasCurtailed result |
     wasCurtailed := true.
@@ -85,7 +85,7 @@ newProcess
 	scheduled. 
 	IMPORTANT! Debug stepping this deep infrastructure may lock your Image 
   	If you are not sure what you are doing, close the debugger now." 
-	<PharoGsDone> 
+	<PharoGs> 
 
 	^Process 
 		forContext:  
@@ -100,7 +100,7 @@ newProcessWith: anArray
 	"Answer a Process running the code in the receiver. The receiver's block  
 	arguments are bound to the contents of the argument, anArray. The  
 	process is not scheduled." 
-	<PharoGsDone> 
+	<PharoGs> 
 
 	^Process 
 		forContext:  
@@ -204,7 +204,7 @@ value
     #value is optimized by the compiler.
     This method is in the image for use by perform: and for
     failure paths from the optimized bytecode "
-	<PharoGsDone> 
+	<PharoGs> 
 
     ^ self valueWithArguments: #()
 %
@@ -224,7 +224,7 @@ value: anArg
     #value: is optimized by the compiler.
     This method is in the image for use by perform: and for
     failure paths from the optimized bytecode "
-	<PharoGsDone> 
+	<PharoGs> 
 
     ^ self valueWithArguments: { anArg }
 %
@@ -245,7 +245,7 @@ value: firstArg value: secondArg
     #value:value: is optimized by the compiler.
     This method is in the image for use by perform: and for
     failure paths from the optimized bytecode "
-	<PharoGsDone> 
+	<PharoGs> 
 
     ^ self valueWithArguments: {  firstArg . secondArg }
 %
@@ -266,7 +266,7 @@ value: firstArg value: secondArg value: thirdArg
     #value:value:value: is optimized by the compiler.
     This method is in the image for use by perform: and for
     failure paths from the optimized bytecode "
-	<PharoGsDone> 
+	<PharoGs> 
 
     ^ self valueWithArguments: {  firstArg . secondArg . thirdArg }
 %
@@ -287,7 +287,7 @@ value: firstArg value: secondArg value: thirdArg value: fourthArg
     #value:value:value:value: is optimized by the compiler.
     This method is in the image for use by perform: and for
     failure paths from the optimized bytecode "
-	<PharoGsDone> 
+	<PharoGs> 
 
     ^ self valueWithArguments: {  firstArg . secondArg . thirdArg . fourthArg }
 %
@@ -305,7 +305,7 @@ valueWithArguments: anArray
     an error is generated."
 
     <primitive: 2003>  "compiler emits special bytecode"
-    <PharoGsDone>
+    <PharoGs>
     ^ self @env0:_primitiveFailed: #valueWithArguments: args: { anArray }
 %
 

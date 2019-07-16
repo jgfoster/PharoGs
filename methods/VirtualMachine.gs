@@ -238,7 +238,7 @@ primVmPath
     Return the empty string if this primitive is not implemented." 
 	"Smalltalk vmPath" 
 
-    <PharoGsDone>
+    <PharoGs>
     ^''
 %
 

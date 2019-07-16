@@ -5,7 +5,7 @@ method: WordArray
 atAllPut: value 
 	"Fill the receiver with the given value" 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	super atAllPut: value
 %
 
@@ -13,7 +13,7 @@ category: 'array arithmetic primitives'
 method: WordArray
 primAddArray: rcvr and: other into: result 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: rcvr size do: [:i | 
 		result at: i put: (rcvr at: i) + (other at: i) 
 	]. 
@@ -24,7 +24,7 @@ category: 'array arithmetic primitives'
 method: WordArray
 primAddScalar: rcvr and: other into: result 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: rcvr size do: [:i | 
 		result at: i put: (rcvr at: i) + other. 
 	]. 
@@ -35,7 +35,7 @@ category: 'array arithmetic primitives'
 method: WordArray
 primDivArray: rcvr and: other into: result 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: rcvr size do: [:i | 
 		result at: i put: (rcvr at: i) / (other at: i) 
 	]. 
@@ -46,7 +46,7 @@ category: 'array arithmetic primitives'
 method: WordArray
 primDivScalar: rcvr and: other into: result 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: rcvr size do: [:i | 
 		result at: i put: (rcvr at: i) / other. 
 	]. 
@@ -57,7 +57,7 @@ category: 'array arithmetic primitives'
 method: WordArray
 primMulArray: rcvr and: other into: result 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: rcvr size do: [:i | 
 		result at: i put: (rcvr at: i) * (other at: i) 
 	]. 
@@ -68,7 +68,7 @@ category: 'array arithmetic primitives'
 method: WordArray
 primMulScalar: rcvr and: other into: result 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: rcvr size do: [:i | 
 		result at: i put: (rcvr at: i) * other. 
 	]. 
@@ -79,7 +79,7 @@ category: 'array arithmetic primitives'
 method: WordArray
 primSubArray: rcvr and: other into: result 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: rcvr size do: [:i | 
 		result at: i put: (rcvr at: i) - (other at: i) 
 	]. 
@@ -90,7 +90,7 @@ category: 'array arithmetic primitives'
 method: WordArray
 primSubScalar: rcvr and: other into: result 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: rcvr size do: [:i | 
 		result at: i put: (rcvr at: i) - other. 
 	]. 
@@ -101,7 +101,7 @@ category: 'accessing'
 method: WordArray
 replaceFrom: start to: stop with: replacement startingAt: repStart  
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^super replaceFrom: start to: stop with: replacement startingAt: repStart 
 %
 

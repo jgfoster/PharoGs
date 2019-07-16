@@ -10,7 +10,7 @@ nowTick
      enough for dates up to year 38435. 
 	 Essential. See Object documentation whatIsAPrimitive. " 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^Time primMillisecondClock
 %
 

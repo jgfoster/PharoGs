@@ -28,7 +28,7 @@ adoptInstance: anInstance
 	"Change the class of anInstance to me. 
 	Primitive (found in Cog and new VMs)  follows the same rules as primitiveChangeClassTo:, but returns the 	class rather than the modified instance" 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	anInstance @env0:changeClassTo: self. 
 	^self
 %
@@ -38,7 +38,7 @@ method: Behavior
 allInstances 
 	"Answer all instances of the receiver." 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self realClass @env0:allInstances
 %
 
@@ -47,7 +47,7 @@ method: Behavior
 allInstancesOrNil 
 	"Answer all instances of the receiver." 
 	
-	<PharoGsDone> 
+	<PharoGs> 
 	[
 		^self realClass @env0:allInstances
 	] @env0:on: AlmostOutOfMemory do: [:ex | 
@@ -72,7 +72,7 @@ basicIdentityHash
 	 Primitive. Essential. Do not override. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 321>
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:basicIdentityHash
 %
 
@@ -87,7 +87,7 @@ basicNew: sizeRequested
 	 If the primitive fails because space is low then the scavenger will run before the 
 	 method is activated.  Check args and retry via handleFailingBasicNew: if they're OK." 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:_basicNew: sizeRequested
 %
 
@@ -103,7 +103,7 @@ basicNew
 	 via handleFailingBasicNew if so." 
 
 	<primitive: 50>
-	<PharoGsDone> 
+	<PharoGs> 
 	self isVariable ifTrue: [^self basicNew: 0]. 
 	^self @env0:basicNew
 %
@@ -213,7 +213,7 @@ someInstance
 	of the receiver. Fails if there are none. Essential. See Object  
 	documentation whatIsAPrimitive." 
 	
-	<PharoGsDone> 
+	<PharoGs> 
 	| list |
 	list := SystemRepository @env0:listInstances: { self } limit: 1.
 	(list @env0:at: 1) == 0 @env0:ifTrue: [self @env0:error: 'No instances!'].
@@ -225,14 +225,14 @@ method: Behavior
 methodDict
        "The method dictionary of a class can be nil when we want to use the #cannotInterpret: hook. Indeed when a class dictionary is nil, the VM sends the message cannotInterpret: to the receiver but starting the look up in the superclass of the class whose method dictionary was nil. 
 	 Now the system relies that when the message methodDict is sent to a class a method dictionary is returned. In order to prevent the complaints of tools and IDE unaware of this feature, we fool them by providing an empty MethodDictionary. This will hopefully work in most cases, but the tools will loose the ability to modify the behaviour of this behavior. The user of #cannotInterpret: should be aware of this." 
-	<PharoGsDone>
+	<PharoGs>
 	^(self @env0:persistentMethodDictForEnv: 2) @env2:ifNil: [MethodDictionary new]
 %
 
 category: 'accessing method dictionary'
 method: Behavior
 methodDict: aDictionary 
-	<PharoGsDone>
+	<PharoGs>
 	^self 
 		@env0:persistentMethodDictForEnv: 2 
 		put: aDictionary

@@ -8,7 +8,7 @@ method: SmallFloat64
 	whatIsAPrimitive." 
 
 	<primitive: 102>
-	<PharoGsDone>
+	<PharoGs>
 	FloatingPointError _checkFpStatus .
 	^self @env0:* aNumber
 %
@@ -21,7 +21,7 @@ method: SmallFloat64
 	whatIsAPrimitive." 
 
 	<primitive: 106>
-	<PharoGsDone>
+	<PharoGs>
 	FloatingPointError _checkFpStatus .
 	^self @env0:+ aNumber
 %
@@ -34,7 +34,7 @@ method: SmallFloat64
 	whatIsAPrimitive." 
 
 	<primitive: 107>
-	<PharoGsDone>
+	<PharoGs>
 	FloatingPointError _checkFpStatus .
 	^self @env0:- aNumber
 %
@@ -47,7 +47,7 @@ method: SmallFloat64
 	whatIsAPrimitive." 
 
 	<primitive: 108>
-	<PharoGsDone>
+	<PharoGs>
 	FloatingPointError _checkFpStatus .
 	^self @env0:/ aNumber
 %
@@ -61,7 +61,7 @@ method: SmallFloat64
 	whatIsAPrimitive." 
 
 	<primitive: 118>
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:< aNumber
 %
 
@@ -74,7 +74,7 @@ method: SmallFloat64
 	documentation whatIsAPrimitive." 
 
 	<primitive: 121>
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:<= aNumber
 %
 
@@ -87,7 +87,7 @@ method: SmallFloat64
 	whatIsAPrimitive." 
 
 	<primitive: 119>
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:= aNumber
 %
 
@@ -99,7 +99,7 @@ method: SmallFloat64
 	Fail if the argument is not a Float. Essential. See Object documentation 
 	whatIsAPrimitive." 
 
-	<PharoGsDone>
+	<PharoGs>
 	^aNumber < self
 %
 
@@ -111,7 +111,7 @@ method: SmallFloat64
 	false. Fail if the argument is not a Float. Optional. See Object documentation  
 	whatIsAPrimitive. " 
 
-	<PharoGsDone>
+	<PharoGs>
 	^aNumber <= self
 %
 
@@ -124,7 +124,7 @@ method: SmallFloat64
 	whatIsAPrimitive." 
 
 	<primitive: 177>
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:~= aNumber
 %
 
@@ -140,7 +140,7 @@ basicIdentityHash
   1.0->'16r7F0000000000000'->'16r7F0000000000000'}" 
 
 	<primitive: 321>
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:basicIdentityHash
 %
 
@@ -150,7 +150,7 @@ arcTan
 	"Answer the angle in radians. 
 	 Optional. See Object documentation whatIsAPrimitive." 
 
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:_mathPrim: 4
 %
 
@@ -160,7 +160,7 @@ exp
 	"Answer E raised to the receiver power. 
 	 Optional. See Object documentation whatIsAPrimitive."  
 
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:_mathPrim: 0
 %
 
@@ -172,7 +172,7 @@ exponent
 	SmallInteger to whose power two is raised. Optional. See Object 
 	documentation whatIsAPrimitive." 
 
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:_mathPrim: 28
 %
 
@@ -183,7 +183,7 @@ fractionPart
 	receiver and the receiver's asInteger value. Optional. See Object  
 	documentation whatIsAPrimitive." 
 
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:fractionPart
 %
 
@@ -193,7 +193,7 @@ ln
 	"Answer the natural logarithm of the receiver. 
 	 Optional. See Object documentation whatIsAPrimitive." 
 
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:_mathPrim: 7
 %
 
@@ -203,7 +203,7 @@ sin
 	"Answer the sine of the receiver taken as an angle in radians. 
 	 Optional. See Object documentation whatIsAPrimitive." 
 
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:_mathPrim: 2
 %
 
@@ -214,7 +214,7 @@ sqrt
 	 Optional. See Object documentation whatIsAPrimitive." 
 
 	<primitive: 104>
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:sqrt
 %
 
@@ -225,7 +225,7 @@ timesTwoPower: anInteger
 	to the power of the argument. 
 	Optional. See Object documentation whatIsAPrimitive." 
 
-	<PharoGsDone>
+	<PharoGs>
 	anInteger < -29 ifTrue: [^ self * (2.0 raisedToInteger: anInteger)]. 
 	anInteger < 0 ifTrue: [^ self / (1 bitShift: (0 - anInteger)) asFloat]. 
 	anInteger < 30 ifTrue: [^ self * (1 bitShift: anInteger) asFloat]. 
@@ -241,7 +241,7 @@ truncated
 	a LargeInteger truncated value. 
 	Essential. See Object documentation whatIsAPrimitive. " 
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:_truncated: true
 %
 

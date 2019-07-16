@@ -9,7 +9,7 @@ basicNew: sizeRequested
 	 positive Integer, or if there is not enough memory available.  
 	 Essential. See Object documentation whatIsAPrimitive." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:_basicNew: sizeRequested
 %
 
@@ -21,7 +21,7 @@ method: BoxedFloat64
 	whatIsAPrimitive." 
 
     <primitive: 102>
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:* aNumber
 %
 
@@ -33,7 +33,7 @@ method: BoxedFloat64
 	whatIsAPrimitive." 
 
     <primitive: 106>
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:+ aNumber
 %
 
@@ -45,7 +45,7 @@ method: BoxedFloat64
 	whatIsAPrimitive." 
 
     <primitive: 107>
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:- aNumber
 %
 
@@ -57,7 +57,7 @@ method: BoxedFloat64
 	whatIsAPrimitive." 
 
     <primitive: 108>
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:/ aNumber
 %
 
@@ -70,7 +70,7 @@ method: BoxedFloat64
 	whatIsAPrimitive." 
 
     <primitive: 118>
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:< aNumber
 %
 
@@ -83,7 +83,7 @@ method: BoxedFloat64
 	documentation whatIsAPrimitive." 
 
     <primitive: 121>
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:< aNumber
 %
 
@@ -96,7 +96,7 @@ method: BoxedFloat64
 	whatIsAPrimitive." 
 
     <primitive: 119>
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:< aNumber
 %
 
@@ -108,7 +108,7 @@ method: BoxedFloat64
 	Fail if the argument is not a Float. Essential. See Object documentation 
 	whatIsAPrimitive." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^aNumber < self
 %
 
@@ -120,7 +120,7 @@ method: BoxedFloat64
 	false. Fail if the argument is not a Float. Optional. See Object documentation  
 	whatIsAPrimitive. " 
 
-    <PharoGsDone>
+    <PharoGs>
     ^aNumber <= self
 %
 
@@ -130,7 +130,7 @@ arcTan
 	"Answer the angle in radians. 
 	 Optional. See Object documentation whatIsAPrimitive." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:_mathPrim: 4
 %
 
@@ -140,7 +140,7 @@ exp
 	"Answer E raised to the receiver power. 
 	 Optional. See Object documentation whatIsAPrimitive."  
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:_mathPrim: 0
 %
 
@@ -152,7 +152,7 @@ exponent
 	SmallInteger to whose power two is raised. Optional. See Object 
 	documentation whatIsAPrimitive." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:_mathPrim: 28
 %
 
@@ -163,7 +163,7 @@ fractionPart
 	receiver and the receiver's asInteger value. Optional. See Object  
 	documentation whatIsAPrimitive." 
 
-    <PharoGsDone>
+    <PharoGs>
 	^self - self truncated asFloat
 %
 
@@ -173,7 +173,7 @@ ln
 	"Answer the natural logarithm of the receiver. 
 	 Optional. See Object documentation whatIsAPrimitive." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:_mathPrim: 7
 %
 
@@ -183,7 +183,7 @@ sin
 	"Answer the sine of the receiver taken as an angle in radians. 
 	 Optional. See Object documentation whatIsAPrimitive." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:_mathPrim: 2
 %
 
@@ -194,7 +194,7 @@ sqrt
 	 Optional. See Object documentation whatIsAPrimitive." 
 
     <primitive: 104>
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:sqrt
 %
 
@@ -205,7 +205,7 @@ timesTwoPower: anInteger
 	to the power of the argument. 
 	Optional. See Object documentation whatIsAPrimitive." 
 
-    <PharoGsDone>
+    <PharoGs>
 	anInteger < -29 ifTrue: [^ self * (2.0 raisedToInteger: anInteger)]. 
 	anInteger < 0 ifTrue: [^ self / (1 bitShift: (0 - anInteger)) asFloat]. 
 	anInteger < 30 ifTrue: [^ self * (1 bitShift: anInteger) asFloat]. 
@@ -221,7 +221,7 @@ truncated
 	a LargeInteger truncated value. 
 	Essential. See Object documentation whatIsAPrimitive. " 
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:_truncated: true
 %
 
@@ -234,7 +234,7 @@ method: BoxedFloat64
 	whatIsAPrimitive." 
 
     <primitive: 177>
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:~= aNumber
 %
 

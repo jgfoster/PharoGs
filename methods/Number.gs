@@ -7,7 +7,7 @@ method: Number
 	value is the argument. Optional. No Lookup. See Object documentation  
 	whatIsAPrimitive." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^Point x: self y: y
 %
 
@@ -15,7 +15,7 @@ category: 'private'
 method: Number
 _nonZeroGte: aNumber
 
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:_nonZeroGte: aNumber
 %
 

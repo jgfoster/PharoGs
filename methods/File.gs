@@ -5,7 +5,7 @@ classmethod: File
 atEnd: id 
 	"Answer true if the file position is at the end of the file." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:atEnd
 %
 
@@ -14,7 +14,7 @@ classmethod: File
 close: id 
 	"Close this file." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:close
 %
 
@@ -46,7 +46,7 @@ createDirectory: fullPath
 	"Create a directory named by the given path.  
 	Fail if the path is bad or if a file or directory by that name already exists." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^GsFile @env0:createServerDirectory: fullPath
 %
 
@@ -56,7 +56,7 @@ deleteDirectory: fullPath
 	"Delete the directory named by the given path.  
 	Fail if the path is bad or if a directory by that name does not exist." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^GsFile @env0:removeServerDirectory: fullPath
 %
 
@@ -65,7 +65,7 @@ classmethod: File
 delimiter 
 	"Return the path delimiter for the underlying platform's file system." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^$/
 %
 
@@ -100,7 +100,7 @@ flush: id
 	own internal buffer to minimize write() syscalls. This flushes that buffer. 
 	On Windows this and primSync: do the same thing." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:flush
 %
 
@@ -121,7 +121,7 @@ classmethod: File
 getPosition: id 
 	"Get this files current position." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:position
 %
 
@@ -171,7 +171,7 @@ open: fileName writable: writableFlag
 		if the file exists, open it read-only 
 		else return nil" 
 
-    <PharoGsDone>
+    <PharoGs>
     | gsFile |
     writableFlag ifTrue: [
         gsFile := GsFile @env0:openWriteOnServer: fileName.
@@ -201,7 +201,7 @@ primDeleteFile: aFileName
 	"Delete the file of the given name.  
 	Return self if the primitive succeeds, nil otherwise." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^GsFile @env0:removeServerFile: aFileName
 %
 
@@ -210,7 +210,7 @@ classmethod: File
 primExists: aByteArray 
 	"Answer a boolean indicating whether the supplied file exists." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^GsFile @env0:exists: aByteArray
 %
 
@@ -402,7 +402,7 @@ classmethod: File
 read: id into: byteArray startingAt: startIndex count: count 
 	"Read up to count bytes of data from this file into the given string or byte array starting at the given index. Answer the number of bytes actually read." 
 
-    <PharoGsDone>
+    <PharoGs>
     | bytes actualCount |
     bytes := ByteArray new: count.
     actualCount := id @env0:next: count into: bytes.
@@ -420,7 +420,7 @@ rename: oldFileFullName to: newFileFullName
 	"Rename the file of the given name to the new name. Fail if there is no file of the old name  
 	or if there is an existing file with the new name." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^GsFile @env0:renameFileOnServer: oldFileFullName to: newFileFullName
 %
 
@@ -429,7 +429,7 @@ classmethod: File
 setPosition: id to: anInteger 
 	"Set this file to the given position." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:position: anInteger
 %
 
@@ -438,7 +438,7 @@ classmethod: File
 sizeOf: id 
 	"Answer the size of this file." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:fileSize
 %
 
@@ -447,7 +447,7 @@ classmethod: File
 sizeOrNil: id 
 	"Answer the size of this file." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^[id @env0:fileSize] @env0:on: (Globals at: #'Error') do: [:ex | ex return: nil]
 %
 
@@ -455,7 +455,7 @@ category: 'primitives-file'
 classmethod: File
 stdioHandles 
 
-    <PharoGsDone>
+    <PharoGs>
     ^Array @env0:with: GsFile stdin with: GsFile stdout with: GsFile stderr
 %
 
@@ -465,7 +465,7 @@ sync: id
 	"On Unix, this syncs any written or flushed data still in the kernel file 
 	system buffers to disk. On Windows this and primFlush: do the same thing" 
 
-    <PharoGsDone>
+    <PharoGs>
     ^id @env0:sync
 %
 
@@ -485,7 +485,7 @@ write: id from: stringOrByteArray startingAt: startIndex count: count
     starting at the given index. 	
     Answer the number of bytes written." 
 
-    <PharoGsDone>
+    <PharoGs>
     | bytes |
     bytes := stringOrByteArray @env0:copyFrom: startIndex to: startIndex + count - 1.
     ^id @env0:write count from: bytes

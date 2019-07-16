@@ -9,7 +9,7 @@ flushCache
     so that message lookups reflect the revised organization.  c.f. 	
     Behavior>>flushCache & CompiledMethod>>flushCache.  
     Essential. See MethodDictionary class comment." 
-    <PharoGsDone>
+    <PharoGs>
 
     "GemStone handles this automatically"
 %

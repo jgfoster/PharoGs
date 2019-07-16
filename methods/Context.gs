@@ -5,7 +5,7 @@ classmethod: Context
 allInstances 
 	"Answer all instances of the receiver." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^super allInstances
 %
 
@@ -236,7 +236,7 @@ size
 	documentation whatIsAPrimitive.  Override the default primitive to give latitude to 
 	 the VM in context management." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^super size
 %
 

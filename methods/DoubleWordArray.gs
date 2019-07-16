@@ -5,7 +5,7 @@ method: DoubleWordArray
 atAllPut: value 
 	"Fill the receiver with the given value" 
 
-	<PharoGsDone> 
+	<PharoGs> 
     1 to: self size do: [ :index | self at: index put: value].
 %
 
@@ -18,7 +18,7 @@ replaceFrom: start to: stop with: replacement startingAt: repStart
     Optional. See Object documentation whatIsAPrimitive." 
 
     <primitive: 608>
-	<PharoGsDone> 
+	<PharoGs> 
     self @env0:replaceFrom: start to: stop with: replacement startingAt: repStart
 %
 

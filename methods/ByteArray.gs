@@ -8,7 +8,7 @@ hashBytes: aByteArray startingWith: speciesHash
 	See SmallInteger>>hashMultiply. 
 	The primitive should be renamed at a 
 	suitable point in the future" 
-    <PharoGsDone>
+    <PharoGs>
 
 	| byteArraySize hash low | 
 	byteArraySize := aByteArray size. 
@@ -26,7 +26,7 @@ category: 'accessing'
 method: ByteArray
 atAllPut: value 
 	"Fill the receiver with the given value" 
-    <PharoGsDone>
+    <PharoGs>
 
     1 to: self size do: [ :index | self at: index put: value].
     ^self   "not value!"
@@ -37,7 +37,7 @@ method: ByteArray
 byteAt: index 
 
     <primitive: 974>
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:byteAt: index
 %
 
@@ -46,7 +46,7 @@ method: ByteArray
 byteAt: index put: value 
 
     <primitive: 1002>
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:byteAt: index put: value
 %
 
@@ -55,7 +55,7 @@ method: ByteArray
 doubleAt: byteOffset 
     "extract an 8 byte float from the receiver, the result will 
     be either a SmallDouble or a Float. "
-	<PharoGsDone>
+	<PharoGs>
 
     ^self @env0:at: byteOffset signed: false width: -8
 %
@@ -64,7 +64,7 @@ category: '*FFI-Kernel'
 method: ByteArray
 doubleAt: byteOffset put: value 
     "value must be a kind of BinaryFloat."
-    <PharoGsDone>
+    <PharoGs>
 
     ^self @env0:at: byteOffset put: value signed: false width: 8
 %
@@ -74,7 +74,7 @@ method: ByteArray
 floatAt: byteOffset 
     "extract a 4 byte float from the receiver, the result will 
     be a SmallDouble."
-    <PharoGsDone>
+    <PharoGs>
 
     ^self @env0:at: byteOffset signed: false width: -4
 %
@@ -89,7 +89,7 @@ floatAt: byteOffset put: value
     If coercion of a BinaryFloat to a 4 byte float would cause loss
     of precision that would convert a non-zero value to zero , 
     the primitive will fail ."
-    <PharoGsDone>
+    <PharoGs>
 
     ^self @env0:at: byteOffset put: value signed: false width: 4
 %
@@ -117,7 +117,7 @@ integerAt: byteOffset put: value size: nBytes signed: aBoolean
     If coercion of a BinaryFloat to a 4 byte C float would cause loss
     of precision that would convert a non-zero value to zero , 
     the primitive will fail ."
-    <PharoGsDone>
+    <PharoGs>
 
     ^self @env0:at: byteOffset put: value signed: aBoolean width: nBytes
 %
@@ -157,7 +157,7 @@ replaceFrom: start to: stop with: replacement startingAt: repStart
     Returns the receiver."
 
     <primitive: 297>
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:replaceFrom: start to: stop with: replacement startingAt: repStart
 %
 

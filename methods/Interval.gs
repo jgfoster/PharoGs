@@ -9,7 +9,7 @@ new
 	whatIsAPrimitive." 
 
     <primitive: 51>
-	<PharoGsDone> 
+	<PharoGs> 
 	self isVariable ifTrue: [ ^ self new: 0 ]. 
 %
 

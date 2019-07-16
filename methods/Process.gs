@@ -7,7 +7,7 @@ primitiveResume
 	the receiver in line to become the activeProcess. Fail if the receiver is  
 	already waiting in a queue (in a Semaphore or ProcessScheduler).  
 	Essential. See Object documentation whatIsAPrimitive." 
-	<PharoGsDone>
+	<PharoGs>
 
     ^self @env0:resume 
 %
@@ -20,7 +20,7 @@ suspend
 	message resume). If the receiver represents the activeProcess, suspend it.  
 	Otherwise remove the receiver from the list of waiting processes. 
 	The return value of this method is the list the receiver was previously on (if any)."
-	<PharoGsDone>
+	<PharoGs>
 
     ^self @env0:suspend 
 %

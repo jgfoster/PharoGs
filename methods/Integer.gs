@@ -7,7 +7,7 @@ anyBitOfMagnitudeFrom: start to: stopArg
 	"Primitive fixed in LargeIntegers v1.2. If you have an earlier version  
 	comment out the primitive call (using this ST method then)." 
 	| magnitude firstDigitIx lastDigitIx rightShift leftShift stop | 
-	<PharoGsDone>
+	<PharoGs>
 
 	start < 1 | (stopArg < 1) 
 		ifTrue: [^ self error: 'out of range']. 
@@ -52,7 +52,7 @@ bitAnd: arg
 	Essential.  See Object documentation whatIsAPrimitive." 
 
 	<primitive: 740>
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:bitAnd: arg
 %
 
@@ -64,7 +64,7 @@ bitOr: n
 
     <primitive: 741>
 	| norm | 
-	<PharoGsDone> 
+	<PharoGs> 
 	norm := n normalize. 
 	^ self 
 		digitLogic: norm 
@@ -79,7 +79,7 @@ bitShiftMagnitude: shiftCount
 	the receiver's value (in magnitude representation) shifted left by   
 	the number of bits indicated by the argument. Negative arguments 
 	shift right. Zeros are shifted in from the right in left shifts." 
-	<PharoGsDone>
+	<PharoGs>
 
 	| rShift | 
 	shiftCount >= 0 ifTrue: [^ self digitLshift: shiftCount]. 
@@ -98,7 +98,7 @@ bitXor: n
 
     <primitive: 743>
 	| norm | 
-	<PharoGsDone> 
+	<PharoGs> 
 	norm := n normalize. 
 	^ self 
 		digitLogic: norm 
@@ -109,7 +109,7 @@ bitXor: n
 category: 'private'
 method: Integer
 digitAdd: arg  
-	<PharoGsDone>
+	<PharoGs>
 
 	| len arglen accum sum | 
 	accum := 0. 
@@ -133,7 +133,7 @@ method: Integer
 digitCompare: arg  
 	"Compare the magnitude of self with that of arg.    
 	Return a code of 1, 0, -1 for self >, = , < arg" 
-	<PharoGsDone>
+	<PharoGs>
 
 	| len arglen argDigit selfDigit | 
 	len := self digitLength. 
@@ -155,7 +155,7 @@ category: 'private'
 method: Integer
 digitDiv: arg neg: ng  
 	"Answer with an array of (quotient, remainder)." 
-	<PharoGsDone>
+	<PharoGs>
 
 	| quo rem ql d div dh dnh dl qhi qlo j l hi lo r3 a t | 
 	arg = 0 ifTrue: [^ (ZeroDivide dividend: self) signal]. 
@@ -272,7 +272,7 @@ category: 'private'
 method: Integer
 digitMultiply: arg neg: ng  
 	| prod prodLen carry digit k ab | 
-	<PharoGsDone>
+	<PharoGs>
 
 	(arg digitLength = 1 and: [(arg digitAt: 1) 
 			= 0]) 
@@ -303,7 +303,7 @@ category: 'private'
 method: Integer
 digitSubtract: arg  
 	| smaller larger z sum sl al ng | 
-	<PharoGsDone>
+	<PharoGs>
 
 	sl := self digitLength. 
 	al := arg digitLength. 
@@ -342,7 +342,7 @@ method: Integer
 montgomeryDigitLength 
 	"Answer the number of bits composing a digit in Montgomery algorithm. 
 	Primitive use either 8 or 32 bits digits" 
-	<PharoGsDone> 
+	<PharoGs> 
 
 	^8 "Legacy plugin which did not have this primitive did use 8 bits digits" 
 %
@@ -359,7 +359,7 @@ montgomeryTimes: a modulo: m mInvModB: mInv
 	where b = self montgomeryDigitBase 
 	 
 	Answer nil in case of absent plugin or other failure." 
-	<PharoGsDone> 
+	<PharoGs> 
 
 	^nil
 %

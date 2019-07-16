@@ -9,7 +9,7 @@ check: anObject identicalTo: anotherObject
 	 simulate the execution machinery by, for example, the debugger. 
 	 Primitive.  See Object documentation whatIsAPrimitive." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^anObject == anotherObject  "optimized in GemStone, so no message send"
 %
 
@@ -18,7 +18,7 @@ classmethod: MirrorPrimitives
 classOf: anObject 
 	"Primitive. Answer the object which is the receiver's class" 
 
-    <PharoGsDone>
+    <PharoGs>
     ^Reflection @env0:classOf: anObject
 %
 
@@ -29,7 +29,7 @@ fixedFieldOf: anObject at: anIndex
 	 variables corresponds to the named instance variables. Fail if the index  
 	 is not an Integer or is not the index of a fixed variable" 
 
-    <PharoGsDone>
+    <PharoGs>
     ^Reflection @env0:fetchFrom: anObject at: anIndex
 %
 
@@ -41,7 +41,7 @@ fixedFieldOf: anObject at: anIndex put: newValue
 	 variables.  Fail if the index is not an Integer or is not the index of a 
 	 fixed variable.  Answer the value stored as the result" 
 
-    <PharoGsDone>
+    <PharoGs>
     ^Reflection @env0:storeTo: anObject at: anIndex put: newValue
 %
 
@@ -65,7 +65,7 @@ indexableFieldOf: anObject at: anIndex
 	whatIsAPrimitive. Read the class comment for a discussion about that the fact 
 	that the index can be a float." 
 
-    <PharoGsDone>
+    <PharoGs>
     ^Reflection 
         @env0:fetchFrom: anObject 
         at: anIndex + (Reflection @env0:namedSizeOf: anObject)
@@ -80,7 +80,7 @@ indexableFieldOf: anObject at: anIndex put: newValue
 	the right type for this kind of collection. Answer the value that was  
 	stored" 
 
-    <PharoGsDone>
+    <PharoGs>
     ^Reflection 
         @env0:storeTo: anObject 
         at: anIndex + (Reflection @env0:namedSizeOf: anObject) 
@@ -93,7 +93,7 @@ indexableSizeOf: anObject
 	"Answer the number of indexable variables in the argument anObject without sending 
 	 it a message. This mimics the action of the VM when it fetches an object's variable size" 
 
-    <PharoGsDone>
+    <PharoGs>
     ^(Reflection @env0:sizeOf: anObject) - (Reflection @env0:namedSizeOf: anObject)
 %
 

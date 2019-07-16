@@ -9,7 +9,7 @@ nowTick
 	 At least a 60-bit unsigned integer is used internally which is enough for dates up to year 38435. 
 	 Essential. See Object documentation whatIsAPrimitive. " 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^Time primUTCMicrosecondsClock
 %
 

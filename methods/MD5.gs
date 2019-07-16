@@ -4,7 +4,7 @@ category: 'testing'
 classmethod: MD5
 isPluginAvailable 
 
-    <PharoGsDone>
+    <PharoGs>
     ^false
 %
 

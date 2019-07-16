@@ -3,7 +3,7 @@ set compile_env: 2
 category: 'private'
 method: DeflateStream
 updateHashTable: table delta: delta 
-    <PharoGsDone>
+    <PharoGs>
 
 	| pos | 
 	1 to: table size do:[:i| 

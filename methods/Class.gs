@@ -5,7 +5,7 @@ method: Class
 new
 	"Answer a new initialized instance of the receiver (which is a class) with no indexable variables. Fail if the class is indexable."
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^ self basicNew initialize
 %
 
@@ -15,7 +15,7 @@ new: sizeRequested
 	"Answer an initialized instance of this class with the number of indexable
 	variables specified by the argument, sizeRequested."
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^ (self basicNew: sizeRequested) initialize
 %
 

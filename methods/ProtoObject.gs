@@ -11,7 +11,7 @@ basicIdentityHash
 	Do not override, use #identityHash instead" 
 
 	<primitive: 321>
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:class
 %
 
@@ -22,7 +22,7 @@ class
 	Object documentation whatIsAPrimitive." 
 
 	<primitive: 610>
-	<PharoGsDone> 
+	<PharoGs> 
 	^self @env0:class
 %
 
@@ -31,7 +31,7 @@ method: ProtoObject
 instVarsInclude: anObject 
 "Answers true if anObject is among my named or indexed instance variables, and false otherwise" 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	1 to: self class instSize do: 
 		[:i | (self instVarAt: i) == anObject ifTrue: [^ true]]. 
 	1 to: self basicSize do: 
@@ -69,7 +69,7 @@ rfIsEqual: anObject
 	any other class! Essential. No Lookup. Do not override in any subclass.  
 	See Object documentation whatIsAPrimitive." 
 	<metaLinkOptions: #( #+ optionDisabledLink)> 
-	<PharoGsDone> 
+	<PharoGs> 
 
 	^(Reflection oopOf: self) == (Reflection oopOf: anObject)
 %
@@ -83,7 +83,7 @@ _gsReservedSelector_equal_equal_: anObject
 	See Object documentation whatIsAPrimitive." 
 	"The above Pharo code attempts to compile a reserved selector so we place it here for reference" 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self == anObject
 %
 
@@ -96,7 +96,7 @@ _gsReservedSelector_tilde_tilde_: anObject
 	See Object documentation whatIsAPrimitive." 
 	"The above Pharo code attempts to compile a reserved selector so we place it here for reference" 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^self ~~ anObject
 %
 

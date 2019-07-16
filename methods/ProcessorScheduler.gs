@@ -14,7 +14,7 @@ relinquishProcessorForMicroseconds: anInteger
     On platforms without a host operating system, it does nothing. 
     This primitive should not be used to add pauses to a Pharo process; 
     use a Delay instead." 
-    <PharoGsDone>
+    <PharoGs>
 
     "don't fail if primitive is not implemented, just do nothing"
 %
@@ -23,7 +23,7 @@ category: 'process state change'
 method: ProcessorScheduler
 yield 
 	"Give other Processes at the current priority a chance to run." 
-	<PharoGsDone>
+	<PharoGs>
 
     ^self @env0:yield
 %

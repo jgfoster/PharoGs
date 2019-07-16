@@ -8,7 +8,7 @@ at: index
 	 of bounds.  Essential.  See Object documentation whatIsAPrimitive." 
 
      <primitive: 655>
-	<PharoGsDone>
+	<PharoGs>
     ^self @env0:at: index 
 %
 
@@ -20,7 +20,7 @@ at: index put: aCharacter
 	 argument is not a Character.  Essential.  See Object documentation whatIsAPrimitive." 
 
      <primitive: 667>
-	<PharoGsDone>
+	<PharoGs>
     ^self @env0:at: index put: aCharacter
 %
 
@@ -29,7 +29,7 @@ method: WideString
 replaceFrom: start to: stop with: replacement startingAt: repStart  
 
      <primitive: 777>
-	<PharoGsDone>
+	<PharoGs>
     ^self @env0:replaceFrom: start to: stop with: replacement startingAt: repStart  
 %
 
@@ -38,7 +38,7 @@ method: WideString
 wordAt: index 
 
      <primitive: 1073>
-	<PharoGsDone>
+	<PharoGs>
     ^self @env0:codePointAt: index
 %
 
@@ -46,7 +46,7 @@ category: 'accessing'
 method: WideString
 wordAt: index put: anInteger 
 
-	<PharoGsDone>
+	<PharoGs>
     ^self at: index put: (Character withValue: anInteger)
 %
 

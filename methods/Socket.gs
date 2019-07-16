@@ -7,7 +7,7 @@ method: Socket
 primAcceptFrom: aHandle receiveBufferSize: rcvBufSize sendBufSize: sndBufSize semaIndex: semaIndex 
 	"Create and return a new socket handle based on accepting the connection from the given listening socket" 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^aHandle @env0:accept
 %
 
@@ -16,7 +16,7 @@ method: Socket
 primAcceptFrom: aHandle receiveBufferSize: rcvBufSize sendBufSize: sndBufSize semaIndex: semaIndex readSemaIndex: aReadSema writeSemaIndex: aWriteSema 
 	"Create and return a new socket handle based on accepting the connection from the given listening socket" 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^aHandle @env0:accept
 %
 
@@ -33,7 +33,7 @@ method: Socket
 primSocket: socketID bindTo: anAddress port: aPort  
 	"Bind socket to provided IPv4 address and port" 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:bindTo: aPort toAddress: anAddress
 %
 
@@ -52,7 +52,7 @@ primSocket: socketID connectTo: hostAddress port: port
     This is an asynchronous call; query the socket status to discover if and when 
     the connection is actually completed." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:connectTo: port on: hostAddress
 %
 
@@ -65,7 +65,7 @@ primSocket: socketID getOption: aString
 	TCP:=NODELAY, SO:=KEEPALIVE are valid options for example 
 	returns an array containing the error code and the option value" 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:option: aString
 %
 
@@ -75,7 +75,7 @@ primSocket: socketID listenOn: port
 	"Listen for a connection on the given port. This is an asynchronous call; 
     query the socket status to discover if and when the connection is actually completed." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:makeServer: 5 atPort: port
 %
 
@@ -85,7 +85,7 @@ primSocket: aHandle listenOn: portNumber backlogSize: backlog
 	"Primitive. Set up the socket to listen on the given port. 
 	Will be used in conjunction with #accept only." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^aHandle @env0:makeServer: backlog atPort: portNumber
 %
 
@@ -95,7 +95,7 @@ primSocket: aHandle listenOn: portNumber backlogSize: backlog interface: ifAddr
 	"Primitive. Set up the socket to listen on the given port. 
 	Will be used in conjunction with #accept only." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^aHandle @env0:makeServer: backlog atPort: portNumber atAddress: ifAddr
 %
 
@@ -120,7 +120,7 @@ method: Socket
 primSocket: socketID receiveDataInto: aStringOrByteArray startingAt: startIndex count: count 
 	"Receive data from the given socket into the given array starting at the given index. Return the number of bytes read or zero if no data is available." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:read: count into: aStringOrByteArray startingAt: startIndex
 %
 
@@ -148,7 +148,7 @@ primSocket: socketID sendData: aStringOrByteArray startIndex: startIndex count: 
 	"Send data to the remote host through the given socket starting with the given byte index of the given byte array. The data sent is 'pushed' immediately. Return the number of bytes of data actually sent; any remaining data should be re-submitted for sending after the current send operation has completed." 
 	"Note: In general, it many take several sendData calls to transmit a large data array since the data is sent in send-buffer-sized chunks. The size of the send buffer is determined when the socket is created." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:write: count from: aStringOrByteArray startingAt: startIndex
 %
 
@@ -171,7 +171,7 @@ primSocket: socketID setOption: aString value: aStringValue
 	TCP:=NODELAY, SO:=KEEPALIVE are valid options for example 
 	returns an array containing the error code and the negotiated value" 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:option: aString put: aStringValue
 %
 
@@ -201,7 +201,7 @@ method: Socket
 primSocketCloseConnection: socketID 
 	"Close the connection on the given port. The remote end is informed that this end has closed and will do no further sends. This is an asynchronous call; query the socket status to discover if and when the connection is actually closed." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:close
 %
 
@@ -245,7 +245,7 @@ method: Socket
 primSocketDestroy: socketID 
 	"Release the resources associated with this socket. If a connection is open, it is aborted." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:close
 %
 
@@ -255,7 +255,7 @@ primSocketDestroyGently: socketID
 	"Release the resources associated with this socket. If a connection is open, it is aborted. 
 	Do not fail if the receiver is already closed." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:close
 %
 
@@ -264,7 +264,7 @@ method: Socket
 primSocketError: socketID 
 	"Return an integer encoding the most recent error on this socket. Zero means no error." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:lastErrorCode
 %
 
@@ -273,7 +273,7 @@ method: Socket
 primSocketLocalAddress: socketID 
 	"Return the local host address for this socket." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:address
 %
 
@@ -290,7 +290,7 @@ method: Socket
 primSocketLocalPort: socketID 
 	"Return the local port for this socket, or zero if no port has yet been assigned." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:port
 %
 
@@ -299,7 +299,7 @@ method: Socket
 primSocketReceiveDataAvailable: socketID 
 	"Return true if data may be available for reading from the current socket." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:readWillNotBlock
 %
 
@@ -308,7 +308,7 @@ method: Socket
 primSocketRemoteAddress: socketID 
 	"Return the remote host address for this socket, or zero if no connection has been made." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:peerAddress
 %
 
@@ -325,7 +325,7 @@ method: Socket
 primSocketRemotePort: socketID 
 	"Return the remote port for this socket, or zero if no connection has been made." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^socketID @env0:peerPort
 %
 
@@ -334,7 +334,7 @@ method: Socket
 primSocketSendDone: socketID 
 	"Return true if there is no send in progress on the current socket." 
 
-	<PharoGsDone> 
+	<PharoGs> 
     ^true "GemStone socket operations are synchronous"
 %
 

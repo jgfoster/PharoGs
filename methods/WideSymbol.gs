@@ -9,7 +9,7 @@ privateAt: index put: aCharacter
 	whatIsAPrimitive." 
 
     <primitive: 667>
-	<PharoGsDone> 
+	<PharoGs> 
     ^self @env0:at: index put: aCharacter
 %
 
@@ -18,7 +18,7 @@ method: WideSymbol
 wordAt: index 
 
      <primitive: 1073>
-	<PharoGsDone>
+	<PharoGs>
     ^self @env0:codePointAt: index
 %
 

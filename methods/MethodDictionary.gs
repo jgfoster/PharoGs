@@ -12,7 +12,7 @@ category: 'instance creation'
 classmethod: MethodDictionary
 new
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:new
 %
 
@@ -20,7 +20,7 @@ category: 'instance creation'
 classmethod: MethodDictionary
 new: numberOfElements
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:new: numberOfElements
 %
 
@@ -28,7 +28,7 @@ category: 'instance creation'
 classmethod: MethodDictionary
 newForCapacity: capacity
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:new: capacity
 %
 
@@ -44,7 +44,7 @@ category: 'accessing'
 method: MethodDictionary
 add: anAssociation
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:at: anAssociation key put: anAssociation value
 %
 
@@ -60,7 +60,7 @@ category: 'enumeration'
 method: MethodDictionary
 associationsDo: aBlock
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:associationsAsArray do: aBlock
 %
 
@@ -68,7 +68,7 @@ category: 'accessing'
 method: MethodDictionary
 at: key ifAbsent: aBlock
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:at: key ifAbsent: [aBlock @env2:valuea]
 %
 
@@ -76,7 +76,7 @@ category: 'accessing'
 method: MethodDictionary
 at: key ifPresent: aBlock
 
-    <PharoGsDone>
+    <PharoGs>
     ^aBlock cull: (self @env0:at: key ifAbsent: [^nil])
 %
 
@@ -84,7 +84,7 @@ category: 'accessing'
 method: MethodDictionary
 at: key put: value
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:at: key put: value
 %
 
@@ -92,7 +92,7 @@ category: 'private'
 method: MethodDictionary
 compact
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:_rebuild
 %
 
@@ -100,7 +100,7 @@ category: 'private'
 method: MethodDictionary
 compactWithoutBecome
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:_rebuild
 %
 
@@ -116,7 +116,7 @@ category: 'private'
 method: MethodDictionary
 grow
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:rebuildIfNeeded
 %
 
@@ -124,7 +124,7 @@ category: 'testing'
 method: MethodDictionary
 isHealthy
 
-    <PharoGsDone>
+    <PharoGs>
     ^true
 %
 
@@ -132,7 +132,7 @@ category: 'accessing'
 method: MethodDictionary
 keyAtIdentityValue: value ifAbsent: exceptionBlock
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:keyAtValue: value ifAbsent: [exceptionBlock @env2:value]
 %
 
@@ -140,7 +140,7 @@ category: 'accessing'
 method: MethodDictionary
 keyAtValue: value ifAbsent: exceptionBlock
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:keyAtValue: value ifAbsent: [exceptionBlock @env2:value]
 %
 
@@ -148,7 +148,7 @@ category: 'accessing'
 method: MethodDictionary
 keys
 
-    <PharoGsDone>
+    <PharoGs>
     ^IdentitySet withAll: self @env0:keys @env0:asArray
 %
 
@@ -156,7 +156,7 @@ category: 'enumeration'
 method: MethodDictionary
 keysAndValuesDo: aBlock
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:keysAndValuesDo: [:eachKey :eachValue | 
         aBlock @env2:value: eachKey value: eachValue.
     ]
@@ -166,7 +166,7 @@ category: 'enumeration'
 method: MethodDictionary
 keysDo: aBlock
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:keysDo: [:each | 
         aBlock @env2:value: each
     ]
@@ -176,7 +176,7 @@ category: 'copying'
 method: MethodDictionary
 postCopy
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:postCopy
 %
 
@@ -184,7 +184,7 @@ category: 'private'
 method: MethodDictionary
 rehash
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:_rebuild
 %
 
@@ -192,7 +192,7 @@ category: 'removing'
 method: MethodDictionary
 removeAll
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:removeAll
 %
 
@@ -200,7 +200,7 @@ category: 'private'
 method: MethodDictionary
 removeDangerouslyKey: key ifAbsent: aBlock
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:removeKey: key ifAbsent: [aBlock @env2:value]
 %
 
@@ -208,7 +208,7 @@ category: 'removing'
 method: MethodDictionary
 removeKey: key ifAbsent: errorBlock
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:removeKey: key ifAbsent: [errorBlock @env2:value]
 %
 
@@ -232,7 +232,7 @@ category: 'enumeration'
 method: MethodDictionary
 valuesDo: aBlock
 
-    <PharoGsDone>
+    <PharoGs>
     ^self @env0:valuesDo: [:each | aBlock @env2:value: each]
 %
 
@@ -240,7 +240,7 @@ category: '*Reflectivity'
 method: MethodDictionary
 metaLinkOptions 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^{ 
 	#scanFor: -> #(  #+ optionCompileOnLinkInstallation). 
 	#at:put: -> #(  #+ optionCompileOnLinkInstallation). 

@@ -3,7 +3,7 @@ set compile_env: 2
 category: 'primitives'
 classmethod: CRC
 update: oldCrc from: start to: stop in: aCollection 
-    <PharoGsDone>
+    <PharoGs>
 
 	| newCrc | 
 	newCrc := oldCrc. 

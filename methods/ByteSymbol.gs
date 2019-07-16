@@ -8,7 +8,7 @@ at: index
 	is out of bounds. Essential. See Object documentation whatIsAPrimitive." 
 
     <primitive: 69>
-    <PharoGsDone> 
+    <PharoGs> 
 	^self @env0:at: index
 %
 
@@ -17,7 +17,7 @@ method: ByteSymbol
 byteAt: index  
 
     <primitive: 69>
-    <PharoGsDone> 
+    <PharoGs> 
 	^self @env0:at: index
 %
 
@@ -26,7 +26,7 @@ method: ByteSymbol
 findSubstring: key in: body startingAt: start matchTable: matchTable 
 	"Answer the index in the string body at which the substring key first occurs, at or beyond start.  The match is determined using matchTable, which can be used to effect, eg, case-insensitive matches.  If no match is found, zero will be returned." 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	^super findSubstring: key in: body startingAt: start matchTable: matchTable
 %
 
@@ -39,7 +39,7 @@ privateAt: index put: aCharacter
 	whatIsAPrimitive." 
 
     <primitive: 293>
-    <PharoGsDone> 
+    <PharoGs> 
 	^self @env0:at: index put: aCharacter
 %
 

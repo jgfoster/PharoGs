@@ -3,7 +3,7 @@ set compile_env: 2
 category: 'accessing'
 method: IntegerArray
 at: index 
-    <PharoGsDone>
+    <PharoGs>
 
 	| word | 
 	word := self basicAt: index. 
@@ -17,7 +17,7 @@ at: index
 category: 'accessing'
 method: IntegerArray
 at: index put: anInteger 
-    <PharoGsDone>
+    <PharoGs>
 
 	| word | 
 	anInteger < 0 
@@ -35,7 +35,7 @@ primFill: aPositiveInteger
     with the given positive integer. The range of possible 
     fill values is [0..255] for byte arrays and [0..(2^32 - 1)] 
     for word arrays." 
-    <PharoGsDone>
+    <PharoGs>
 
     ^self atAllPut: aPositiveInteger
 %

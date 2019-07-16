@@ -8,7 +8,7 @@ decompressBlock: llTable with: dTable
 	and dTable is the huffman table for distance codes." 
 	| value extra length distance oldPos oldBits oldBitPos | 
 
-	<PharoGsDone> 
+	<PharoGs> 
 	[readLimit < collection size and:[sourcePos <= sourceLimit]] whileTrue:[ 
 		"Back up stuff if we're running out of space" 
 		oldBits := bitBuf. 

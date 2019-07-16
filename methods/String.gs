@@ -5,7 +5,7 @@ method: String
 at: anIndex
 
 	<primitive: 69>
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:at: anIndex
 %
 
@@ -18,7 +18,7 @@ findSubstringViaPrimitive: key in: body startingAt: start matchTable: matchTable
 	be returned. 
 	The algorithm below is not optimum -- it is intended to be translated to C 
 	which will go so fast that it wont matter." 
-	<PharoGsDone>
+	<PharoGs>
 
 	| index | 
 	key size = 0 ifTrue: [^ 0]. 
@@ -61,7 +61,7 @@ replaceFrom: start to: stop with: replacement startingAt: repStart
 	Returns the receiver."
 
 	<primitive: 297>
-	<PharoGsDone>
+	<PharoGs>
 	^self @env0:replaceFrom: start to: stop with: replacement startingAt: repStart
 %
 

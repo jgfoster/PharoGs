@@ -29,3 +29,14 @@ Although the goal is to work with an standard Pharo image, some modifications ma
 BRANCH_NAME=Pharo8.0 BUILD_NUMBER=42 BOOTSTRAP_ARCH=32 \
   time ./bootstrap/scripts/bootstrap.sh # this takes about 15 minutes
 ```
+
+With an appropriate Pharo minimal image, run the following script to export the code from Pharo and generate GemStone file-in scripts:
+
+```
+./exportFromPharo.sh
+./importToGemStone.sh
+```
+
+### SystemUser
+
+For most projects it is best to avoid using the SystemUser login. In this case, however, we do all our development with the SystemUser account. This is because we are compiling primitives. Once an effective Smalltalk SymbolDictionary is prepared, it can be assigned to a user as the primary (or even _sole_ system dictionary, even without Globals).

@@ -1,5 +1,29 @@
 set compile_env: 2
 
+category: 'constants'
+classmethod: SmallInteger
+maxVal
+
+	<PharoGs>
+	^self @env0:maximumValue 
+%
+
+category: 'constants'
+classmethod: SmallInteger
+minVal
+
+	<PharoGs>
+	^self @env0:minimumValue 
+%
+
+category: 'system startup'
+classmethod: SmallInteger
+startUp: isImageStarting 
+
+	<PharoGsError>
+	self _gsError 
+%
+
 category: 'arithmetic'
 method: SmallInteger
 * aNumber  

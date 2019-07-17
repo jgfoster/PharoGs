@@ -1,5 +1,141 @@
 set compile_env: 2
 
+category: 'scanning'
+method: FullBlockClosure
+abstractBytecodeMessagesDo: aBlock 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'private'
+method: FullBlockClosure
+asContextWithSender: aContext 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+compiledBlock 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+compiledBlock: aCompiledMethod 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+endPC 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+hasMethodReturn 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+home 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+method 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+numArgs: n 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+numTemps 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+outerContext: ctxt 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+printOn: s 
+
+    <PharoGs>
+	[ super printOn: s ] on: Error do: [ :ex | s << '![' << ex messageText << ']!' ]
+%
+
+category: 'accessing'
+method: FullBlockClosure
+receiver 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+receiver: anObject 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+simulateValueWithArguments: anArray caller: aContext 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+sourceNode 
+
+    <PharoGsError>
+    self _gsError.
+%
+
+category: 'accessing'
+method: FullBlockClosure
+startpc 
+
+    <PharoGsError>
+    self _gsError.
+%
+
 category: 'evaluating'
 method: FullBlockClosure
 value 

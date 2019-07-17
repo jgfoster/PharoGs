@@ -1,7 +1,7 @@
 set compile_env: 2
 
 category: 'organization'
-classmethod: Module
+method: Module
 basicOrganization
 
 	<PharoGsError>
@@ -9,7 +9,7 @@ basicOrganization
 %
 
 category: 'organization'
-classmethod: Module
+method: Module
 basicOrganization: aClassOrg 
 
 	<PharoGsError>

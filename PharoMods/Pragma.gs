@@ -1,7 +1,7 @@
 set compile_env: 2
 
 category: 'accessing'
-classmethod: Pragma
+method: Pragma
 selector 
 
 	<PharoGs>
@@ -9,7 +9,7 @@ selector
 %
 
 category: 'initialization'
-classmethod: Pragma
+method: Pragma
 selector: aSymbol 
 
 	<PharoGs>

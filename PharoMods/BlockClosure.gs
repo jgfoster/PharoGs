@@ -1,5 +1,499 @@
 set compile_env: 2
 
+category: '*Debugging-Core'
+method: BlockClosure
+abstractBytecodeMessagesDo: aBlock 
+	
+	<PharoGsError>
+	^self _gsError
+%
+
+category: 'accessing'
+method: BlockClosure
+argumentCount 
+	"Answer the number of arguments that must be used to evaluate this block"
+	
+	<PharoGs>
+	^self @env0:argumentCount
+%
+
+category: 'accessing'
+method: BlockClosure
+argumentNames 
+	
+	<PharoGsError>
+	^self _gsError
+%
+
+category: 'scheduling'
+method: BlockClosure
+asContext 
+	
+	<PharoGsError>
+	^self _gsError
+%
+
+category: 'private'
+method: BlockClosure
+asContextWithSender: aContext 
+	
+	<PharoGsError>
+	^self _gsError
+%
+
+category: '*Jobs'
+method: BlockClosure
+asJob 
+	
+	<PharoGs>
+	^ Job block: self
+%
+
+category: 'private'
+method: BlockClosure
+asMinimalRepresentation 
+	
+	<PharoGs>
+	^self
+%
+
+category: 'exceptions'
+method: BlockClosure
+assert 
+	
+	<PharoGs>
+	self value ifFalse: [AssertionFailure signal: 'Assertion failed'] 
+%
+
+category: 'exceptions'
+method: BlockClosure
+assertWithDescription: aStringOrABlock 
+	
+	<PharoGs>
+	| value | 
+	self value 
+		ifTrue: [ ^ self ]. 
+	value := aStringOrABlock value. 
+	AssertionFailure signal: value
+%
+
+category: '*Text-Core'
+method: BlockClosure
+asText 
+	
+	<PharoGs>
+	^ self asString asText
+%
+
+category: '*Kernel-Chronology-Extras'
+method: BlockClosure
+bench 
+	"Return how many times the receiver can get executed in 5 seconds.  
+	Answer a string with meaningful description. 
+	See #benchFor: which returns a BenchmarkResult" 
+	 
+	"[3.14 printString] bench" 
+	 
+	<PharoGs>
+	| benchmarkResult | 
+	benchmarkResult := self benchFor: 5 seconds. 
+	^ benchmarkResult shortPrintString
+%
+
+category: '*Kernel-Chronology-Extras'
+method: BlockClosure
+benchFor: duration 
+	"Run me for duration and return a BenchmarkResult" 
+	 
+	"[ 100 factorial ] benchFor: 2 seconds" 
+	 	 
+	<PharoGs>
+	| count run started | 
+	count := 0. 
+	run := true. 
+	[ duration wait. run := false ] forkAt: Processor timingPriority - 1. 
+	started := Time millisecondClockValue. 
+	[ run ] whileTrue: [ self value. count := count + 1 ]. 
+	^ BenchmarkResult new  
+		iterations: count;  
+		elapsedTime: (Time millisecondsSince: started) milliSeconds;  
+		yourself
+%
+
+category: 'accessing'
+method: BlockClosure
+blockCreationBytecodeMessage 
+	
+	<PharoGsError>
+	^self _gsError
+%
+
+category: 'private'
+method: BlockClosure
+copyForSaving 
+	
+	<PharoGsError>
+	^self _gsError
+%
+
+category: 'evaluating'
+method: BlockClosure
+cull: anArg 
+	"Execute the receiver with one or zero arguments depending on the receiver" 
+	"([ 12 ] cull: 13) 
+	>>> 12  
+	" 
+	"([:x | x + 12] cull: 3) 
+	>>> 15 
+	" 
+
+	<PharoGs>
+	^ self argumentCount == 0
+		ifTrue: [ self value ]
+		ifFalse: [ self value: anArg ]
+%
+
+category: 'evaluating'
+method: BlockClosure
+cull: firstArg cull: secondArg 
+	"Execute the receiver with one or two arguments depending on the receiver" 
+	"([:x | x + 1] cull: 13 cull: 12) 
+	>>> 14 
+	" 
+	"([:x :y | x + y] cull: 3 cull: 2) 
+	>>> 5 
+	" 
+
+	<PharoGs>
+	^self numArgs < 2  
+		ifTrue: [self cull: firstArg] 
+		ifFalse: [self value: firstArg value: secondArg] 
+%
+
+category: 'evaluating'
+method: BlockClosure
+cull: firstArg cull: secondArg cull: thirdArg 
+	
+	<PharoGs>
+	^self numArgs < 3  
+		ifTrue: [self cull: firstArg cull: secondArg] 
+		ifFalse: [self value: firstArg value: secondArg value: thirdArg] 
+%
+
+category: 'evaluating'
+method: BlockClosure
+cull: firstArg cull: secondArg cull: thirdArg cull: fourthArg 
+	
+	<PharoGs>
+	^self numArgs < 4  
+		ifTrue: [self cull: firstArg cull: secondArg cull: thirdArg] 
+		ifFalse: [self value: firstArg value: secondArg value: thirdArg value: fourthArg] 
+%
+
+category: 'controlling'
+method: BlockClosure
+doWhileFalse: conditionBlock 
+	"Evaluate the receiver once, then again as long the value of conditionBlock is false."
+	
+	<PharoGs>
+	| result | 
+	[result := self value. 
+	conditionBlock value] whileFalse. 
+	^ result
+%
+
+category: 'controlling'
+method: BlockClosure
+doWhileTrue: conditionBlock 
+	"Evaluate the receiver once, then again as long the value of conditionBlock is true."
+	
+	<PharoGs>
+	| result | 
+	[result := self value. 
+	conditionBlock value] whileTrue. 
+	^ result
+%
+
+category: 'evaluating'
+method: BlockClosure
+durationToRun 
+	"Answer the duration taken to execute this block."
+	
+	<PharoGs>
+	^ self timeToRun 
+%
+
+category: 'accessing'
+method: BlockClosure
+endPC 
+	
+	<PharoGsError>
+	^self _gsError
+%
+
+category: '*metacello-core-scripting'
+method: BlockClosure
+execute: projectSpecBlock against: aScriptExecutor 
+	
+	<PharoGs>
+    aScriptExecutor executeBlock: self do: projectSpecBlock
+%
+
+category: 'scheduling'
+method: BlockClosure
+fork 
+	
+	<PharoGs>
+	^ self newProcess resume
+%
+
+category: 'scheduling'
+method: BlockClosure
+forkAndWait 
+	"Suspend current process and execute self in new process, 
+	when it completes resume current process"
+	
+	<PharoGs>
+	| semaphore | 
+	semaphore := Semaphore new. 
+	[self ensure: [semaphore signal]] fork. 
+	semaphore wait. 
+%
+
+category: 'scheduling'
+method: BlockClosure
+forkAt: priority  
+	"Create and schedule a Process running the code in the receiver 
+	at the given priority. Answer the newly created process."
+
+	<PharoGs>
+	^ self newProcess 
+		priority: priority; 
+		resume
+%
+
+category: 'scheduling'
+method: BlockClosure
+forkAt: priority named: name 
+	"Create and schedule a Process running the code in the receiver at the 
+	given priority and having the given name. Answer the newly created  
+	process."
+	
+	<PharoGs>
+	| forkedProcess | 
+	forkedProcess := self newProcess. 
+	forkedProcess priority: priority. 
+	forkedProcess name: name. 
+	^ forkedProcess resume
+%
+
+category: 'scheduling'
+method: BlockClosure
+forkNamed: aString 
+	"Create and schedule a Process running the code in the receiver and 
+	having the given name."
+	
+	<PharoGs>
+	^ self newProcess name: aString; resume
+%
+
+category: 'testing'
+method: BlockClosure
+hasMethodReturn 
+	
+	<PharoGsError>
+	^self _gsError
+%
+
+category: '*Slot-Core'
+method: BlockClosure
+hasTemporaryVariableNamed: aName 
+	
+	<PharoGs>
+	^(self tempNames includes: aName)
+%
+
+category: 'accessing'
+method: BlockClosure
+home 
+	
+	<PharoGsError>
+	^self _gsError
+%
+
+category: 'evaluating'
+method: BlockClosure
+ifError: errorHandlerBlock 
+	"Evaluate the block represented by the receiver, and normally return it's value.  
+	If an error occurs, the errorHandlerBlock is evaluated, and it's value is instead 
+	returned.  The errorHandlerBlock must accept zero, one, or two parameters 
+	(the error message and the receiver)." 
+	"Examples: 
+		[1 whatsUpDoc] ifError: [:err :rcvr | 'huh?']. 
+		[1 / 0] ifError: [:err :rcvr | 
+			'ZeroDivide' = err 
+				ifTrue: [Float infinity] 
+				ifFalse: [self error: err]] "
+
+	<PharoGs>
+	^ self on: Error do: [:ex | 
+		errorHandlerBlock cull: ex description cull: ex receiver]
+%
+
+category: 'testing'
+method: BlockClosure
+isBlock 
+	
+	<PharoGs>
+	^true
+%
+
+category: 'testing'
+method: BlockClosure
+isClean 
+	
+	<PharoGsError>
+	^self _gsError
+%
+
+category: 'testing'
+method: BlockClosure
+isClosure 
+	
+	<PharoGs>
+	^true
+%
+
+category: 'testing'
+method: BlockClosure
+isDead 
+	
+	<PharoGs>
+	^false
+%
+
+category: 'private'
+method: BlockClosure
+isValid 
+	
+	<PharoGs>
+	^true
+%
+
+category: 'accessing'
+method: BlockClosure
+method 
+	
+	<PharoGsError>
+	^self _gsError
+%
+
+category: 'accessing'
+method: BlockClosure
+numArgs 
+	"Answer the number of arguments that must be used to evaluate this block"
+	
+	<primitive: 458>
+	<PharoGs>
+	^0
+%
+
+category: 'error handling'
+method: BlockClosure
+numArgsError: numArgsForInvocation 
+	
+	<PharoGs>
+	| printNArgs | 
+	printNArgs := [:n| n printString, ' argument', (n = 1 ifTrue: [''] ifFalse:['s'])].  
+	self error:  
+			'This block accepts ', (printNArgs value: self numArgs),  
+			', but was called with ', (printNArgs value: numArgsForInvocation), '.'
+%
+
+category: 'accessing'
+method: BlockClosure
+numLocalTemps 
+	
+	<PharoGsError>
+	^self _gsError
+%
+
+category: 'accessing'
+method: BlockClosure
+numTemps 
+	
+	<PharoGs>
+	^self @env0:numberTemps
+%
+
+category: 'exceptions'
+method: BlockClosure
+foo
+	
+	<PharoGs>
+	^self @env0:foo
+%
+
+category: 'accessing'
+method: BlockClosure
+foo
+	
+	<PharoGs>
+	^self @env0:foo
+%
+
+category: 'accessing'
+method: BlockClosure
+foo
+	
+	<PharoGs>
+	^self @env0:foo
+%
+
+category: 'accessing'
+method: BlockClosure
+foo
+	
+	<PharoGs>
+	^self @env0:foo
+%
+
+category: 'accessing'
+method: BlockClosure
+foo
+	
+	<PharoGs>
+	^self @env0:foo
+%
+
+category: 'accessing'
+method: BlockClosure
+foo
+	
+	<PharoGs>
+	^self @env0:foo
+%
+
+category: 'accessing'
+method: BlockClosure
+foo
+	
+	<PharoGs>
+	^self @env0:foo
+%
+
+category: 'accessing'
+method: BlockClosure
+foo
+	
+	<PharoGs>
+	^self @env0:foo
+%
+
+
+
+
+
 category: 'accessing'
 method: BlockClosure
 copiedValueAt: i 
@@ -367,7 +861,7 @@ _gsReservedSelector_whileFalse
 
 category: 'controlling'
 method: BlockClosure
-_gsReservedSelector_whileFalse: 
+_gsReservedSelector_whileFalse: aBlock
 
     <PharoGs>
     self @env0:error: 'Reserved selector'.
@@ -383,7 +877,7 @@ _gsReservedSelector_whileTrue
 
 category: 'controlling'
 method: BlockClosure
-_gsReservedSelector_whileTrue: 
+_gsReservedSelector_whileTrue: aBlock
 
     <PharoGs>
     self @env0:error: 'Reserved selector'.

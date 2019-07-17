@@ -1,7 +1,7 @@
 set compile_env: 2
 
 category: 'comparing'
-classmethod: Message
+method: Message
 analogousCodeTo: anObject 
 
 	<PharoGsError>
@@ -9,7 +9,7 @@ analogousCodeTo: anObject
 %
 
 category: 'accessing'
-classmethod: Message
+method: Message
 lookupClass
 
 	<PharoGsError>
@@ -17,7 +17,7 @@ lookupClass
 %
 
 category: 'private'
-classmethod: Message
+method: Message
 lookupClass: aClass 
 
 	<PharoGsError>
@@ -25,11 +25,11 @@ lookupClass: aClass
 %
 
 category: 'sending'
-classmethod: Message
+method: Message
 sentTo: receiver 
 
-	<PharoGs>
-    self @env0:add: anException
+	<PharoGsError>
+    self _gsError
 %
 
 set compile_env: 0

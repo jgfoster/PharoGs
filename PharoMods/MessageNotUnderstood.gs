@@ -1,7 +1,7 @@
 set compile_env: 2
 
 category: 'accessing'
-classmethod: MessageNotUnderstood
+method: MessageNotUnderstood
 defaultAction 
 	<PharoGs> 
 
@@ -10,7 +10,7 @@ defaultAction
 %
 
 category: 'initialization'
-classmethod: MessageNotUnderstood
+method: MessageNotUnderstood
 initialize 
 	<PharoGs> 
  
@@ -19,7 +19,7 @@ initialize
 %
 
 category: 'accessing'
-classmethod: MessageNotUnderstood
+method: MessageNotUnderstood
 message 
 	<PharoGs> 
 
@@ -27,7 +27,7 @@ message
 %
 
 category: 'accessing'
-classmethod: MessageNotUnderstood
+method: MessageNotUnderstood
 message: aMessage 
 	<PharoGs> 
 
@@ -36,7 +36,7 @@ message: aMessage
 %
 
 category: 'accessing'
-classmethod: MessageNotUnderstood
+method: MessageNotUnderstood
 messageText
 	<PharoGs> 
 
@@ -44,7 +44,7 @@ messageText
 %
 
 category: 'accessing'
-classmethod: MessageNotUnderstood
+method: MessageNotUnderstood
 reachedDefaultHandler 
 	<PharoGs> 
 
@@ -52,7 +52,7 @@ reachedDefaultHandler
 %
 
 category: 'accessing'
-classmethod: MessageNotUnderstood
+method: MessageNotUnderstood
 smartDescription 
 	<PharoGs> 
 	 

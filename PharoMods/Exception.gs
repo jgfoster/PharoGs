@@ -146,12 +146,4 @@ signalIn: context
     self _gsError
 %
 
-category: 'handling'
-method: Exception
-foo
-
-	<PharoGs>
-    self @env0:add: anException
-%
-
 set compile_env: 0

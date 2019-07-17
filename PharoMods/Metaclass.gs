@@ -1,7 +1,7 @@
 set compile_env: 2
 
 category: 'accessing'
-classmethod: Metaclass
+method: Metaclass
 environment 
 
 	<PharoGs>
@@ -9,7 +9,7 @@ environment
 %
 
 category: '*CodeExport'
-classmethod: Metaclass
+method: Metaclass
 fileOutOn: aFileStream initializing: aBool 
 	<PharoGs> 
 
@@ -22,7 +22,7 @@ fileOutOn: aFileStream initializing: aBool
 %
 
 category: 'accessing'
-classmethod: Metaclass
+method: Metaclass
 name 
 	<PharoGs> 
 
@@ -34,7 +34,7 @@ name
 %
 
 category: 'instance creation'
-classmethod: Metaclass
+method: Metaclass
 new 
 	<PharoGsError> 
 
@@ -42,7 +42,7 @@ new
 %
 
 category: 'copying'
-classmethod: Metaclass
+method: Metaclass
 postCopy 
 	<PharoGs> 
  
@@ -53,7 +53,7 @@ postCopy
 %
 
 category: 'accessing'
-classmethod: Metaclass
+method: Metaclass
 soleInstance 
 	<PharoGs> 
 

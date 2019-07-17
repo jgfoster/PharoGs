@@ -10,8 +10,7 @@ Smalltalk
 	at: #SystemOrganization put: nil;
 	at: #Transcript put: nil;
 	at: #Undeclared put: nil;
-
-	"missing instance variables created as globals for now"
+	at: #thisContext put: nil;
 	yourself.
 %
 errorCount
@@ -271,8 +270,8 @@ Smalltalk
 	at: #FloatingPointException put: (Globals at: #FloatingPointException);
 	at: #UndefinedObject put: (Globals at: #UndefinedObject);
 	at: #Notification put: (Globals at: #Notification);
-	at: #String put: (Globals at: #String);
 	at: #ClassDescription put: (Globals at: #Module);
+	at: #String put: (Globals at: #CharacterCollection);
 	at: #ByteString put: (Globals at: #String);
 	at: #Character put: (Globals at: #Character);
 	at: #ProcessorScheduler put: (Globals at: #ProcessorScheduler);
@@ -295,7 +294,7 @@ Smalltalk
 	at: #SmallInteger put: (Globals at: #SmallInteger);
 	at: #ArithmeticError put: (Globals at: #NumericError);
 	at: #Object put: (Globals at: #Object);
-	at: #BlockClosure put: (Globals at: #BlockClosure);
+	at: #BlockClosure put: (Globals at: #ExecBlock);
 	at: #Semaphore put: (Globals at: #Semaphore);
 	at: #ExceptionSet put: (Globals at: #ExceptionSet);
 	at: #BoxedFloat64 put: (Globals at: #Float);

@@ -75,4 +75,21 @@ new: sizeRequested
 	^ (self basicNew: sizeRequested) initialize
 %
 
+category: 'pool variables'
+method: Class
+sharedPools 
+	"Answer an orderedCollection  of the shared pools declared in the receiver."
+
+	<PharoGs> 
+	^(poolDictionaries ifNil: [#()]) @env0:asOrderedCollection
+%
+
+category: 'pool variables'
+method: Class
+sharedPools: aCollection 
+	
+	<PharoGs> 
+	poolDictionaries := aCollection
+%
+
 set compile_env: 0

@@ -1,5 +1,16 @@
 set compile_env: 2
 
+category: 'initialize-release'
+method: Metaclass
+adoptInstance: oldInstance from: oldMetaClass  
+	"Recreate any existing instances of the argument, oldClass, as instances of  
+	the receiver, which is a newly changed class. Permute variables as  
+	necessary." 
+
+	<PharoGsError>
+	self _gsError
+%
+
 category: 'accessing'
 method: Metaclass
 environment 
@@ -44,12 +55,9 @@ new
 category: 'copying'
 method: Metaclass
 postCopy 
-	<PharoGs> 
- 
-	"Do not share the reference to the sole instance."
-	super postCopy. 
-	self classLayout: (layout copy host: self). 
-	destClass := nil.
+	<PharoGsError> 
+
+	self _gsError
 %
 
 category: 'accessing'

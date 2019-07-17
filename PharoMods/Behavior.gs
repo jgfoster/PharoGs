@@ -108,6 +108,14 @@ basicNew
 	^self @env0:basicNew
 %
 
+category: 'accessing class hierarchy'
+method: Behavior
+basicSuperclass: aClass 
+
+	<PharoGsError>
+	self _gsError
+%
+
 category: 'accessing instances and variables'
 method: Behavior
 byteSizeOfInstance 
@@ -222,18 +230,12 @@ handleFailingFailingBasicNew: sizeRequested
 	self @env0:error: 'GemStone does this automatically'
 %
 
-category: 'accessing instances and variables'
+category: '*TraitsV2'
 method: Behavior
-someInstance 
-	"Primitive. Answer the first instance in the enumeration of all instances  
-	of the receiver. Fails if there are none. Essential. See Object  
-	documentation whatIsAPrimitive." 
-	
+localSelectors 
+
 	<PharoGs> 
-	| list |
-	list := SystemRepository @env0:listInstances: { self } limit: 1.
-	(list @env0:at: 1) == 0 @env0:ifTrue: [self @env0:error: 'No instances!'].
-	^(list @env0:at: 2) @env0:at: 1.
+	^ self methodDict keys
 %
 
 category: 'accessing'
@@ -252,6 +254,28 @@ methodDict: aDictionary
 	^self 
 		@env0:persistentMethodDictForEnv: 2 
 		put: aDictionary
+%
+
+category: 'accessing instances and variables'
+method: Behavior
+someInstance 
+	"Primitive. Answer the first instance in the enumeration of all instances  
+	of the receiver. Fails if there are none. Essential. See Object  
+	documentation whatIsAPrimitive." 
+	
+	<PharoGs> 
+	| list |
+	list := SystemRepository @env0:listInstances: { self } limit: 1.
+	(list @env0:at: 1) == 0 @env0:ifTrue: [self @env0:error: 'No instances!'].
+	^(list @env0:at: 2) @env0:at: 1.
+%
+
+category: 'accessing class hierarchy'
+method: Behavior
+superclass 
+
+	<PharoGs> 
+	^superClass
 %
 
 set compile_env: 0

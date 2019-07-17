@@ -53,7 +53,7 @@ identityHashOf: anObject
 	Primitive. Fails if the receiver is a SmallInteger" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'fields accessing'
@@ -102,7 +102,7 @@ classmethod: MirrorPrimitives
 isObjectReadOnly: anObject 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'write barrier'
@@ -110,7 +110,7 @@ classmethod: MirrorPrimitives
 makeObject: anObject readOnly: aBoolean 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'class relationship'
@@ -119,7 +119,7 @@ setClass: classObject to: anObject
 	"Change the class of anObject to classObject" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'message performing'
@@ -128,7 +128,7 @@ withReceiver: receiver andArguments: argArray execute: compiledMethod
 	"Execute compiledMethod against the receiver and the arguments in argArray" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'message performing'
@@ -140,7 +140,7 @@ withReceiver: anObject perform: selector withArguments: argArray
 	Primitive. Optional. See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'message performing'
@@ -152,7 +152,7 @@ withReceiver: receiver perform: selector withArguments: argArray inSuperclass: l
 	cannot be found among the receiver's superclasses" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'message performing'
@@ -162,7 +162,7 @@ withReceiver: receiver tryPrimitive: number withArguments: args
 	execute primitives" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 set compile_env: 0

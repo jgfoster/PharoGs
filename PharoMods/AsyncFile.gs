@@ -6,7 +6,7 @@ primClose: fHandle
 	"Close this file. Do nothing if primitive fails." 
 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'primitives'
@@ -15,7 +15,7 @@ primOpen: fileName forWrite: openForWrite semaIndex: semaIndex
 	"Open a file of the given name, and return a handle for that file. Answer the receiver if the primitive succeeds, nil otherwise." 
 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'primitives'
@@ -26,7 +26,7 @@ primReadResult: fHandle intoBuffer: buffer at: startIndex count: count
 		-2 the last operation encountered an error" 
 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'primitives'
@@ -35,7 +35,7 @@ primReadStart: fHandle fPosition: fPosition count: count
 	"Start a read operation of count bytes starting at the given offset in the given file." 
 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'primitives'
@@ -46,7 +46,7 @@ primWriteResult: fHandle
 		-2 the last operation encountered an error" 
 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'primitives'
@@ -55,7 +55,7 @@ primWriteStart: fHandle fPosition: fPosition fromBuffer: buffer at: startIndex c
 	"Start a write operation of count bytes starting at the given index in the given buffer. The buffer may be any sort of bytes or words object, excluding CompiledMethods. The contents of the buffer are copied into an internal buffer immediately, so the buffer can be reused after the write operation has been started. Fail if there is insufficient C heap to allocate an internal buffer of the requested size." 
 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 set compile_env: 0

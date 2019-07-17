@@ -47,7 +47,7 @@ nextInstance
 	enumerated. Essential. See Object documentation whatIsAPrimitive." 
 
 	<PharoGsError> 
-	self @env0:error: 'Not supported in GemStone'
+	self _gsError
 %
 
 category: 'memory scanning'
@@ -58,7 +58,7 @@ nextObject
 	enumerated." 
 
 	<PharoGsError> 
-	self @env0:error: 'Not supported in GemStone'
+	self _gsError
 %
 
 category: 'comparing'
@@ -108,7 +108,7 @@ rFwithArgs: argArray executeMethod: compiledMethod
 	<disableReflectivity> 
 	<PharoGsError>
 
-	self @env0:error: 'Not supported in GemStone'
+	self _gsError
 %
 
 category: 'apply primitives'
@@ -118,13 +118,21 @@ tryPrimitive: primIndex withArgs: argumentArray
 	execute primitives. See Object documentation whatIsAPrimitive." 
 	<PharoGsError>
 
-	self @env0:error: 'Not supported in GemStone'
+	self _gsError
 %
 
 category: 'executing'
 method: ProtoObject
 withArgs: argArray executeMethod: compiledMethod 
 	"Execute compiledMethod against the receiver and args in argArray" 
+	<PharoGsError>
+
+	self _gsError
+%
+
+category: 'gemstone'
+method: ProtoObject
+_gsError
 	<PharoGsError>
 
 	self @env0:error: 'Not supported in GemStone'

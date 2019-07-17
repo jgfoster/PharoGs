@@ -7,7 +7,7 @@ getLastError
 	Only valid immediately after the external call failed." 
 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'invoking'
@@ -16,7 +16,7 @@ invokeWithArguments: argArray
 	"Manually invoke the receiver, representing an external function." 
 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'invoking'
@@ -25,7 +25,7 @@ tryInvokeWithArguments: argArray
 	"Sent from the debugger to simulate an FFI call." 
 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 set compile_env: 0

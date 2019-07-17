@@ -25,7 +25,7 @@ method: Socket
 primSocket: socketID bindTo: socketAddress 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -42,7 +42,7 @@ method: Socket
 primSocket: socketID connectTo: socketAddress 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -104,7 +104,7 @@ method: Socket
 primSocket: socketID listenWithBacklog: backlogSize 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-ipv6'
@@ -112,7 +112,7 @@ method: Socket
 primSocket: socketID localAddressResult: socketAddress 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -131,7 +131,7 @@ primSocket: socketID receiveUDPDataInto: aStringOrByteArray startingAt: startInd
 	Return an Array containing the amount read, the host address byte array, the host port, and the more flag" 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-ipv6'
@@ -139,7 +139,7 @@ method: Socket
 primSocket: socketID remoteAddressResult: socketAddress 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -159,7 +159,7 @@ primSocket: socketID sendUDPData: aStringOrByteArray toHost: hostAddress port: p
 	"Note: In general, it many take several sendData calls to transmit a large data array since the data is sent in send-buffer-sized chunks. The size of the send buffer is determined when the socket is created." 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -184,7 +184,7 @@ primSocket: socketID setPort: port
 	two subclasses, TCPSocket and UDPSocket." 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -193,7 +193,7 @@ primSocketAbortConnection: socketID
 	"Terminate the connection on the given port immediately without going through the normal close sequence. This is an asynchronous call; query the socket status to discover if and when the connection is actually terminated." 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -211,7 +211,7 @@ primSocketConnectionStatus: socketID
 	"Return an integer reflecting the connection status of this socket. For a list of possible values, see the comment in the 'initialize' method of this class. If the primitive fails, return a status indicating that the socket handle is no longer valid, perhaps because the Pharo image was saved and restored since the socket was created. (Sockets do not survive snapshots.)" 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -226,7 +226,7 @@ primSocketCreateNetwork: netType type: socketType receiveBufferSize: rcvBufSize 
  	If semaIndex is > 0, it is taken to be the index of a Semaphore in the external objects array to be associated with this socket. This semaphore will be signalled when the socket status changes, such as when data arrives or a send completes. All processes waiting on the semaphore will be awoken for each such event; each process must then query the socket state to figure out if the conditions they are waiting for have been met. For example, a process waiting to send some data can see if the last send has completed." 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -237,7 +237,7 @@ primSocketCreateNetwork: netType type: socketType receiveBufferSize: rcvBufSize 
 	reading and writing" 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -282,7 +282,7 @@ method: Socket
 primSocketLocalAddressSize: handle 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -317,7 +317,7 @@ method: Socket
 primSocketRemoteAddressSize: handle 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'

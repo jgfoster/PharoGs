@@ -42,7 +42,7 @@ ifCurtailed: aBlock
 	 of the receiver.  If execution of the receiver finishes normally do 
 	 not evaluate aBlock.  N.B.  This method is *not* implemented as a 
 	 primitive.  Primitive 198 always fails.  The VM uses prim 198 in a 
-	 context's method as the mark for an ensure:/ifCurtailed: activation.
+	 context's method as the mark for an ensure:/ifCurtailed: activation. '
 	| complete result | 
 	<primitive: 198> 
 	result := self valueNoContextSwitch. 
@@ -298,7 +298,7 @@ valueWithArguments: anArray
 	"Activate the receiver, creating a closure activation (MethodContext) 
 	 whose closure is the receiver and whose caller is the sender of this message. 
 	 Supply the arguments in an anArray and copied values to the activation as its arguments and copied temps. 
-	 Primitive. Optional (but you're going to want this for performance)." 
+	 Primitive. Optional (but you are going to want this for performance)." 
 
     "Return the value of the receiver evaluated with the elements of the Array
     anArray as arguments.  If the block expects a different number of arguments,
@@ -315,7 +315,7 @@ rfEnsure: aBlock
 	"same as #esure, carefully written to never have active meta-links as it is called in the code path that checks for recursion" 
     <PharoGsError>
 
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: '*Reflectivity'
@@ -324,7 +324,7 @@ rfvalue
 	"same as value, for recursion stopping metalinks" 
     <PharoGsError>
 
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'evaluating'
@@ -335,7 +335,7 @@ valueNoContextSwitch
 	 Primitive. Essential." 
     <PharoGsError>
 
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'accessing'
@@ -346,7 +346,47 @@ valueNoContextSwitch: anArg
 	 Primitive. Essential." 
     <PharoGsError>
 
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
+%
+
+category: 'controlling'
+method: BlockClosure
+_gsReservedSelector_repeat 
+
+    <PharoGs>
+    self @env0:error: 'Reserved selector'.
+%
+
+category: 'controlling'
+method: BlockClosure
+_gsReservedSelector_whileFalse 
+
+    <PharoGs>
+    self @env0:error: 'Reserved selector'.
+%
+
+category: 'controlling'
+method: BlockClosure
+_gsReservedSelector_whileFalse: 
+
+    <PharoGs>
+    self @env0:error: 'Reserved selector'.
+%
+
+category: 'controlling'
+method: BlockClosure
+_gsReservedSelector_whileTrue 
+
+    <PharoGs>
+    self @env0:error: 'Reserved selector'.
+%
+
+category: 'controlling'
+method: BlockClosure
+_gsReservedSelector_whileTrue: 
+
+    <PharoGs>
+    self @env0:error: 'Reserved selector'.
 %
 
 set compile_env: 0

@@ -10,7 +10,7 @@ bytesLeft: aBool
     Pharo memory but not counting extra memory use #primBytesLeft." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'snapshot and quit'
@@ -25,7 +25,7 @@ exit: exitStatus
 	> 1: error" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 category: 'miscellaneous'
 method: SmalltalkImage
@@ -34,7 +34,7 @@ exitToDebugger
 	See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'memory space'
@@ -43,7 +43,7 @@ forceTenure
 	"Primitive. Tell the GC logic to force a tenure on the next increment GC." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'memory space'
@@ -53,7 +53,7 @@ garbageCollectMost
     fairly quickly and answers the number of bytes of available space." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'memory space'
@@ -63,7 +63,7 @@ growMemoryByAtLeast: numBytes
 	 Primitive.  Essential. Fail if no memory is available." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'image'
@@ -76,7 +76,7 @@ imageFormatVersion
 	"Smalltalk image imageFormatVersion" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'memory space'
@@ -85,7 +85,7 @@ isRoot: oop
 	"Primitive. Answer whether the object is currently a root for youngSpace." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'memory space'
@@ -94,7 +94,7 @@ isYoung: oop
 	"Primitive. Answer whether the object currently resides in youngSpace." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'system attributes'
@@ -103,7 +103,7 @@ maxIdentityHash
 	"Answer the maximum identityHash value supported by the VM." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'memory space'
@@ -116,7 +116,7 @@ primBytesLeft
 	 See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'primitives'
@@ -126,7 +126,7 @@ primImagePath
 	"Smalltalk imageName" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'primitives'
@@ -135,7 +135,7 @@ primImagePath: newName
 	"Set the the full path name for the current image.  All further snapshots will use this." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'memory space'
@@ -144,7 +144,7 @@ primitiveGarbageCollect
 	"Primitive. Reclaims all garbage and answers the size of the largest free chunk in old space.." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'special objects'
@@ -152,7 +152,7 @@ method: SmalltalkImage
 primitiveGetSpecialObjectsArray 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'memory space'
@@ -163,7 +163,7 @@ primLowSpaceSemaphore: aSemaphore
 	interrupts if the argument is nil." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'memory space'
@@ -175,7 +175,7 @@ primSignalAtBytesLeft: numBytes
 	argument is zero.  Fail if numBytes is not an Integer." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'snapshot and quit'
@@ -186,7 +186,7 @@ quitPrimitive
 	Essential. See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'memory space'
@@ -196,7 +196,7 @@ rootTable
 	Keep in mind that the primitive may itself cause GC." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'memory space'
@@ -205,7 +205,7 @@ rootTableAt: index
 	"Primitive. Answer the nth element of the VMs root table" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'snapshot and quit'
@@ -217,7 +217,7 @@ snapshotPrimitive
 	Essential. See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'external'
@@ -229,7 +229,7 @@ unbindExternalPrimitives
     adding some plugin the primitives may be found." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 set compile_env: 0

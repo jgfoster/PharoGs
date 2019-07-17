@@ -275,7 +275,7 @@ perform: selector withArguments: argArray inSuperclass: lookupClass
 	 
 	<reflective: #object:performMessageInSuperclass:> 
 	<PharoGsError> 
-	self @env0:error: 'Not supported in GemStone'
+	self _gsError
 %
 
 category: 'reflective operations'

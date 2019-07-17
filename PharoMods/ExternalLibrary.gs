@@ -8,7 +8,7 @@ forceLoading
 	or if anything is wrong with the receiver." 
 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 set compile_env: 0

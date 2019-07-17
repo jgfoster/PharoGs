@@ -22,7 +22,7 @@ primSignal: aSemaphore atMilliseconds: aSmallInteger
     Essential. See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 set compile_env: 0

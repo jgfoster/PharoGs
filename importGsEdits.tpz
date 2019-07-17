@@ -11,6 +11,7 @@ input PharoMods/BoxedFloat64.gs
 input PharoMods/ByteArray.gs
 input PharoMods/ByteString.gs
 input PharoMods/ByteSymbol.gs
+input PharoMods/CannotReturn.gs
 input PharoMods/Character.gs
 input PharoMods/Class.gs
 input PharoMods/CompiledCode.gs
@@ -23,6 +24,8 @@ input PharoMods/DelayMillisecondTicker.gs
 input PharoMods/DependentsArray.gs
 input PharoMods/DoubleByteArray.gs
 input PharoMods/DoubleWordArray.gs
+input PharoMods/Exception.gs
+input PharoMods/ExceptionSet.gs
 input PharoMods/ExternalAddress.gs
 input PharoMods/ExternalFunction.gs
 input PharoMods/ExternalLibrary.gs
@@ -40,13 +43,18 @@ input PharoMods/Interval.gs
 input PharoMods/LargeInteger.gs
 input PharoMods/LocalTimeZone.gs
 input PharoMods/MD5.gs
+input PharoMods/Message.gs
+input PharoMods/MessageNotUnderstood.gs
+input PharoMods/Metaclass.gs
 input PharoMods/MethodDictionary.gs
 input PharoMods/MirrorPrimitives.gs
+input PharoMods/Module.gs
 input PharoMods/NetNameResolver.gs
 input PharoMods/Number.gs
 input PharoMods/Object.gs
 input PharoMods/OSPlatform.gs
 input PharoMods/PlatformResolver.gs
+input PharoMods/Pragma.gs
 input PharoMods/Process.gs
 input PharoMods/ProcessorScheduler.gs
 input PharoMods/ProtoObject.gs

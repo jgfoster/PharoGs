@@ -8,7 +8,7 @@ disableModuleLoading
 	Any subsequent attempts to load either external or internal module(s) will fail" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'modules'
@@ -19,7 +19,7 @@ forgetModule: aString
     will try to load it again next time. See comment for #unloadModule:." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'gc'
@@ -28,7 +28,7 @@ gcBiasToGrowLimit: arg
 	"Tell the VM the grow limit if the GC logic has bias to grow." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'parameters'
@@ -41,7 +41,7 @@ getParameters
 	"Smalltalk vm getParameters" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'attributes'
@@ -82,7 +82,7 @@ getSystemAttribute: attributeID
        10003   graphics hardware details (Win32 only)" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'accessing'
@@ -98,7 +98,7 @@ interpreterSourceVersion
 	"Smalltalk vm interpreterSourceVersion" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'modules'
@@ -108,7 +108,7 @@ listBuiltinModule: index
 	This list is not sorted!" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'modules'
@@ -118,7 +118,7 @@ listLoadedModule: index
 	This list is not sorted!" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'parameters'
@@ -191,7 +191,7 @@ parameterAt: parameterIndex
 	71	the vmProxyMinorVersion (the interpreterProxy VM_MINOR_VERSION)" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'parameters'
@@ -204,7 +204,7 @@ parameterAt: parameterIndex put: newValue
 	register, or if the corresponding register is read-only." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'accessing'
@@ -217,7 +217,7 @@ platformSourceVersion
 	"Smalltalk vm platformSourceVersion" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'primitives'
@@ -228,7 +228,7 @@ primitiveGCBiasToGrow: arg
     takes an integer not a bool but oh well..." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'primitives'
@@ -248,7 +248,7 @@ setGCBiasToGrow: aNumber
 	"Primitive. Indicate that the GC logic should be bias to grow" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'gc'
@@ -257,7 +257,7 @@ setGCBiasToGrowGCLimit: aNumber
 	"Primitive. Indicate that the bias to grow logic should do a GC after aNumber Bytes" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'gc'
@@ -266,7 +266,7 @@ setGCSemaphore: semaIndex
 	"Primitive. Indicate the GC semaphore index to be signaled on GC occurance." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'modules'
@@ -279,7 +279,7 @@ unloadModule: aString
 	on all platforms." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'accessing'
@@ -298,7 +298,7 @@ versionLabel
 	"Smalltalk vm versionLabel" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'gc'
@@ -310,7 +310,7 @@ voidCogVMState
 		- the machine code zone, where the machine code form of CompiledMethods is held." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 set compile_env: 0

@@ -6,7 +6,7 @@ allocate: byteSize
 	"Primitive. Allocate an object on the external heap." 
 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'instance creation'
@@ -14,14 +14,14 @@ classmethod: ExternalAddress
 loadSymbol: moduleSymbol module: module  
 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'copying'
 method: ExternalAddress
 clone 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'initialization'
@@ -32,7 +32,7 @@ free
 	allocated by ExternalAddress class>>allocate:. No checks are done." 
 
 	<PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 set compile_env: 0

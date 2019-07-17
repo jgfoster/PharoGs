@@ -13,7 +13,7 @@ handleFailingFailingNewMethod: numberOfBytes header: headerWord
 	 memory available. Essential. See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'private'
@@ -32,7 +32,7 @@ handleFailingNewMethod: numberOfBytes header: headerWord
 	 memory available. Essential. See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'accessing'
@@ -46,7 +46,7 @@ flushCache
     Essential. See MethodDictionary class comment." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 set compile_env: 0

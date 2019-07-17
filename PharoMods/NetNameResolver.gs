@@ -14,7 +14,7 @@ primAddressLookupResult
 	"Return the host name found by the last host address lookup. Returns nil if the last lookup was unsuccessful." 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -22,7 +22,7 @@ classmethod: NetNameResolver
 primGetAddressInfoFamily 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -30,7 +30,7 @@ classmethod: NetNameResolver
 primGetAddressInfoHost: hostName service: servName flags: flags family: family type: type protocol: protocol 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -38,7 +38,7 @@ classmethod: NetNameResolver
 primGetAddressInfoNext 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -46,7 +46,7 @@ classmethod: NetNameResolver
 primGetAddressInfoProtocol 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -54,7 +54,7 @@ classmethod: NetNameResolver
 primGetAddressInfoResult: socketAddress 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -62,7 +62,7 @@ classmethod: NetNameResolver
 primGetAddressInfoSize 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -70,7 +70,7 @@ classmethod: NetNameResolver
 primGetAddressInfoType 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -78,7 +78,7 @@ classmethod: NetNameResolver
 primGetNameInfoHostResult: aString 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -86,7 +86,7 @@ classmethod: NetNameResolver
 primGetNameInfoHostSize 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -94,7 +94,7 @@ classmethod: NetNameResolver
 primGetNameInfoServiceResult: aString 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -102,7 +102,7 @@ classmethod: NetNameResolver
 primGetNameInfoServiceSize 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -110,7 +110,7 @@ classmethod: NetNameResolver
 primHostNameResult: aString 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -118,7 +118,7 @@ classmethod: NetNameResolver
 primHostNameSize 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'network initialization'
@@ -137,7 +137,7 @@ primLocalAddress
 	"Return the local address of this host." 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -146,7 +146,7 @@ primNameLookupResult
 	"Return the host address found by the last host name lookup. Returns nil if the last lookup was unsuccessful." 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -155,7 +155,7 @@ primNameResolverError
 	"Return an integer reflecting the error status of the last network name resolver request. Zero means no error." 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -164,7 +164,7 @@ primNameResolverStatus
 	"Return an integer reflecting the status of the network name resolver. For a list of possible values, see the comment in the 'initialize' method of this class." 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -173,7 +173,7 @@ primStartLookupOfAddress: hostAddr
 	"Look up the given host address in the Domain Name Server to find its name. This call is asynchronous. To get the results, wait for it to complete or time out and then use primAddressLookupResult." 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -182,7 +182,7 @@ primStartLookupOfName: hostName
 	"Look up the given host name in the Domain Name Server to find its address. This call is asynchronous. To get the results, wait for it to complete or time out and then use primNameLookupResult." 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 set compile_env: 0

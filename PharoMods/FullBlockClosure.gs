@@ -9,7 +9,7 @@ value
 	 temps. Primitive. Essential." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'evaluating'
@@ -21,7 +21,7 @@ value: firstArg
 	 as its argument and copied temps. Primitive. Essential." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'evaluating'
@@ -33,7 +33,7 @@ value: firstArg value: secondArg
 	 as its arguments and copied temps. Primitive. Essential." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'evaluating'
@@ -45,7 +45,7 @@ value: firstArg value: secondArg value: thirdArg
 	 as its arguments and copied temps. Primitive. Essential." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'evaluating'
@@ -57,7 +57,7 @@ value: firstArg value: secondArg value: thirdArg value: fourthArg
 	 as its arguments and copied temps. Primitive. Essential." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'evaluating'
@@ -68,7 +68,7 @@ valueNoContextSwitch
 	 Primitive. Essential." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'evaluating'
@@ -79,7 +79,7 @@ valueNoContextSwitch: anArg
 	 Primitive. Essential." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 category: 'evaluating'
@@ -91,7 +91,7 @@ valueWithArguments: anArray
 	 the activation as its arguments and copied temps. Primitive. Essential." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'.
+    self _gsError.
 %
 
 set compile_env: 0

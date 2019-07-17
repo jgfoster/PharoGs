@@ -1,5 +1,61 @@
 set compile_env: 2
 
+category: 'accessing'
+method: Class
+basicCategory 
+
+	<PharoGs> 
+	^classCategory
+%
+
+category: 'accessing'
+method: Class
+basicCategory: aSymbol 
+
+	<PharoGs> 
+	classCategory := aSymbol.
+%
+
+category: 'accessing'
+method: Class
+classPool 
+
+	<PharoGs> 
+	^classVars
+%
+
+category: 'accessing'
+method: Class
+classPool: aDictionary
+
+	<PharoGs> 
+	classVars := aDictionary.
+%
+
+category: 'copying'
+method: Class
+copyForAnnouncement 
+
+	<PharoGsError>
+	self _gsError
+%
+
+category: 'organization'
+method: Class
+environment
+
+	<PharoGs>
+	^super environment
+%
+
+category: 'organization'
+method: Class
+environment: anEnvironment
+
+	<PharoGsError>
+	self _gsError
+%
+
 category: 'instance creation'
 method: Class
 new

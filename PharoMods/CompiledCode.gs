@@ -12,7 +12,7 @@ newMethod: numberOfBytes header: headerWord
 	 Essential. See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'literals'
@@ -23,7 +23,7 @@ objectAt: index
 	whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'literals'
@@ -37,7 +37,7 @@ objectAt: index put: value
 	documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'cleaning'
@@ -51,7 +51,7 @@ voidCogVMState
 	 modifying a method (rather than redefining it) requires this more aggressive flush." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 set compile_env: 0

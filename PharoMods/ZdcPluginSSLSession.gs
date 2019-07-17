@@ -12,7 +12,7 @@ primitiveSSL: sslHandle accept: srcbuf startingAt: start count: length into: dst
 		< -1  Other errors" 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -27,7 +27,7 @@ primitiveSSL: sslHandle connect: srcbuf startingAt: start count: length into: ds
 		< -1  Other errors" 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -37,7 +37,7 @@ primitiveSSL: sslHandle decrypt: srcbuf startingAt: start count: length into: ds
 	Returns the number of bytes produced in the output" 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -47,7 +47,7 @@ primitiveSSL: sslHandle encrypt: srcbuf startingAt: start count: length into: ds
 	Returns the number of bytes produced as a result" 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -56,7 +56,7 @@ primitiveSSL: sslHandle getIntProperty: propID
 	"Primitive. Returns a string property from an SSL session" 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -65,7 +65,7 @@ primitiveSSL: sslHandle getStringProperty: propID
 	"Primitive. Returns a string property from an SSL session" 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -74,7 +74,7 @@ primitiveSSL: sslHandle setIntProperty: propID toValue: anInteger
 	"Primitive. Sets an integer property in an SSL session" 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -83,7 +83,7 @@ primitiveSSL: sslHandle setStringProperty: propID toValue: aString
 	"Primitive. Sets a string property in an SSL session" 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -92,7 +92,7 @@ primitiveSSLCreate
 	"Primitive. Creates and returns a new SSL handle in the VM plugin" 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 category: 'primitives'
@@ -101,7 +101,7 @@ primitiveSSLDestroy: sslHandle
 	"Primitive. Destroys the SSL session handle in the VM plugin" 
 
 	<PharoGsError> 
-    ^self @env0:error: 'Not supported in GemStone'
+    ^self _gsError
 %
 
 set compile_env: 0

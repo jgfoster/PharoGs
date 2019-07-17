@@ -85,7 +85,7 @@ basicNew: sizeRequested
 	 enough memory available. Essential. See Object documentation whatIsAPrimitive. 
 	 
 	 If the primitive fails because space is low then the scavenger will run before the 
-	 method is activated.  Check args and retry via handleFailingBasicNew: if they're OK." 
+	 method is activated.  Check args and retry via handleFailingBasicNew: if they are OK." 
 
 	<PharoGs> 
 	^self @env0:_basicNew: sizeRequested
@@ -125,6 +125,22 @@ byteSizeOfInstanceOfSize: basicSize
 
 	<PharoGsError>
 	self @env0:error: 'Use Object>>sizeInMemory on an instance'
+%
+
+category: '*Slot-core'
+method: Behavior
+classLayout
+
+	<PharoGsError>
+	self _gsError
+%
+
+category: '*Slot-core'
+method: Behavior
+classLayout: aClassLayout 
+
+	<PharoGsError>
+	self _gsError
 %
 
 category: 'private'

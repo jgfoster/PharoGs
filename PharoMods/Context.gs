@@ -19,7 +19,7 @@ at: index
 	 the VM in context management." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'accessing'
@@ -32,7 +32,7 @@ at: index put: value
 	 the VM in context management." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'accessing'
@@ -45,7 +45,7 @@ basicAt: index
 	 the VM in context management." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'accessing'
@@ -58,7 +58,7 @@ basicAt: index put: value
 	 the VM in context management." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'accessing'
@@ -70,7 +70,7 @@ basicSize
 	 the VM in context management." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'controlling'
@@ -85,7 +85,7 @@ closureCopy: numArgs copiedValues: anArray
 	whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'private-exceptions'
@@ -95,7 +95,7 @@ evaluateSignal: exception
 	See MethodContext>>#isHandlerOrSignalingContext. " 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'private-exceptions'
@@ -105,7 +105,7 @@ findNextHandlerOrSignalingContext
 	Search starts with self and proceeds up to nil." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'private-exceptions'
@@ -115,7 +115,7 @@ findNextUnwindContextUpTo: aContext
     Search proceeds up to but not including aContext." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'mirror primitives'
@@ -128,7 +128,7 @@ object: anObject basicAt: index
 	 Primitive.  See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'mirror primitives'
@@ -143,7 +143,7 @@ object: anObject basicAt: index put: value
 	 Primitive.  See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'mirror primitives'
@@ -156,7 +156,7 @@ object: anObject eqeq: anOtherObject
 	 Primitive.  See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'mirror primitives'
@@ -168,7 +168,7 @@ object: anObject instVarAt: anIndex
 	 debugger. See  Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'mirror primitives'
@@ -183,7 +183,7 @@ object: anObject instVarAt: anIndex put: aValue
 	 debugger. See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'mirror primitives'
@@ -196,7 +196,7 @@ object: anObject perform: selector withArguments: argArray inClass: lookupClass
 	 Primitive. Essential for the debugger." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'mirror primitives'
@@ -204,7 +204,7 @@ method: Context
 objectClass: aReceiver 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'mirror primitives'
@@ -216,7 +216,7 @@ objectSize: anObject
 	 Primitive.  See Object documentation whatIsAPrimitive." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: '*Reflectivity'
@@ -225,7 +225,7 @@ rftempAt: index put: value
 	"same as #tempAt:put:, for recursion stopping metalinks" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'accessing'
@@ -249,7 +249,7 @@ stackp: newStackp
 	"Once this primitive is implemented, failure code should cause an error" 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'accessing'
@@ -263,7 +263,7 @@ tempAt: index
 	 VM in context management." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'accessing'
@@ -277,7 +277,7 @@ tempAt: index put: value
 	 the VM in context management." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'controlling'
@@ -287,7 +287,7 @@ terminateTo: previousContext
     is on my Context stack. Make previousContext my sender." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'private'
@@ -295,7 +295,7 @@ method: Context
 tryNamedPrimitiveIn: aCompiledMethod for: aReceiver withArgs: arguments 
 
     <PharoGsError>
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 set compile_env: 0

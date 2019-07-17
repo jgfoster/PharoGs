@@ -7,7 +7,7 @@ allObjects
     Fail if there isn't enough memory to instantiate the result." 
 
 	<PharoGsError> 
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 category: 'query'
@@ -17,7 +17,7 @@ allObjectsOrNil
     Fail if there isn't enough memory to instantiate the result and answer nil." 
 
 	<PharoGsError> 
-    self @env0:error: 'Not supported in GemStone'
+    self _gsError
 %
 
 set compile_env: 0

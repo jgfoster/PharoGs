@@ -1,13 +1,5 @@
 set compile_env: 2
 
-category: 'accessing'
-classmethod: ByteArray
-at: anIndex
-
-    <primitive: 974>
-    ^self @env0:at: anIndex
-%
-
 category: 'byte based hash'
 classmethod: ByteArray
 hashBytes: aByteArray startingWith: speciesHash 
@@ -28,6 +20,14 @@ hashBytes: aByteArray startingWith: speciesHash
 		hash := (16r260D * low + ((16r260D * (hash bitShift: -14) + (16r0065 * low) bitAnd: 16383) * 16384)) bitAnd: 16r0FFFFFFF. 
 	]. 
 	^ hash
+%
+
+category: 'accessing'
+method: ByteArray
+at: anIndex
+
+    <primitive: 974>
+    ^self @env0:at: anIndex
 %
 
 category: 'accessing'

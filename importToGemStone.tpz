@@ -33,6 +33,8 @@ Object superclassForEnv: 2 put: ProtoObject.
 Object class superclassForEnv: 2 put: ProtoObject class.
 Array superclassForEnv: 2 put: ArrayedCollection.
 Array class superclassForEnv: 2 put: ArrayedCollection class.
+ByteArray superclassForEnv: 2 put: ArrayedCollection.
+ByteArray class superclassForEnv: 2 put: ArrayedCollection class.
 SmallFloat64 superclassForEnv: 2 put: Float.
 SmallFloat64 class superclassForEnv: 2 put: Float class.
 SmalltalkImage superclassForEnv: 2 put: IdentityDictionary.
@@ -58,7 +60,11 @@ Pharo keysAndValuesDo: [:eachKey :eachValue |
 	@env2:globals: systemDictionary;
 	@env2:specialObjectsArray: Smalltalk @env2:newSpecialObjectsArray;
 	yourself.
-"Pharo do: [:each | each isClass ifTrue: [each @env2:initialize]]."
+Pools do: [:each | each @env2:initialize].
+HashTableSizes @env2:initialize.
+Character @env2:initialize.
+String @env2:initialize.
+DateAndTime @env2:initialize.
 true
 %
 errorCount

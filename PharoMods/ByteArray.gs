@@ -1,5 +1,13 @@
 set compile_env: 2
 
+category: 'accessing'
+classmethod: ByteArray
+at: anIndex
+
+    <primitive: 974>
+    ^self @env0:at: anIndex
+%
+
 category: 'byte based hash'
 classmethod: ByteArray
 hashBytes: aByteArray startingWith: speciesHash 

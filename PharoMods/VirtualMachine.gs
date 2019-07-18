@@ -37,7 +37,7 @@ getParameters
 	"Answer an Array containing the current values of the VM's internal 
 	parameter/metric registers.  Each value is stored in the array at the 
 	index corresponding to its VM register.  (See #vmParameterAt: and 
-	#vmParameterAt:put:.)" 
+	#vmParameterAt:put:.) '" 
 	"Smalltalk vm getParameters" 
 
     <PharoGsError>
@@ -61,15 +61,15 @@ getSystemAttribute: attributeID
    	... 
 	-1              first command line argument that specify VM options 
       0               the full path name for currently executing VM 
-                       (or, on some platforms, just the path name of the VM's directory) 
+                       (or, on some platforms, just the path name of the VM's directory) '
        1               full path name of this image (better use primImageName instead) 
        2               a Squeak document to open, if any 
        3               first command line argument for Squeak programs 
        ... 
        1000    1000th command line argument for Squeak programs 
-       1001    this platform's operating system 'Mac OS', 'Win32', 'unix', ... 
+       1001    this platform's operating system 'Mac OS', 'Win32', 'unix', ... '
        1002    operating system version 
-       1003    this platform's processor type 
+       1003    this platform's processor type '
        1004    vm version 
        1005    window system name 
        1006    vm build id 
@@ -81,8 +81,11 @@ getSystemAttribute: attributeID
        10002   operating system details (Win32 only) 
        10003   graphics hardware details (Win32 only)" 
 
-    <PharoGsError>
-    self _gsError.
+	attributeID == 1001 ifTrue: [
+		^#('Mac OS') at: (#('Darwin') indexOf: (System gemVersionAt: 'osName'))
+	].
+    <PharoGs>
+    self @env0:error: 'Attribute not yet supported'.
 %
 
 category: 'accessing'

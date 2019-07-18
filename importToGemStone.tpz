@@ -5,12 +5,18 @@ ifErr 4 exit
 run
 | symbolList |
 symbolList := (Globals at: #System) myUserProfile symbolList.
-(symbolList objectNamed: #'Smalltalk') ifNil: [
-	symbolList 
-		createDictionaryNamed: #'Smalltalk' at: 0;
-		createDictionaryNamed: #'PharoPools' at: 0;
+(symbolList objectNamed: #'Pharo') ifNil: [
+	symbolList
+		createDictionaryNamed: #'Pharo' at: 0;
+		createDictionaryNamed: #'Pools' at: 0;
 		yourself.
+	System refreshTransientSymbolList.
 ].
+%
+run
+UserGlobals 
+	at: #'thisContext' ifAbsentPut: [nil];	"allow methods to compile; may need to fix this!"
+	yourself.
 %
 errorCount
 commit
@@ -29,8 +35,30 @@ Array superclassForEnv: 2 put: ArrayedCollection.
 Array class superclassForEnv: 2 put: ArrayedCollection class.
 SmallFloat64 superclassForEnv: 2 put: Float.
 SmallFloat64 class superclassForEnv: 2 put: Float class.
+SmalltalkImage superclassForEnv: 2 put: IdentityDictionary.
+SmalltalkImage class superclassForEnv: 2 put: IdentityDictionary class.
 String superclassForEnv: 2 put: ArrayedCollection.
 String class superclassForEnv: 2 put: ArrayedCollection class.
+true
+%
+errorCount
+set compile_env: 0
+run
+| systemDictionary |
+Pharo
+	at: #'Undeclared' put: Dictionary @env2:new;
+	yourself.
+systemDictionary := SystemDictionary @env2:new.
+Pharo keysAndValuesDo: [:eachKey :eachValue | 
+	eachKey ~~ #'Pharo' ifTrue: [
+		systemDictionary @env2:at: eachKey put: eachValue.
+	].
+].
+(Smalltalk := SmalltalkImage basicNew)
+	@env2:globals: systemDictionary;
+	@env2:specialObjectsArray: Smalltalk @env2:newSpecialObjectsArray;
+	yourself.
+"Pharo do: [:each | each isClass ifTrue: [each @env2:initialize]]."
 true
 %
 errorCount

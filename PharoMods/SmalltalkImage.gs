@@ -151,8 +151,8 @@ category: 'special objects'
 method: SmalltalkImage
 primitiveGetSpecialObjectsArray 
 
-    <PharoGsError>
-    self _gsError.
+    <PharoGs>
+    ^Array @env0:new: 100
 %
 
 category: 'memory space'
@@ -230,6 +230,26 @@ unbindExternalPrimitives
 
     <PharoGsError>
     self _gsError.
+%
+
+category: 'specialObjects'
+method: SmalltalkImage
+specialObjectsArray
+     
+    <PharoGs>
+	^specialObjectsArray ifNil: [ specialObjectsArray := self primitiveGetSpecialObjectsArray ].
+%
+
+category: 'specialObjects'
+method: SmalltalkImage
+specialObjectsArray: anArray
+    "Avoid attempt to make Sempahore instances persistent (commit failure).
+     If we actually need the Semaphore then we could put it in SessionTemps."
+
+    <PharoGs>
+	specialObjectsArray := anArray collect: [:each |
+        (each isKindOf: Semaphore) ifTrue: [nil] ifFalse: [each].
+    ].
 %
 
 set compile_env: 0

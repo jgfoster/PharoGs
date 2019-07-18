@@ -21,7 +21,7 @@ method: ExceptionSet
 initialize 
 
 	<PharoGs>
-    super @env0:initialization
+    self @env0:initialize
 %
 
 set compile_env: 0

@@ -1,5 +1,15 @@
 set compile_env: 2
 
+category: 'instance creation'
+classmethod: IntegerArray
+new: anInteger
+
+    <PharoGs>
+    ^(super new: anInteger)
+        atAllPut: 0;
+        yourself
+%
+
 category: 'accessing'
 method: IntegerArray
 at: index 

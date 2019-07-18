@@ -7,8 +7,8 @@ run
 symbolList := (Globals at: #System) myUserProfile symbolList.
 (symbolList objectNamed: #'Pharo') ifNil: [
 	symbolList
-		createDictionaryNamed: #'Pharo' at: 0;
 		createDictionaryNamed: #'Pools' at: 0;
+		createDictionaryNamed: #'Pharo' at: 0;
 		yourself.
 	System refreshTransientSymbolList.
 ].
@@ -46,6 +46,7 @@ true
 errorCount
 set compile_env: 0
 run
+"Create Smalltalk, an instance of SystemDictionary"
 | systemDictionary |
 Pharo
 	at: #'Undeclared' put: Dictionary @env2:new;
@@ -60,11 +61,22 @@ Pharo keysAndValuesDo: [:eachKey :eachValue |
 	@env2:globals: systemDictionary;
 	@env2:specialObjectsArray: Smalltalk @env2:newSpecialObjectsArray;
 	yourself.
-Pools do: [:each | each @env2:initialize].
+%
+run
+"Class and Pool initialization"
 HashTableSizes @env2:initialize.
 Character @env2:initialize.
 String @env2:initialize.
 DateAndTime @env2:initialize.
+Color @env2:initialize.
+SharedPool allSubclasses do: [:each | each @env2:initialize].
+true
+%
+run
+"Add SharedPool class variables to a new SymbolDictionary so Jade shows them"
+SharedPool allSubclasses do: [:each |
+	Pools at: each name put: each _classVars.
+].
 true
 %
 errorCount

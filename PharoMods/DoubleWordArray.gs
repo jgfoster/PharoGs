@@ -1,5 +1,15 @@
 set compile_env: 2
 
+category: 'instance creation'
+classmethod: DoubleWordArray
+new: anInteger
+
+    <PharoGs>
+    ^(super new: anInteger)
+        atAllPut: 0;
+        yourself
+%
+
 category: 'private'
 method: DoubleWordArray
 atAllPut: value 

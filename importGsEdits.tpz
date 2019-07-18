@@ -19,6 +19,7 @@ input PharoMods/CompiledCode.gs
 input PharoMods/CompiledMethod.gs
 input PharoMods/Context.gs
 input PharoMods/CRC.gs
+input PharoMods/DateAndTime.gs
 input PharoMods/DeflateStream.gs
 input PharoMods/DelayMicrosecondTicker.gs
 input PharoMods/DelayMillisecondTicker.gs
@@ -58,6 +59,7 @@ input PharoMods/OSPlatform.gs
 input PharoMods/PlatformResolver.gs
 input PharoMods/Pragma.gs
 input PharoMods/Process.gs
+input PharoMods/Processor.gs
 input PharoMods/ProcessorScheduler.gs
 input PharoMods/ProtoObject.gs
 input PharoMods/ReflectiveMethod.gs

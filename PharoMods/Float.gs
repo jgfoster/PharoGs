@@ -1,5 +1,20 @@
 set compile_env: 2
 
+category: 'converting'
+method: Float
+asTrueFraction
+	" Answer a fraction that EXACTLY represents self, 
+	  a double precision IEEE floating point number. 
+	  Floats are stored in the same form on all platforms. 
+	  (Does handle gradual underflow but not NANs.) 
+	  By David N. Smith with significant performance 
+	  improvements by Luciano Esteban Notarfrancesco. 
+	  (Version of 11April97)" 
+
+	<PharoGs>
+	^self @env0:asFraction
+%
+
 category: 'accessing'
 method: Float
 basicAt: index 

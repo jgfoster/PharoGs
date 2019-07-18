@@ -475,11 +475,7 @@ newProcess
   	If you are not sure what you are doing, close the debugger now." 
 	<PharoGs> 
 
-	^Process 
-		forContext:  
-			[self value. 
-			Processor terminateActive] asContext 
-		priority: Processor activePriority
+	^self @env0:newProcess
 %
 
 category: 'scheduling'
@@ -490,11 +486,7 @@ newProcessWith: anArray
 	process is not scheduled. '" 
 	<PharoGs> 
 
-	^Process 
-		forContext:  
-			[self valueWithArguments: anArray. 
-			Processor terminateActive] asContext 
-		priority: Processor activePriority
+	^self @env0:newProcessWith: anArray
 %
 
 category: 'accessing'

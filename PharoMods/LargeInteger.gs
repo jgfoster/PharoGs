@@ -177,9 +177,13 @@ digitAt: index
 	'digit' base 256.  Fail if the argument (the index) is not an Integer 
 	or is out of bounds. Essential.  
 	See Object documentation whatIsAPrimitive." 
-	<PharoGsError>
+	<PharoGs>
 
-	self @env0:error: 'GemStone implementation may differ'.
+	| word offset mask |
+	word := self @env0:_digitAt: index // 4.
+	offset := index @env0:- 1 @env0:\\ 4 @env0:+ 1.
+	mask := #(16rFF000000 16r00FF0000 16r0000FF00 16r000000FF) @env0:at: offset.
+	^word @env0:bitAnd: mask
 %
 
 category: 'system primitives'
@@ -201,9 +205,25 @@ digitLength
 	"Primitive. Answer the number of indexable fields in the receiver. This  
 	value is the same as the largest legal subscript. Essential. See Object  
 	documentation whatIsAPrimitive." 
-	<PharoGsError>
+	<PharoGs>
 
-	self @env0:error: 'GemStone implementation may differ'.
+	| size word |
+	size := self @env0:_digitLength.
+	word := self @env0:_digitAt: size.
+	size := size @env0:- 1 @env0:* 4.
+	^size @env0:+ (word @env0:highBit @env0:- 1 @env0:// 8 @env0:+ 1)
+%
+
+category: 'bit manipulation'
+method: LargeInteger
+highBitOfMagnitude
+	"Answer the index of the high order bit of the magnitude of the  
+	receiver, or zero if the receiver is zero."
+
+	| words |
+	self == 0 ifTrue: [^0].
+	words := self @env0:digitLength.
+	^ (self _digitAt: words) highBit + (32 * (words - 1))
 %
 
 category: 'system primitives'

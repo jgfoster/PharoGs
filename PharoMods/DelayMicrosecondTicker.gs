@@ -20,8 +20,14 @@ primSignal: aSemaphore atUTCMicroseconds: aLargePositiveInteger
     argument. Fail if the first argument is neither a Semaphore nor nil. 
     Essential. See Object documentation whatIsAPrimitive." 
 
-    <PharoGsError>
-    self _gsError
+    <PharoGs>
+	aSemaphore @env0:ifNil: [^self].
+	[
+		(Globals @env0:at: #'Delay') 
+			@env0:waitForMilliseconds: 
+				(aLargePositiveInteger @env0:- self nowTick) @env0:* 1000.
+		aSemaphore signal.
+	] @env0: fork.
 %
 
 set compile_env: 0

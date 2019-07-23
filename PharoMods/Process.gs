@@ -208,8 +208,8 @@ category: 'testing'
 method: Process
 isTerminated
 
-	<PharoGsError>
-	self _gsError
+	<PharoGs>
+	^Processor @env0:allProcesses @env0:includes: self
 %
 
 category: 'testing'
@@ -559,8 +559,8 @@ terminate
 	"Stop the process that the receiver represents forever.  
 	Unwind to execute pending ensure:/ifCurtailed: blocks before terminating."
 
-	<PharoGsError>
-	self _gsError
+	<PharoGs>
+	self @env0:terminate
 %
 
 set compile_env: 0

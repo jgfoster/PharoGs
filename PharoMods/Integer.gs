@@ -81,13 +81,7 @@ bitShiftMagnitude: shiftCount
 	shift right. Zeros are shifted in from the right in left shifts." 
 	<PharoGs>
 
-	| rShift | 
-	shiftCount >= 0 ifTrue: [^ self digitLshift: shiftCount]. 
-	rShift := 0 - shiftCount. 
-	^ (self 
-		digitRshift: (rShift bitAnd: 7) 
-		bytes: (rShift bitShift: -3) 
-		lookfirst: self digitLength) normalize
+	^self @env0:bitShift: shiftCount
 %
 
 category: 'bit manipulation'
@@ -335,6 +329,19 @@ digitSubtract: arg
 		"sign-tolerant form of (z bitAnd: 255)" 
 		z := z // 256]. 
 	^ sum normalize
+%
+
+category: 'bit manipulation'
+method: Integer
+highBit
+	"Answer the index of the high order bit of the receiver, or zero if the  
+	receiver is zero. Raise an error if the receiver is negative, since  
+	negative integers are defined to have an infinite number of leading 1's 
+	in 2's-complement arithmetic. Use >>highBitOfMagnitude if you want to  
+	get the highest bit of the magnitude."
+
+	self sign == -1 ifTrue: [self shouldNotImplement].
+	^self highBitOfMagnitude	
 %
 
 category: 'private'

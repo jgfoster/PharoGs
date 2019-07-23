@@ -69,6 +69,7 @@ Character @env2:initialize.
 String @env2:initialize.
 DateAndTime @env2:initialize.
 Color @env2:initialize.
+Delay @env2:initialize.
 SharedPool allSubclasses do: [:each | each @env2:initialize].
 true
 %

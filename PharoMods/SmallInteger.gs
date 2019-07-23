@@ -248,6 +248,16 @@ hashMultiply
 			bitAnd: 16r0FFFFFFF
 %
 
+category: 'bit manipulation'
+method: LargeInteger
+highBitOfMagnitude
+	"Answer the index of the high order bit of the magnitude of the  
+	receiver, or zero if the receiver is zero."
+
+	<primitive: 853>
+	^self @env0:highBit
+%
+
 category: 'arithmetic'
 method: SmallInteger
 quo: aNumber  

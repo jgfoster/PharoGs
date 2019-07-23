@@ -21,6 +21,7 @@ input PharoMods/Context.gs
 input PharoMods/CRC.gs
 input PharoMods/DateAndTime.gs
 input PharoMods/DeflateStream.gs
+input PharoMods/Delay.gs
 input PharoMods/DelayMicrosecondTicker.gs
 input PharoMods/DelayMillisecondTicker.gs
 input PharoMods/DependentsArray.gs

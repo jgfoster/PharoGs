@@ -154,9 +154,9 @@ category: 'accessing'
 method: ByteString
 byteAt: index put: value 
 
-	<primitive: 293>
+	<primitive: 1002>
 	<PharoGs> 
-	^self @env0:at: index put: value
+	^self @env0:at: index put: (Character codePoint: value)
 %
 
 set compile_env: 0

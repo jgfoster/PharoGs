@@ -8,7 +8,15 @@ scheduler
     
     ^(Globals @env0:at: #'SessionTemps') @env0:current 
         @env0:at: #'Delay_scheduler' 
-        ifAbsent: [nil]
+        ifAbsent: [     "copied from initialize"
+            | scheduler |
+            self scheduler: (scheduler := DelaySemaphoreScheduler new).
+            scheduler startTimerEventLoop. 
+            SessionManager default 
+                registerSystemClassNamed: self name 
+                atPriority: 20.
+            scheduler
+        ]
 %
 
 category: 'sempahore'

@@ -389,7 +389,8 @@ primitiveResume
 	Essential. See Object documentation whatIsAPrimitive." 
 	<PharoGs>
 
-    ^self @env0:resume 
+    self @env0:resume.
+	Processor yield.	"In GemStone, #resume of a higher priority process does not run it!"
 %
 
 category: 'changing suspended state'
@@ -419,7 +420,8 @@ resume
 	would cause a vm crash if the resume attempt were permitted"
 
 	<PharoGs>
-	self @env0:resume
+	self @env0:resume.
+	Processor yield.	"In GemStone, #resume of a higher priority process does not run it!"
 %
 
 category: 'changing suspended state'
@@ -549,8 +551,8 @@ method: Process
 suspendingList
 	"Answer the list on which the receiver has been suspended."
 
-	<PharoGsError>
-	self _gsError
+	<PharoGs>
+	^self @env0:waitingOn
 %
 
 category: 'changing process state'

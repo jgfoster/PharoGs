@@ -69,7 +69,7 @@ method: MethodDictionary
 at: key ifAbsent: aBlock
 
     <PharoGs>
-    ^self @env0:at: key ifAbsent: [aBlock @env2:valuea]
+    ^self @env0:at: key ifAbsent: [aBlock @env2:value]
 %
 
 category: 'accessing'

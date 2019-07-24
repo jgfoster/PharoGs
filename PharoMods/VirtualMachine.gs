@@ -127,7 +127,7 @@ listLoadedModule: index
 category: 'parameters'
 method: VirtualMachine
 parameterAt: parameterIndex 
-	"parameterIndex is a positive integer corresponding to one of the VM's internal 
+	"parameterIndex is a positive integer corresponding to one of the VM's internal  '
 	parameter/metric registers.  Answer with the current value of that register. 
 	Fail if parameterIndex has no corresponding register. 
 	VM parameters are numbered as follows: 
@@ -142,7 +142,7 @@ parameterAt: parameterIndex
 	9	incremental GCs (SqueakV3) or scavenges (Spur) since startup (read-only) 
 	10	total milliseconds in incremental GCs (SqueakV3) or scavenges (Spur) since startup (read-only) 
 	11	tenures of surving objects since startup (read-only) 
-	12-20 were specific to ikp's JITTER VM, now 12-19 are open for use 
+	12-20 were specific to ikp's JITTER VM, now 12-19 are open for use  '
 	20	utc microseconds at VM start-up (actually at time initialization, which precedes image load). 
 	21	root table size (read-only) 
 	22	root table overflows since startup (read-only) 
@@ -193,7 +193,8 @@ parameterAt: parameterIndex
 	70	the vmProxyMajorVersion (the interpreterProxy VM_MAJOR_VERSION) 
 	71	the vmProxyMinorVersion (the interpreterProxy VM_MINOR_VERSION)" 
 
-    <PharoGsError>
+    <PharoGs>
+	parameterIndex == 40 ifTrue: [^8].
     self _gsError.
 %
 

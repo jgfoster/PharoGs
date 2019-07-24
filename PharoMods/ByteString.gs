@@ -9,7 +9,7 @@ basicNew: sizeRequested
 	 enough memory available. Essential. See Object documentation whatIsAPrimitive. 
 	 
 	 If the primitive fails because space is low then the scavenger will run before the 
-	 method is activated.  Check args and retry via handleFailingBasicNew: if they're OK." 
+	 method is activated.  Check args and retry via handleFailingBasicNew: if they're OK. '" 
 
 	<primitive: 53>
 	<PharoGs> 
@@ -156,7 +156,7 @@ byteAt: index put: value
 
 	<primitive: 1002>
 	<PharoGs> 
-	^self @env0:at: index put: (Character codePoint: value)
+	^self @env0:at: index put: value asCharacter
 %
 
 set compile_env: 0

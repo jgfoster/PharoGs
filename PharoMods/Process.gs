@@ -427,7 +427,7 @@ resume
 category: 'changing suspended state'
 method: Process
 return: aContext value: value
-	"Pop thread down to aContext's sender.  
+	"Pop thread down to aContext's sender.  '
 	Execute any unwind blocks on the way.  
 	See #popTo: comment and #runUntilErrorOrReturnFrom: for more details."
 
@@ -472,9 +472,17 @@ shiftLevelUp
 category: 'signaling'
 method: Process
 signalException: anException
+	"Signal an exception in the receiver process...if the receiver is currently
+	suspended, the exception will get signaled when the receiver is resumed.  If 
+	the receiver is blocked on a Semaphore, it will be immediately re-awakened
+	and the exception will be signaled; if the exception is resumed, then the receiver
+	will return to a blocked state unless the blocking Semaphore has excess signals"
 
-	<PharoGsError>
-	self _gsError
+	"If we are the active process, go ahead and signal the exception"
+	self isActiveProcess ifTrue: [^anException signal].
+
+	<PharoGs>
+	self @env0:signalException: anException
 %
 
 category: 'changing suspended state'

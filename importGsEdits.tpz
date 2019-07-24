@@ -64,6 +64,7 @@ input PharoMods/Processor.gs
 input PharoMods/ProcessorScheduler.gs
 input PharoMods/ProtoObject.gs
 input PharoMods/ReflectiveMethod.gs
+input PharoMods/ScaledDecimal.gs
 input PharoMods/Semaphore.gs
 input PharoMods/SHA1.gs
 input PharoMods/SmallFloat64.gs

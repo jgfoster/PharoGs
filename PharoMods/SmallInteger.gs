@@ -302,6 +302,22 @@ rfPlus: aNumber
 	^self + aNumber
 %
 
+category: '*Collections-Sequenceable'
+method: SmallInteger
+to: stop by: step do: aBlock 
+
+	<PharoGs>
+	^self @env0:to: stop by: step do: aBlock 
+%
+
+category: '*Collections-Sequenceable'
+method: SmallInteger
+to: stop do: aBlock 
+
+	<PharoGs>
+	^self @env0:to: stop do: aBlock 
+%
+
 category: 'arithmetic'
 method: SmallInteger
 \\ aNumber  

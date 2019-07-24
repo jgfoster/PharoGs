@@ -216,8 +216,8 @@ category: 'testing'
 method: Process
 isSuspended
 
-	<PharoGsError>
-	self _gsError
+	<PharoGs>
+	^Processor @env0:suspendedProcesses @env0:includes: self
 %
 
 category: 'testing'

@@ -49,4 +49,11 @@ flushCache
     self _gsError
 %
 
+category: 'accessing'
+method: CompiledMethod
+pragmas 
+	<PharoGs> 
+	^self @env0:pragmas
+%
+
 set compile_env: 0

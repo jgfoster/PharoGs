@@ -49,4 +49,20 @@ basicAt: index put: value
 	self @env0:error: 'Does GemStone store a Float in big-endian format?'
 %
 
+category: 'testing'
+method: Float
+negative
+
+	<PharoGs>
+	^self < 0.0
+%
+
+category: 'testing'
+method: Float
+positive
+
+	<PharoGs>
+	^self >= 0.0
+%
+
 set compile_env: 0

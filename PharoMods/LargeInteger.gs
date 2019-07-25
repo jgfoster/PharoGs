@@ -50,6 +50,10 @@ method: LargeInteger
 
     <primitive: 261>
 	<PharoGs> 
+	(anInteger == 0)
+		ifTrue: [^ self @env0:_errorDivideByZero].
+	(anInteger @env0:_isInteger)
+		ifTrue: [^(Fraction numerator: self denominator: anInteger)].
 	^self @env0:/ anInteger
 %
 

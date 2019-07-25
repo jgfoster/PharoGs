@@ -149,6 +149,7 @@ pharoToGsClassMap
 		at: Error 						put: #Error;
 		at: Exception					put: #Exception;
 		at: ExceptionSet 				put: #ExceptionSet;
+		at: Fraction 						put: #Fraction;
 		at: Integer 						put: #Integer;
 		at: LargeInteger 				put: #LargeInteger;
 		at: Magnitude 					put: #Magnitude;

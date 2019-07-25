@@ -282,6 +282,16 @@ methodDict: aDictionary
 		put: aDictionary
 %
 
+category: 'accessing-properties'
+method: Behavior
+properties
+
+	<PharoGs>
+	^(Globals @env0:at: #'SessionTemps') @env0:current 
+        @env0:at: #'Behavior_ClassProperties' 
+		ifAbsentPut: [Dictionary new].
+%
+
 category: 'accessing instances and variables'
 method: Behavior
 someInstance 

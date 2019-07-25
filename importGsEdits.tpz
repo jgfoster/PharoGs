@@ -15,6 +15,7 @@ input PharoMods/CannotReturn.gs
 input PharoMods/Character.gs
 input PharoMods/Class.gs
 input PharoMods/ClassDescription.gs
+input PharoMods/ClassOrganization.gs
 input PharoMods/CompiledCode.gs
 input PharoMods/CompiledMethod.gs
 input PharoMods/Context.gs
@@ -52,7 +53,6 @@ input PharoMods/Metaclass.gs
 input PharoMods/MetaclassForTraits.gs
 input PharoMods/MethodDictionary.gs
 input PharoMods/MirrorPrimitives.gs
-input PharoMods/Module.gs
 input PharoMods/NetNameResolver.gs
 input PharoMods/Number.gs
 input PharoMods/Object.gs

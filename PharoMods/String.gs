@@ -1,5 +1,13 @@
 set compile_env: 2
 
+category: 'converting'
+method: String
+asSymbol
+
+	<PharoGs>
+	^self @env0:asSymbol
+%
+
 category: 'accessing'
 method: String
 at: anIndex

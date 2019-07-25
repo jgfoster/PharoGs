@@ -764,7 +764,7 @@ installPackages
 		"Edited packages to load from the checkout (not yet in a bootstrap image) can be added as well"
 		add: '/Users/jfoster/code/pharo/src/' -> 'System-Announcements'; "SystemAnnouncer"
 		add: '/Users/jfoster/code/pharo/src/' -> 'Kernel'; "Delay_Scheduler"
-		add: '/Users/jfoster/code/pharo/src/' -> 'Kernel-Tests'; "LargeNegativeIntegerTest"
+		add: '/Users/jfoster/code/pharo/src/' -> 'Kernel-Tests'; "LargeNegativeIntegerTest, TestDelayBasicSchedulerMicrosecondTicker"
 		yourself.
 	list do: [:each | | reader |
 	    Transcript nextPutAll: 'Installing '; nextPutAll: each value; cr.

@@ -51,9 +51,72 @@ flushCache
 
 category: 'accessing'
 method: CompiledMethod
+methodClass
+	"answer the class that I am installed in"
+
+	<PharoGs>
+	^self @env0:inClass
+%
+
+category: 'accessing'
+method: CompiledMethod
+origin
+	<PharoGs>
+	^ self methodClass findOriginClassOf: self
+%
+
+category: 'accessing'
+method: CompiledMethod
+originMethod
+
+	<PharoGs>
+	^ self methodClass findOriginMethodOf: self.
+%
+
+category: '*RPackage-Copre'
+method: CompiledMethod
+package 
+	<PharoGs> 
+	^ self packageFromOrganizer: RPackage organizer
+%
+
+category: '*RPackage-Copre'
+method: CompiledMethod
+packageFromOrganizer: anRPackageOrganizer
+
+	<PharoGs> 
+	| originSelector |
+	"This method returns the package this method belongs to.  
+	It takes into account classes and traits.  
+	If the method is in no package, returns nil by now"
+	self flag: 'TODO: use anRPackageOrganizer, or better delegate to anRPackageOrganizer'.
+	originSelector := self originMethod selector.
+	
+	^self origin packages 
+		detect: [ :each | 
+			self origin isMeta
+				ifFalse: [ each 
+					includesSelector: originSelector 
+					ofClassName: self origin instanceSide originalName]
+				ifTrue: [ each 
+					includesSelector: originSelector 
+					ofMetaclassName: self origin instanceSide originalName]] 
+		ifNone: [ nil ]
+%
+
+category: 'accessing'
+method: CompiledMethod
 pragmas 
 	<PharoGs> 
 	^self @env0:pragmas
+%
+
+category: 'accessing'
+method: CompiledMethod
+selector
+
+	<PharoGs>
+	^self @env0:selector
 %
 
 set compile_env: 0

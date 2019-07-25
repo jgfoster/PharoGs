@@ -122,6 +122,14 @@ grow
 
 category: 'testing'
 method: MethodDictionary
+includesKey: key
+
+    <PharoGs>
+    ^self @env0:includesKey: key
+%
+
+category: 'testing'
+method: MethodDictionary
 isHealthy
 
     <PharoGs>

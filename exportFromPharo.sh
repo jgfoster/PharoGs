@@ -1,14 +1,14 @@
 #!/bin/sh
 if [ ! -d pharo ]; then
   mkdir -p pharo
+  cd pharo
+  wget https://files.pharo.org/get-files/80/pharo64-mac-headless-latest.zip
+  unzip *.zip
+  rm *.zip
+  cp ~/code/pharo/pharo-vm/PharoV60.sources .
+  cd ..
 fi
-if [ ! -d pharo/Pharo.app ]; then
-  cp -r ~/Documents/Pharo/vms/80-x86/Pharo.app ./pharo
-  cp ~/code/pharo/pharo-vm/PharoV60.sources ./pharo
-fi
-cp ~/code/pharo/bootstrap-cache/Pharo8.0-SNAPSHOT-metacello-32bit-*.changes ./pharo/Pharo8.0.changes
-cp ~/code/pharo/bootstrap-cache/Pharo8.0-SNAPSHOT-metacello-32bit-*.image ./pharo/Pharo8.0.image
-alias Pharo='./pharo/Pharo.app/Contents/MacOS/Pharo --headless ./pharo/Pharo8.0.image'
+cp ~/code/pharo/bootstrap-cache/Pharo8.0-SNAPSHOT-metacello-* ./pharo/
 
 if [ ! -d classes ]; then
   mkdir -p classes
@@ -28,4 +28,4 @@ fi
 if [ -f PharoDebug.log ]; then
   rm PharoDebug.log
 fi
-Pharo exportFromPharo.st
+./pharo/Pharo.app/Contents/MacOS/pharo ./pharo/Pharo8.0-*.image exportFromPharo.st

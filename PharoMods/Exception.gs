@@ -10,6 +10,14 @@ freezeUpTo:  aContext
 
 category: 'testing'
 method: Exception
+initialize
+
+    <PharoGs>
+    ^self @env0:initialize
+%
+
+category: 'testing'
+method: Exception
 isNested 
     "Determine whether the current exception handler is within the scope of another handler for the same exception."
 
@@ -104,7 +112,8 @@ searchFrom: aContext
 category: 'signaling'
 method: Exception
 signal
-    "Ask ContextHandlers in the sender chain to handle this signal.  The default is to execute and return my defaultAction."
+    "Ask ContextHandlers in the sender chain to handle this signal.  
+    The default is to execute and return my defaultAction."
 
 	<PharoGs>
     self @env0:signal
@@ -129,8 +138,10 @@ signaler: anObject
 category: 'accessing'
 method: Exception
 signalerContext
-    "Find the first sender of signal(:), the first context which is neither for an instance method nor for a class side method of Exception (or subclass). 
-	This will make sure that the same context is found for both, `Error signal` and `Error new signal`"
+    "Find the first sender of signal(:), the first context which is neither for an instance method 
+    nor for a class side method of Exception (or subclass). 
+	This will make sure that the same context is found for both, `Error signal` and 
+    `Error new signal`"
 
 	<PharoGsError>
     self _gsError

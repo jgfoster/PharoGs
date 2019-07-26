@@ -69,6 +69,7 @@ input PharoMods/ScaledDecimal.gs
 input PharoMods/Semaphore.gs
 input PharoMods/SHA1.gs
 input PharoMods/SmallFloat64.gs
+input PharoMods/SmallFraction.gs
 input PharoMods/SmallInteger.gs
 input PharoMods/SmalltalkImage.gs
 input PharoMods/Socket.gs
@@ -78,6 +79,7 @@ input PharoMods/Symbol.gs
 input PharoMods/SystemAnnouncer.gs
 input PharoMods/SystemDictionary.gs
 input PharoMods/SystemNavigation.gs
+input PharoMods/TestCase.gs
 input PharoMods/ThirtyTwoBitRegister.gs
 input PharoMods/Time.gs
 input PharoMods/True.gs

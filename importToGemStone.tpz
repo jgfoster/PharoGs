@@ -82,5 +82,43 @@ true
 %
 errorCount
 commit
+
+set compile_env: 2
+run
+FloatTest suite run printString.
+%
+run
+FractionTest suite run printString.
+%
+run
+IntegerDigitLogicTest suite run printString.
+%
+run
+IntegerTest suite run printString.
+%
+run
+NumberTest suite run printString.
+%
+run
+"expect five failures"
+ScaledDecimalTest suite run printString.
+%
+run
+SmallIntegerTest suite run printString.
+%
+run
+
+BooleanTest suite run printString.
+%
+run
+FalseTest suite run printString.
+%
+run
+TrueTest suite run printString.
+%
+run
+UndefinedObjectTest suite run printString.
+%
 logout
+! successful import of Pharo into GemStone!
 exit

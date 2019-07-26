@@ -1,9 +1,19 @@
 set compile_env: 2
 
+category: 'printing'
+classmethod: Process
+psKeysSema
+
+	<PharoGs>
+	^(Globals @env0:at: #'SessionTemps') @env0:current 
+        @env0:at: #'Process_PSKeysSema' 
+		ifAbsentPut: [Semaphore forMutualExclusion].
+%
+
 category: 'changing suspended state'
 method: Process
 activateReturn: aContext value: value 
-	"Activate 'aContext return: value', so execution will return to aContext's sender"
+	"Activate 'aContext return: value', so execution will return to aContext's sender '"
 
 	<PharoGsError>
 	self _gsError

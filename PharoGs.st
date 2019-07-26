@@ -768,7 +768,7 @@ installPackages
 		add: '/Users/jfoster/code/pharo/src/' -> 'Kernel-Tests';
 		"Edited packages to load from the checkout (not yet in a bootstrap image) can be added as well"
 		add: '/Users/jfoster/code/pharo/src/' -> 'System-Announcements'; "SystemAnnouncer"
-		add: '/Users/jfoster/code/pharo/src/' -> 'Kernel'; "Delay_Scheduler"
+		add: '/Users/jfoster/code/pharo/src/' -> 'Kernel'; "Delay_Scheduler, Process_PSKeysSema"
 		add: '/Users/jfoster/code/pharo/src/' -> 'Kernel-Tests'; "LargeNegativeIntegerTest, TestDelayBasicSchedulerMicrosecondTicker"
 		yourself.
 	list do: [:each | | reader |

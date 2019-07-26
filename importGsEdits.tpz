@@ -59,6 +59,7 @@ input PharoMods/OSPlatform.gs
 input PharoMods/PlatformResolver.gs
 input PharoMods/Pragma.gs
 input PharoMods/Process.gs
+input PharoMods/ProcessSpecificVariable.gs
 input PharoMods/Processor.gs
 input PharoMods/ProcessorScheduler.gs
 input PharoMods/ProtoObject.gs
@@ -73,6 +74,7 @@ input PharoMods/Socket.gs
 input PharoMods/StandardFileStream.gs
 input PharoMods/String.gs
 input PharoMods/Symbol.gs
+input PharoMods/SystemAnnouncer.gs
 input PharoMods/SystemDictionary.gs
 input PharoMods/SystemNavigation.gs
 input PharoMods/ThirtyTwoBitRegister.gs

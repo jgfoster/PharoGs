@@ -1,5 +1,13 @@
 set compile_env: 2
 
+category: 'instance creation'
+classmethod: Boolean
+new
+
+	<PharoGs>
+	self error: 'You may not create any more Booleans - this is two-valued logic'
+%
+
 category: 'logical operations'
 method: Boolean
 & aBoolean
@@ -93,12 +101,20 @@ or: alternativeBlock
 	^self @env0:or: [alternativeBlock value]
 %
 
+category: 'printing'
+method: Boolean
+printOn: aStream
+
+	<PharoGs>
+	aStream nextPutAll: (self @env0:asString)
+%
+
 category: 'controlling'
 method: Boolean
 xor: alternativeBlock
 
 	<PharoGs> 
-	^self ifTrue: [alternativeBlock not] ifFalse: [alternativeBlock]
+	^self ifTrue: [alternativeBlock value not] ifFalse: [alternativeBlock value]
 %
 
 category: 'logical operations'

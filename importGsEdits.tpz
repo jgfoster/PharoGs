@@ -32,6 +32,7 @@ input PharoMods/ExceptionSet.gs
 input PharoMods/ExternalAddress.gs
 input PharoMods/ExternalFunction.gs
 input PharoMods/ExternalLibrary.gs
+input PharoMods/False.gs
 input PharoMods/FastInflateStream.gs
 input PharoMods/File.gs
 input PharoMods/FileReference.gs
@@ -79,6 +80,7 @@ input PharoMods/SystemDictionary.gs
 input PharoMods/SystemNavigation.gs
 input PharoMods/ThirtyTwoBitRegister.gs
 input PharoMods/Time.gs
+input PharoMods/True.gs
 input PharoMods/TraitedMetaclass.gs
 input PharoMods/VariableNotDeclared.gs
 input PharoMods/VirtualMachine.gs

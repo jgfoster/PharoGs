@@ -24,4 +24,14 @@ wait
     ^self @env0:wait
 %
 
+category: 'communication'
+method: Semaphore
+waitTimeoutMSecs: anInteger 
+	"Wait on this semaphore for up to the given number of milliseconds, then timeout.  
+	Return true if the deadline expired, false otherwise." 
+
+	<PharoGs>
+	^self @env0:waitForMilliseconds: anInteger
+%
+
 set compile_env: 0

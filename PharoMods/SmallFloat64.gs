@@ -42,6 +42,16 @@ method: SmallFloat64
 category: 'arithmetic'
 method: SmallFloat64
 / aNumber  
+	"Pharo checks for ZeroDivide" 
+
+	<PharoGs>
+	aNumber = 0.0 ifTrue: [ ^ ZeroDivide signalWithDividend: self].
+	^self primDivideBy: aNumber
+%
+
+category: 'arithmetic'
+method: SmallFloat64
+primDivideBy: aNumber  
 	"Primitive. Answer the result of dividing receiver by aNumber. 
 	Fail if the argument is not a Float. Essential. See Object documentation 
 	whatIsAPrimitive." 

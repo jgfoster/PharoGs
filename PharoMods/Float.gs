@@ -27,8 +27,11 @@ basicAt: index
 	to store floats in whatever order it chooses while it appears to the image that 
 	they are always in big-endian/PowerPC order." 
 
-	<PharoGsError>
-	self @env0:error: 'Does GemStone store a Float in big-endian format?'
+	<PharoGs>
+	| bytes |
+	bytes := ByteArray @env0:new: 8.
+	bytes @env0:doubleAt: 1 put: self.
+	^bytes @env0:unsigned32At: index @env0:- 1 @env0:* 4 @env0:+ 1
 %
 
 category: 'accessing'
@@ -45,8 +48,12 @@ basicAt: index put: value
 	to store floats in whatever order it chooses while it appears to the image that 
 	they are always in big-endian/PowerPC order." 
 
-	<PharoGsError>
-	self @env0:error: 'Does GemStone store a Float in big-endian format?'
+	<PharoGs>
+	| bytes |
+	bytes := ByteArray @env0:new: 8.
+	bytes @env0:doubleAt: 1 put: self.
+	bytes @env0:unsigned32At: index @env0:- 1 @env0:* 4 @env0:+ 1 put: value.
+	self @env0:become: (bytes @env0:doubleAt: 1)
 %
 
 category: 'testing'
@@ -63,6 +70,14 @@ positive
 
 	<PharoGs>
 	^self >= 0.0
+%
+
+category: 'mathematical functions'
+method: Float
+significandAsInteger
+
+	<PharoGs>
+	^self @env0:mantissa
 %
 
 set compile_env: 0

@@ -160,7 +160,7 @@ category: 'truncation and round off'
 method: BoxedFloat64
 fractionPart 
 	"Primitive. Answer a Float whose value is the difference between the  
-	receiver and the receiver's asInteger value. Optional. See Object  
+	receiver and the receiver's asInteger value. Optional. See Object   '
 	documentation whatIsAPrimitive." 
 
     <PharoGs>
@@ -189,13 +189,21 @@ sin
 
 category: 'math functions'
 method: BoxedFloat64
-sqrt 
-	"Answer the square root of the receiver.  
+sin 
+	"Answer the sine of the receiver taken as an angle in radians. 
 	 Optional. See Object documentation whatIsAPrimitive." 
 
-    <primitive: 104>
     <PharoGs>
-    ^self @env0:sqrt
+    ^self @env0:_mathPrim: 2
+%
+
+category: 'accessing'
+method: BoxedFloat64
+size 
+	"variableWordSubclass" 
+
+    <PharoGs>
+    ^2
 %
 
 category: 'math functions'

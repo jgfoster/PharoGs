@@ -26,7 +26,7 @@ connectToFile: filePointer writable: writableFlag
 	It is the responsibility of the caller to coordinate closing the file." 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-file'
@@ -37,7 +37,7 @@ connectToFileDescriptor: fileDescriptor writable: writableFlag
 	It is the responsibility of the caller to coordinate closing the file." 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-path'
@@ -63,7 +63,7 @@ deleteDirectory: fullPath
 category: 'primitives-path'
 classmethod: File
 delimiter 
-	"Return the path delimiter for the underlying platform's file system." 
+	"Return the path delimiter for the underlying platform's file system. '" 
 
     <PharoGs>
     ^$/
@@ -74,7 +74,7 @@ classmethod: File
 fileAttributesVersionString 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-file'
@@ -90,7 +90,7 @@ fileDescriptorType: fdNum
 	* 4 - cygwin terminal (windows only)" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-file'
@@ -113,7 +113,7 @@ getMacFile: fileName type: typeString creator: creatorString
     This primitive is Mac specific; it is a noop on other platforms." 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-file'
@@ -123,6 +123,14 @@ getPosition: id
 
     <PharoGs>
     ^id @env0:position
+%
+
+category: 'primitives-file modes'
+classmethod: File
+isDirectory: aPath
+
+    <PharoGs>
+    ^GsFile @env0:isServerDirectory: aPath
 %
 
 category: 'primitives-path'
@@ -140,7 +148,7 @@ lookupDirectory: fullPath filename: fileName
     On Macs and PCs, it is the container of the system volumes." 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-path'
@@ -157,7 +165,7 @@ lookupEntryIn: fullPath index: index
 	is bad." 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-file'
@@ -176,7 +184,7 @@ open: fileName writable: writableFlag
     writableFlag ifTrue: [
         gsFile := GsFile @env0:openWriteOnServer: fileName.
     ] ifFalse: [
-        (GsFile @env0:exists: fileName) ifTrue: [
+        (GsFile @env0:existsOnServer: fileName @env0:bytesIntoUnicode) ifTrue: [
             gsFile := GsFile @env0:openReadOnServer: fileName.
         ].
     ].
@@ -192,7 +200,7 @@ primClosedir: directoryPointerBytes
 	"self primClosedir: (self primOpendir: '/no/such/directory')" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-path'
@@ -211,7 +219,7 @@ primExists: aByteArray
 	"Answer a boolean indicating whether the supplied file exists." 
 
     <PharoGs>
-    ^GsFile @env0:exists: aByteArray
+    ^GsFile @env0:existsOnServer: aByteArray @env0:bytesIntoUnicode
 %
 
 category: 'primitives-file attributes'
@@ -220,7 +228,7 @@ primFile: pathByteArray posixPermissions: anInteger
 	"Set the mode of pathByateArray to anInteger (as defined by chmod())" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-file attributes'
@@ -229,7 +237,7 @@ primFile: pathByteArray symlinkUid: uidInteger gid: gidInteger
 	"Set the owner and group of path by numeric id." 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-file attributes'
@@ -238,14 +246,14 @@ primFile: pathByteArray uid: uidInteger gid: gidInteger
 	"Set the owner and group of path by numeric id." 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-file attributes'
 classmethod: File
 primFileAttribute: aByteArray number: attributeNumber 
 	"Answer a single attribute for the supplied file. 
-	For backward compatibility (on Unix) with FileReference if the file doesn't exist, 
+	For backward compatibility (on Unix) with FileReference if the file does not exist, 
     and the specified path is a (broken) symbolic link, answer the requested attribute 
     for the symbolic link. 
     stat() information: 
@@ -270,7 +278,7 @@ primFileAttribute: aByteArray number: attributeNumber
 	" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-file attributes'
@@ -301,27 +309,28 @@ primFileAttributes: aByteArray mask: attributeMask
         " 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'private'
 classmethod: File
 primFileMasks 
-	"Answer an array of well known masks: 
-	 
-	1: S_IFMT 
-	2: S_IFSOCK 
-	3: S_IFLNK 
-	4: S_IFREG 
-	5: S_IFBLK 
-	6: S_IFDIR 
-	7: S_IFCHR 
-	8: S_IFIFO 
+	"Answer an array of well known masks 
 	For more information, see: http://man7.org/linux/man-pages/man2/stat.2.html 
+    https://refspecs.linuxfoundation.org/LSB_2.1.0/LSB-Core-generic/LSB-Core-generic/libc-ddefs.html
 	" 
 
-    <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    <PharoGs>
+    ^#(
+        "1: S_IFMT"     16rF000
+        "2: S_IFSOCK"   16rC000
+        "3: S_IFLNK"    16rA000
+        "4: S_IFREG"    16r8000
+        "5: S_IFBLK"    16r6000
+        "6: S_IFDIR"    16r4000
+        "7: S_IFCHR"    16r2000
+        "8: S_IFIFO"    16r1000
+    )
 %
 
 category: 'primitives-file attributes'
@@ -330,7 +339,7 @@ primFromPlatformPath: aByteArray
 	"Convert the supplied platform encoded string to the native (UTF8) equivalent" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-windows'
@@ -339,7 +348,7 @@ primLogicalDrives
 	"Answer the windows logical drive mask" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-directory'
@@ -352,7 +361,7 @@ primOpendir: pathString
 	"self primOpendir: '/no/such/directory'" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-directory'
@@ -361,7 +370,7 @@ primPathMax
 	"Answer the VMs PATH_MAX value" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-directory'
@@ -373,7 +382,7 @@ primReaddir: directoryPointerBytes
 	"self primReaddir: (self primOpendir: '/no/such/directory')" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-directory'
@@ -385,7 +394,7 @@ primRewinddir: directoryPointerBytes
 	"self primRewinddir: (self primOpendir: '/no/such/directory')" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-file attributes'
@@ -394,7 +403,7 @@ primToPlatformPath: aByteArray
 	"Convert the supplied UTF8 encoded string to the platform encoded equivalent" 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'primitives-file'
@@ -414,6 +423,14 @@ read: id into: byteArray startingAt: startIndex count: count
     ^actualCount
 %
 
+category: 'registry'
+classmethod: File
+register: anObject
+    "Ignore this for now; GemStone does it own finalization in the VM."
+
+    <PharoGs>
+%
+
 category: 'primitives-path'
 classmethod: File
 rename: oldFileFullName to: newFileFullName  
@@ -422,6 +439,14 @@ rename: oldFileFullName to: newFileFullName
 
     <PharoGs>
     ^GsFile @env0:renameFileOnServer: oldFileFullName to: newFileFullName
+%
+
+category: 'registry'
+classmethod: File
+retryWithGC: execBlock until: testBlock forFileNamed: fullName
+    
+    <PharoGs>
+    ^execBlock value
 %
 
 category: 'primitives-file'
@@ -448,7 +473,9 @@ sizeOrNil: id
 	"Answer the size of this file." 
 
     <PharoGs>
-    ^[id @env0:fileSize] @env0:on: (Globals at: #'Error') do: [:ex | ex return: nil]
+    ^[id @env0:fileSize] 
+        @env0:on: (Globals @env0:at: #'Error') 
+        do: [:ex | ex @env0:return: nil]
 %
 
 category: 'primitives-file'
@@ -475,7 +502,15 @@ truncate: id to: anInteger
 	"Truncate this file to the given position." 
 
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
+%
+
+category: 'registry'
+classmethod: File
+unregister: anObject
+    "Ignore this for now; GemStone does it own finalization in the VM."
+
+    <PharoGs>
 %
 
 category: 'primitives-file'
@@ -488,7 +523,7 @@ write: id from: stringOrByteArray startingAt: startIndex count: count
     <PharoGs>
     | bytes |
     bytes := stringOrByteArray @env0:copyFrom: startIndex to: startIndex + count - 1.
-    ^id @env0:write count from: bytes
+    ^id @env0:write: count from: bytes
 %
 
 set compile_env: 0

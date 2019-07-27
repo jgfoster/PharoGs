@@ -143,12 +143,12 @@ at: index put: aCharacter
 
 category: 'accessing'
 method: ByteString
-byteAt: index 
+byteAt: anIndex
 
-	<primitive: 69>
 	<PharoGs> 
-	^self @env0:at: index
+	^(self @env0:at: anIndex) codePoint
 %
+
 
 category: 'accessing'
 method: ByteString

@@ -82,7 +82,10 @@ getSystemAttribute: attributeID
        10003   graphics hardware details (Win32 only)" 
 
 	attributeID == 1001 ifTrue: [
-		^#('Mac OS') at: (#('Darwin') indexOf: (System gemVersionAt: 'osName'))
+		^#('Mac OS') at: (#('Darwin') indexOf: (System @env0:gemVersionAt: 'osName'))
+	].
+	attributeID == 1201 ifTrue: [
+		^nil
 	].
     <PharoGs>
     self @env0:error: 'Attribute not yet supported'.
@@ -201,7 +204,7 @@ parameterAt: parameterIndex
 category: 'parameters'
 method: VirtualMachine
 parameterAt: parameterIndex put: newValue 
-	"parameterIndex is a positive integer corresponding to one of the VM's internal 
+	"parameterIndex is a positive integer corresponding to one of the VM's internal  '
 	parameter/metric registers.  Store newValue (a positive integer) into that 
 	register and answer with the previous value that was stored there. 
 	Fail if newValue is out of range, if parameterIndex has no corresponding 

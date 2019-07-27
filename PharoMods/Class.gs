@@ -92,4 +92,12 @@ sharedPools: aCollection
 	poolDictionaries := aCollection
 %
 
+category: 'accessing'
+method: Class
+subclasses 
+
+	<PharoGs>
+	^self @env0:subclasses @env0:asArray
+%
+
 set compile_env: 0

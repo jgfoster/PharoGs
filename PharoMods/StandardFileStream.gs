@@ -34,7 +34,7 @@ primDropRequestFileHandle: dropIndex
 	Fail if dropIndex is out of range or the primitive is not supported." 
     
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'private'
@@ -44,7 +44,7 @@ primDropRequestFileName: dropIndex
 	Fail if dropIndex is out of range or the primitive is not supported." 
     
     <PharoGsError>
-    ^self @env0:error: 'Not supported by GemStone'
+    ^self _gsError
 %
 
 category: 'private - primitives'
@@ -155,7 +155,7 @@ primTruncate: id to: anInteger
 	"Truncate this file to the given position." 
 
     <PharoGsError>
-    self @env0:error: 'Not supported by GemStone'
+    self _gsError
 %
 
 category: 'private - primitives'

@@ -63,17 +63,6 @@ Pharo keysAndValuesDo: [:eachKey :eachValue |
 	yourself.
 %
 run
-"Class and Pool initialization"
-HashTableSizes @env2:initialize.
-Character @env2:initialize.
-String @env2:initialize.
-DateAndTime @env2:initialize.
-Color @env2:initialize.
-Float @env2:initialize.
-SharedPool allSubclasses do: [:each | each @env2:initialize].
-true
-%
-run
 "Add SharedPool class variables to a new SymbolDictionary so Jade shows them"
 SharedPool allSubclasses do: [:each |
 	Pools at: each name put: each _classVars.
@@ -81,9 +70,23 @@ SharedPool allSubclasses do: [:each |
 true
 %
 errorCount
-commit
 
 set compile_env: 2
+run
+"Class and Pool initialization"
+HashTableSizes initialize.
+Character initialize.
+String initialize.
+DateAndTime initialize.
+Color initialize.
+Float initialize.
+File initialize.
+OSPlatform initialize.
+SharedPool allSubclasses do: [:each | each initialize].
+true
+%
+commit
+
 run
 FloatTest suite run printString.
 %

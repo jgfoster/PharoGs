@@ -767,6 +767,7 @@ installPackages
 		add: '/Users/jfoster/code/pharo/src/' -> 'Monticello';
 		add: '/Users/jfoster/code/pharo/src/' -> 'SUnit-Core';
 		add: '/Users/jfoster/code/pharo/src/' -> 'Kernel-Tests';
+		add: '/Users/jfoster/code/pharo/src/' -> 'Files-Tests';
 		"Edited packages to load from the checkout (not yet in a bootstrap image) can be added as well"
 		yourself.
 	list do: [:each | | reader |

@@ -182,7 +182,8 @@ open: fileName writable: writableFlag
     <PharoGs>
     | gsFile |
     writableFlag ifTrue: [
-        gsFile := GsFile @env0:openWriteOnServer: fileName.
+        gsFile := GsFile @env0:openAppendOnServer: fileName.
+        gsFile @env0:seekFromBeginning: 0.
     ] ifFalse: [
         (GsFile @env0:existsOnServer: fileName @env0:bytesIntoUnicode) ifTrue: [
             gsFile := GsFile @env0:openReadOnServer: fileName.

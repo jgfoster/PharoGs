@@ -109,8 +109,8 @@ ScaledDecimalTest suite run printString.
 run
 SmallIntegerTest suite run printString.
 %
-run
 
+run
 BooleanTest suite run printString.
 %
 run
@@ -122,6 +122,12 @@ TrueTest suite run printString.
 run
 UndefinedObjectTest suite run printString.
 %
+
+run
+"expect two failures"
+FileTest suite run printString.
+%
+
 logout
 ! successful import of Pharo into GemStone!
 exit

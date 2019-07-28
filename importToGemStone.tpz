@@ -35,6 +35,8 @@ Array superclassForEnv: 2 put: ArrayedCollection.
 Array class superclassForEnv: 2 put: ArrayedCollection class.
 ByteArray superclassForEnv: 2 put: ArrayedCollection.
 ByteArray class superclassForEnv: 2 put: ArrayedCollection class.
+ScaledDecimal superclassForEnv: 2 put: Fraction.
+ScaledDecimal class superclassForEnv: 2 put: Fraction class.
 SmallFloat64 superclassForEnv: 2 put: Float.
 SmallFloat64 class superclassForEnv: 2 put: Float class.
 SmalltalkImage superclassForEnv: 2 put: IdentityDictionary.
@@ -74,11 +76,12 @@ errorCount
 set compile_env: 2
 run
 "Class and Pool initialization"
+ChronologyConstants initialize.
+DateAndTime initialize.
+Color initialize.
 HashTableSizes initialize.
 Character initialize.
 String initialize.
-DateAndTime initialize.
-Color initialize.
 Float initialize.
 File initialize.
 OSPlatform initialize.
@@ -103,7 +106,6 @@ run
 NumberTest suite run printString.
 %
 run
-"expect five failures"
 ScaledDecimalTest suite run printString.
 %
 run

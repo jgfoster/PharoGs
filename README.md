@@ -53,7 +53,7 @@ git checkout PharoGs
 export BRANCH_NAME=Pharo8.0
 export BUILD_NUMBER=42
 export BOOTSTRAP_ARCH=64
-time ./bootstrap/scripts/bootstrap.sh # this takes about 15-20 minutes
+time ./bootstrap/scripts/bootstrap.sh # this takes about 20 minutes
 ```
 
 ## GemStone

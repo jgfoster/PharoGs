@@ -9,7 +9,7 @@ method: SmallFloat64
 
 	<primitive: 102>
 	<PharoGs>
-	FloatingPointError _checkFpStatus .
+	FloatingPointError @env0:_checkFpStatus .
 	^self @env0:* aNumber
 %
 
@@ -22,7 +22,7 @@ method: SmallFloat64
 
 	<primitive: 106>
 	<PharoGs>
-	FloatingPointError _checkFpStatus .
+	FloatingPointError @env0:_checkFpStatus .
 	^self @env0:+ aNumber
 %
 
@@ -35,7 +35,7 @@ method: SmallFloat64
 
 	<primitive: 107>
 	<PharoGs>
-	FloatingPointError _checkFpStatus .
+	FloatingPointError @env0:_checkFpStatus .
 	^self @env0:- aNumber
 %
 
@@ -58,7 +58,7 @@ primDivideBy: aNumber
 
 	<primitive: 108>
 	<PharoGs>
-	FloatingPointError _checkFpStatus .
+	FloatingPointError @env0:_checkFpStatus .
 	^self @env0:/ aNumber
 %
 

@@ -160,7 +160,6 @@ pharoToGsClassMap
 		at: Object 						put: #Object;
 		at: Pragma 						put: #Pragma;
 		at: ProcessorScheduler 		put: #ProcessorScheduler;
-		at: ScaledDecimal 				put: #ScaledDecimal;
 		at: Semaphore 					put: #Semaphore;
 		at: SequenceableCollection 	put: #SequenceableCollection;
 		at: SmallInteger 				put: #SmallInteger;
@@ -181,6 +180,7 @@ pharoToGsClassMap
 		at: Metaclass 					put: #Metaclass3;
 		at: MethodDictionary 			put: #GsMethodDictionary;
 		at: Process 						put: #GsProcess;
+		at: ScaledDecimal 				put: #FixedPoint;
 		at: SmallFloat64 				put: #SmallDouble;
 		at: String 						put: #CharacterCollection;
 		at: WideString 					put: #QuadByteString;
@@ -409,7 +409,6 @@ compileErrors
 		#(#Process $*)
 		#(#ProcessorScheduler $*)
 		#(#ProtoObjectTest $*)
-		#(#ScaledDecimal $*)
 		#('SmallInteger class' #maxVal)
 		#('SmallInteger class' #minVal)
 		#('SmallInteger class' #startUp:)

@@ -35,6 +35,14 @@ replaceFrom: start to: stop with: replacement startingAt: repStart
 
 category: 'accessing'
 method: WideString
+size
+
+	<PharoGs>
+	^self @env0:size
+%
+
+category: 'accessing'
+method: WideString
 wordAt: index 
 
      <primitive: 1073>

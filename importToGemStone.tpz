@@ -85,6 +85,9 @@ String initialize.
 Float initialize.
 File initialize.
 OSPlatform initialize.
+Base64MimeConverter initialize.
+ZnBase64Encoder initialize.
+ISO88592TextConverter initialize.
 SharedPool allSubclasses do: [:each | each initialize].
 true
 %
@@ -128,6 +131,13 @@ UndefinedObjectTest suite run printString.
 run
 "expect two failures"
 FileTest suite run printString.
+%
+
+run
+Base64MimeConverterTest suite run printString.
+%
+run
+Base64Tests suite run printString.
 %
 
 logout

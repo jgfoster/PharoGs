@@ -130,7 +130,7 @@ at: index put: aCharacter
 		ifFalse:[^self errorImproperStore].
 	aCharacter isOctetCharacter ifFalse:[
 		"Convert to WideString"
-		self becomeForward: (WideString from: self).
+		self become: (WideString from: self).
 		^self at: index put: aCharacter.
 	].
 	index isInteger

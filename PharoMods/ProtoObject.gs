@@ -3,7 +3,7 @@ set compile_env: 2
 category: 'reflective operations'
 method: ProtoObject
 basicIdentityHash 
-	"Answer a 22 bits unsigned SmallInteger whose value is related to the receiver's identity. 
+	"Answer a 22 bits unsigned SmallInteger whose value is related to the receiver's identity.  '
 	 
 	Primitive. Fails if the receiver is an immediate. Essential. 
 	See Object documentation whatIsAPrimitive. 
@@ -13,6 +13,18 @@ basicIdentityHash
 	<primitive: 321>
 	<PharoGs> 
 	^self @env0:class
+%
+
+category: 'reflective operations'
+method: ProtoObject
+become: otherObject 
+	"Primitive. Swap the object pointers of the receiver and the argument. 
+	All variables in the entire system that used to point to the  
+	receiver now point to the argument, and vice-versa. 
+	Fails if either object is a SmallInteger" 
+
+	<PharoGs>
+	^self @env0:become: otherObject
 %
 
 category: 'class membership'

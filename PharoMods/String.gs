@@ -1,5 +1,15 @@
 set compile_env: 2
 
+category: 'instance creation'
+classMethod: String
+new: sizeRequested  
+	"Return a new instance with the number of indexable variables specified by the argument." 
+	 
+	^self == String  
+		ifTrue:[ByteString new: sizeRequested] 
+		ifFalse:[self @env0:new: sizeRequested] 
+%
+
 category: 'converting'
 method: String
 asSymbol

@@ -88,6 +88,7 @@ OSPlatform initialize.
 Base64MimeConverter initialize.
 ZnBase64Encoder initialize.
 ISO88592TextConverter initialize.
+NetNameResolver initialize.
 SharedPool allSubclasses do: [:each | each initialize].
 true
 %
@@ -138,6 +139,12 @@ Base64MimeConverterTest suite run printString.
 %
 run
 Base64Tests suite run printString.
+%
+run
+NetNameResolverTest suite run printString.
+%
+run
+SocketAddressTests suite run printString.
 %
 
 logout

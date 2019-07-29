@@ -3,6 +3,48 @@
 set compile_env: 2
 
 category: 'primitives'
+classmethod: Socket
+newTCP
+	"Create a socket and initialise it for TCP" 
+
+	<PharoGs>
+	^self basicNew 
+		initialize: GsSocket @env0:new;
+		yourself
+%
+
+category: 'xx'
+method: Socket
+connectNonBlockingTo: hostAddress port: port 
+	"Initiate a connection to the given port at the given host address. 
+	This operation will return immediately; follow it with waitForConnectionUntil: 
+	to wait until the connection is established." 
+
+	<PharoGs>
+	"GemStone does not support non-blocking connection; should we fake it?"
+	self _gsError
+%
+
+category: 'initialization'
+method: Socket
+initialize: aGsSocket
+
+	<PharoGs>
+	socketHandle := aGsSocket.
+%
+
+category: 'connection open/close'
+method: Socket
+listenOn: portNumber backlogSize: backlog interface: ifAddr 
+	"Listen for a connection on the given port. 
+	If this method succeeds, #accept may be used to establish a new connection" 
+
+	<PharoGs>
+	socketHandle @env0:bindTo: portNumber toAddress: ifAddr.
+	socketHandle @env0:makeListener: backlog.
+%
+
+category: 'primitives'
 method: Socket
 primAcceptFrom: aHandle receiveBufferSize: rcvBufSize sendBufSize: sndBufSize semaIndex: semaIndex 
 	"Create and return a new socket handle based on accepting the connection from the given listening socket" 

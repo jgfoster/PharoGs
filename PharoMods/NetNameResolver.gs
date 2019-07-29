@@ -1,5 +1,38 @@
 set compile_env: 2
 
+category: 'lookups'
+classmethod: NetNameResolver
+addressForName: aString 
+
+	<PharoGs>
+	^GsSocket @env0:getHostAddressByName: aString
+%
+
+category: 'network initialization'
+classmethod: NetNameResolver
+initializeNetwork
+	"Things are already set up in GemStone"
+
+	<PharoGs>
+%
+
+category: 'testing'
+classmethod: NetNameResolver
+isConnected
+	"Things are already set up in GemStone"
+
+	<PharoGs>
+	^true
+%
+
+category: 'lookups'
+classmethod: NetNameResolver
+localHostName
+
+	<PharoGs>
+	^GsSocket @env0:getLocalHostName
+%
+
 category: 'primitives'
 classmethod: NetNameResolver
 primAbortLookup 

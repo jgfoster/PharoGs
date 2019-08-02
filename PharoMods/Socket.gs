@@ -13,16 +13,57 @@ newTCP
 		yourself
 %
 
-category: 'xx'
+category: 'registry'
+classmethod: Socket
+register: anObject
+
+	<PharoGs>
+	"ignored"
+%
+
+category: 'registry'
+classmethod: Socket
+unregister: anObject
+
+	<PharoGs>
+	"ignored"
+%
+
+category: 'connection open/close'
 method: Socket
 connectNonBlockingTo: hostAddress port: port 
-	"Initiate a connection to the given port at the given host address. 
+	"PHARO: 
+	Initiate a connection to the given port at the given host address. 
 	This operation will return immediately; follow it with waitForConnectionUntil: 
 	to wait until the connection is established." 
 
 	<PharoGs>
-	"GemStone does not support non-blocking connection; should we fake it?"
-	self _gsError
+	"GEMSTONE:
+	Connect the receiver to the server socket identified by port and hostAddress.
+	hostAddress may be the name of the host or its numeric address,
+	or hostAddress == -1 for <broadcase> , or hostAddress == nil for IN6ADDR_ANY_INIT .
+	port maybe either a SmallInteger, or the String name of a service.
+	If hostAddress is the name of a host, connect is attempted on IPv4 first 
+	if getaddrinfo returns any IPv4 addresses for hostAddress, then attempted
+	on IPv6."
+
+	| addrList canonName |
+	(port @env0:_isSmallInteger @env0:and:[ port @env0:< 0]) @env0:ifTrue:[
+		OutOfRange @env0:new @env0:name:'port' min: 0 actual: port ; @env0:signal
+	].
+	addrList := socketHandle @env0:_twoArgPrim: 25 with: hostAddress with: port . "calls getaddrinfo"
+	(addrList @env0:isNil @env0:or: [addrList @env0:isEmpty]) @env0:ifTrue: [
+		self error: 'host not found'.
+	].
+	"addrList is Array of Strings representing list returned by getaddrinfo
+	first element is the entry->ai_canonname if first address.
+	subequent elements are addresses, each a struct sockaddr"
+	canonName := addrList @env0:at: 1 . "for debugging"
+	2 @env0:to: addrList @env0:size do:[:j | | status |
+		status := socketHandle @env0:_twoArgPrim: 2 with: (addrList @env0:at: j) with: nil. "non-blocking connect"
+		status @env0:== socketHandle ifTrue:[ ^self ].
+		status @env0:== false ifTrue: [ ^self ].
+	].
 %
 
 category: 'initialization'
@@ -31,6 +72,9 @@ initialize: aGsSocket
 
 	<PharoGs>
 	socketHandle := aGsSocket.
+	semaphore := Semaphore new.
+	readSemaphore := Semaphore new.
+	writeSemaphore := Semaphore new.
 %
 
 category: 'connection open/close'
@@ -250,10 +294,25 @@ primSocketCloseConnection: socketID
 category: 'primitives'
 method: Socket
 primSocketConnectionStatus: socketID 
-	"Return an integer reflecting the connection status of this socket. For a list of possible values, see the comment in the 'initialize' method of this class. If the primitive fails, return a status indicating that the socket handle is no longer valid, perhaps because the Pharo image was saved and restored since the socket was created. (Sockets do not survive snapshots.)" 
+	"Return an integer reflecting the connection status of this socket. 
+	 For a list of possible values, see the comment in the 'initialize' 
+	 method of this class. If the primitive fails, return a status 
+	 indicating that the socket handle is no longer valid, perhaps 
+	 because the Pharo image was saved and restored since the socket 
+	 was created. (Sockets do not survive snapshots.)" 
 
-	<PharoGsError> 
-    ^self _gsError
+	<PharoGs> 
+	| flag |
+	flag := socketID @env0:writeWillNotBlock.
+	flag @env0:ifNil: [^Unconnected].
+	flag @env0:ifTrue: [
+		socketID @env0:peerAddress @env0:ifNotNil: [^Connected].
+		^Unconnected
+	].
+	flag := socketID @env0:readWillNotBlock.
+	flag @env0:ifNil: [^Unconnected].
+	flag @env0:ifTrue: [^Connected].
+	^WaitingForConnection
 %
 
 category: 'primitives'

@@ -88,62 +88,59 @@ OSPlatform initialize.
 Base64MimeConverter initialize.
 ZnBase64Encoder initialize.
 ISO88592TextConverter initialize.
+Socket initialize.
 SharedPool allSubclasses do: [:each | each initialize].
 true
 %
 commit
 
+set compile_env: 0
 run
-FloatTest suite run printString.
-%
-run
-FractionTest suite run printString.
-%
-run
-IntegerDigitLogicTest suite run printString.
-%
-run
-IntegerTest suite run printString.
-%
-run
-NumberTest suite run printString.
-%
-run
-ScaledDecimalTest suite run printString.
-%
-run
-SmallIntegerTest suite run printString.
-%
-
-run
-BooleanTest suite run printString.
-%
-run
-FalseTest suite run printString.
-%
-run
-TrueTest suite run printString.
-%
-run
-UndefinedObjectTest suite run printString.
-%
-
-run
-"expect two failures"
-FileTest suite run printString.
-%
-
-run
-Base64MimeConverterTest suite run printString.
-%
-run
-Base64Tests suite run printString.
-%
-run
-NetNameResolverTest suite run printString.
-%
-run
-SocketAddressTests suite run printString.
+| list stream |
+stream := (Globals at: #WriteStream) on: (Globals at: #String) new.
+list := (Globals at: #OrderedCollection) new
+	add: FloatTest;
+	add: FractionTest;
+	add: IntegerDigitLogicTest;
+	add: IntegerTest;
+	add: NumberTest;
+	add: ScaledDecimalTest;
+	add: SmallIntegerTest;
+	add: BooleanTest;
+	add: FalseTest;
+	add: TrueTest;
+	add: UndefinedObjectTest;
+	add: FileTest;     "expect two failures"
+	add: Base64MimeConverterTest;
+	add: Base64Test;
+	add: NetNameResolverTest;
+	add: SocketAddressTest;
+	yourself.
+list do: [:each | 
+	| string |
+	string := each @env2:suite @env2:run @env2:printString.
+	(string at: 2) == Character space ifTrue: [
+		string := ' ' , string.
+	].
+	(string at: 10) == Character space ifTrue: [
+		string := (string copyFrom: 1 to: 8) , ' ' , (string copyFrom: 9 to: string size).
+	].
+	(string at: 61) == $, ifTrue: [
+		string := (string copyFrom: 1 to: 60) , ' ' , (string copyFrom: 61 to: string size).
+	].
+	(string includesString: ', 0 skipped, 0 expected failures, 0 failures, 0 errors, 0 passed unexpected') ifTrue: [
+		string := string copyFrom: 1 to: 17.
+	].
+	(string includesString: ', 0 failures, 0 errors, 0 passed unexpected') ifTrue: [
+		string := string copyFrom: 1 to: 28.
+	].
+	stream
+		nextPutAll: each name; 
+		nextPutAll: ('                         ' copyFrom: each name size + 1 to: 25);
+		nextPutAll: string;
+		lf.
+].
+stream contents.
 %
 
 logout

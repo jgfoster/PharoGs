@@ -32,6 +32,7 @@ input PharoMods/ExceptionSet.gs
 input PharoMods/ExternalAddress.gs
 input PharoMods/ExternalFunction.gs
 input PharoMods/ExternalLibrary.gs
+input PharoMods/ExternalSemaphoreTable.gs
 input PharoMods/False.gs
 input PharoMods/FastInflateStream.gs
 input PharoMods/File.gs

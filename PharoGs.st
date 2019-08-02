@@ -637,9 +637,9 @@ addMethodsFor: eachBehavior
 			line := eachLine , ' '.
 			(eachLine notEmpty and: [eachLine first == $%]) ifTrue: [fileStream space].
 			eachBehavior == Class ifTrue: [	"can't use instVarNames as method argument"
-				line := line copyReplaceAll: ' instVarNames ' with: ' instVarNameList '.
+				line := line copyReplaceAll: ': instVarNames ' with: ': instVarNameList '.
 			].
-			fileStream nextPutAll: line; lf.
+			fileStream nextPutAll: (line copyFrom: 1 to: line size - 1); lf.
 		].
 		fileStream nextPut: $%; lf.
 		count := count + 1.

@@ -5,7 +5,7 @@
 ## Background
 
 At the lowest level, a Smalltalk class library is tightly bound to the virtual machine on which it runs. This is because Smalltalk uses _primitives_ to invoke operations that involve:
-- hardware (such as arithmetic and other binary operations), 
+- hardware (such as arithmetic and other binary operations in the CPU), 
 - resources managed by the operating system (such as files and sockets), and 
 - external software libraries (typically with a foreign function interface or FFI). 
 
@@ -39,16 +39,23 @@ The following instructions describe one development process using macOS Mojave (
 
 ## Pharo
 
-Although our goal is to work with an standard Pharo image, some modifications may be required to the [Pharo code base](https://github.com/pharo-project/pharo) for this to work. These changes are being submitted back to the base, but until and unless they are all incorporated you need to use a branch (of course, if you already have a Git checkout of Pharo, you can add this repository as a remote and checkout the appropriate branch):
+### Unmodified
+
+Our goal is to work with an standard Pharo minimal image and most of the time that is possible. Unless you have reason to believe it will not work, skip the rest of this section and go to the section on installing GemStone.
+
+### Modified
+
+Depending on the state of development, some modifications may be required to the [Pharo code base](https://github.com/pharo-project/pharo) for PharoGs to work. These changes are being submitted back to the base, but unless and until they are all incorporated you need to use a branch (of course, if you already have a Git checkout of Pharo, you can add this repository as a remote and checkout the appropriate branch):
 
 ```
-git clone https://github.com/jgfoster/pharo.git ~/code
+cd ~/code/ # or where you want to put the checkout
+git clone https://github.com/jgfoster/pharo.git .
 ```
 
 Use bootstrap to get a new minimal image:
 
 ```
-cd ~/code/pharo
+cd ./pharo
 git checkout PharoGs
 export BRANCH_NAME=Pharo8.0
 export BUILD_NUMBER=42
@@ -56,16 +63,23 @@ export BOOTSTRAP_ARCH=64
 time ./bootstrap/scripts/bootstrap.sh # this takes about 20 minutes
 ```
 
+Finally, set an environment variable to indicate that a local image is available:
+
+```
+export PHAROGS=~/code/pharo
+```
+
 ## GemStone
 
-Use [GemStone.app](https://github.com/jgfoster/GemStoneApp) to install and run GemStone 3.5.0. From the Databases tab and the Login subtab, click `Terminal` to open a Terminal with appropriate GemStone environment variables set. Use this Terminal for the next step (skip the clone if it has already been done).
+On macOS it is easiest to use [GemStone.app](https://github.com/jgfoster/GemStoneApp) to install and run GemStone 3.5.0. From the Databases tab and the Login subtab, click `Terminal` to open a Terminal with appropriate GemStone environment variables set. Use this Terminal for the next step (skip the clone if it has already been done).
 
 ## PharoGs
 
 Get a copy of this code:
 
 ```
-git clone https://github.com/jgfoster/PharoGs.git ~/code
+cd ~/code # or where you want to install the code
+git clone https://github.com/jgfoster/PharoGs.git .
 ```
 
 The current approach is to export _all_ class and methods from a Pharo [minimal image](https://files.pharo.org/get-files/80/pharo-minimal.zip) (to which sources has been added) using the `exportFromPharo.sh` script. This script generates a set of `.gs` files that can be loaded into GemStone using [Topaz](https://downloads.gemtalksystems.com/docs/GemStone64/3.5.x/GS64-Topaz-3.5.pdf).
@@ -81,10 +95,11 @@ login
 After following the above instructions, run the following script to export the code from Pharo and import it to GemStone:
 
 ```
-cd ~/code/PharoGs
 ./exportFromPharo.sh
 ./importToGemStone.sh
 ```
+
+The import script will run a number of SUnit tests from Pharo. With a few noted exceptions, all should pass! Watching the list of passing tests gives you a good idea of where we are in the process.
 
 ### SystemUser
 
@@ -92,7 +107,7 @@ For most projects it is best to avoid using the SystemUser login to GemStone. In
 
 ### Testing
 
-To test PharoGs, try the following:
+To run individual tests in PharoGs, try the following:
 
 ```
 topaz -lq

@@ -1,14 +1,27 @@
 #!/bin/sh
-if [ ! -d pharo ]; then
+if [ ! -d pharo ]; then   # create Pharo directory
   mkdir -p pharo
-  cd pharo
+fi
+cd pharo
+if [ ! -d Pharo.app ]; then   # get VM for macOS
   wget https://files.pharo.org/get-files/80/pharo64-mac-headless-latest.zip
   unzip *.zip
   rm *.zip
-  cp ~/code/pharo/pharo-vm/PharoV60.sources .
-  cd ..
 fi
-cp ~/code/pharo/bootstrap-cache/Pharo8.0-SNAPSHOT-metacello-* ./pharo/
+if [ ! -f PharoV60.sources ]; then   # get sources
+  wget https://files.pharo.org/get-files/70/sources.zip
+  unzip *.zip
+  rm *.zip
+fi
+
+if [ ! -z "$PHAROGS" ]; then   # get image & changes
+  cp "$PHAROGS/bootstrap-cache/Pharo8.0-SNAPSHOT-metacello-*" .
+else
+  wget https://files.pharo.org/get-files/80/pharo64-minimal.zip
+  unzip *.zip
+  rm *.zip
+fi
+cd ..
 
 if [ ! -d classes ]; then
   mkdir -p classes

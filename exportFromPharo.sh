@@ -14,12 +14,13 @@ if [ ! -f PharoV60.sources ]; then   # get sources
   rm *.zip
 fi
 
-if [ ! -z "$PHAROGS" ]; then   # get image & changes
-  cp "$PHAROGS/bootstrap-cache/Pharo8.0-SNAPSHOT-metacello-*" .
-else
+echo "Get Pharo minimal image"
+if [ -z "$PHAROGS" ]; then   # get image & changes
   wget https://files.pharo.org/get-files/80/pharo64-minimal.zip
   unzip *.zip
   rm *.zip
+else
+  cp $PHAROGS/bootstrap-cache/Pharo8.0-SNAPSHOT-metacello-* .
 fi
 cd ..
 

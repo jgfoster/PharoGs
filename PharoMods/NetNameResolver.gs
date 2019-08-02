@@ -5,7 +5,12 @@ classmethod: NetNameResolver
 addressForName: aString 
 
 	<PharoGs>
-	^GsSocket @env0:getHostAddressByName: aString
+	| bytes string |
+	string := GsSocket @env0:getHostAddressByName: aString.
+	bytes := (Globals @env0:at: #'ByteArray') 
+		@env0:withAll: ((string @env0:subStrings: $.) 
+			@env0:collect: [:each | each @env0:asNumber]).
+	^bytes asSocketAddress
 %
 
 category: 'network initialization'
@@ -23,6 +28,14 @@ isConnected
 
 	<PharoGs>
 	^true
+%
+
+category: 'lookups'
+classmethod: NetNameResolver
+localHostName
+
+	<PharoGs>
+	^GsSocket @env0:getLocalHostName
 %
 
 category: 'lookups'

@@ -146,6 +146,7 @@ pharoToGsClassMap
 		at: Character 					put: #Character;
 		at: Class 						put: #Class;
 		at: Collection 					put: #Collection;
+		at: Delay 						put: #Delay;
 		at: Error 						put: #Error;
 		at: Exception					put: #Exception;
 		at: ExceptionSet 				put: #ExceptionSet;

@@ -13,6 +13,17 @@ newTCP
 		yourself
 %
 
+category: 'primitives'
+classmethod: Socket
+newUDP
+	"Create a socket and initialise it for TCP" 
+
+	<PharoGs>
+	^self basicNew 
+		initialize: GsSocket @env0:newUdp;
+		yourself
+%
+
 category: 'registry'
 classmethod: Socket
 register: anObject
@@ -51,7 +62,10 @@ connectNonBlockingTo: hostAddress port: port
 	(port @env0:_isSmallInteger @env0:and:[ port @env0:< 0]) @env0:ifTrue:[
 		OutOfRange @env0:new @env0:name:'port' min: 0 actual: port ; @env0:signal
 	].
-	addrList := socketHandle @env0:_twoArgPrim: 25 with: hostAddress with: port . "calls getaddrinfo"
+	addrList := socketHandle 
+		@env0:_twoArgPrim: 25 
+		with: hostAddress printString
+		with: port. "calls getaddrinfo"
 	(addrList @env0:isNil @env0:or: [addrList @env0:isEmpty]) @env0:ifTrue: [
 		self error: 'host not found'.
 	].
@@ -60,7 +74,10 @@ connectNonBlockingTo: hostAddress port: port
 	subequent elements are addresses, each a struct sockaddr"
 	canonName := addrList @env0:at: 1 . "for debugging"
 	2 @env0:to: addrList @env0:size do:[:j | | status |
-		status := socketHandle @env0:_twoArgPrim: 2 with: (addrList @env0:at: j) with: nil. "non-blocking connect"
+		status := socketHandle 
+			@env0:_twoArgPrim: 2 
+			with: (addrList @env0:at: j) 
+			with: nil. "non-blocking connect"
 		status @env0:== socketHandle ifTrue:[ ^self ].
 		status @env0:== false ifTrue: [ ^self ].
 	].
@@ -84,7 +101,7 @@ listenOn: portNumber backlogSize: backlog interface: ifAddr
 	If this method succeeds, #accept may be used to establish a new connection" 
 
 	<PharoGs>
-	socketHandle @env0:bindTo: portNumber toAddress: ifAddr.
+	socketHandle @env0:bindTo: portNumber toAddress: ifAddr printString.
 	socketHandle @env0:makeListener: backlog.
 %
 
@@ -258,7 +275,9 @@ primSocket: socketID setOption: aString value: aStringValue
 	returns an array containing the error code and the negotiated value" 
 
 	<PharoGs> 
-    ^socketID @env0:option: aString put: aStringValue
+    ^socketID 
+		@env0:option: (aString @env0:copyFrom: 4 to: aString @env0: size)
+		put: aStringValue @env0:= '1'
 %
 
 category: 'primitives'
@@ -375,7 +394,11 @@ primSocketLocalAddress: socketID
 	"Return the local host address for this socket." 
 
 	<PharoGs> 
-    ^socketID @env0:address
+	| string |
+	string := socketID @env0:address @env0:ifNil: [^#[0 0 0 0]].
+	^(Globals @env0:at: #'ByteArray') 
+		@env0:withAll: ((string @env0:subStrings: $.) 
+			@env0:collect: [:each | each @env0:asNumber])
 %
 
 category: 'primitive-ipv6'
@@ -410,7 +433,11 @@ primSocketRemoteAddress: socketID
 	"Return the remote host address for this socket, or zero if no connection has been made." 
 
 	<PharoGs> 
-    ^socketID @env0:peerAddress
+	| string |
+	string := socketID @env0:peerAddress @env0:ifNil: [^#[0 0 0 0]].
+	^(Globals @env0:at: #'ByteArray') 
+		@env0:withAll: ((string @env0:subStrings: $.) 
+			@env0:collect: [:each | each @env0:asNumber])
 %
 
 category: 'primitives-ipv6'
@@ -427,7 +454,7 @@ primSocketRemotePort: socketID
 	"Return the remote port for this socket, or zero if no connection has been made." 
 
 	<PharoGs> 
-    ^socketID @env0:peerPort
+    ^socketID @env0:peerPort @env0:ifNil: [0]
 %
 
 category: 'primitives'

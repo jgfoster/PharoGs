@@ -677,8 +677,13 @@ category: 'controlling'
 method: BlockClosure
 repeatWithGCIf: testBlock 
 	
-	<PharoGsError>
-	^self _gsError
+	<PharoGs>
+	| result |
+	result := self value.
+	(testBlock value: result) ifTrue: [
+		result := self value.
+	].
+	^result
 %
 
 category: '*Reflectivity'

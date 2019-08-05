@@ -518,7 +518,7 @@ waitForAcceptFor: timeout ifTimedOut: timeoutBlock
 	| flag |
     flag := socketHandle @env0:readWillNotBlockWithin: timeout * 1000.
 	flag @env0:== true @env0:ifTrue: [^self accept].
-	flag @env0:== false @env0:ifTrue: [timeoutBlock value].
+	flag @env0:== false @env0:ifTrue: [^timeoutBlock value].
 	self error: socketHandle @env0:lastErrorString
 %
 
@@ -530,7 +530,7 @@ waitForConnectionFor: timeout ifTimedOut: timeoutBlock
 	| flag |
     flag := socketHandle @env0:writeWillNotBlockWithin: timeout * 1000.
 	flag @env0:== true @env0:ifTrue: [^self accept].
-	flag @env0:== false @env0:ifTrue: [timeoutBlock value].
+	flag @env0:== false @env0:ifTrue: [^timeoutBlock value].
 	self error: socketHandle @env0:lastErrorString
 %
 
@@ -545,7 +545,7 @@ waitForDataFor: timeout ifClosed: closedBlock ifTimedOut: timedOutBlock
 	socketHandle @env0:isConnected @env0:ifFalse: [closedBlock value].
     flag := socketHandle @env0:readWillNotBlockWithin: timeout * 1000.
 	flag @env0:== true @env0:ifTrue: [^self].
-	flag @env0:== false @env0:ifTrue: [timedOutBlock value].
+	flag @env0:== false @env0:ifTrue: [^timedOutBlock value].
 	self error: socketHandle @env0:lastErrorString
 %
 

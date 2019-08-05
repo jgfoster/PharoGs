@@ -1,10 +1,19 @@
 set compile_env: 2
 
+category: 'testing'
+classMethod: String
+isBytes
+
+	<PharoGs>
+	^true
+%
+
 category: 'instance creation'
 classMethod: String
 new: sizeRequested  
 	"Return a new instance with the number of indexable variables specified by the argument." 
 	 
+	<PharoGs>
 	^self == String  
 		ifTrue:[ByteString new: sizeRequested] 
 		ifFalse:[self @env0:new: sizeRequested] 

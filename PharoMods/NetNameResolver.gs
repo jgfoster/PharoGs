@@ -182,8 +182,8 @@ classmethod: NetNameResolver
 primLocalAddress 
 	"Return the local address of this host." 
 
-	<PharoGsError> 
-    ^self _gsError
+	<PharoGs> 
+    ^#[0 0 0 0]
 %
 
 category: 'primitives'

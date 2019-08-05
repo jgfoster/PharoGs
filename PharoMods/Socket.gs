@@ -52,19 +52,23 @@ connectNonBlockingTo: hostAddress port: port
 	"GEMSTONE:
 	Connect the receiver to the server socket identified by port and hostAddress.
 	hostAddress may be the name of the host or its numeric address,
-	or hostAddress == -1 for <broadcase> , or hostAddress == nil for IN6ADDR_ANY_INIT .
+	or hostAddress == -1 for <broadcast> , or hostAddress == nil for IN6ADDR_ANY_INIT .
 	port maybe either a SmallInteger, or the String name of a service.
 	If hostAddress is the name of a host, connect is attempted on IPv4 first 
 	if getaddrinfo returns any IPv4 addresses for hostAddress, then attempted
 	on IPv6."
 
-	| addrList canonName |
+	| addrList canonName host |
 	(port @env0:_isSmallInteger @env0:and:[ port @env0:< 0]) @env0:ifTrue:[
 		OutOfRange @env0:new @env0:name:'port' min: 0 actual: port ; @env0:signal
 	].
+	host := (hostAddress at: 1) printString , '.' , 
+		(hostAddress at: 2) printString , '.' , 
+		(hostAddress at: 3) printString , '.' , 
+		(hostAddress at: 4) printString.
 	addrList := socketHandle 
 		@env0:_twoArgPrim: 25 
-		with: hostAddress printString
+		with: host
 		with: port. "calls getaddrinfo"
 	(addrList @env0:isNil @env0:or: [addrList @env0:isEmpty]) @env0:ifTrue: [
 		self error: 'host not found'.
@@ -92,6 +96,14 @@ initialize: aGsSocket
 	semaphore := Semaphore new.
 	readSemaphore := Semaphore new.
 	writeSemaphore := Semaphore new.
+%
+
+category: 'testing'
+method: Socket
+isConnected
+
+	<PharoGs>
+	^socketHandle @env0:isConnected
 %
 
 category: 'connection open/close'
@@ -189,7 +201,7 @@ primSocket: aHandle listenOn: portNumber backlogSize: backlog
 	Will be used in conjunction with #accept only." 
 
 	<PharoGs> 
-    ^aHandle @env0:makeServer: backlog atPort: portNumber
+    ^aHandle @env0:makeServer: backlog atPort: (portNumber == 0 ifTrue: [nil] ifFalse: [portNumber])
 %
 
 category: 'primitives'
@@ -199,7 +211,7 @@ primSocket: aHandle listenOn: portNumber backlogSize: backlog interface: ifAddr
 	Will be used in conjunction with #accept only." 
 
 	<PharoGs> 
-    ^aHandle @env0:makeServer: backlog atPort: portNumber atAddress: ifAddr
+    ^aHandle @env0:makeServer: backlog atPort: (portNumber == 0 ifTrue: [nil] ifFalse: [portNumber]) atAddress: ifAddr
 %
 
 category: 'primitives-ipv6'
@@ -252,17 +264,46 @@ primSocket: socketID sendData: aStringOrByteArray startIndex: startIndex count: 
 	"Note: In general, it many take several sendData calls to transmit a large data array since the data is sent in send-buffer-sized chunks. The size of the send buffer is determined when the socket is created." 
 
 	<PharoGs> 
-    ^socketID @env0:write: count from: aStringOrByteArray startingAt: startIndex
+	| sent |
+	sent := socketID @env0:write: count from: aStringOrByteArray startingAt: startIndex.
+	sent @env0:ifNil: [self error: socketID @env0:lastErrorString].
+	^sent
 %
 
 category: 'primitives'
 method: Socket
 primSocket: socketID sendUDPData: aStringOrByteArray toHost: hostAddress port: portNumber startIndex: startIndex count: count 
-	"Send data to the remote host through the given socket starting with the given byte index of the given byte array. The data sent is 'pushed' immediately. Return the number of bytes of data actually sent; any remaining data should be re-submitted for sending after the current send operation has completed." 
-	"Note: In general, it many take several sendData calls to transmit a large data array since the data is sent in send-buffer-sized chunks. The size of the send buffer is determined when the socket is created." 
+	"Send data to the remote host through the given socket starting with the given 
+	 byte index of the given byte array. The data sent is 'pushed' immediately. 
+	 Return the number of bytes of data actually sent; any remaining data should be 
+	 re-submitted for sending after the current send operation has completed." 
+	"Note: In general, it many take several sendData calls to transmit a large data 
+	 array since the data is sent in send-buffer-sized chunks. The size of the send 
+	 buffer is determined when the socket is created." 
 
-	<PharoGsError> 
-    ^self _gsError
+	<PharoGs> 
+	| bytes |
+	bytes := aStringOrByteArray.
+	startIndex @env0:== 1 @env0:ifFalse: [
+		bytes := bytes @env0:copyFrom: startIndex to: aStringOrByteArray @env0:size.
+	].
+	bytes @env0:size == count @env0:ifFalse: [
+		bytes := bytes @env0:copyFrom: 1 to: count.
+	].
+	[
+		socketID
+			@env0:sendUdp: bytes @env0:bytesIntoString
+			flags: 0 
+			toHost: 
+				(hostAddress at: 1) printString , '.' , 
+				(hostAddress at: 2) printString , '.' , 
+				(hostAddress at: 3) printString , '.' , 
+				(hostAddress at: 4) printString
+			port: portNumber.
+	] @env0:on: (Globals @env0:at: #'SocketError') do: [:ex | 
+		NoBroadcastAllowed signal.
+	].
+    ^bytes @env0:size
 %
 
 category: 'primitives'
@@ -321,16 +362,9 @@ primSocketConnectionStatus: socketID
 	 was created. (Sockets do not survive snapshots.)" 
 
 	<PharoGs> 
-	| flag |
-	flag := socketID @env0:writeWillNotBlock.
-	flag @env0:ifNil: [^Unconnected].
-	flag @env0:ifTrue: [
-		socketID @env0:peerAddress @env0:ifNotNil: [^Connected].
-		^Unconnected
-	].
-	flag := socketID @env0:readWillNotBlock.
-	flag @env0:ifNil: [^Unconnected].
-	flag @env0:ifTrue: [^Connected].
+	socketID @env0:readWillNotBlock @env0:ifTrue: [^Connected].
+	socketID @env0:peerAddress @env0:ifNil: [^Unconnected].
+	socketID @env0:isConnected @env0:ifTrue: [^Connected].
 	^WaitingForConnection
 %
 
@@ -464,6 +498,65 @@ primSocketSendDone: socketID
 
 	<PharoGs> 
     ^true "GemStone socket operations are synchronous"
+%
+
+category: 'primitives'
+method: Socket
+waitForAcceptFor: timeout
+	"Wait and accept an incoming connection. Return nil if it fails"
+
+	<PharoGs>
+	^ self waitForAcceptFor: timeout ifTimedOut: [nil].
+%
+
+category: 'primitives'
+method: Socket
+waitForAcceptFor: timeout ifTimedOut: timeoutBlock
+	"Wait and accept an incoming connection"
+
+	<PharoGs>
+	| flag |
+    flag := socketHandle @env0:readWillNotBlockWithin: timeout * 1000.
+	flag @env0:== true @env0:ifTrue: [^self accept].
+	flag @env0:== false @env0:ifTrue: [timeoutBlock value].
+	self error: socketHandle @env0:lastErrorString
+%
+
+category: 'primitives'
+method: Socket
+waitForConnectionFor: timeout ifTimedOut: timeoutBlock
+
+	<PharoGs>
+	| flag |
+    flag := socketHandle @env0:writeWillNotBlockWithin: timeout * 1000.
+	flag @env0:== true @env0:ifTrue: [^self accept].
+	flag @env0:== false @env0:ifTrue: [timeoutBlock value].
+	self error: socketHandle @env0:lastErrorString
+%
+
+category: 'waiting'
+method: Socket
+waitForDataFor: timeout ifClosed: closedBlock ifTimedOut: timedOutBlock
+	"Wait for the given nr of seconds for data to arrive."
+	
+	<PharoGs> 
+	| flag |
+	"GemStone returns true on a closed socket!"
+	socketHandle @env0:isConnected @env0:ifFalse: [closedBlock value].
+    flag := socketHandle @env0:readWillNotBlockWithin: timeout * 1000.
+	flag @env0:== true @env0:ifTrue: [^self].
+	flag @env0:== false @env0:ifTrue: [timedOutBlock value].
+	self error: socketHandle @env0:lastErrorString
+%
+
+category: 'waiting'
+method: Socket
+waitForDataIfClosed: closedBlock
+	"Wait indefinitely for data to arrive.  This method will block until
+	data is available or the socket is closed."
+
+	<PharoGs>
+	^socketHandle @env0:readWillNotBlockWithin: -1
 %
 
 set compile_env: 0

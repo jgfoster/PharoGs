@@ -115,6 +115,9 @@ list := (Globals at: #OrderedCollection) new
 	add: Base64Test;
 	add: NetNameResolverTest;
 	add: SocketAddressTest;
+	add: TCPSocketTest;
+	add: SocketStreamTest;
+	add: TCPSocketEchoTest;
 	yourself.
 list do: [:each | 
 	| string |

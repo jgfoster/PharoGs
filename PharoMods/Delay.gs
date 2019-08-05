@@ -7,6 +7,13 @@ forMilliseconds: aNumber
 	^self @env0:forMilliseconds: aNumber
 %
 
+category: 'instance creation'
+classmethod: Delay
+forSeconds: aNumber
+	<PharoGs>
+	^self @env0:forSeconds: aNumber
+%
+
 category: 'delaying'
 method: Delay
 wait

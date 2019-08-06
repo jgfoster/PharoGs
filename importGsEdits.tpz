@@ -25,6 +25,7 @@ input PharoMods/DeflateStream.gs
 input PharoMods/Delay.gs
 input PharoMods/DelayMicrosecondTicker.gs
 input PharoMods/DelayMillisecondTicker.gs
+input PharoMods/DiskStore.gs
 input PharoMods/DependentsArray.gs
 input PharoMods/DoubleByteArray.gs
 input PharoMods/DoubleWordArray.gs

@@ -101,6 +101,10 @@ ZnBase64Encoder initialize.
 ISO88592TextConverter initialize.
 Socket initialize.
 FileLocator initialize.
+ZnHeaders initialize.
+ZnNetworkingUtils initialize.
+ZnLogEvent initialize.
+ZnConstants initialize.
 
 SharedPool allSubclasses do: [:each | each initialize].
 

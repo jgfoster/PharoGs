@@ -1,6 +1,60 @@
 set compile_env: 2
 
-category: 'printing'
+category: 'process specific'
+classmethod: Process
+allocatePSKey: aPSVariable
+
+	<PharoGs>
+	| index |
+	self psKeysSema critical: [
+		| keys |
+		keys := self psKeys.
+		index := keys indexOf: aPSVariable.
+		index == 0 ifTrue: [
+			index := keys indexOf: nil.
+			index == 0 
+				ifTrue: [
+					index := keys add: aPSVariable; size ]
+				ifFalse: [
+					"Yes, this is slow, but we have to make sure that if we reusing index,
+					all existing processes having value at given index reset to nil.
+					We don't care if new processes will be created during this loop,
+					since their env variable will be initially nil anyways, hence nothing to reset "
+					self @env0:allInstancesInMemory do: [:p | p resetPSValueAt: index ].
+					keys at: index put: aPSVariable.
+					]
+		].
+
+		aPSVariable isInheritable ifTrue: [ 
+			keys := self inheritablePSKeys.
+			(keys includes: index) ifFalse: [ keys add: index ]]
+		]
+	].
+
+	^ index
+%
+
+category: 'accessing'
+classmethod: Process
+inheritablePSKeys
+
+	<PharoGs>
+	^(Globals @env0:at: #'SessionTemps') @env0:current 
+        @env0:at: #'Process_InheritablePSKeys' 
+		ifAbsentPut: [Array new].
+%
+
+category: 'accessing'
+classmethod: Process
+psKeys
+
+	<PharoGs>
+	^(Globals @env0:at: #'SessionTemps') @env0:current 
+        @env0:at: #'Process_PSKeys' 
+		ifAbsentPut: [Array new].
+%
+
+category: 'accessing'
 classmethod: Process
 psKeysSema
 
@@ -8,6 +62,20 @@ psKeysSema
 	^(Globals @env0:at: #'SessionTemps') @env0:current 
         @env0:at: #'Process_PSKeysSema' 
 		ifAbsentPut: [Semaphore forMutualExclusion].
+%
+
+category: 'process specific'
+classmethod: Process
+updateInheritableKeys
+"
+	self updateInheritableKeys
+"
+	| keys |
+	keys := self inheritablePSKeys.
+	keys size: 0.
+	ProcessSpecificVariable allSubclasses 
+		select: [ :each | each isInheritable ] 
+		thenDo: [ :each | keys add: each soleInstance index].
 %
 
 category: 'changing suspended state'

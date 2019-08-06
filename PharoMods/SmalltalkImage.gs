@@ -79,6 +79,22 @@ imageFormatVersion
     self _gsError.
 %
 
+category: 'testing'
+method: SmalltalkImage
+isHeadless 
+
+    <PharoGs>
+    ^true
+%
+
+category: 'testing'
+method: SmalltalkImage
+isInteractive 
+
+    <PharoGs>
+    ^false
+%
+
 category: 'memory space'
 method: SmalltalkImage
 isRoot: oop 

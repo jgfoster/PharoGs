@@ -1,5 +1,29 @@
 set compile_env: 2
 
+category: 'registry'
+classmethod: StandardFileStream
+retryWithGC: execBlock until: testBlock forFileNamed: fullName
+    
+    <PharoGs>
+    ^execBlock value
+%
+
+category: 'registry'
+classmethod: StandardFileStream
+register: anObject
+    "Ignore this for now; GemStone does it own finalization in the VM."
+
+    <PharoGs>
+%
+
+category: 'registry'
+classmethod: StandardFileStream
+unregister: anObject
+    "Ignore this for now; GemStone does it own finalization in the VM."
+
+    <PharoGs>
+%
+
 category: 'private - primitives'
 method: StandardFileStream
 primAtEnd: id 
@@ -21,7 +45,7 @@ primClose: id
 category: 'private - primitives'
 method: StandardFileStream
 primCloseNoError: id 
-	"Close this file. Don't raise an error if the primitive fails." 
+	"Close this file. Don't raise an error if the primitive fails. '" 
     
     <PharoGs>
     ^id @env0:close
@@ -79,12 +103,13 @@ primOpen: fileName writable: writableFlag
 		else return nil" 
     
     <PharoGs>
-    | gsFile |
+    | nameString gsFile |
+    nameString := fileName @env0:bytesIntoString.
     writableFlag ifTrue: [
-        gsFile := GsFile @env0:openWriteOnServer: fileName.
+        gsFile := GsFile @env0:open: nameString mode: 'w+' onClient: false.
     ] ifFalse: [
-        (GsFile @env0:exists: fileName) ifTrue: [
-            gsFile := GsFile @env0:openReadOnServer: fileName.
+        (GsFile @env0:existsOnServer: nameString) ifTrue: [
+            gsFile := GsFile @env0:open: nameString mode: 'r' onClient: false.
         ].
     ].
     ^gsFile 
@@ -98,6 +123,7 @@ primRead: id into: byteArray startingAt: startIndex count: count
     
     <PharoGs>
     | bytes actualCount |
+    id @env0:position @env0:>= id @env0:fileSize @env0:ifTrue: [^0].
     bytes := ByteArray new: count.
     actualCount := id @env0:next: count into: bytes.
     actualCount == nil ifTrue: [self @env0:error: id @env0:lastErrorString].
@@ -167,7 +193,7 @@ primWrite: id from: stringOrByteArray startingAt: startIndex count: count
     <PharoGs>
     | bytes |
     bytes := stringOrByteArray @env0:copyFrom: startIndex to: startIndex + count - 1.
-    ^id @env0:write count from: bytes
+    ^id @env0:write: count from: bytes
 %
 
 set compile_env: 0

@@ -30,7 +30,7 @@ become: otherObject
 category: 'class membership'
 method: ProtoObject
 class 
-	"Primitive. Answer the object which is the receiver's class. Essential. See  
+	"Primitive. Answer the object which is the receiver's class. Essential. See  '
 	Object documentation whatIsAPrimitive." 
 
 	<primitive: 610>

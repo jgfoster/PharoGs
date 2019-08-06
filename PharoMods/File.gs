@@ -502,8 +502,27 @@ classmethod: File
 truncate: id to: anInteger 
 	"Truncate this file to the given position." 
 
-    <PharoGsError>
-    ^self _gsError
+    <PharoGs>
+	anInteger < id @env0:fileSize ifTrue: [
+		| gsFileClass mode pathName tempFile tempName |
+		gsFileClass := Globals @env0:at: #'GsFile'.
+		pathName := id @env0:pathName.
+		mode := id @env0:mode.
+		id @env0:close.
+		tempName := pathName @env0:, id @env0:asOop @env0:printString.
+		gsFileClass @env0:renameFileOnServer: pathName to: tempName.
+		tempFile := gsFileClass @env0:open: tempName mode: 'r' onClient: false.
+		id @env0:open: pathName mode: 'a'.
+		id @env0:write: anInteger from: tempFile @env0:contents.
+		id @env0:close.
+        tempFile @env0:close.
+        gsFileClass @env0:removeServerFile: tempName.
+		id @env0:open: pathName mode: mode.
+	] ifFalse: [
+		| size |
+		id @env0:setToEnd.
+		id @env0:write: (size := anInteger @env0:- id @env0:fileSize) from: (ByteArray new: size).
+	].
 %
 
 category: 'registry'

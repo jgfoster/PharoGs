@@ -246,7 +246,9 @@ definePoolsFor: aClass
 	fileStream
 		tab; nextPutAll: 'poolDictionaries: {'.
 	aClass sharedPools do: [ :each | 
-		fileStream space; nextPutAll: each name; nextPutAll: ' _classVars. '.
+		fileStream 
+			space; nextPutAll: each name; 
+			nextPutAll: ' _classVars ifNil: [SymbolDictionary new]. '.
 	].
 	fileStream nextPut: $}; lf.
 	! !
@@ -312,19 +314,6 @@ defineClassInstVarsFor: aClass
 	fileStream nextPut: $); lf.
 	! !
 
-
-!PharoGsExport methodsFor: 'methods' stamp: 'JamesFoster 7/16/2019 10:27'!
-reservedSelectors 
-
-	^#(
-		__inProtectedMode _and: _downTo:by:do: _downTo:do: _gsReturnNothingEnableEvents
-		_gsReturnNoResult _isArray _isExceptionClass _isExecBlock _isFloat _isInteger
-		_isNumber _isOneByteString _isRange _isRegexp _isRubyHash _isScaledDecimal
-		_isSmallInteger _isSymbol _leaveProtectedMode _or: _stringCharSize ~~
-		and: == ifFalse: ifFalse:ifTrue: ifNil: ifNil:ifNotNil: ifNotNil: ifNotNil:ifNil: ifTrue:
-		ifTrue:ifFalse: isKindOf: or: timesRepeat: to:by:do: to:do: untilFalse untilFalse: untilTrue
-		untilTrue: whileFalse whileFalse: whileTrue whileTrue: repeat
-	)! !
 
 !PharoGsExport methodsFor: 'methods' stamp: 'JamesFoster 7/23/2019 18:04'!
 compileErrors
@@ -440,25 +429,6 @@ createMethods
 	fileStream  nextPutAll: 'errorCount'; lf.
 	Transcript show: count printString; cr.
 ! !
-
-!PharoGsExport methodsFor: 'methods' stamp: 'JamesFoster 7/16/2019 11:09'!
-rewriteReservedSelectorsIn: aString selector: eachSelector
-
-	| source |
-	(self reservedSelectors includes: eachSelector) ifFalse: [ ^aString ].
-	source := aString.
-	source := eachSelector == #~~ ifTrue: [
-		'_gsReservedSelector_tilde_tilde_:' , (source copyFrom: 3 to: source size)
-	] ifFalse: [eachSelector == #== ifTrue: [
-		'_gsReservedSelector_equal_equal_:' , (source copyFrom: 3 to: source size)
-	] ifFalse: [
-		'_gsReservedSelector_' , source.
-	]].
-	source := source , Character lf asString , Character tab asString , 
-		'"The above Pharo code attempts to compile a reserved selector so we place it here for reference"' , 
-		Character lf asString.
-	^source
-	! !
 
 !PharoGsExport methodsFor: 'methods' stamp: 'JamesFoster 7/16/2019 10:24'!
 replaceCrWithLfIn: aString
@@ -612,9 +582,9 @@ addMethodsFor: eachBehavior
 	methodDict keys asSortedCollection do: [ :eachSelector | 
 		| category source |
 		category := organization categoryOfElement: eachSelector.
-		source := self replaceCrWithLfIn: (methodDict at: eachSelector) sourceCode.
+		source := (methodDict at: eachSelector) sourceCode.
+		source := self replaceCrWithLfIn: source.
 		source := self rewritePrimitiveIn: source.
-		source := self rewriteReservedSelectorsIn: source selector: eachSelector.
 		source := self fixBinarySelectorsInLiteralArrayIn: source.
 		source := self 
 			fixMethodsThatWillNotCompileInBehavior: eachBehavior
@@ -772,6 +742,7 @@ installPackages
 		add: '/Users/jfoster/code/pharo/src/' -> 'Tests';
 		add: '/Users/jfoster/code/pharo/src/' -> 'RPackage-Tests';
 		add: '/Users/jfoster/code/pharo/src/' -> 'Monticello-Tests';
+		add: '/Users/jfoster/code/pharo/src/' -> 'MonticelloMocks';
 		"Edited packages to load from the checkout (not yet in a bootstrap image) can be added as well"
 		yourself.
 	list do: [:each | | reader |

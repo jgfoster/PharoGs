@@ -1,5 +1,13 @@
 set compile_env: 2
 
+category: 'instance creation'
+classmethod: Symbol
+lookup: aStringOrSymbol
+
+    <PharoGs>
+    ^self @env0:_existingWithAll: aStringOrSymbol
+%
+
 category: 'system primitives'
 method: Symbol
 flushCache 

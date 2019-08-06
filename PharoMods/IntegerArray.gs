@@ -47,7 +47,7 @@ primFill: aPositiveInteger
     for word arrays." 
     <PharoGs>
 
-    ^self atAllPut: aPositiveInteger
+    ^self @env0:atAllPut: aPositiveInteger
 %
 
 set compile_env: 0

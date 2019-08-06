@@ -94,7 +94,7 @@ basicSize
 	This value is the same as the largest legal subscript. Essential. Do not  
 	override in any subclass. See Object documentation whatIsAPrimitive." 
 
-	<primitive: 32>
+	<primitive: 0>
 	<PharoGs> 
 	^self @env0:basicSize
 %
@@ -112,7 +112,8 @@ clone
 category: 'copying'
 method: Object
 copyFrom: anotherObject 
-	"Copy to myself all instance variables I have in common with anotherObject.  This is dangerous because it ignores an object's control over its own inst vars.  " 
+	"Copy to myself all instance variables I have in common with anotherObject.  
+	This is dangerous because it ignores an object's control over its own inst vars.  '" 
 
 	| mine his | 
 	<PharoGs> 
@@ -159,7 +160,7 @@ instVarAt: index put: anObject
 category: 'pinning'
 method: Object
 isPinnedInMemory 
-	"Answer if the receiver is pinned.  The VM's garbage collector routinely moves 
+	"Answer if the receiver is pinned.  The VM's garbage collector routinely moves  '
 	 objects as it reclaims and compacts memory.  But it can also pin an object so 
 	 that it will not be moved, which can make it easier to pass objects out through 
 	 the FFI." 

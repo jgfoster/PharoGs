@@ -21,7 +21,12 @@ method: Class
 classPool 
 
 	<PharoGs> 
-	^classVars
+	| dict |
+	dict := Dictionary new.
+	classVars @env0:keysAndValuesDo: [:eachKey :eachValue |
+		dict add: (ClassVariable key: eachKey value: eachValue).
+	].
+	^dict
 %
 
 category: 'accessing'
@@ -45,7 +50,7 @@ method: Class
 environment
 
 	<PharoGs>
-	^super environment
+	^Smalltalk globals
 %
 
 category: 'organization'
@@ -78,10 +83,10 @@ new: sizeRequested
 category: 'pool variables'
 method: Class
 sharedPools 
-	"Answer an orderedCollection  of the shared pools declared in the receiver."
+	"Answer an orderedCollection of the shared pools declared in the receiver."
 
 	<PharoGs> 
-	^(poolDictionaries ifNil: [#()]) @env0:asOrderedCollection
+	^OrderedCollection withAll: (poolDictionaries ifNil: [#()])
 %
 
 category: 'pool variables'

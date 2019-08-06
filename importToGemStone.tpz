@@ -2,6 +2,7 @@ ifErr 1 stk
 ifErr 2 stack
 ifErr 3 abort
 ifErr 4 exit
+set compile_env: 0
 run
 | symbolList |
 symbolList := (Globals at: #System) myUserProfile symbolList.
@@ -14,14 +15,20 @@ symbolList := (Globals at: #System) myUserProfile symbolList.
 ].
 %
 run
+"allow methods to compile; may need to fix this!"
 UserGlobals 
-	at: #'thisContext' ifAbsentPut: [nil];	"allow methods to compile; may need to fix this!"
+	at: #'thisContext' ifAbsentPut: [nil];
+	at: #'Trait1' ifAbsentPut: [nil];
+	at: #'Trait2' ifAbsentPut: [nil];
+	at: #'Trait3' ifAbsentPut: [nil];
+	at: #'TSortable' ifAbsentPut: [nil];
 	yourself.
 %
 errorCount
 commit
 logout
 login
+set compile_env: 0
 input PharoGs.tpz
 ! return from PharoGs.tpz
 input importGsEdits.tpz
@@ -35,6 +42,8 @@ Array superclassForEnv: 2 put: ArrayedCollection.
 Array class superclassForEnv: 2 put: ArrayedCollection class.
 ByteArray superclassForEnv: 2 put: ArrayedCollection.
 ByteArray class superclassForEnv: 2 put: ArrayedCollection class.
+Class superclassForEnv: 2 put: Module.
+Class class superclassForEnv: 2 put: Module class.
 ScaledDecimal superclassForEnv: 2 put: Fraction.
 ScaledDecimal class superclassForEnv: 2 put: Fraction class.
 SmallFloat64 superclassForEnv: 2 put: Float.
@@ -43,6 +52,8 @@ SmalltalkImage superclassForEnv: 2 put: IdentityDictionary.
 SmalltalkImage class superclassForEnv: 2 put: IdentityDictionary class.
 String superclassForEnv: 2 put: ArrayedCollection.
 String class superclassForEnv: 2 put: ArrayedCollection class.
+SymbolAssociation superclassForEnv: 2 put: Association.
+SymbolAssociation class superclassForEnv: 2 put: Association class.
 true
 %
 errorCount
@@ -89,7 +100,13 @@ Base64MimeConverter initialize.
 ZnBase64Encoder initialize.
 ISO88592TextConverter initialize.
 Socket initialize.
+FileLocator initialize.
+
 SharedPool allSubclasses do: [:each | each initialize].
+
+"Create a SystemOrganizer"
+SystemOrganizer environment organization: SystemOrganizer new.
+
 true
 %
 commit
@@ -110,7 +127,7 @@ list := (Globals at: #OrderedCollection) new
 	add: FalseTest;
 	add: TrueTest;
 	add: UndefinedObjectTest;
-	add: FileTest;     "expect two failures"
+	add: FileTest;
 	add: Base64MimeConverterTest;
 	add: Base64Test;
 	add: NetNameResolverTest;
@@ -118,6 +135,9 @@ list := (Globals at: #OrderedCollection) new
 	add: TCPSocketTest;
 	add: SocketStreamTest;
 	add: TCPSocketEchoTest;
+	add: FileStreamTest;
+	add: MCAncestryTest;
+	add: MCClassDefinitionTest;
 	yourself.
 list do: [:each | 
 	| string |

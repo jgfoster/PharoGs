@@ -80,9 +80,11 @@ input PharoMods/Socket.gs
 input PharoMods/StandardFileStream.gs
 input PharoMods/String.gs
 input PharoMods/Symbol.gs
+input PharoMods/SymbolDictionary.gs
 input PharoMods/SystemAnnouncer.gs
 input PharoMods/SystemDictionary.gs
 input PharoMods/SystemNavigation.gs
+input PharoMods/SystemResolver.gs
 input PharoMods/TestCase.gs
 input PharoMods/ThirtyTwoBitRegister.gs
 input PharoMods/Time.gs

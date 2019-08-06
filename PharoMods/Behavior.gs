@@ -138,9 +138,15 @@ byteSizeOfInstanceOfSize: basicSize
 category: '*Slot-core'
 method: Behavior
 classLayout
-
-	<PharoGsError>
-	self _gsError
+	"GemStone does not have an instance variable for this so we create it every time!"
+	
+	<PharoGs>
+	| superLayout scope |
+	superLayout := self superclass 
+		ifNil: [ FixedLayout new slotScope: LayoutEmptyScope instance] "happend in the bootrap"
+		ifNotNil: [:sl | sl classLayout].
+	scope := superLayout slotScope extend.
+	^superLayout class extending: superLayout scope: scope host: self 
 %
 
 category: '*Slot-core'
@@ -311,7 +317,7 @@ method: Behavior
 superclass 
 
 	<PharoGs> 
-	^superClass
+	^self @env0:superclassForEnv: 2
 %
 
 set compile_env: 0

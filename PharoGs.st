@@ -234,7 +234,9 @@ addClassFor: aClass
 			nextPutAll: aClass name;
 			nextPutAll: ' ifAbsent: [nil])'; lf;
 		tab; nextPutAll: 'description: ''Pharo instSpec: '; print: aClass instSpec; nextPut: $'; lf;
-		tab; nextPutAll: 'options: #()'; lf;
+		tab; nextPutAll: 'options: #(';
+			nextPutAll: (aClass == ProtoObject ifTrue: ['#selfCanBeSpecial'] ifFalse: ['']);
+			nextPut: $); lf;
 		nextPutAll: ') category: '''; nextPutAll: aClass category; nextPutAll: '''.'; lf;
 		nextPut: $%; lf;
 		yourself.

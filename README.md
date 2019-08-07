@@ -79,7 +79,7 @@ Get a copy of this code:
 
 ```
 cd ~/code # or where you want to install the code
-git clone https://github.com/jgfoster/PharoGs.git .
+git clone https://github.com/jgfoster/PharoGs.git
 ```
 
 The current approach is to export _all_ class and methods from a Pharo [minimal image](https://files.pharo.org/get-files/80/pharo-minimal.zip) (to which sources has been added) using the `exportFromPharo.sh` script. This script generates a set of `.gs` files that can be loaded into GemStone using [Topaz](https://downloads.gemtalksystems.com/docs/GemStone64/3.5.x/GS64-Topaz-3.5.pdf).

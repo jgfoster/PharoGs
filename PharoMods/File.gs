@@ -182,11 +182,10 @@ open: fileName writable: writableFlag
     <PharoGs>
     | gsFile |
     writableFlag ifTrue: [
-        gsFile := GsFile @env0:openAppendOnServer: fileName.
-        gsFile @env0:seekFromBeginning: 0.
+        gsFile := GsFile @env0:openWriteOnServer: fileName @env0:bytesIntoString.
     ] ifFalse: [
         (GsFile @env0:existsOnServer: fileName @env0:bytesIntoUnicode) ifTrue: [
-            gsFile := GsFile @env0:openReadOnServer: fileName.
+            gsFile := GsFile @env0:openReadOnServer: fileName @env0:bytesIntoString.
         ].
     ].
     ^gsFile 
@@ -318,7 +317,10 @@ primFileAttributes: aByteArray mask: attributeMask
     <PharoGs>
     | string stat |
     string := aByteArray @env0:bytesIntoString.
-    stat := GsFile @env0:_stat: string isLstat: (attributeMask @env0:bitAnd: 2r100) @env0:~~ 0.
+    stat := GsFile 
+        @env0:_stat: string 
+        isLstat: (attributeMask @env0:bitAnd: 2r100) @env0:~~ 0.
+    (stat @env0:isKindOf: Integer) @env0:ifTrue: [FileDoesNotExistException signal].
     (attributeMask @env0:bitAnd: 2r001) @env0:~~ 0 "bit 0" ifTrue: [
         | link |
         link := String new.
@@ -333,9 +335,9 @@ primFileAttributes: aByteArray mask: attributeMask
             at:  6 put: stat @env0:uid;
             at:  7 put: stat @env0:gid;
             at:  8 put: stat @env0:size;
-            at:  9 put: stat @env0:atimeUtcSeconds; "time of last access"
-            at: 10 put: stat @env0:mtimeUtcSeconds; "time of last modification"
-            at: 11 put: stat @env0:ctimeUtcSeconds; "time of last status change"
+            at:  9 put: stat @env0:atimeUtcSeconds + 2177427600; "time of last access"
+            at: 10 put: stat @env0:mtimeUtcSeconds + 2177427600; "time of last modification"
+            at: 11 put: stat @env0:ctimeUtcSeconds + 2177427600; "time of last status change"
             at: 12 put: nil;    "creation time?"
             at: 13 put: nil;
             yourself
@@ -444,6 +446,7 @@ read: id into: byteArray startingAt: startIndex count: count
 
     <PharoGs>
     | bytes actualCount |
+    count @env0:== 0 @env0:ifTrue: [^0].
     bytes := ByteArray new: count.
     actualCount := id @env0:next: count into: bytes.
     actualCount == nil ifTrue: [self @env0:error: id @env0:lastErrorString].
@@ -486,7 +489,9 @@ setPosition: id to: anInteger
 	"Set this file to the given position." 
 
     <PharoGs>
-    ^id @env0:position: anInteger
+    | newPosition |
+    newPosition := id @env0:position: anInteger.
+    newPosition ifNil: [self error: id @env0:lastErrorString]
 %
 
 category: 'primitives-file'
@@ -574,6 +579,71 @@ write: id from: stringOrByteArray startingAt: startIndex count: count
     | bytes |
     bytes := stringOrByteArray @env0:copyFrom: startIndex to: startIndex + count - 1.
     ^id @env0:write: count from: bytes
+%
+
+category: 'open/close'
+method: File
+basicOpenForWrite: writeMode
+	"Open the file with the given name. If writeMode is true, allow writing, 
+     otherwise open the file in read-only mode."
+    "GemStone looks for #append or #write since #write truncates the file!"
+
+    <PharoGs>
+	writeMode ~~ false ifTrue: [ self checkWritableFilesystem ].
+
+    writeMode == #append ifTrue: [
+        ^GsFile @env0:openAppendOnServer: name utf8Encoded @env0:bytesIntoString
+    ].
+    writeMode == #write ifTrue: [
+        ^GsFile @env0:openWriteOnServer: name utf8Encoded @env0:bytesIntoString
+    ].
+    ^GsFile @env0:openReadOnServer: name utf8Encoded @env0:bytesIntoString
+%
+
+category: 'open/close'
+method: File
+openForAppend
+
+    <PharoGs>
+    ^self openForWrite: #append
+%
+
+category: 'open/close'
+method: File
+openForRead
+
+    <PharoGs>
+    ^self openForWrite: false
+%
+
+category: 'open/close'
+method: File
+openForWrite
+
+    <PharoGs>
+    ^self openForWrite: #write
+%
+
+category: 'open/close'
+method: File
+openForWrite: writeMode
+	"Open the file with the given name. If writeMode is true, allow writing, otherwise open the file in read-only mode."
+
+    <PharoGs>
+	| fileHandle |
+	fileHandle := self basicOpenForWrite: writeMode.
+	fileHandle ifNil: [
+		"Opening the file failed.
+		If the file does not exist, we throw an explicit FileDoesNotExistException.
+		Otherwise, we throw a generic FileException."
+		self exists
+			ifFalse: [ ^ FileDoesNotExistException signalWithFile: self writeMode: writeMode ~~ false ].
+		CannotDeleteFileException signal: name
+	].
+
+	^ (BinaryFileStream handle: fileHandle file: self forWrite: writeMode ~~ false)
+		register;
+		yourself
 %
 
 set compile_env: 0

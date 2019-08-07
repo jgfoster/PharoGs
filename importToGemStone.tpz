@@ -107,6 +107,8 @@ ZnLogEvent initialize.
 ZnConstants initialize.
 ZnMimeType initialize.
 ZipWriteStream initialize.
+InflateStream initialize.
+FastInflateStream initialize.
 
 SharedPool allSubclasses do: [:each | each initialize].
 
@@ -143,6 +145,7 @@ list := (Globals at: #OrderedCollection) new
 	add: TCPSocketEchoTest;
 	add: FileStreamTest;
 	add: MCAncestryTest;
+	add: ZipArchiveTest;
 	"add: MCClassDefinitionTest;"
 	yourself.
 list do: [:each | 

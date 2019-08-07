@@ -3,8 +3,12 @@ if [ ! -d pharo ]; then   # create Pharo directory
   mkdir -p pharo
 fi
 cd pharo
-if [ ! -d Pharo.app ]; then   # get VM for macOS
-  wget https://files.pharo.org/get-files/80/pharo64-mac-headless-latest.zip
+if [ ! -d Pharo.app ]; then   # get VM
+  if [ `uname` == 'Darwin' ]; then
+    wget https://files.pharo.org/get-files/80/pharo64-mac-headless-latest.zip
+  else 
+    wget https://files.pharo.org/get-files/80/pharo64-linux-headless-latest.zip
+  fi
   unzip *.zip
   rm *.zip
 fi
@@ -42,4 +46,8 @@ fi
 if [ -f PharoDebug.log ]; then
   rm PharoDebug.log
 fi
-./pharo/Pharo.app/Contents/MacOS/pharo ./pharo/Pharo8.0-*.image exportFromPharo.st
+if [ `uname` == 'Darwin' ]; then
+  ./pharo/Pharo.app/Contents/MacOS/pharo ./pharo/Pharo8.0-*.image exportFromPharo.st
+else
+  ./pharo/pharo ./pharo/Pharo8.0-*.image exportFromPharo.st
+fi

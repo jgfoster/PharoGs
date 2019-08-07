@@ -36,28 +36,3 @@ argTwoArray ifNotNil:[ | argTwo |
 self _primitiveFailed: #_modifyFile:fdPath:with:with:
      args: { opcode . fdOrString . argOne . argTwoArray }
 %
-
-category: 'MagLev'
-classmethod: GsFile
-_prim765: opcode with: arg with: arg2
-
-"opcode 5    umask()"
-
-<primitive: 765>
-^ self _primitiveFailed: #_twoArgPrim:with:with: args: { opcode. arg . arg2 }
-%
-
-classmethod: GsFile
-_umask
-" return current umask without changing it"
-^ self _prim765: 5 with: nil with: -1
-%
-
-classmethod: GsFile
-_umask: newMaskInt
-" anInt == -1 means return current umask without changing it .
-  otherwise set process' file creation mask to newMaskInt
-  and return previous value.
-"
-^ self _prim765: 5 with: nil with: newMaskInt
-%

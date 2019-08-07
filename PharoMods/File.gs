@@ -180,15 +180,13 @@ open: fileName writable: writableFlag
 		else return nil" 
 
     <PharoGs>
-    | gsFile |
-    writableFlag ifTrue: [
-        gsFile := GsFile @env0:openWriteOnServer: fileName @env0:bytesIntoString.
-    ] ifFalse: [
-        (GsFile @env0:existsOnServer: fileName @env0:bytesIntoUnicode) ifTrue: [
-            gsFile := GsFile @env0:openReadOnServer: fileName @env0:bytesIntoString.
-        ].
-    ].
-    ^gsFile 
+    | pathString |
+    pathString := fileName @env0:bytesIntoString.
+    ^GsFile
+        @env0:openOnServer: pathString
+        mode: (writableFlag 
+            ifTrue:  [(GsFile @env0:existsOnServer: pathString) ifTrue: ['r+'] ifFalse: ['w+']]
+            ifFalse: ['r'])
 %
 
 category: 'primitives-directory'
@@ -539,20 +537,11 @@ truncate: id to: anInteger
 
     <PharoGs>
 	anInteger < id @env0:fileSize ifTrue: [
-		| gsFileClass mode pathName tempFile tempName |
-		gsFileClass := Globals @env0:at: #'GsFile'.
-		pathName := id @env0:pathName.
-		mode := id @env0:mode.
-		id @env0:close.
-		tempName := pathName @env0:, id @env0:asOop @env0:printString.
-		gsFileClass @env0:renameFileOnServer: pathName to: tempName.
-		tempFile := gsFileClass @env0:open: tempName mode: 'r' onClient: false.
-		id @env0:open: pathName mode: 'a'.
-		id @env0:write: anInteger from: tempFile @env0:contents.
-		id @env0:close.
-        tempFile @env0:close.
-        gsFileClass @env0:removeServerFile: tempName.
-		id @env0:open: pathName mode: mode.
+        GsFile 
+            @env0:_prim763: 2 
+            with: id @env0:pathName 
+            with: anInteger 
+            with: nil.
 	] ifFalse: [
 		| size |
 		id @env0:setToEnd.
@@ -579,71 +568,6 @@ write: id from: stringOrByteArray startingAt: startIndex count: count
     | bytes |
     bytes := stringOrByteArray @env0:copyFrom: startIndex to: startIndex + count - 1.
     ^id @env0:write: count from: bytes
-%
-
-category: 'open/close'
-method: File
-basicOpenForWrite: writeMode
-	"Open the file with the given name. If writeMode is true, allow writing, 
-     otherwise open the file in read-only mode."
-    "GemStone looks for #append or #write since #write truncates the file!"
-
-    <PharoGs>
-	writeMode ~~ false ifTrue: [ self checkWritableFilesystem ].
-
-    writeMode == #append ifTrue: [
-        ^GsFile @env0:openAppendOnServer: name utf8Encoded @env0:bytesIntoString
-    ].
-    writeMode == #write ifTrue: [
-        ^GsFile @env0:openWriteOnServer: name utf8Encoded @env0:bytesIntoString
-    ].
-    ^GsFile @env0:openReadOnServer: name utf8Encoded @env0:bytesIntoString
-%
-
-category: 'open/close'
-method: File
-openForAppend
-
-    <PharoGs>
-    ^self openForWrite: #append
-%
-
-category: 'open/close'
-method: File
-openForRead
-
-    <PharoGs>
-    ^self openForWrite: false
-%
-
-category: 'open/close'
-method: File
-openForWrite
-
-    <PharoGs>
-    ^self openForWrite: #write
-%
-
-category: 'open/close'
-method: File
-openForWrite: writeMode
-	"Open the file with the given name. If writeMode is true, allow writing, otherwise open the file in read-only mode."
-
-    <PharoGs>
-	| fileHandle |
-	fileHandle := self basicOpenForWrite: writeMode.
-	fileHandle ifNil: [
-		"Opening the file failed.
-		If the file does not exist, we throw an explicit FileDoesNotExistException.
-		Otherwise, we throw a generic FileException."
-		self exists
-			ifFalse: [ ^ FileDoesNotExistException signalWithFile: self writeMode: writeMode ~~ false ].
-		CannotDeleteFileException signal: name
-	].
-
-	^ (BinaryFileStream handle: fileHandle file: self forWrite: writeMode ~~ false)
-		register;
-		yourself
 %
 
 set compile_env: 0

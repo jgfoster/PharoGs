@@ -14,11 +14,11 @@ allocatePSKey: aPSVariable
 			index := keys indexOf: nil.
 			index == 0 
 				ifTrue: [
-					index := keys add: aPSVariable; size ]
+					index := keys @env0:add: aPSVariable; size ]
 				ifFalse: [
 					"Yes, this is slow, but we have to make sure that if we reusing index,
 					all existing processes having value at given index reset to nil.
-					We don't care if new processes will be created during this loop,
+					We don't care if new processes will be created during this loop, '
 					since their env variable will be initially nil anyways, hence nothing to reset "
 					self @env0:allInstancesInMemory do: [:p | p resetPSValueAt: index ].
 					keys at: index put: aPSVariable.
@@ -27,7 +27,7 @@ allocatePSKey: aPSVariable
 
 		aPSVariable isInheritable ifTrue: [ 
 			keys := self inheritablePSKeys.
-			(keys includes: index) ifFalse: [ keys add: index ]]
+			(keys includes: index) ifFalse: [ keys @env0:add: index ]
 		]
 	].
 
@@ -75,7 +75,7 @@ updateInheritableKeys
 	keys size: 0.
 	ProcessSpecificVariable allSubclasses 
 		select: [ :each | each isInheritable ] 
-		thenDo: [ :each | keys add: each soleInstance index].
+		thenDo: [ :each | keys @env0:add: each soleInstance index].
 %
 
 category: 'changing suspended state'

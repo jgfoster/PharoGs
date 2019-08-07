@@ -130,7 +130,7 @@ classmethod: File
 isDirectory: aPath
 
     <PharoGs>
-    ^GsFile @env0:isServerDirectory: aPath
+    ^(GsFile @env0:isServerDirectory: aPath) == true
 %
 
 category: 'primitives-path'
@@ -278,7 +278,13 @@ primFileAttribute: aByteArray number: attributeNumber
         16: is symbolic link 
 	" 
 
-    <PharoGsError>
+    <PharoGs>
+    attributeNumber @env0:== 16 @env0:ifTrue: [
+        ^((self primFileAttributes: aByteArray mask: 2r001) at: 1) notNil
+    ].
+    attributeNumber @env0:<= 12 @env0:ifTrue: [
+        ^(self primFileAttributes: aByteArray mask: 2r001) at: attributeNumber
+    ].
     ^self _gsError
 %
 
@@ -309,7 +315,31 @@ primFileAttributes: aByteArray mask: attributeMask
         3: is executable 
         " 
 
-    <PharoGsError>
+    <PharoGs>
+    | string stat |
+    string := aByteArray @env0:bytesIntoString.
+    stat := GsFile @env0:_stat: string isLstat: (attributeMask @env0:bitAnd: 2r100) @env0:~~ 0.
+    (attributeMask @env0:bitAnd: 2r001) @env0:~~ 0 "bit 0" ifTrue: [
+        | link |
+        link := String new.
+        GsFile @env0:_prim763: 9 with: string with: link with: nil.
+        link @env0:= '' @env0:ifTrue: [link := nil].
+        ^(Array new: 13)
+            at:  1 put: link;
+            at:  2 put: stat @env0:mode;
+            at:  3 put: stat @env0:ino;
+            at:  4 put: stat @env0:dev;
+            at:  5 put: stat @env0:nlink;
+            at:  6 put: stat @env0:uid;
+            at:  7 put: stat @env0:gid;
+            at:  8 put: stat @env0:size;
+            at:  9 put: stat @env0:atimeUtcSeconds; "time of last access"
+            at: 10 put: stat @env0:mtimeUtcSeconds; "time of last modification"
+            at: 11 put: stat @env0:ctimeUtcSeconds; "time of last status change"
+            at: 12 put: nil;    "creation time?"
+            at: 13 put: nil;
+            yourself
+    ].
     ^self _gsError
 %
 

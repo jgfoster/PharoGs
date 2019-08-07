@@ -734,6 +734,7 @@ installPackages
 	| list |
 	list := OrderedCollection new
 		"Extra packages to add to GemStone"
+		add: '/Users/jfoster/code/pharo/src/' -> 'System-Localization';
 		add: '/Users/jfoster/code/pharo/src/' -> 'Monticello';
 		add: '/Users/jfoster/code/pharo/src/' -> 'SUnit-Core';
 		add: '/Users/jfoster/code/pharo/src/' -> 'Kernel-Tests';
@@ -743,6 +744,7 @@ installPackages
 		add: '/Users/jfoster/code/pharo/src/' -> 'RPackage-Tests';
 		add: '/Users/jfoster/code/pharo/src/' -> 'Monticello-Tests';
 		add: '/Users/jfoster/code/pharo/src/' -> 'MonticelloMocks';
+		add: '/Users/jfoster/code/pharo/src/' -> 'Compression-Tests';
 		"Edited packages to load from the checkout (not yet in a bootstrap image) can be added as well"
 		yourself.
 	list do: [:each | | reader |

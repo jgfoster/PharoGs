@@ -105,6 +105,8 @@ ZnHeaders initialize.
 ZnNetworkingUtils initialize.
 ZnLogEvent initialize.
 ZnConstants initialize.
+ZnMimeType initialize.
+ZipWriteStream initialize.
 
 SharedPool allSubclasses do: [:each | each initialize].
 
@@ -141,7 +143,7 @@ list := (Globals at: #OrderedCollection) new
 	add: TCPSocketEchoTest;
 	add: FileStreamTest;
 	add: MCAncestryTest;
-	add: MCClassDefinitionTest;
+	"add: MCClassDefinitionTest;"
 	yourself.
 list do: [:each | 
 	| string |

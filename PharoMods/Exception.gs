@@ -70,8 +70,8 @@ category: 'handling'
 method: Exception
 resumeUnchecked: resumptionValue 
 
-	<PharoGsError>
-    self _gsError
+	<PharoGs>
+    self @env0:resume: resumptionValue
 %
 
 category: '*Debugging-Core'

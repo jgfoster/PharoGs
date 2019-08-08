@@ -146,6 +146,9 @@ list := (Globals at: #OrderedCollection) new
 	add: FileStreamTest;
 	add: MCAncestryTest;
 	add: ZipArchiveTest;
+	add: ZipCrcTest;
+	add: ZipExtensionTest;
+	add: ZipWriteStreamTest;
 	"add: MCClassDefinitionTest;"
 	yourself.
 list do: [:each | 

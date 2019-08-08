@@ -10,7 +10,6 @@ basicReplaceFrom: start to: stop with: replacement startingAt: repStart
     Range checks are performed in the primitive only. 
     Optional. See Object documentation whatIsAPrimitive." 
 
-    <primitive: 608>
     <PharoGs>
     ^self @env0:replaceFrom: start to: stop with: replacement startingAt: repStart
 %

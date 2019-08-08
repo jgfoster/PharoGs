@@ -87,7 +87,6 @@ replaceFrom: start to: stop with: replacement startingAt: repStart
 
 	Returns the receiver."
 
-	<primitive: 297>
 	<PharoGs>
 	^self @env0:replaceFrom: start to: stop with: replacement startingAt: repStart
 %

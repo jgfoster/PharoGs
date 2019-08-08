@@ -27,6 +27,17 @@ method: ByteArray
 at: anIndex
 
     <primitive: 974>
+    <PharoGs>
+    ^self @env0:at: anIndex
+%
+
+category: 'accessing'
+method: ByteArray
+at: anIndex put: value
+
+	<primitive: 268>
+	<PharoGs> 
+    (value @env0:isKindOf: Character) @env0:ifTrue: [^self at: anIndex put: value codePoint].
     ^self @env0:at: anIndex
 %
 
@@ -152,30 +163,8 @@ method: ByteArray
 replaceFrom: start to: stop with: replacement startingAt: repStart  
 	"Primitive. This destructively replaces elements from start to stop in the receiver starting at index, repStart, in the collection, replacement. Answer the receiver. Range checks are performed in the primitive only. Optional. See Object documentation whatIsAPrimitive." 
 
-    "GemStone:
-    Replaces the elements of the receiver between the indexes startIndex and
-    stopIndex inclusive with the elements of aSeqCollection starting at repIndex.
-    If aSeqCollection is identical to the receiver, the source and
-    destination blocks may overlap.
-
-    The primitive supports directly the case where 
-        (aSeqCollection isKindOfClass: CByteArray) == true , 
-    with repIndex being one-based .
-
-    Returns the receiver."
-
-    <primitive: 297>
-    <PharoGs>
-	replacement isString
-		ifFalse:
-			[super replaceFrom: start to: stop with: replacement startingAt: repStart]
-		ifTrue:
-			[ "use String>>byteAt: to mimic prim 105"
-			| index repOff |
-			repOff := repStart - start.
-			index := start - 1.
-			[(index := index + 1) <= stop]
-				whileTrue: [self at: index put: (replacement byteAt: repOff + index)]]
+	<PharoGs> 
+	super replaceFrom: start to: stop with: replacement startingAt: repStart
 %
 
 set compile_env: 0

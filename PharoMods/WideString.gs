@@ -28,7 +28,6 @@ category: 'accessing'
 method: WideString
 replaceFrom: start to: stop with: replacement startingAt: repStart  
 
-     <primitive: 777>
 	<PharoGs>
     ^self @env0:replaceFrom: start to: stop with: replacement startingAt: repStart  
 %

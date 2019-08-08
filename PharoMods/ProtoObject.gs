@@ -12,7 +12,8 @@ basicIdentityHash
 
 	<primitive: 321>
 	<PharoGs> 
-	^self @env0:class
+	nil @env0:_primitiveFailed: #basicIdentityHash .
+	nil @env0:_uncontinuableError
 %
 
 category: 'reflective operations'

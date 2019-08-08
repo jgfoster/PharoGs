@@ -54,6 +54,8 @@ String superclassForEnv: 2 put: ArrayedCollection.
 String class superclassForEnv: 2 put: ArrayedCollection class.
 SymbolAssociation superclassForEnv: 2 put: Association.
 SymbolAssociation class superclassForEnv: 2 put: Association class.
+SystemDictionary superclassForEnv: 2 put: Object.
+SystemDictionary class superclassForEnv: 2 put: Object class.
 true
 %
 errorCount
@@ -109,12 +111,13 @@ ZnMimeType initialize.
 ZipWriteStream initialize.
 InflateStream initialize.
 FastInflateStream initialize.
+ChangeSet initialize.
 
 SharedPool allSubclasses do: [:each | each initialize].
 
-"Create a SystemOrganizer"
-SystemOrganizer environment organization: SystemOrganizer new.
-
+SystemOrganization := SystemOrganizer new.
+SystemOrganizer environment organization: SystemOrganization.
+SourceFiles := SourceFileArray new.
 true
 %
 commit

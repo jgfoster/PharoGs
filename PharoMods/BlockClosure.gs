@@ -610,9 +610,9 @@ on: exceptionSelector do: handlerBlock
 category: 'exceptions'
 method: BlockClosure
 on: exception fork: handlerAction 
-	
-	<PharoGsError>
-	^self _gsError
+
+	<PharoGs>
+	^self on: exception do: [:ex | handlerAction forkWith: ex]
 %
 
 category: 'exceptions'

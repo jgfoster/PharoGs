@@ -12,6 +12,7 @@ input PharoMods/ByteArray.gs
 input PharoMods/ByteString.gs
 input PharoMods/ByteSymbol.gs
 input PharoMods/CannotReturn.gs
+input PharoMods/ChangeSet.gs
 input PharoMods/Character.gs
 input PharoMods/Class.gs
 input PharoMods/ClassDescription.gs
@@ -48,14 +49,17 @@ input PharoMods/Integer.gs
 input PharoMods/IntegerArray.gs
 input PharoMods/InternetConfiguration.gs
 input PharoMods/Interval.gs
+input PharoMods/Job.gs
 input PharoMods/LargeInteger.gs
 input PharoMods/Locale.gs
 input PharoMods/LocalTimeZone.gs
+input PharoMods/MCClassDefinition.gs
 input PharoMods/MD5.gs
 input PharoMods/Message.gs
 input PharoMods/MessageNotUnderstood.gs
 input PharoMods/Metaclass.gs
 input PharoMods/MetaclassForTraits.gs
+input PharoMods/MethodAddition.gs
 input PharoMods/MethodDictionary.gs
 input PharoMods/MirrorPrimitives.gs
 input PharoMods/NetNameResolver.gs
@@ -80,6 +84,7 @@ input PharoMods/SmallFraction.gs
 input PharoMods/SmallInteger.gs
 input PharoMods/SmalltalkImage.gs
 input PharoMods/Socket.gs
+input PharoMods/SourceFileArray.gs
 input PharoMods/StandardFileStream.gs
 input PharoMods/String.gs
 input PharoMods/Symbol.gs
@@ -97,12 +102,15 @@ input PharoMods/UIManager.gs
 input PharoMods/VariableNotDeclared.gs
 input PharoMods/VirtualMachine.gs
 input PharoMods/WeakArray.gs
+input PharoMods/WeakRegistry.gs
 input PharoMods/WideString.gs
 input PharoMods/WideSymbol.gs
 input PharoMods/WordArray.gs
 input PharoMods/X11Encoding.gs
+input PharoMods/ZdcByteArrayManager.gs
 input PharoMods/ZdcPluginSSLSession.gs
 input PharoMods/ZipEncoder.gs
 input PharoMods/ZipWriteStream.gs
+input PharoMods/ZnLogEvent.gs
 errorCount
 output pop

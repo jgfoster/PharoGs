@@ -15,9 +15,15 @@ Of course, there is a lot of code between the primitives and the portable librar
 
 ## Motivation
 
+### Portability
+
 A portability layer, by definition, contains only things that exist in all dialects, so is a subset and cannot include unique features. Furthermore, writing to a portability layer is something that is rarely done from the start, but is an afterthought taken on after a project has achieved success in its original dialect, and is typically attempted by someone other than the original author. Enhancements made in the original code have to be repeatedly checked for portability, with changes (that are of no value in the original dialect) fed back to the source.
 
-Instead of a portability layer, this project seeks to *host* the Pharo class library in GemStone. While this is narrower than a portability layer (since it doesn't facilitate moving Pharo code to anything except GemStone), it is much more complete since (with certain limitations discussed later) most Pharo code should be runable in GemStone.
+Instead of a portability layer, this project seeks to *host* the Pharo class library in GemStone. While this is narrower than a portability layer (since it doesn't facilitate moving Pharo code to anything except GemStone), it is much more complete since (with certain limitations discussed later) most Pharo code should be runable in GemStone. This allows a Pharo-based application to take advantage of GemStone features: allowsing many VMs to share a large object space.
+
+### Development IDE
+
+Another possible motivation for running Pharo code in GemStone is that any GemStone IDE can interact with the Pharo code. This allows us to run a "headless" image with a full GUI since we can use the GemStone tools to look at Pharo code. This is an attractive alternative to trying to debug in an environment without a debugger.
 
 ## Approach
 
@@ -25,7 +31,7 @@ Perhaps the most transparent approach to support Pharo in GemStone would be to m
 
 Like other Smalltalks, message sends in GemStone use dynamic binding to a chain of MethodDictionary instances associated with the Class of the receiver. In order to support other dialects and languages (originally [Ruby](https://maglev.github.io)), GemStone method lookup uses not just a selector (as in traditional Smalltalks), but a selector plus an integer **environment** (where the default is 0 for the GemStone Smalltalk class library). Each environment has its own MethodDictionary for each Class, and each environment can specify a superclass for method lookup (this does not affect instance variables or other class attributes that are inherited). By default, a method will send messages using its own environment, but a special syntax exists to explicitly call another environment.
 
-Our general approach is to install the Pharo class library into environment 2 (environment 1 is reserved for Ruby), and rewrite any methods required to get things to work. The rewrite starts with primitives by (1) changing just the number if an equivalent primitive exists; (2) writing equivalent code if possible; and (3) reporting an error if an equivalent operation has not been implemented yet.
+Our general approach is to install the Pharo class library into environment 2 (environments 0 and 1 are reserved), and rewrite any methods required to get things to work. The rewrite starts with primitives by (1) changing just the number if an equivalent primitive exists; (2) writing equivalent code if possible; and (3) reporting an error if an equivalent operation has not been implemented yet.
 
 ## Limitation
 
@@ -45,7 +51,7 @@ Our goal is to work with an standard Pharo minimal image and most of the time th
 
 ### Modified
 
-Depending on the state of development, some modifications may be required to the [Pharo code base](https://github.com/pharo-project/pharo) for PharoGs to work. These changes are being submitted back to the base, but unless and until they are all incorporated you need to use a branch (of course, if you already have a Git checkout of Pharo, you can add this repository as a remote and checkout the appropriate branch):
+Depending on the state of development, some modifications may be required to the [Pharo code base](https://github.com/pharo-project/pharo) for PharoGs to work. These changes are being [submitted](https://github.com/pharo-project/pharo/pulls/jgfoster) back to the base, but unless and until they are all incorporated you need to use a branch (of course, if you already have a Git checkout of Pharo, you can add this repository as a remote and checkout the appropriate branch):
 
 ```
 cd ~/code/ # or where you want to put the checkout

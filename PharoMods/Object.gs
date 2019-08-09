@@ -157,6 +157,17 @@ instVarAt: index put: anObject
 		ifTrue: [ ^ self modificationForbiddenFor: #instVarAt:put: index: index value: anObject ]
 %
 
+category: 'introspection'
+method: Object
+instVarNamed: aString put: aValue
+
+	| offset |
+	<PharoGs>
+    offset := self @env0:class @env0:_ivOffsetOf: aString @env0:asSymbol.
+	offset @env0:ifNil: [ InstanceVariableNotFound signalFor: aString asString ].
+	self instVarAt: offset put: aValue
+%
+
 category: 'pinning'
 method: Object
 isPinnedInMemory 
@@ -194,7 +205,10 @@ perform: aSymbol
 	<primitive: 2004>
 	<reflective: #object:performMessageWith:> 
 	<PharoGs> 
-	^ self perform: aSymbol withArguments: (Array new: 0)
+	^self 
+		@env0:_perform: aSymbol asSymbol 
+		env: 2 
+		withArguments: #() 
 %
 
 category: 'message performing'
@@ -207,7 +221,10 @@ perform: aSymbol with: anObject
 	<primitive: 2004>
 	<reflective: #object:performMessageWith:> 
 	<PharoGs> 
-	^ self perform: aSymbol withArguments: (Array with: anObject)
+	^self 
+		@env0:_perform: aSymbol asSymbol 
+		env: 2 
+		withArguments: (Array with: anObject)
 %
 
 category: 'message performing'
@@ -220,7 +237,10 @@ perform: aSymbol with: firstObject with: secondObject
 	<primitive: 2004>
 	<reflective: #object:performMessageWith:> 
 	<PharoGs> 
-	^ self perform: aSymbol withArguments: (Array with: firstObject with: secondObject)
+	^self 
+		@env0:_perform: aSymbol asSymbol 
+		env: 2 
+		withArguments: (Array with: firstObject with: secondObject)
 %
 
 category: 'message performing'
@@ -233,8 +253,10 @@ perform: aSymbol with: firstObject with: secondObject with: thirdObject
 	<primitive: 2004>
 	<reflective: #object:performMessageWith:> 
 	<PharoGs> 
-	^ self perform: aSymbol 
-		withArguments: {firstObject . secondObject . thirdObject}
+	^self 
+		@env0:_perform: aSymbol asSymbol 
+		env: 2 
+		withArguments: (Array with: firstObject with: secondObject with: thirdObject)
 %
 
 category: 'message performing'
@@ -247,13 +269,15 @@ perform: aSymbol with: firstObject with: secondObject with: thirdObject with: fo
 	<primitive: 2004>
 	<reflective: #object:performMessageWith:> 
 	<PharoGs> 
-	^ self perform: aSymbol 
+	^self 
+		@env0:_perform: aSymbol asSymbol 
+		env: 2 
 		withArguments: (Array with: firstObject with: secondObject with: thirdObject with: fourthObject)
 %
 
 category: 'message performing'
 method: Object
-perform: selector withArguments: argArray  
+perform: aSymbol withArguments: argArray  
 	"Send the selector, aSymbol, to the receiver with arguments in argArray. 
 	Fail if the number of arguments expected by the selector  
 	does not match the size of argArray. 
@@ -262,7 +286,10 @@ perform: selector withArguments: argArray
 	<primitive: 2005>
 	<reflective: #object:performMessageWithArgs:> 
 	<PharoGs> 
-	^ self perform: selector withArguments: argArray inSuperclass: self class
+	^self 
+		@env0:_perform: aSymbol asSymbol 
+		env: 2 
+		withArguments: argArray
 %
 
 category: 'message performing'

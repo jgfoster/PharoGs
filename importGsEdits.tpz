@@ -96,6 +96,7 @@ input PharoMods/SystemResolver.gs
 input PharoMods/TestCase.gs
 input PharoMods/ThirtyTwoBitRegister.gs
 input PharoMods/Time.gs
+input PharoMods/TranscriptStreamPortable.gs
 input PharoMods/True.gs
 input PharoMods/TraitedMetaclass.gs
 input PharoMods/UIManager.gs

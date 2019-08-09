@@ -66,6 +66,14 @@ associationsDo: aBlock
 
 category: 'accessing'
 method: MethodDictionary
+at: key
+
+    <PharoGs>
+    ^self @env0:at: key
+%
+
+category: 'accessing'
+method: MethodDictionary
 at: key ifAbsent: aBlock
 
     <PharoGs>

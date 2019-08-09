@@ -112,12 +112,15 @@ ZipWriteStream initialize.
 InflateStream initialize.
 FastInflateStream initialize.
 ChangeSet initialize.
+MetacelloPharoPlatform initialize.
 
 SharedPool allSubclasses do: [:each | each initialize].
 
 SystemOrganization := SystemOrganizer new.
 SystemOrganizer environment organization: SystemOrganization.
 SourceFiles := SourceFileArray new.
+Transcript := Globals @env0:at: #'Transcript'.
+
 true
 %
 commit

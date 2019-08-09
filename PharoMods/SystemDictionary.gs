@@ -71,6 +71,17 @@ includesKey: aKey
 	^(System @env0:myUserProfile @env0:symbolList @env0:objectNamed: aKey) notNil
 %
 
+category: 'accessing'
+method: SystemDictionary
+keys
+
+	<PharoGs>
+	^(Globals @env0:at: #'IdentitySet') @env0:new
+		@env0:addAll: Pharo @env0:keys @env0:asArray;
+		@env0:addAll: UserGlobals @env0:keys @env0:asArray;
+		@env0:asArray
+%
+
 category: 'system attributes'
 method: SystemDictionary
 maxIdentityHash 

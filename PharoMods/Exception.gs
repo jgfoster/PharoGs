@@ -116,7 +116,7 @@ signal
     The default is to execute and return my defaultAction."
 
 	<PharoGs>
-    self @env0:signal
+    ^self _signalWith: nil
 %
 
 category: 'accessing'
@@ -155,6 +155,37 @@ signalIn: context
 
 	<PharoGsError>
     self _gsError
+%
+
+_executeEnsuresBelow: kind
+
+	<PharoGsError>
+    | ensBlks |
+    ensBlks := self @env0:_getEnsuresBelow: kind.
+    1 @env0:to: ensBlks size by: 2 do: [:j |
+        self @env0:_removeEnsureAtFP: (ensBlks @env0:at: j).
+        (ensBlks @env0:at: j @env0:+ 1) value.
+    ].
+%
+
+category: 'private'
+method: Exception
+_signalWith: inCextensionArg
+
+    <primitive: 2022>
+	<PharoGs>
+    | res |
+    inCextensionArg @env0:ifNotNil: [
+        "primitive found a C extension which wants to handle receiver."
+        self _executeEnsuresBelow: 1.  "execute ensures from TOS to C extension"
+        self @env0:_handleInCextension.  "trims stack and returns to C extension"
+    ].
+    res := self defaultAction.  
+
+    1 @env0:timesRepeat: [self @env0:class]. "loop to detect/handle termination interrupt"
+    self isResumable ifTrue: [^res].
+    self @env0:_signalGciError.
+    self @env0:_uncontinuableError. "should never reach here"
 %
 
 set compile_env: 0

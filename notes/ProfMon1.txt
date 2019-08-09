@@ -1,0 +1,732 @@
+ProfMonitor @env0:monitorBlock: [
+Gofer new
+    url:'http://www.smalltalkhub.com/mc/Seaside/MetacelloConfigurations/main';
+    package: 'ConfigurationOfSeaside3';
+    load.
+].
+==============================================================================
+
+
+profiling overun count 1 , total overrun time = 0.02% of sampling time
+================
+STATISTICAL SAMPLING RESULTS
+elapsed CPU time:    51529 ms
+monitoring interval:  500 us ,  8456 samples
+report limit threshold: 253 hits / 3.0%
+0 pageFaults  1292 objFaults  2 gcMs  39186642 edenBytesUsed
+
+tally        %   class and method name
+------   -----   --------------------------------------
+   642    7.59   IdentityBag               >> add:
+   541    6.40   Array                     >> _at:
+   449    5.31   IdentityBag               >> _at:
+   420    4.97   AbstractDictionary        >> _atZ:
+   354    4.19   Metaclass3                >> isMeta
+   294    3.48   Behavior                  >> category
+   258    3.05   Object                    >> identityHash
+  5498   65.02   454 other methods
+  8456  100.00   Total
+
+
+================
+STATISTICAL STACK SAMPLING RESULTS
+elapsed CPU time:    51529 ms
+monitoring interval:  500 us ,  8456 samples
+report limit threshold: 253 hits / 3.0%
+0 pageFaults  1292 objFaults  2 gcMs  39186642 edenBytesUsed
+
+ total       %   class and method name
+------   -----   --------------------------------------
+  8681  102.66   ExecBlock                 >> on:do:
+  8590  101.58   ExecBlock                 >> ensure:
+  8456  100.00   GsNMethod class           >> _gsReturnToC
+  8455   99.99   ProfMonitor               >> runBlock:
+  8455   99.99   ProfMonitor               >> monitorBlock:
+  8455   99.99   ProfMonitor class         >> monitorBlock:downTo:intervalNs:options:
+  8455   99.99   ProfMonitor class         >> monitorBlock:
+  8455   99.99   executed code            
+  8455   99.99   block in executed code   
+  8455   99.99   block in ProfMonitor      >> runBlock:
+  8377   99.07   Class                     >> subclasses
+  8376   99.05   Class                     >> subclasses
+  8238   97.42   Behavior                  >> allSubclasses
+  7758   91.75   ClassOrganizer class      >> _newWithRoot:symbolList:env:
+  7758   91.75   ClassOrganizer class      >> new
+  4354   51.49   SequenceableCollection    >> do:
+  4348   51.42   SequenceableCollection class >> new:streamContents:
+  4345   51.38   SequenceableCollection    >> collect:
+  4345   51.38   Dictionary                >> at:ifAbsent:
+  4342   51.35   Gofer                     >> allResolved
+  4342   51.35   GoferReference            >> resolveAllWith:
+  4342   51.35   GoferReference            >> resolveWith:
+  4342   51.35   block in Gofer            >> resolved
+  4342   51.35   Gofer                     >> resolved
+  4342   51.35   GoferLoad                 >> initializeOn:
+  4342   51.35   GoferOperation class      >> on:
+  4342   51.35   Gofer                     >> execute:do:
+  4342   51.35   Gofer                     >> execute:
+  4342   51.35   Gofer                     >> load
+  4341   51.34   Dictionary                >> at:ifAbsentPut:
+  4341   51.34   Gofer                     >> allResolvedIn:
+  4341   51.34   block in Gofer            >> allResolved
+  4340   51.32   block in Gofer            >> basicReferencesIn:
+  4340   51.32   Gofer                     >> basicReferencesIn:
+  4340   51.32   block in Gofer            >> allResolvedIn:
+  4340   51.32   block in Dictionary       >> at:ifAbsentPut:
+  4339   51.31   MCFileBasedRepository     >> goferReferences
+  4337   51.29   MCFileBasedRepository     >> allVersionNames
+  4337   51.29   block in MCFileBasedRepository >> goferReferences
+  4336   51.28   MCFileBasedRepository     >> readableFileNames
+  4313   51.01   SequenceableCollection    >> select:
+  4313   51.01   block in SequenceableCollection >> select:
+  4311   50.98   block in MCFileBasedRepository >> readableFileNames
+  4311   50.98   MCFileBasedRepository     >> canReadFileNamed:
+  4311   50.98   MCReader class            >> readerClassForFileNamed:
+  4311   50.98   MCReader class            >> concreteSubclasses
+  3979   47.06   ClassOrganizer            >> rebuildHierarchy
+  2993   35.39   Gofer                     >> url:
+  2993   35.39   Gofer                     >> url:username:password:
+  2981   35.25   MCRepository class        >> fromUrl:
+  2234   26.42   Class                     >> new
+  2152   25.45   ClassOrganizer            >> rebuildCategories
+  1627   19.24   ClassOrganizer            >> collectClassesFromSymbolList:
+  1625   19.22   KeyValueDictionary        >> valuesDo:
+  1623   19.19   IdentityDictionary        >> keysAndValuesDo:
+  1563   18.48   IdentityKeyValueDictionary >> _at:otherwise:
+  1445   17.09   IdentityDictionary        >> at:otherwise:
+  1122   13.27   MCCacheRepository class   >> uniqueInstance
+  1119   13.23   Gofer                     >> enablePackageCache
+  1119   13.23   Gofer                     >> initialize
+  1112   13.15   FileSystem class          >> workingDirectory
+  1112   13.15   MCDirectoryRepository     >> initialize
+  1112   13.15   MCCacheRepository         >> initialize
+  1110   13.13   DiskStore class           >> activeClass
+  1110   13.13   DiskStore class           >> currentFileSystem
+  1110   13.13   FileSystem class          >> disk
+   999   11.81   block in KeyValueDictionary >> valuesDo:
+   978   11.57   IdentityDictionary        >> at:put:
+   813    9.61   block in ClassOrganizer   >> collectClassesFromSymbolList:
+   764    9.04   StringKeyValueDictionary  >> at:otherwise:
+   680    8.04   StringKeyValueDictionary  >> at:put:
+   663    7.84   ClassOrganizer            >> _superClass:
+   642    7.59   IdentityBag               >> add:
+   630    7.45   AbstractCollisionBucket   >> at:otherwise:
+   618    7.31   ClassOrganizer            >> subclassesOf:
+   615    7.27   ClassOrganizer            >> addClass:
+   603    7.13   UnorderedCollection       >> _select:
+   603    7.13   UnorderedCollection       >> select:
+   541    6.40   Array                     >> _at:
+   517    6.11   KeyValueDictionary        >> rebuildTable:
+   511    6.04   Behavior                  >> category
+   449    5.31   IdentityBag               >> _at:
+   420    4.97   AbstractDictionary        >> _atZ:
+   407    4.81   block in ClassOrganizer   >> addClass:
+   354    4.19   Metaclass3                >> isMeta
+   339    4.01   IdentityKeyValueDictionary >> _at:put:
+   313    3.70   KeyValueDictionary        >> keysAndValuesDo:
+   288    3.41   ClassOrganizer            >> environmentId
+   258    3.05   Object                    >> identityHash
+  3191   37.74   372 other methods
+  8456  100.00   Total
+
+
+================
+STATISTICAL METHOD SENDERS RESULTS
+elapsed CPU time:    51529 ms
+monitoring interval:  500 us ,  8456 samples
+report limit threshold: 253 hits / 3.0%
+
+     %       %                     Parent
+  self  total   total  local  Method
+  Time   Time      ms    %         Child
+------ ------  ------  -----  -----------
+
+                   12.2    0.0       block in MCCacheRepository class >> defaultDirectory
+                 26428.7   50.0       MCFileBasedRepository >> goferReferences
+                 26447.0   50.0       Gofer        >> basicReferencesIn:
+                    6.1    0.0       block in ZnClient >> executeWithTimeout
+                    6.1    0.0       ZnClient     >> executeWithRetriesRemaining:
+=    0.0  102.7  52900.1    0.0  ExecBlock    >> on:do:   [oop 44182273]
+                   12.2    0.0       block in MCCacheRepository class >> defaultDirectory
+                 26428.7   50.0       block in MCFileBasedRepository >> goferReferences
+                 26447.0   50.0       block in Gofer >> basicReferencesIn:
+                    6.1    0.0       block in ZnClient >> executeWithTimeout
+                    6.1    0.0       block in ZnClient >> executeWithRetriesRemaining:
+-----------------------------------------------------
+
+                 51522.9   98.4       ProfMonitor  >> runBlock:
+                  822.7    1.6       Object       >> objectSecurityPolicy:
+=    0.0  101.6  52345.6    0.0  ExecBlock    >> ensure:   [oop 4868097]
+                  438.8    0.8       block in Object >> objectSecurityPolicy:
+                  188.9    0.4       ExecBlock    >> _removeEnsure
+                  195.0    0.4       block in Object >> objectSecurityPolicy:
+                 51522.9   98.4       block in ProfMonitor >> runBlock:
+-----------------------------------------------------
+
+=    0.0  100.0  51529.0    0.0  GsNMethod class >> _gsReturnToC   [oop 5218561]
+                 51522.9  100.0       executed code
+                    6.1    0.0       GsProcess    >> _start
+-----------------------------------------------------
+
+                 51522.9  100.0       ProfMonitor  >> monitorBlock:
+=    0.0  100.0  51522.9    0.0  ProfMonitor  >> runBlock:   [oop 23132929]
+                 51522.9  100.0       ExecBlock    >> ensure:
+-----------------------------------------------------
+
+                 51522.9  100.0       ProfMonitor class >> monitorBlock:downTo:intervalNs:options:
+=    0.0  100.0  51522.9    0.0  ProfMonitor  >> monitorBlock:   [oop 23137537]
+                 51522.9  100.0       ProfMonitor  >> runBlock:
+-----------------------------------------------------
+
+                 51522.9  100.0       ProfMonitor class >> monitorBlock:
+=    0.0  100.0  51522.9    0.0  ProfMonitor class >> monitorBlock:downTo:intervalNs:options:   [oop 23366913]
+                 51522.9  100.0       ProfMonitor  >> monitorBlock:
+-----------------------------------------------------
+
+                 51522.9  100.0       executed code
+=    0.0  100.0  51522.9    0.0  ProfMonitor class >> monitorBlock:   [oop 23366401]
+                 51522.9  100.0       ProfMonitor class >> monitorBlock:downTo:intervalNs:options:
+-----------------------------------------------------
+
+                 51522.9  100.0       GsNMethod class >> _gsReturnToC
+=    0.0  100.0  51522.9    0.0  executed code   [oop 89310721]
+                 51522.9  100.0       ProfMonitor class >> monitorBlock:
+-----------------------------------------------------
+
+                 51522.9  100.0       block in ProfMonitor >> runBlock:
+=    0.0  100.0  51522.9    0.0  block in executed code   [oop 89310465]
+                 18238.7   35.4       Gofer        >> url:
+                 6818.9   13.2       Class        >> new
+                 26459.2   51.4       Gofer        >> load
+-----------------------------------------------------
+
+                 51522.9  100.0       ExecBlock    >> ensure:
+=    0.0  100.0  51522.9    0.0  block in ProfMonitor >> runBlock:   [oop 24750593]
+                 51522.9  100.0       block in executed code
+-----------------------------------------------------
+
+                 50164.0   98.3       Behavior     >> allSubclasses
+                  883.6    1.7       Class        >> subclassesDo:
+=    0.0   99.1  51047.6    0.0  Class        >> subclasses   [oop 49194241]
+                 51041.5  100.0       Class        >> subclasses
+-----------------------------------------------------
+
+                 51041.5  100.0       Class        >> subclasses
+=    0.0   99.1  51041.5    0.0  Class        >> subclasses   [oop 2971905]
+                 47275.5   92.6       ClassOrganizer class >> new
+                 3766.0    7.4       ClassOrganizer >> subclassesOf:
+-----------------------------------------------------
+
+                 6751.9   13.4       DiskStore class >> activeClass
+                 26252.0   52.3       MCReader class >> concreteSubclasses
+                 17196.6   34.3       MCRepository class >> fromUrl:
+=    0.0   97.4  50200.6    0.0  Behavior     >> allSubclasses   [oop 44227073]
+                 50164.0   99.9       Class        >> subclasses
+                    6.1    0.0       OrderedCollection >> addAll:
+                   12.2    0.0       Collection class >> withAll:
+                   12.2    0.0       OrderedCollection >> at:
+-----------------------------------------------------
+
+                 47275.5  100.0       ClassOrganizer class >> new
+=    0.0   91.7  47275.5    0.0  ClassOrganizer class >> _newWithRoot:symbolList:env:   [oop 14049793]
+                 9914.6   21.0       ClassOrganizer >> collectClassesFromSymbolList:
+                 24247.1   51.3       ClassOrganizer >> rebuildHierarchy
+                 13113.8   27.7       ClassOrganizer >> rebuildCategories
+-----------------------------------------------------
+
+                 47275.5  100.0       Class        >> subclasses
+=    0.0   91.7  47275.5    0.0  ClassOrganizer class >> new   [oop 14048769]
+                 47275.5  100.0       ClassOrganizer class >> _newWithRoot:symbolList:env:
+-----------------------------------------------------
+
+                 26453.1   99.7       Gofer        >> allResolved
+                   36.6    0.1       DiskStore    >> directoryAt:nodesDo:
+                   12.2    0.0       OrderedCollection >> addAllLast:
+                    6.1    0.0       Collection   >> allSatisfy:
+                    6.1    0.0       Collection   >> addAll:
+                    6.1    0.0       Class        >> subclassesDo:
+                   12.2    0.0       MCCacheRepository class >> defaultDirectory
+=    0.0   51.5  26532.3    0.0  SequenceableCollection >> do:   [oop 49316097]
+                   12.2    0.0       block in MCCacheRepository class >> defaultDirectory
+                 26453.1   99.7       block in Gofer >> allResolved
+                   36.6    0.1       block in DiskStore >> directoryAt:nodesDo:
+                   12.2    0.0       block in OrderedCollection >> addAllLast:
+                    6.1    0.0       block in Collection >> allSatisfy:
+                    6.1    0.0       block in MCHttpRepository class >> repositoryClassFor:
+-----------------------------------------------------
+
+                  207.2    0.8       SequenceableCollection class >> streamContents:
+                    6.1    0.0       SequenceableCollection >> reject:
+                 26282.5   99.2       SequenceableCollection >> select:
+=    0.0   51.4  26495.8    0.0  SequenceableCollection class >> new:streamContents:   [oop 49352705]
+                   12.2    0.0       block in ZnPercentEncoder >> decode:
+                    6.1    0.0       block in ZnUrl >> parsePath:
+                   18.3    0.1       block in ZnUTFEncoder >> decodeBytes:
+                   54.8    0.2       block in FileSystem >> entriesAt:
+                    6.1    0.0       block in FileSystemStore >> stringFromPath:
+                    6.1    0.0       Array class  >> new:
+                 26282.5   99.2       block in SequenceableCollection >> select:
+                   12.2    0.0       block in ZnCharacterEncoder >> encodeString:
+                   12.2    0.0       WriteStream  >> contents
+                   48.8    0.2       block in ZnUrl >> location
+                    6.1    0.0       CharacterCollection class >> new:
+                   30.5    0.1       block in ZnPercentEncoder >> encode:
+-----------------------------------------------------
+
+                 26459.2   99.9       Gofer        >> resolved
+                    6.1    0.0       MCFileBasedRepository >> allVersionNames
+                   12.2    0.0       MCFileBasedRepository >> goferReferences
+=    0.0   51.4  26477.5    0.0  SequenceableCollection >> collect:   [oop 49308673]
+                 26459.2   99.9       block in Gofer >> resolved
+                   12.2    0.0       block in MCFileBasedRepository >> goferReferences
+                    6.1    0.0       block in MCFileBasedRepository >> allVersionNames
+-----------------------------------------------------
+
+                 26453.1   99.9       Dictionary   >> at:ifAbsentPut:
+                    6.1    0.0       ZnClient     >> optionAt:ifAbsent:
+                   18.3    0.1       InteractiveResolver >> resolve:
+=    0.0   51.4  26477.5    0.0  Dictionary   >> at:ifAbsent:   [oop 62179073]
+                 26447.0   99.9       block in Dictionary >> at:ifAbsentPut:
+                   12.2    0.0       HashedCollection >> findElementOrNil:
+                   18.3    0.1       block in InteractiveResolver >> resolve:
+-----------------------------------------------------
+
+                 26459.2  100.0       GoferReference >> resolveAllWith:
+=    0.0   51.3  26459.2    0.0  Gofer        >> allResolved   [oop 64662273]
+                    6.1    0.0       Gofer        >> repositories
+                 26453.1  100.0       SequenceableCollection >> do:
+-----------------------------------------------------
+
+                 26459.2  100.0       GoferReference >> resolveWith:
+=    0.0   51.3  26459.2    0.0  GoferReference >> resolveAllWith:   [oop 59150337]
+                 26459.2  100.0       Gofer        >> allResolved
+-----------------------------------------------------
+
+                 26459.2  100.0       block in Gofer >> resolved
+=    0.0   51.3  26459.2    0.0  GoferReference >> resolveWith:   [oop 59151105]
+                 26459.2  100.0       GoferReference >> resolveAllWith:
+-----------------------------------------------------
+
+                 26459.2  100.0       SequenceableCollection >> collect:
+=    0.0   51.3  26459.2    0.0  block in Gofer >> resolved   [oop 82645249]
+                 26459.2  100.0       GoferReference >> resolveWith:
+-----------------------------------------------------
+
+                 26459.2  100.0       GoferLoad    >> initializeOn:
+=    0.0   51.3  26459.2    0.0  Gofer        >> resolved   [oop 64661761]
+                 26459.2  100.0       SequenceableCollection >> collect:
+-----------------------------------------------------
+
+                 26459.2  100.0       GoferOperation class >> on:
+=    0.0   51.3  26459.2    0.0  GoferLoad    >> initializeOn:   [oop 57137153]
+                 26459.2  100.0       Gofer        >> resolved
+-----------------------------------------------------
+
+                 26459.2  100.0       Gofer        >> execute:do:
+=    0.0   51.3  26459.2    0.0  GoferOperation class >> on:   [oop 70106881]
+                 26459.2  100.0       GoferLoad    >> initializeOn:
+-----------------------------------------------------
+
+                 26459.2  100.0       Gofer        >> execute:
+=    0.0   51.3  26459.2    0.0  Gofer        >> execute:do:   [oop 64666369]
+                 26459.2  100.0       GoferOperation class >> on:
+-----------------------------------------------------
+
+                 26459.2  100.0       Gofer        >> load
+=    0.0   51.3  26459.2    0.0  Gofer        >> execute:   [oop 64670977]
+                 26459.2  100.0       Gofer        >> execute:do:
+-----------------------------------------------------
+
+                 26459.2  100.0       block in executed code
+=    0.0   51.3  26459.2    0.0  Gofer        >> load   [oop 64665345]
+                 26459.2  100.0       Gofer        >> execute:
+-----------------------------------------------------
+
+                 26453.1  100.0       Gofer        >> allResolvedIn:
+=    0.0   51.3  26453.1    0.0  Dictionary   >> at:ifAbsentPut:   [oop 62171137]
+                 26453.1  100.0       Dictionary   >> at:ifAbsent:
+-----------------------------------------------------
+
+                 26453.1  100.0       block in Gofer >> allResolved
+=    0.0   51.3  26453.1    0.0  Gofer        >> allResolvedIn:   [oop 64670465]
+                 26453.1  100.0       Dictionary   >> at:ifAbsentPut:
+-----------------------------------------------------
+
+                 26453.1  100.0       SequenceableCollection >> do:
+=    0.0   51.3  26453.1    0.0  block in Gofer >> allResolved   [oop 82646529]
+                 26453.1  100.0       Gofer        >> allResolvedIn:
+-----------------------------------------------------
+
+                 26447.0  100.0       ExecBlock    >> on:do:
+=    0.0   51.3  26447.0    0.0  block in Gofer >> basicReferencesIn:   [oop 82656513]
+                 26440.9  100.0       MCFileBasedRepository >> goferReferences
+                    6.1    0.0       Collection   >> asSortedCollection
+-----------------------------------------------------
+
+                 26447.0  100.0       block in Gofer >> allResolvedIn:
+=    0.0   51.3  26447.0    0.0  Gofer        >> basicReferencesIn:   [oop 64670721]
+                 26447.0  100.0       ExecBlock    >> on:do:
+-----------------------------------------------------
+
+                 26447.0  100.0       block in Dictionary >> at:ifAbsentPut:
+=    0.0   51.3  26447.0    0.0  block in Gofer >> allResolvedIn:   [oop 82656001]
+                 26447.0  100.0       Gofer        >> basicReferencesIn:
+-----------------------------------------------------
+
+                 26447.0  100.0       Dictionary   >> at:ifAbsent:
+=    0.0   51.3  26447.0    0.0  block in Dictionary >> at:ifAbsentPut:   [oop 81341185]
+                 26447.0  100.0       block in Gofer >> allResolvedIn:
+-----------------------------------------------------
+
+                 26440.9  100.0       block in Gofer >> basicReferencesIn:
+=    0.0   51.3  26440.9    0.0  MCFileBasedRepository >> goferReferences   [oop 61431297]
+                 26428.7  100.0       ExecBlock    >> on:do:
+                   12.2    0.0       SequenceableCollection >> collect:
+-----------------------------------------------------
+
+                 26428.7  100.0       block in MCFileBasedRepository >> goferReferences
+=    0.0   51.3  26428.7    0.0  MCFileBasedRepository >> allVersionNames   [oop 61433857]
+                    6.1    0.0       SequenceableCollection >> collect:
+                 26422.6  100.0       MCFileBasedRepository >> readableFileNames
+-----------------------------------------------------
+
+                 26428.7  100.0       ExecBlock    >> on:do:
+=    0.0   51.3  26428.7    0.0  block in MCFileBasedRepository >> goferReferences   [oop 79612673]
+                 26428.7  100.0       MCFileBasedRepository >> allVersionNames
+-----------------------------------------------------
+
+                 26422.6  100.0       MCFileBasedRepository >> allVersionNames
+=    0.0   51.3  26422.6    0.0  MCFileBasedRepository >> readableFileNames   [oop 61429249]
+                  140.2    0.5       MCFileBasedRepository >> allFileNames
+                    6.1    0.0       Collection   >> difference:
+                    6.1    0.0       SequenceableCollection >> reject:
+                 26270.3   99.4       SequenceableCollection >> select:
+-----------------------------------------------------
+
+                 26270.3  100.0       MCFileBasedRepository >> readableFileNames
+                   12.2    0.0       MCRepositoryGroup >> repositories
+=    0.0   51.0  26282.5    0.0  SequenceableCollection >> select:   [oop 49350401]
+                 26282.5  100.0       SequenceableCollection class >> new:streamContents:
+-----------------------------------------------------
+
+                 26282.5  100.0       SequenceableCollection class >> new:streamContents:
+=    0.0   51.0  26282.5    0.0  block in SequenceableCollection >> select:   [oop 56181761]
+                 26270.3  100.0       block in MCFileBasedRepository >> readableFileNames
+                   12.2    0.0       Symbol       >> value:
+-----------------------------------------------------
+
+                 26270.3  100.0       block in SequenceableCollection >> select:
+=    0.0   51.0  26270.3    0.0  block in MCFileBasedRepository >> readableFileNames   [oop 79608833]
+                 26270.3  100.0       MCFileBasedRepository >> canReadFileNamed:
+-----------------------------------------------------
+
+                 26270.3  100.0       block in MCFileBasedRepository >> readableFileNames
+=    0.0   51.0  26270.3    0.0  MCFileBasedRepository >> canReadFileNamed:   [oop 61429761]
+                 26270.3  100.0       MCReader class >> readerClassForFileNamed:
+-----------------------------------------------------
+
+                 26270.3  100.0       MCFileBasedRepository >> canReadFileNamed:
+=    0.0   51.0  26270.3    0.0  MCReader class >> readerClassForFileNamed:   [oop 73996545]
+                 26270.3  100.0       MCReader class >> concreteSubclasses
+-----------------------------------------------------
+
+                 26270.3  100.0       MCReader class >> readerClassForFileNamed:
+=    0.0   51.0  26270.3    0.0  MCReader class >> concreteSubclasses   [oop 73996033]
+                 26252.0   99.9       Behavior     >> allSubclasses
+                   18.3    0.1       OrderedCollection >> reject:
+-----------------------------------------------------
+
+                 24247.1  100.0       ClassOrganizer class >> _newWithRoot:symbolList:env:
+=    1.7   47.1  24247.1    3.7  ClassOrganizer >> rebuildHierarchy   [oop 13370369]
+                 1566.1    6.5       IdentityBag  >> add:
+                    6.1    0.0       KeyValueDictionary class >> new
+                  286.4    1.2       Class        >> new
+                   79.2    0.3       IdentityBag  >> +
+                 5953.6   24.6       IdentityDictionary >> at:put:
+                 8781.1   36.2       IdentityDictionary >> at:otherwise:
+                 4040.2   16.7       ClassOrganizer >> _superClass:
+                 1096.9    4.5       IdentityBag  >> _at:
+                 1523.4    6.3       IdentityBag  >> includesIdentical:
+                   24.4    0.1       IdentityDictionary >> at:
+-----------------------------------------------------
+
+                 18238.7  100.0       block in executed code
+=    0.0   35.4  18238.7    0.0  Gofer        >> url:   [oop 64659201]
+                 18238.7  100.0       Gofer        >> url:username:password:
+-----------------------------------------------------
+
+                 18238.7  100.0       Gofer        >> url:
+=    0.0   35.4  18238.7    0.0  Gofer        >> url:username:password:   [oop 64658945]
+                   42.7    0.2       CharacterCollection >> asUrl
+                   30.5    0.2       Gofer        >> repository:
+                 18165.6   99.6       MCRepository class >> fromUrl:
+-----------------------------------------------------
+
+                 18165.6  100.0       Gofer        >> url:username:password:
+=    0.0   35.3  18165.6    0.0  MCRepository class >> fromUrl:   [oop 68557825]
+                 17196.6   94.7       Behavior     >> allSubclasses
+                  968.9    5.3       Collection   >> detect:ifFound:ifNone:
+-----------------------------------------------------
+
+                 6776.3   49.8       MCCacheRepository class >> uniqueInstance
+                 6818.9   50.1       block in executed code
+                   12.2    0.1       MCHttpRepository >> httpClient
+                    6.1    0.0       NumberParser class >> on:
+=    0.0   26.4  13613.5    0.0  Class        >> new   [oop 49169921]
+                 6776.3   49.8       MCCacheRepository >> initialize
+                 6818.9   50.1       Gofer        >> initialize
+                   12.2    0.1       ZnClient     >> initialize
+-----------------------------------------------------
+
+                 13113.8  100.0       ClassOrganizer class >> _newWithRoot:symbolList:env:
+=    1.8   25.4  13113.8    7.1  ClassOrganizer >> rebuildCategories   [oop 13360897]
+                 3503.9   26.7       StringKeyValueDictionary >> at:put:
+                 1109.1    8.5       Array        >> add:
+                   18.3    0.1       KeyValueDictionary class >> new
+                  950.6    7.2       IdentityBag  >> _at:
+                 4655.6   35.5       StringKeyValueDictionary >> at:otherwise:
+                 1950.0   14.9       Behavior     >> category
+-----------------------------------------------------
+
+                 9914.6  100.0       ClassOrganizer class >> _newWithRoot:symbolList:env:
+=    0.0   19.2  9914.6    0.0  ClassOrganizer >> collectClassesFromSymbolList:   [oop 13361665]
+                 9902.4   99.9       KeyValueDictionary >> valuesDo:
+                    6.1    0.1       Collection class >> withAll:
+                    6.1    0.1       SequenceableCollection >> removeFrom:to:
+-----------------------------------------------------
+
+                 9902.4  100.0       ClassOrganizer >> collectClassesFromSymbolList:
+=    0.0   19.2  9902.4    0.1  KeyValueDictionary >> valuesDo:   [oop 4827649]
+                 9890.2   99.9       IdentityDictionary >> keysAndValuesDo:
+-----------------------------------------------------
+
+                 9890.2  100.0       KeyValueDictionary >> valuesDo:
+=    2.0   19.2  9890.2   10.5  IdentityDictionary >> keysAndValuesDo:   [oop 4807681]
+                 6087.7   61.6       block in KeyValueDictionary >> valuesDo:
+                 2212.0   22.4       Array        >> _at:
+                   73.1    0.7       Object       >> _basicSize
+                  481.4    4.9       AbstractDictionary >> _at:
+-----------------------------------------------------
+
+                 1688.0   17.7       IdentityDictionary >> at:put:
+                 7812.2   82.0       IdentityDictionary >> at:otherwise:
+                   24.4    0.3       IdentityDictionary >> at:
+=    2.0   18.5  9524.6   10.9  IdentityKeyValueDictionary >> _at:otherwise:   [oop 5273857]
+                 3839.1   40.3       AbstractCollisionBucket >> at:otherwise:
+                 1163.9   12.2       SmallInteger >> \\
+                 2157.2   22.6       AbstractDictionary >> _atZ:
+                 1328.4   13.9       Object       >> identityHash
+-----------------------------------------------------
+
+                    6.1    0.1       ClassOrganizer >> addClass:
+                 8781.1   99.7       ClassOrganizer >> rebuildHierarchy
+                   18.3    0.2       ClassOrganizer >> subclassesOf:
+=    1.9   17.1  8805.5   11.3  IdentityDictionary >> at:otherwise:   [oop 4805633]
+                 7812.2   88.7       IdentityKeyValueDictionary >> _at:otherwise:
+-----------------------------------------------------
+
+                 6818.9   99.7       Gofer        >> enablePackageCache
+                   18.3    0.3       MCRepositoryGroup >> repositories
+=    0.0   13.3  6837.2    0.0  MCCacheRepository class >> uniqueInstance   [oop 71134465]
+                 6776.3   99.1       Class        >> new
+                   18.3    0.3       MCCacheRepository class >> resetIfInvalid
+                   42.7    0.6       MCCacheRepository class >> defaultDirectory
+-----------------------------------------------------
+
+                 6818.9  100.0       Gofer        >> initialize
+=    0.0   13.2  6818.9    0.0  Gofer        >> enablePackageCache   [oop 64664065]
+                 6818.9  100.0       MCCacheRepository class >> uniqueInstance
+-----------------------------------------------------
+
+                 6818.9  100.0       Class        >> new
+=    0.0   13.2  6818.9    0.0  Gofer        >> initialize   [oop 64665857]
+                 6818.9  100.0       Gofer        >> enablePackageCache
+-----------------------------------------------------
+
+                 6776.3  100.0       MCDirectoryRepository >> initialize
+=    0.0   13.2  6776.3    0.0  FileSystem class >> workingDirectory   [oop 67827713]
+                 6764.1   99.8       FileSystem class >> disk
+                   12.2    0.2       FileSystem   >> workingDirectory
+-----------------------------------------------------
+
+                 6776.3  100.0       MCCacheRepository >> initialize
+=    0.0   13.2  6776.3    0.0  MCDirectoryRepository >> initialize   [oop 61797121]
+                 6776.3  100.0       FileSystem class >> workingDirectory
+-----------------------------------------------------
+
+                 6776.3  100.0       Class        >> new
+=    0.0   13.2  6776.3    0.0  MCCacheRepository >> initialize   [oop 62021633]
+                 6776.3  100.0       MCDirectoryRepository >> initialize
+-----------------------------------------------------
+
+                 6764.1  100.0       DiskStore class >> currentFileSystem
+=    0.0   13.1  6764.1    0.0  DiskStore class >> activeClass   [oop 67283201]
+                 6751.9   99.8       Behavior     >> allSubclasses
+                    6.1    0.1       SessionManager class >> default
+                    6.1    0.1       Collection   >> detect:ifNone:
+-----------------------------------------------------
+
+                 6764.1  100.0       FileSystem class >> disk
+=    0.0   13.1  6764.1    0.0  DiskStore class >> currentFileSystem   [oop 67282689]
+                 6764.1  100.0       DiskStore class >> activeClass
+-----------------------------------------------------
+
+                 6764.1  100.0       FileSystem class >> workingDirectory
+=    0.0   13.1  6764.1    0.0  FileSystem class >> disk   [oop 67825665]
+                 6764.1  100.0       DiskStore class >> currentFileSystem
+-----------------------------------------------------
+
+                 6087.7  100.0       IdentityDictionary >> keysAndValuesDo:
+=    2.2   11.8  6087.7   18.6  block in KeyValueDictionary >> valuesDo:   [oop 7766529]
+                 4954.2   81.4       block in ClassOrganizer >> collectClassesFromSymbolList:
+-----------------------------------------------------
+
+                    6.1    0.1       ClassOrganizer >> addClass:
+                 5953.6   99.9       ClassOrganizer >> rebuildHierarchy
+=    0.6   11.6  5959.7    5.0  IdentityDictionary >> at:put:   [oop 4804097]
+                  396.1    6.6       Association class >> newWithKey:value:
+                 2059.7   34.6       IdentityKeyValueDictionary >> _at:put:
+                 1688.0   28.3       IdentityKeyValueDictionary >> _at:otherwise:
+                  280.3    4.7       Object       >> objectSecurityPolicy
+                 1237.0   20.8       Object       >> objectSecurityPolicy:
+-----------------------------------------------------
+
+                 4954.2  100.0       block in KeyValueDictionary >> valuesDo:
+=    2.0    9.6  4954.2   20.5  block in ClassOrganizer >> collectClassesFromSymbolList:   [oop 13670401]
+                 2346.1   47.4       IdentityBag  >> add:
+                 1590.5   32.1       Metaclass3   >> isMeta
+-----------------------------------------------------
+
+                 4655.6  100.0       ClassOrganizer >> rebuildCategories
+=    2.8    9.0  4655.6   31.4  StringKeyValueDictionary >> at:otherwise:   [oop 4448513]
+                  609.4   13.1       Array        >> _at:
+                  786.1   16.9       SmallInteger >> bitShift:
+                  694.7   14.9       AbstractDictionary >> _at:
+                 1103.0   23.7       StringKeyValueDictionary >> _lookup:
+-----------------------------------------------------
+
+                  639.8   15.4       KeyValueDictionary >> rebuildTable:
+                 3503.9   84.6       ClassOrganizer >> rebuildCategories
+=    0.9    8.0  4143.8   11.2  StringKeyValueDictionary >> at:put:   [oop 4448001]
+                 3150.5   76.0       KeyValueDictionary >> rebuildTable:
+                  530.2   12.8       StringKeyValueDictionary >> _stringAt:put:
+-----------------------------------------------------
+
+                 4040.2  100.0       ClassOrganizer >> rebuildHierarchy
+=    1.8    7.8  4040.2   22.3  ClassOrganizer >> _superClass:   [oop 13371137]
+                 1755.0   43.4       ClassOrganizer >> environmentId
+                 1383.3   34.2       Module       >> superclassForEnv:
+-----------------------------------------------------
+
+                 2346.1   60.0       block in ClassOrganizer >> collectClassesFromSymbolList:
+                 1566.1   40.0       ClassOrganizer >> rebuildHierarchy
+=    7.6    7.6  3912.2  100.0  IdentityBag  >> add:   [oop 4748545]
+-----------------------------------------------------
+
+                 3839.1  100.0       IdentityKeyValueDictionary >> _at:otherwise:
+=    2.2    7.5  3839.1   29.2  AbstractCollisionBucket >> at:otherwise:   [oop 3221761]
+                 1383.3   36.0       IdentityCollisionBucket >> searchForKey:
+                 1334.5   34.8       AbstractCollisionBucket >> valueAt:
+-----------------------------------------------------
+
+                 3766.0  100.0       Class        >> subclasses
+=    0.0    7.3  3766.0    0.0  ClassOrganizer >> subclassesOf:   [oop 13376257]
+                 3747.7   99.5       ClassOrganizer >> addClass:
+                   18.3    0.5       IdentityDictionary >> at:otherwise:
+-----------------------------------------------------
+
+                 3747.7  100.0       ClassOrganizer >> subclassesOf:
+=    0.0    7.3  3747.7    0.0  ClassOrganizer >> addClass:   [oop 13371393]
+                 3674.5   98.0       UnorderedCollection >> select:
+                    6.1    0.2       IdentityDictionary >> at:put:
+                    6.1    0.2       IdentityDictionary >> at:otherwise:
+                    6.1    0.2       SequenceableCollection >> findFirst:
+                   54.8    1.5       IdentityBag  >> -
+-----------------------------------------------------
+
+                 3674.5  100.0       UnorderedCollection >> select:
+=    1.0    7.1  3674.5   13.4  UnorderedCollection >> _select:   [oop 4771841]
+                 2480.2   67.5       block in ClassOrganizer >> addClass:
+                  688.6   18.7       IdentityBag  >> _at:
+                   12.2    0.3       NscBuilder class >> for:max:
+-----------------------------------------------------
+
+                 3674.5  100.0       ClassOrganizer >> addClass:
+=    0.0    7.1  3674.5    0.0  UnorderedCollection >> select:   [oop 4783617]
+                 3674.5  100.0       UnorderedCollection >> _select:
+-----------------------------------------------------
+
+                 2212.0   67.1       IdentityDictionary >> keysAndValuesDo:
+                  609.4   18.5       StringKeyValueDictionary >> at:otherwise:
+                  475.3   14.4       KeyValueDictionary >> keysAndValuesDo:
+=    6.4    6.4  3296.7  100.0  Array        >> _at:   [oop 3323393]
+-----------------------------------------------------
+
+                 3150.5  100.0       StringKeyValueDictionary >> at:put:
+=    0.4    6.1  3150.5    5.8  KeyValueDictionary >> rebuildTable:   [oop 4824321]
+                  639.8   20.3       StringKeyValueDictionary >> at:put:
+                  414.4   13.2       Array        >> at:
+                 1907.4   60.5       KeyValueDictionary >> keysAndValuesDo:
+                    6.1    0.2       KeyValueDictionary >> tableSize:
+-----------------------------------------------------
+
+                 1950.0   62.6       ClassOrganizer >> rebuildCategories
+                 1163.9   37.4       Behavior     >> category
+=    3.5    6.0  3113.9   57.5  Behavior     >> category   [oop 15393793]
+                  158.4    5.1       Object       >> objectSecurityPolicy
+                 1163.9   37.4       Behavior     >> category
+-----------------------------------------------------
+
+                  688.6   25.2       UnorderedCollection >> _select:
+                 1096.9   40.1       ClassOrganizer >> rebuildHierarchy
+                  950.6   34.7       ClassOrganizer >> rebuildCategories
+=    5.3    5.3  2736.1  100.0  IdentityBag  >> _at:   [oop 4752385]
+-----------------------------------------------------
+
+                  402.2   15.7       IdentityKeyValueDictionary >> _at:put:
+                 2157.2   84.3       IdentityKeyValueDictionary >> _at:otherwise:
+=    5.0    5.0  2559.4  100.0  AbstractDictionary >> _atZ:   [oop 3317249]
+-----------------------------------------------------
+
+                 2480.2  100.0       UnorderedCollection >> _select:
+=    1.0    4.8  2480.2   19.9  block in ClassOrganizer >> addClass:   [oop 13681921]
+                 1340.6   54.1       Metaclass3   >> name
+                  645.9   26.0       Symbol       >> =
+-----------------------------------------------------
+
+                 1590.5   73.7       block in ClassOrganizer >> collectClassesFromSymbolList:
+                  566.7   26.3       Metaclass3   >> name
+=    4.2    4.2  2157.2  100.0  Metaclass3   >> isMeta   [oop 3010817]
+-----------------------------------------------------
+
+                 2059.7   99.7       IdentityDictionary >> at:put:
+                    6.1    0.3       SymbolDictionary >> _at:put:
+=    0.6    4.0  2065.8   14.2  IdentityKeyValueDictionary >> _at:put:   [oop 5273089]
+                    6.1    0.3       AbstractDictionary >> _atZ:putKey:value:
+                  201.1    9.7       SmallInteger >> \\
+                  402.2   19.5       AbstractDictionary >> _atZ:
+                  243.8   11.8       Object       >> identityHash
+                  889.7   43.1       IdentityCollisionBucket >> at:put:keyValDict_coll:
+                   12.2    0.6       Object       >> objectSecurityPolicy:
+                   18.3    0.9       IdentityCollisionBucket class >> new
+-----------------------------------------------------
+
+                 1907.4  100.0       KeyValueDictionary >> rebuildTable:
+=    0.9    3.7  1907.4   24.3  KeyValueDictionary >> keysAndValuesDo:   [oop 4829697]
+                  475.3   24.9       Array        >> _at:
+                  609.4   31.9       block in KeyValueDictionary >> rebuildTable:
+                   60.9    3.2       Object       >> _basicSize
+                  298.6   15.7       AbstractDictionary >> _at:
+-----------------------------------------------------
+
+                 1755.0  100.0       ClassOrganizer >> _superClass:
+=    1.6    3.4  1755.0   46.2  ClassOrganizer >> environmentId   [oop 13367553]
+                  944.5   53.8       Object       >> dynamicInstVarAt:
+-----------------------------------------------------
+
+                  243.8   15.5       IdentityKeyValueDictionary >> _at:put:
+                 1328.4   84.5       IdentityKeyValueDictionary >> _at:otherwise:
+=    3.1    3.1  1572.2  100.0  Object       >> identityHash   [oop 4615169]
+-----------------------------------------------------
+
+

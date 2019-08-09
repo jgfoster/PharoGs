@@ -55,7 +55,7 @@ Depending on the state of development, some modifications may be required to the
 
 ```
 cd ~/code/ # or where you want to put the checkout
-git clone https://github.com/jgfoster/pharo.git .
+git clone https://github.com/jgfoster/pharo.git
 ```
 
 Use bootstrap to get a new minimal image:

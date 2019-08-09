@@ -30,6 +30,7 @@ input PharoMods/DiskStore.gs
 input PharoMods/DependentsArray.gs
 input PharoMods/DoubleByteArray.gs
 input PharoMods/DoubleWordArray.gs
+input PharoMods/Error.gs
 input PharoMods/Exception.gs
 input PharoMods/ExceptionSet.gs
 input PharoMods/ExternalAddress.gs
@@ -45,6 +46,7 @@ input PharoMods/Float.gs
 input PharoMods/FloatArray.gs
 input PharoMods/FullBlockClosure.gs
 input PharoMods/GsFile.gs
+input PharoMods/Halt.gs
 input PharoMods/Integer.gs
 input PharoMods/IntegerArray.gs
 input PharoMods/InternetConfiguration.gs

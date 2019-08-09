@@ -58,6 +58,14 @@ privHandlerContext: aContextTag
     self _gsError
 %
 
+category: 'accessing'
+method: Exception
+receiver
+
+	<PharoGs>
+    ^'<Exception>>receiver>'
+%
+
 category: 'handling'
 method: Exception
 resignalAs: replacementException
@@ -123,8 +131,8 @@ category: 'accessing'
 method: Exception
 signaler
 
-	<PharoGsError>
-    self _gsError
+	<PharoGs>
+    ^'<Exception>>signaler>'
 %
 
 category: 'accessing'
@@ -143,8 +151,8 @@ signalerContext
 	This will make sure that the same context is found for both, `Error signal` and 
     `Error new signal`"
 
-	<PharoGsError>
-    self _gsError
+	<PharoGs>
+    ^'<Exception>>signalerContext>'
 %
 
 category: 'signaling'

@@ -445,6 +445,7 @@ read: id into: byteArray startingAt: startIndex count: count
     <PharoGs>
     | bytes actualCount |
     count @env0:== 0 @env0:ifTrue: [^0].
+    id @env0:atEnd ifTrue: [^0].
     bytes := ByteArray new: count.
     actualCount := id @env0:next: count into: bytes.
     actualCount == nil ifTrue: [self @env0:error: id @env0:lastErrorString].

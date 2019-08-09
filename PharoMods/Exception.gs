@@ -157,6 +157,8 @@ signalIn: context
     self _gsError
 %
 
+category: 'signaling'
+method: Exception
 _executeEnsuresBelow: kind
 
 	<PharoGsError>

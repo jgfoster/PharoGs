@@ -113,6 +113,8 @@ InflateStream initialize.
 FastInflateStream initialize.
 ChangeSet initialize.
 MetacelloPharoPlatform initialize.
+MCFileTreeFileSystemUtils initialize.
+MD5NonPrimitive initialize.
 
 SharedPool allSubclasses do: [:each | each initialize].
 

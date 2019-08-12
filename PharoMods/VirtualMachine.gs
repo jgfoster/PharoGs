@@ -81,6 +81,14 @@ getSystemAttribute: attributeID
        10002   operating system details (Win32 only) 
        10003   graphics hardware details (Win32 only)" 
 
+	attributeID < 0 ifTrue: [
+		| index list |
+		index := attributeID @env0:negated.
+		list := System @env0:commandLineArguments.
+		^list @env0:size @env0:<= index
+			ifTrue: [list @env0:at: index]
+			ifFalse: [nil]
+	].
 	attributeID == 1001 ifTrue: [
 		^#('Mac OS') at: (#('Darwin') indexOf: (System @env0:gemVersionAt: 'osName'))
 	].

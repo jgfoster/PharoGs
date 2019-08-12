@@ -141,8 +141,8 @@ primImagePath
 	"Answer the full path name for the current image." 
 	"Smalltalk imageName" 
 
-    <PharoGsError>
-    self _gsError.
+    <PharoGs>
+    ^GsFile @env0:serverCurrentDirectory
 %
 
 category: 'primitives'

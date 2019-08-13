@@ -89,6 +89,23 @@ connectNonBlockingTo: hostAddress port: port
 
 category: 'initialization'
 method: Socket
+connectSecureSocket
+
+	<PharoGs>
+	socketHandle := GsSecureSocket @env0:newClientFromGsSocket: socketHandle.
+	socketHandle @env0:secureConnect.
+%
+
+category: 'testing'
+method: Socket
+hasSecureConnection
+    
+    <PharoGs>
+	^socketHandle @env0:hasSecureConnection
+%
+
+category: 'initialization'
+method: Socket
 initialize: aGsSocket
 
 	<PharoGs>

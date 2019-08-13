@@ -1,5 +1,13 @@
 set compile_env: 2
 
+category: 'instance creation'
+classmethod: WideString
+from: aString 
+
+    <PharoGs>
+    ^self @env0:withAll: aString
+%
+
 category: 'accessing'
 method: WideString
 at: index 
@@ -7,7 +15,7 @@ at: index
 	 argument.  Primitive.  Fail if the index argument is not an Integer or is out 
 	 of bounds.  Essential.  See Object documentation whatIsAPrimitive." 
 
-     <primitive: 655>
+    <primitive: 655>
 	<PharoGs>
     ^self @env0:at: index 
 %
@@ -19,7 +27,7 @@ at: index put: aCharacter
 	 Primitive.  Fail if the index is not an Integer or is out of bounds, or if the 
 	 argument is not a Character.  Essential.  See Object documentation whatIsAPrimitive." 
 
-     <primitive: 667>
+    <primitive: 667>
 	<PharoGs>
     ^self @env0:at: index put: aCharacter
 %
@@ -44,7 +52,7 @@ category: 'accessing'
 method: WideString
 wordAt: index 
 
-     <primitive: 1073>
+    <primitive: 1073>
 	<PharoGs>
     ^self @env0:codePointAt: index
 %

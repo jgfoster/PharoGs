@@ -55,6 +55,17 @@ allInstancesOrNil
 	]
 %
 
+category: 'accessing instances and variables'
+method: Behavior
+allInstVarNames
+	"Answer an Array of the names of the receiver's instance variables. The  '
+	Array ordering is the order in which the variables are stored and 
+	accessed by the interpreter."
+
+	<PharoGs> 
+	^self @env0:allInstVarNames
+%
+
 category: 'reflective operations'
 method: Behavior
 basicIdentityHash 

@@ -40,12 +40,16 @@ fixBinarySelectorsInLiteralArrayIn: aString
 			writeStream nextPut: $"; nextPutAll: (readStream upTo: $"); nextPut: $".
 			prev := $".
 		] ifFalse: [
-			"deal with strings"
+		"deal with strings"
 		(next == $' and: [prev ~~ $$]) ifTrue: [ "'"
 			writeStream nextPut: $'; nextPutAll: (readStream upTo: $'); nextPut: $'.
 			prev := $'.
 		] ifFalse: [
-		
+		"deal with character literal"
+		next == $$ ifTrue: [
+			writeStream nextPut: next; nextPut: (prev := readStream next).
+		] ifFalse: [
+
 		"deal with start of literal Array"
 		(next == $# and: [readStream peekFor: $(]) ifTrue: [
 			writeStream nextPutAll: '#('.
@@ -55,8 +59,8 @@ fixBinarySelectorsInLiteralArrayIn: aString
 			"here we are inside a literal array"
 		literalArrayDepth > 0 ifTrue: [
 				"a nested literal array"
-			(next == $( and: [prev ~~ $# and: [prev ~~ $$]]) ifTrue: [
-				writeStream nextPutAll: '#('.
+			(next == $( and: [prev ~~ $#]) ifTrue: [
+				writeStream nextPutAll: ' #('.
 				prev := next.
 				literalArrayDepth := literalArrayDepth + 1.
 			] ifFalse: [
@@ -68,9 +72,13 @@ fixBinarySelectorsInLiteralArrayIn: aString
 			] ifFalse: [
 			
 			"handle binary selectors (this is why we are doing the work)"
-			((next isSpecial or: [next == $;]) and: [prev ~~ $$]) ifTrue: [
+			(next isSpecial or: [next == $;]) ifTrue: [
 				prev ~~ $# ifTrue: [
 					writeStream nextPutAll: ' #'''.
+				] ifFalse: [
+					prev ~~ $' ifTrue: [ "'"
+						writeStream nextPut: $'. "'"
+					].
 				].
 				writeStream nextPut: next.
 				prev := next.
@@ -90,7 +98,7 @@ fixBinarySelectorsInLiteralArrayIn: aString
 		] ifFalse: [
 			writeStream nextPut: next.
 			prev := next.
-		]]]]
+		]]]]]
 	].
 	^writeStream contents.
 %

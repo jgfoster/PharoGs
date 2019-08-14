@@ -173,10 +173,16 @@ oldDefinition
 category: 'slots'
 method: ClassDescription
 slots
-    "Not yet supported in GemStone"
 
 	<PharoGs>
-	^#()
+	| index names |
+	names := self @env0:instVarNames.
+	index := self @env0:instSize @env0:- names @env0:size.
+	^names @env0:collect: [:each | 
+		(InstanceVariableSlot named: each asSymbol)
+			index: (index := index + 1);
+			yourself
+	]
 %
 
 category: '*Slot-Core'

@@ -734,27 +734,30 @@ createGlobals
 installPackages
 	"Extra (or replacement) packages we want to be in GemStone"
 	
-	| list |
+	| path list |
+	path := '/Users/jfoster/code/pharo/src/' asFileReference.
 	list := OrderedCollection new
 		"Extra packages to add to GemStone"
-		add: '/Users/jfoster/code/pharo/src/' -> 'System-Localization';
-		add: '/Users/jfoster/code/pharo/src/' -> 'Monticello';
-		add: '/Users/jfoster/code/pharo/src/' -> 'SUnit-Core';
-		add: '/Users/jfoster/code/pharo/src/' -> 'Kernel-Tests';
-		add: '/Users/jfoster/code/pharo/src/' -> 'Files-Tests';
-		add: '/Users/jfoster/code/pharo/src/' -> 'Network-Tests';
-		add: '/Users/jfoster/code/pharo/src/' -> 'Tests';
-		add: '/Users/jfoster/code/pharo/src/' -> 'RPackage-Tests';
-		add: '/Users/jfoster/code/pharo/src/' -> 'Monticello-Tests';
-		add: '/Users/jfoster/code/pharo/src/' -> 'MonticelloMocks';
-		add: '/Users/jfoster/code/pharo/src/' -> 'Compression-Tests';
+		add: 'System-Localization';
+		add: 'Monticello';
+		add: 'Alien-Core';
+		add: 'UnifiedFFI';
+		add: 'SUnit-Core';
+		add: 'Kernel-Tests';
+		add: 'Files-Tests';
+		add: 'Network-Tests';
+		add: 'Tests';
+		add: 'RPackage-Tests';
+		add: 'Monticello-Tests';
+		add: 'MonticelloMocks';
+		add: 'Compression-Tests';
 		"Edited packages to load from the checkout (not yet in a bootstrap image) can be added as well"
 		yourself.
 	list do: [:each | | reader |
 	    Transcript nextPutAll: 'Installing '; nextPutAll: each value; cr.
 	    reader := TonelReader 
-	        on: each key asFileReference
-	        fileName: each value.
+	        on: path
+	        fileName: each.
 	    (MCSnapshot fromDefinitions: reader definitions) install.
 	].
 ! !

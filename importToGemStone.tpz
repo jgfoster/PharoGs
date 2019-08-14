@@ -115,6 +115,7 @@ ChangeSet initialize.
 MetacelloPharoPlatform initialize.
 MCFileTreeFileSystemUtils initialize.
 MD5NonPrimitive initialize.
+TonelFileSystemUtils initialize.
 
 SharedPool allSubclasses do: [:each | each initialize].
 

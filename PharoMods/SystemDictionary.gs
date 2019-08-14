@@ -13,8 +13,7 @@ method: SystemDictionary
 associationAt: aKey ifAbsent: aBlock
 
 	<PharoGs>
-	(Pharo @env0:includesKey: aKey) @env0:ifTrue: [^Pharo @env0:associationAt: aKey].
-	^UserGlobals @env0:associationAt: aKey ifAbsent: aBlock
+	^Pharo @env0:associationAt: aKey ifAbsent: aBlock
 %
 
 category: 'accessing'
@@ -30,8 +29,7 @@ method: SystemDictionary
 at: aKey ifAbsent: aBlock
 
 	<PharoGs>
-	(Pharo @env0:includesKey: aKey) @env0:ifTrue: [^Pharo @env0:at: aKey].
-	^UserGlobals @env0:at: aKey ifAbsent: aBlock
+	^Pharo @env0:at: aKey ifAbsent: aBlock
 %
 
 category: 'accessing'
@@ -59,8 +57,7 @@ method: SystemDictionary
 at: aKey put: anObject
 
 	<PharoGs>
-	(Pharo @env0:includesKey: aKey) @env0:ifTrue: [^Pharo @env0:at: aKey put: anObject].
-	^UserGlobals @env0:at: aKey put: anObject
+	^Pharo @env0:at: aKey put: anObject
 %
 
 category: 'testing'
@@ -78,7 +75,6 @@ keys
 	<PharoGs>
 	^(Globals @env0:at: #'IdentitySet') @env0:new
 		@env0:addAll: Pharo @env0:keys @env0:asArray;
-		@env0:addAll: UserGlobals @env0:keys @env0:asArray;
 		@env0:asArray
 %
 

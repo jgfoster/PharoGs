@@ -12,7 +12,20 @@ createClass
 			classVars: (self classVariables collect: [:each | each name])
 			classInstVars: (self classInstanceVariables collect: [:each | each name])
 			poolDictionaries: (self sharedPoolsString collect: [:each | each name]) asArray
-			inDictionary: UserGlobals)
+			inDictionary: Pharo)
+			@env0:category: category;
+			@env0:comment: comment;
+			@env0:commentStamp: commentStamp;
+			yourself
+	].
+	type == #'variable' ifTrue: [
+		^((System @env0:myUserProfile @env0:symbolList @env0:objectNamed: superclassName) 
+			@env0:indexableSubclass: name
+			instVarNames: (self instanceVariables collect: [:each | each name])
+			classVars: (self classVariables collect: [:each | each name])
+			classInstVars: (self classInstanceVariables collect: [:each | each name])
+			poolDictionaries: (self sharedPoolsString collect: [:each | each name]) asArray
+			inDictionary: Pharo)
 			@env0:category: category;
 			@env0:comment: comment;
 			@env0:commentStamp: commentStamp;

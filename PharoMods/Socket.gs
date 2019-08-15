@@ -333,8 +333,10 @@ primSocket: socketID setOption: aString value: aStringValue
 	returns an array containing the error code and the negotiated value" 
 
 	<PharoGs> 
+	| index |
+	index := aString @env0:indexOf: $_.
     ^socketID 
-		@env0:option: (aString @env0:copyFrom: 4 to: aString @env0: size)
+		@env0:option: (aString @env0:copyFrom: index @env0:+ 1 to: aString @env0: size)
 		put: aStringValue @env0:= '1'
 %
 

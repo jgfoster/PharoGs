@@ -16,13 +16,29 @@ symbolList := (Globals at: #System) myUserProfile symbolList.
 %
 run
 "allow methods to compile; may need to fix this!"
-UserGlobals 
-	at: #'thisContext' ifAbsentPut: [nil];
-	at: #'Trait1' ifAbsentPut: [nil];
-	at: #'Trait2' ifAbsentPut: [nil];
-	at: #'Trait3' ifAbsentPut: [nil];
-	at: #'TSortable' ifAbsentPut: [nil];
-	yourself.
+#(
+	#'thisContext'
+	#'Trait1'
+	#'Trait2'
+	#'Trait3'
+	#'TSortable'
+
+	"trying to load Iceberg"
+	#'thunk'
+
+	"trying to load Seaside"
+	#'ObjectExplorerWrapper'
+	#'ProcessBrowser'
+	#'WorldState'
+	#'WAAdmin'
+	#'WAHtmlCanvas'
+	#'Display'
+	#'Sensor'
+	#'SystemWindow'
+	#'SpaceTally'
+	#'MessageTally'
+	#'EllipseMorph'
+) @env0:do: [:each | UserGlobals @env0:at: each ifAbsentPut: [nil]].
 %
 errorCount
 commit

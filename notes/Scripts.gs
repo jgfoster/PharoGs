@@ -18,24 +18,23 @@ methods := (Globals at: #IdentitySet) new.
 ].
 methods size.
 %
+
 "Load Seaside"
 [
 	System @env0:abortTransaction. GsSocket @env0:closeAll.
 	Metacello new
 		baseline:'Seaside3';
 		repository: 'github://SeasideSt/Seaside:master/repository';
-		repositoryOverrides: 'filetree:///Users/jfoster/Library/GemStone/db1/github-cache/SeasideSt/Grease/v1.4.x/SeasideSt-Grease-762ec80/repository';
-		repositoryOverrides: 'filetree:///Users/jfoster/Library/GemStone/db1/github-cache/SeasideSt/Seaside/master/SeasideSt-Seaside-91ae092/repository';
+		repositoryOverrides: (Array 
+			with: 'filetree:///Users/jfoster/Library/GemStone/db1/github-cache/SeasideSt/Grease/v1.4.x/SeasideSt-Grease-762ec80/repository'
+			with: 'filetree:///Users/jfoster/Library/GemStone/db1/github-cache/SeasideSt/Seaside/master/SeasideSt-Seaside-91ae092/repository');
 		onWarningLog;
 		load.
 ] on: Error do: [:ex | 
 	ex halt.
 ].
 
-(SystemRepository listReferencesInMemory:
-(Array with: (Object objectForOop: 89750529))) first.
-
 "Find references to an object (e.g., a Semaphore preventing commit)"
 (SystemRepository listReferencesInMemory:
-	(Array with: (Object objectForOop: 92446465))) first.
+	(Array with: (Object objectForOop: 100681217))) first.
 %

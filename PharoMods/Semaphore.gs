@@ -1,5 +1,25 @@
 set compile_env: 2
 
+category: 'instance creation'
+classMethod: Semaphore
+forMutualExclusion
+
+    <PharoGs>
+	"Answer an instance of me that contains a single signal. This new 
+	instance can now be used for mutual exclusion (see the critical: message 
+	to Semaphore)."
+	^MutexWrapper new
+%
+
+category: 'instance creation'
+classMethod: Semaphore
+new
+
+    <PharoGs>
+	"Answer a new instance of Semaphore that contains no signals."
+	^SemaphoreWrapper new
+%
+
 category: 'communication'
 method: Semaphore
 signal 

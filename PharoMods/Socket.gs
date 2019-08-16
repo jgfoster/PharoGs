@@ -325,7 +325,7 @@ primSocket: socketID sendUDPData: aStringOrByteArray toHost: hostAddress port: p
 
 category: 'primitives'
 method: Socket
-primSocket: socketID setOption: aString value: aStringValue 
+primSocket: socketID setOption: aString value: aValue
 	"Set some option information on this socket. Refer to the UNIX  
 	man pages for valid SO, TCP, IP, UDP options. In case of doubt 
 	refer to the source code. 
@@ -333,11 +333,15 @@ primSocket: socketID setOption: aString value: aStringValue
 	returns an array containing the error code and the negotiated value" 
 
 	<PharoGs> 
-	| index |
+	| index key value |
 	index := aString @env0:indexOf: $_.
+	key := aString @env0:copyFrom: index @env0:+ 1 to: aString @env0: size.
+	value := (key @env0:= 'RCVBUF' @env0:or: [key @env0:= 'SNDBUF'])
+		@env0:ifTrue: [(aValue @env0:isKindOf: String) @env0:ifTrue: [aValue @env0:asNumber] ifFalse: [aValue]]
+		ifFalse: [(aValue @env0:isKindOf: Boolean) @env0:ifTrue: [aValue] ifFalse: [aValue @env0:= '1']].
     ^socketID 
-		@env0:option: (aString @env0:copyFrom: index @env0:+ 1 to: aString @env0: size)
-		put: aStringValue @env0:= '1'
+		@env0:option: key
+		put: value
 %
 
 category: 'primitives'

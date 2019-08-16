@@ -34,6 +34,23 @@ at: index put: aCharacter
 
 category: 'accessing'
 method: WideString
+basicAt: index 
+
+	<PharoGs>
+	^(self at: index) codePoint
+%
+
+category: 'accessing'
+method: WideString
+basicAt: index put: anInteger
+
+	<PharoGs>
+	self at: index put: (Character codePoint: anInteger).
+	^anInteger
+%
+
+category: 'accessing'
+method: WideString
 replaceFrom: start to: stop with: replacement startingAt: repStart  
 
 	<PharoGs>

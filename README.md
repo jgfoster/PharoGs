@@ -66,7 +66,7 @@ git checkout PharoGs
 export BRANCH_NAME=Pharo8.0
 export BUILD_NUMBER=42
 export BOOTSTRAP_ARCH=64
-time ./bootstrap/scripts/bootstrap.sh # this takes about 20 minutes
+time ./bootstrap/scripts/bootstrap.sh; date # this takes about 20 minutes
 ```
 
 Finally, set an environment variable to indicate that a local image is available:

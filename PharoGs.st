@@ -138,54 +138,54 @@ pharoToGsClassMap
 
 	^Dictionary new 
 		"These have the same name"
-		at: Array 						put: #Array;
-		at: Behavior 					put: #Behavior;
-		at: Boolean 						put: #Boolean;
-		at: ByteArray 					put: #ByteArray;
-		at: CannotReturn 				put: #CannotReturn;
-		at: Character 					put: #Character;
-		at: Class 						put: #Class;
-		at: Collection 					put: #Collection;
-		at: Delay 						put: #Delay;
-		at: Error 						put: #Error;
-		at: Exception					put: #Exception;
-		at: ExceptionSet 				put: #ExceptionSet;
-		at: Fraction 						put: #Fraction;
-		at: Integer 						put: #Integer;
-		at: LargeInteger 				put: #LargeInteger;
-		at: Magnitude 					put: #Magnitude;
-		at: Message 						put: #Message;
+		at: Array 					put: #Array;
+		at: Behavior 				put: #Behavior;
+		at: Boolean 				put: #Boolean;
+		at: ByteArray 				put: #ByteArray;
+		at: CannotReturn 			put: #CannotReturn;
+		at: Character 				put: #Character;
+		at: Class 					put: #Class;
+		at: Collection 				put: #Collection;
+		at: Delay 					put: #Delay;
+		at: Error 					put: #Error;
+		at: Exception				put: #Exception;
+		at: ExceptionSet 			put: #ExceptionSet;
+		at: Fraction 				put: #Fraction;
+		at: Integer 				put: #Integer;
+		at: LargeInteger 			put: #LargeInteger;
+		at: Magnitude 				put: #Magnitude;
+		at: Message 				put: #Message;
 		at: MessageNotUnderstood 	put: #MessageNotUnderstood;
-		at: Notification 				put: #Notification;
-		at: Number 						put: #Number;
-		at: Object 						put: #Object;
-		at: Pragma 						put: #Pragma;
+		at: Notification 			put: #Notification;
+		at: Number 					put: #Number;
+		at: Object 					put: #Object;
+		at: Pragma 					put: #Pragma;
 		at: ProcessorScheduler 		put: #ProcessorScheduler;
-		at: Semaphore 					put: #Semaphore;
+		at: Semaphore 				put: #Semaphore;
 		at: SequenceableCollection 	put: #SequenceableCollection;
-		at: SmallInteger 				put: #SmallInteger;
-		at: Symbol 						put: #Symbol;
-		at: UndefinedObject 			put: #UndefinedObject;
-		at: Warning 						put: #Warning;
-		at: ZeroDivide 					put: #ZeroDivide;
+		at: SmallInteger 			put: #SmallInteger;
+		at: Symbol 					put: #Symbol;
+		at: UndefinedObject 		put: #UndefinedObject;
+		at: Warning 				put: #Warning;
+		at: ZeroDivide 				put: #ZeroDivide;
 
 		"These have different names"
-		at: ArithmeticError 			put: #NumericError;
-		at: BlockClosure 				put: #ExecBlock;
-		at: BoxedFloat64 				put: #Float;
-		at: ByteString 					put: #String;
-		at: ByteSymbol 					put: #Symbol;
-		at: ClassDescription 			put: #Module;
+		at: ArithmeticError 		put: #NumericError;
+		at: BlockClosure 			put: #ExecBlock;
+		at: BoxedFloat64 			put: #Float;
+		at: ByteString 				put: #String;
+		at: ByteSymbol 				put: #Symbol;
+		at: ClassDescription 		put: #Module;
 		at: CompiledMethod 			put: #GsNMethod;
-		at: Float 						put: #BinaryFloat;
-		at: Metaclass 					put: #Metaclass3;
-		at: MethodDictionary 			put: #GsMethodDictionary;
-		at: Process 						put: #GsProcess;
-		at: ScaledDecimal 				put: #FixedPoint;
-		at: SmallFloat64 				put: #SmallDouble;
-		at: String 						put: #CharacterCollection;
-		at: WideString 					put: #QuadByteString;
-		at: WideSymbol 					put: #QuadByteSymbol;
+		at: Float 					put: #BinaryFloat;
+		at: Metaclass 				put: #Metaclass3;
+		at: MethodDictionary 		put: #GsMethodDictionary;
+		at: Process 				put: #GsProcess;
+		at: ScaledDecimal 			put: #FixedPoint;
+		at: SmallFloat64 			put: #SmallDouble;
+		at: String 					put: #CharacterCollection;
+		at: WideString 				put: #QuadByteString;
+		at: WideSymbol 				put: #QuadByteSymbol;
 
 		yourself! !
 

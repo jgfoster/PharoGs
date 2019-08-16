@@ -87,4 +87,16 @@ maxIdentityHash
     self _gsError
 %
 
+category: 'dictionary access'
+method: SystemDictionary
+removeKey: key ifAbsent: aBlock
+	"Remove key (and its associated value) from the receiver. If key is not in
+	the receiver, answer the result of evaluating aBlock. Otherwise, answer
+	the value externally named by key."
+	
+	self flushClassNameCache.
+	(Pharo @env0:includesKey: key) @env0:ifFalse: [^aBlock value].
+	^Pharo @env0:removeKey: key
+%
+
 set compile_env: 0

@@ -60,6 +60,7 @@ ByteArray superclassForEnv: 2 put: ArrayedCollection.
 ByteArray class superclassForEnv: 2 put: ArrayedCollection class.
 Class superclassForEnv: 2 put: Module.
 Class class superclassForEnv: 2 put: Module class.
+(Globals at: #'ScaledDecimal') superclassForEnv: 2 put: ProtoObject.
 ScaledDecimal superclassForEnv: 2 put: Fraction.
 ScaledDecimal class superclassForEnv: 2 put: Fraction class.
 SmallFloat64 superclassForEnv: 2 put: Float.
@@ -70,6 +71,7 @@ String superclassForEnv: 2 put: ArrayedCollection.
 String class superclassForEnv: 2 put: ArrayedCollection class.
 SymbolAssociation superclassForEnv: 2 put: Association.
 SymbolAssociation class superclassForEnv: 2 put: Association class.
+"Delegate to Pharo SymbolDictionary, so want to avoid any local methods"
 SystemDictionary superclassForEnv: 2 put: Object.
 SystemDictionary class superclassForEnv: 2 put: Object class.
 true
@@ -132,6 +134,7 @@ MetacelloPharoPlatform initialize.
 MCFileTreeFileSystemUtils initialize.
 MD5NonPrimitive initialize.
 TonelFileSystemUtils initialize.
+ByteTextConverter initialize.
 
 SharedPool allSubclasses do: [:each | each initialize].
 

@@ -22,6 +22,13 @@ _persistentMethodDicts
 
 set compile_env: 2
 
+category: 'obsolete subclasses'
+method: Behavior
+addObsoleteSubclass: aClass
+	"Do nothinig in GemStone"
+	<PharoGs> 
+%
+
 category: 'adding/removing methods'
 method: Behavior
 adoptInstance: anInstance 
@@ -245,6 +252,15 @@ handleFailingFailingBasicNew: sizeRequested
 
 	<PharoGsError>
 	self @env0:error: 'GemStone does this automatically'
+%
+
+category: 'testing'
+method: Behavior
+isReferenced
+	"Pretend it is not referenced in GemStone to avoid saving in Undeclared"
+
+	<PharoGs>
+	^false
 %
 
 category: 'testing'

@@ -159,8 +159,9 @@ method: SmalltalkImage
 primitiveGarbageCollect 
 	"Primitive. Reclaims all garbage and answers the size of the largest free chunk in old space.." 
 
-    <PharoGsError>
-    self _gsError.
+    <PharoGs>
+    System @env0:_generationScavenge_vmMarkSweep.
+    ^System @env0:_tempObjSpaceMax - System @env0:_tempObjSpaceUsed
 %
 
 category: 'special objects'

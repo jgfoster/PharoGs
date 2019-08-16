@@ -629,6 +629,16 @@ onDNU: selector do: handleBlock
 	  ]
 %
 
+category: 'exceptions'
+method: BlockClosure
+onException: anException do: handlerBlock
+
+	<primitive: 2018> "marks frame with Exception_Mark_NIL, always fails"
+	<PharoGs>
+	^ self value
+
+%
+
 category: 'accessing'
 method: BlockClosure
 outerContext 

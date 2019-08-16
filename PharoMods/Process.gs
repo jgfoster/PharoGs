@@ -287,7 +287,7 @@ method: Process
 isTerminated
 
 	<PharoGs>
-	^Processor @env0:allProcesses @env0:includes: self
+	^(Processor @env0:allProcesses @env0:includes: self) @env0:not
 %
 
 category: 'testing'

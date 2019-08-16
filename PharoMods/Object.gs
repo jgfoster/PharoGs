@@ -1,3 +1,29 @@
+set compile_env: 0
+
+! replace a base GemStone method to handle DNU in environment 2
+category: 'private'
+method: Object
+_doesNotUnderstand: aSymbol args: anArray envId: aSmallInt reason: dnuKind
+  "This private message is sent by the virtual machine. The implementation must
+ be in the persistent method dictionary for Object, since the method is preloaded
+ during VM startup.  Reimplementations in a session methods dictionary will not
+ be seen."
+
+  dnuKind ~~ 0 ifTrue: [
+    "a more severe problem such as method needing recompile"
+    self _dnuError: aSymbol args: anArray reason: dnuKind
+  ].
+  aSmallInt == 0 ifTrue: [
+     "this path for compatibility with Gs64 v2.x, and assumes you are using
+      only method environment 0  for all of your Smalltalk code."
+      ^self doesNotUnderstand: (Message selector: aSymbol arguments: anArray)
+  ].
+  (aSmallInt == 2 and: [aSymbol ~~ #'doesNotUnderstand:']) ifTrue: [
+      ^self @env2:doesNotUnderstand: (Message selector: aSymbol arguments: anArray)
+  ].
+  ^self doesNotUnderstand: aSymbol args: anArray envId: aSmallInt
+%
+
 set compile_env: 2
 
 category: 'accessing'

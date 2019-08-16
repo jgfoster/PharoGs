@@ -80,6 +80,14 @@ new: sizeRequested
 	^ (self basicNew: sizeRequested) initialize
 %
 
+category: 'initialization'
+method: Class
+obsolete
+	"In GemStone, we do nothing for now"
+	
+	<PharoGs>
+%
+
 category: 'pool variables'
 method: Class
 sharedPools 
@@ -95,6 +103,23 @@ sharedPools: aCollection
 	
 	<PharoGs> 
 	poolDictionaries := aCollection
+%
+
+category: 'subclass creation - deprecated'
+method: Class
+subclass: t instanceVariableNames: f classVariableNames: d poolDictionaries: s category: cat
+
+	<PharoGs>
+	s @env0:notEmpty @env0:ifTrue: [self _gsError].
+	^(self
+		@env0:subclass: t
+		instVarNames: ((f @env0:subStrings: Character @env0:space) @env0:reject: [:each | each @env0:isEmpty])
+		classVars: ((d @env0:subStrings: Character @env0:space) @env0:reject: [:each | each @env0:isEmpty])
+		classInstVars: #()
+		poolDictionaries: #()
+		inDictionary: Pharo)
+		category: cat;
+		yourself
 %
 
 category: 'accessing'

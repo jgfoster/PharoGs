@@ -648,7 +648,10 @@ terminate
 	Unwind to execute pending ensure:/ifCurtailed: blocks before terminating."
 
 	<PharoGs>
-	self @env0:terminate
+	"Because GemStone allows a Process to be committed, we may be looking at
+	 one that is stale. If so, no need to terminate it!"
+	(Processor @env0:allProcesses @env0:includes: self)
+		@env0:ifTrue: [self @env0:terminate]
 %
 
 set compile_env: 0

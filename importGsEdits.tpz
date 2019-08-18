@@ -45,7 +45,6 @@ input PharoMods/FileStream.gs
 input PharoMods/Float.gs
 input PharoMods/FloatArray.gs
 input PharoMods/FullBlockClosure.gs
-input PharoMods/GrGemStonePlatform.gs
 input PharoMods/GsFile.gs
 input PharoMods/Halt.gs
 input PharoMods/Integer.gs

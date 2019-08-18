@@ -146,6 +146,8 @@ Transcript := Globals @env0:at: #'Transcript'.
 true
 %
 commit
+logout
+login
 
 set compile_env: 0
 run

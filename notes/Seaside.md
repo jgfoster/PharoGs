@@ -3,7 +3,8 @@
 ## Load Seaside
 
 ```
-"Load Seaside"
+! - Load Seaside
+set comp 2
 run
 System @env0:abortTransaction. 
 GsSocket @env0:closeAll.

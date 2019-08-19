@@ -2,10 +2,12 @@ set compile_env: 2
 
 category: 'private'
 method: ExceptionSet
-add: anException
+add: anExceptionOrExceptionSet
 
 	<PharoGs>
-    ^self @env0:add: anException
+    ^ExceptionSet
+        @env0:with: anExceptionOrExceptionSet
+        with: self
 %
 
 category: 'exceptionselector'

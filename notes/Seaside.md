@@ -20,11 +20,13 @@ GsSocket @env0:closeAll.
 				with: cache , 'Seaside/master/SeasideSt-Seaside-91ae092/repository');"
 			onWarningLog;
 			load.
-		WAServerManager default stopAll.	"do not leave a server running"
 	] on: Error do: [:ex | 
 		ex halt.
 	].
 ].
+%
+run
+WAServerManager default stopAll.	"do not leave a server running"
 %
 ```
 

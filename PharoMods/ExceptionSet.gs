@@ -5,9 +5,10 @@ method: ExceptionSet
 add: anExceptionOrExceptionSet
 
 	<PharoGs>
-    ^ExceptionSet
-        @env0:with: anExceptionOrExceptionSet
-        with: self
+    (anExceptionOrExceptionSet @env0: isKindOf: ExceptionSet) 
+        ifTrue: [anExceptionOrExceptionSet @env0:do: [:each | self @env0:add: each]]
+        ifFalse: [self @env0:add: anExceptionOrExceptionSet].
+    ^anExceptionOrExceptionSet
 %
 
 category: 'exceptionselector'

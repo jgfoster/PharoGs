@@ -1,13 +1,20 @@
 set compile_env: 2
 
+category: 'exceptionselector'
+method: ExceptionSet
+, anExceptionOrExceptionSet
+	"Return an exception set that contains the receiver and the argument exception. This is commonly used to specify a set of exception selectors for an exception handler."
+	
+	<PharoGs>
+	^self @env0:, anExceptionOrExceptionSet
+%
+
 category: 'private'
 method: ExceptionSet
 add: anExceptionOrExceptionSet
 
 	<PharoGs>
-    (anExceptionOrExceptionSet @env0: isKindOf: ExceptionSet) 
-        ifTrue: [anExceptionOrExceptionSet @env0:do: [:each | self @env0:add: each]]
-        ifFalse: [self @env0:add: anExceptionOrExceptionSet].
+    self @env0:, anExceptionOrExceptionSet.
     ^anExceptionOrExceptionSet
 %
 

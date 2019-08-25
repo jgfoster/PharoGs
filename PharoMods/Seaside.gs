@@ -14,7 +14,7 @@ seasideSuspendFlowDo: aBlock
 	[ 
 		(aFrame := GsProcess @env0:_frameContentsAt: level) @env0:~~ nil.
 	] @env0:whileTrue: [
-		(((aFrame @env0:at: 10) visKindOf: WACallback) 
+		(((aFrame @env0:at: 10) @env0:isKindOf: WACallback) 
 		@env0:or: [ (aFrame vat: 1) @env0:== visitTaskMethod ]) @env0:ifTrue: [ 
 			gsProcess := GsProcess 
 				@env0:partialContinuationFromLevel: 2
@@ -22,9 +22,7 @@ seasideSuspendFlowDo: aBlock
 		].
 		level := level @env0:+ 1.
 	].
-	gsProcess ifNil: [^nil].
-	(gsProcess := self @env0:partialContinuation) == nil
-		ifTrue: [ ^self error: 'You can only #call: and #answer: from within a callback or a Task.' ].
+	gsProcess ifNil: [ ^self error: 'You can only #call: and #answer: from within a callback or a Task.' ].
 	^aBlock value: (WAPartialContinuation new 
 		instVarAt: 1 put: gsProcess; 
 		yourself)

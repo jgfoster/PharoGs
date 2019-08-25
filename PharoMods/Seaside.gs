@@ -6,7 +6,6 @@ method: GRPharoPlatform
 seasideSuspendFlowDo: aBlock
 
 	<PharoGs>
-	| |
 	| aFrame level gsProcess visitTaskMethod |
 	visitTaskMethod := WATaskVisitor 
 		@env0:compiledMethodAt: #visitTask: 

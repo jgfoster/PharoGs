@@ -15,7 +15,7 @@ seasideSuspendFlowDo: aBlock
 		(aFrame := GsProcess @env0:_frameContentsAt: level) @env0:~~ nil.
 	] @env0:whileTrue: [
 		(((aFrame @env0:at: 10) @env0:isKindOf: WACallback) 
-		@env0:or: [ (aFrame vat: 1) @env0:== visitTaskMethod ]) @env0:ifTrue: [ 
+		@env0:or: [ (aFrame @env0:at: 1) @env0:== visitTaskMethod ]) @env0:ifTrue: [ 
 			gsProcess := GsProcess 
 				@env0:partialContinuationFromLevel: 2
 				to: level

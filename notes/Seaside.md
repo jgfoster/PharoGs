@@ -27,6 +27,7 @@ GsSocket @env0:closeAll.
 %
 run
 WAServerManager default stopAll.	"do not leave a server running"
+Pharo at: #'PragmaSetting' put: nil.	"needed for some Seaside tests"
 %
 ```
 

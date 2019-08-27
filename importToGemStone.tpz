@@ -41,8 +41,9 @@ run
 	#'SpaceTally'
 	#'MessageTally'
 	#'EllipseMorph'
-	#'PragmaSetting'
 ) @env0:do: [:each | UserGlobals @env0:at: each ifAbsentPut: [nil]].
+"Seaside looks for this explictly in 'Smalltalk globals'"
+Pharo at: #'PragmaSetting' put: nil.
 %
 errorCount
 commit

@@ -17,16 +17,19 @@ symbolList := (Globals at: #System) myUserProfile symbolList.
 run
 "allow methods to compile; may need to fix this!"
 #(
+	"VM"
 	#'thisContext'
+
+	"tests"
 	#'Trait1'
 	#'Trait2'
 	#'Trait3'
 	#'TSortable'
 
-	"trying to load Iceberg"
+	"Iceberg"
 	#'thunk'
 
-	"trying to load Seaside"
+	"Seaside"
 	#'ObjectExplorerWrapper'
 	#'ProcessBrowser'
 	#'WorldState'
@@ -38,6 +41,7 @@ run
 	#'SpaceTally'
 	#'MessageTally'
 	#'EllipseMorph'
+	#'PragmaSetting'
 ) @env0:do: [:each | UserGlobals @env0:at: each ifAbsentPut: [nil]].
 %
 errorCount

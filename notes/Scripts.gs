@@ -17,6 +17,15 @@ methods := (Globals at: #IdentitySet) new.
 	].
 ].
 methods size.
+"
+With Seaside, we have:
+classes			   2802
+methods			  39348
+PharoCompileError	225
+PharoGs				809
+PharoGsError		320
+PharoPrimitive		 70
+"
 %
 
 "Find references to an object (e.g., a Semaphore preventing commit)"

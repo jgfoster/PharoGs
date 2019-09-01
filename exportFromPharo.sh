@@ -21,6 +21,7 @@ fi
 echo "Get Pharo minimal image"
 if [ -z "$PHAROGS" ]; then   # get image & changes
   wget https://files.pharo.org/get-files/80/pharo64-minimal.zip
+  rm *.changes *.image
   unzip *.zip
   rm *.zip
 else

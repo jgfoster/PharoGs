@@ -5,7 +5,7 @@ method: SystemDictionary
 associationAt: aKey
 
 	<PharoGs>
-	^self associationAt: aKey ifAbsent: [self error: 'not found']
+	^self associationAt: aKey ifAbsent: [NotFound signal]
 %
 
 category: 'accessing'
@@ -21,7 +21,7 @@ method: SystemDictionary
 at: aKey
 
 	<PharoGs>
-	^self at: aKey ifAbsent: [self error: 'not found']
+	^self at: aKey ifAbsent: [NotFound signal]
 %
 
 category: 'accessing'

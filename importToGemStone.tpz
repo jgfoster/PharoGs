@@ -184,7 +184,6 @@ list := (Globals at: #OrderedCollection) new
 	add: ZipCrcTest;
 	add: ZipExtensionTest;
 	add: ZipWriteStreamTest;
-	"add: MCClassDefinitionTest;"
 	yourself.
 list do: [:each | 
 	| string |

@@ -5,8 +5,11 @@ method: MCClassDefinition
 createClass
 
 	<PharoGs>
+	| superClass |
+	superClass := System @env0:myUserProfile @env0:symbolList @env0:objectNamed: superclassName.
+	superClass subclassesDisallowed ifTrue: [superClass := NoSubclasses].
 	type == #'normal' ifTrue: [
-		^((System @env0:myUserProfile @env0:symbolList @env0:objectNamed: superclassName) 
+		^(superClass 
 			@env0:subclass: name
 			instVarNames: (self instanceVariables collect: [:each | each name])
 			classVars: (self classVariables collect: [:each | each name])
@@ -19,7 +22,7 @@ createClass
 			yourself
 	].
 	type == #'variable' ifTrue: [
-		^((System @env0:myUserProfile @env0:symbolList @env0:objectNamed: superclassName) 
+		^(superClass
 			@env0:indexableSubclass: name
 			instVarNames: (self instanceVariables collect: [:each | each name])
 			classVars: (self classVariables collect: [:each | each name])

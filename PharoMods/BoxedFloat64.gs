@@ -206,6 +206,14 @@ size
     ^2
 %
 
+category: '*Math-Operations-Extensions'
+method: BoxedFloat64
+sqrt
+
+	<PharoGs>
+	^self @env0:sqrt
+%
+
 category: 'math functions'
 method: BoxedFloat64
 timesTwoPower: anInteger  

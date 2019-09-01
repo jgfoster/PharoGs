@@ -89,8 +89,9 @@ fileDescriptorType: fdNum
 	* 3 - file 
 	* 4 - cygwin terminal (windows only)" 
 
-    <PharoGsError>
-    ^self _gsError
+    <PharoGs>
+    (1 <= fdNum and: [fdNum <= 3]) ifTrue: [^1].
+    ^2
 %
 
 category: 'primitives-file'
@@ -518,7 +519,7 @@ classmethod: File
 stdioHandles 
 
     <PharoGs>
-    ^Array @env0:with: GsFile stdin with: GsFile stdout with: GsFile stderr
+    ^Array @env0:with: GsFile @env0:stdin with: GsFile @env0:stdout with: GsFile @env0:stderr
 %
 
 category: 'primitives-file'

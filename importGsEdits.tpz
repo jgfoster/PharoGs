@@ -5,7 +5,6 @@ input PharoMods/Array.gs
 input PharoMods/ArrayedCollection.gs
 input PharoMods/AsyncFile.gs
 input PharoMods/Behavior.gs
-input PharoMods/BlockClosure.gs
 input PharoMods/Boolean.gs
 input PharoMods/BoxedFloat64.gs
 input PharoMods/ByteArray.gs
@@ -26,6 +25,7 @@ input PharoMods/DeflateStream.gs
 input PharoMods/Delay.gs
 input PharoMods/DelayMicrosecondTicker.gs
 input PharoMods/DelayMillisecondTicker.gs
+input PharoMods/DelayWaitTimeout.gs
 input PharoMods/DiskStore.gs
 input PharoMods/DependentsArray.gs
 input PharoMods/DoubleByteArray.gs
@@ -33,6 +33,7 @@ input PharoMods/DoubleWordArray.gs
 input PharoMods/Error.gs
 input PharoMods/Exception.gs
 input PharoMods/ExceptionSet.gs
+input PharoMods/ExecBlock.gs
 input PharoMods/ExternalAddress.gs
 input PharoMods/ExternalFunction.gs
 input PharoMods/ExternalLibrary.gs
@@ -66,6 +67,7 @@ input PharoMods/MetaclassForTraits.gs
 input PharoMods/MethodAddition.gs
 input PharoMods/MethodDictionary.gs
 input PharoMods/MirrorPrimitives.gs
+input PharoMods/MonitorDelay.gs
 input PharoMods/NetNameResolver.gs
 input PharoMods/Number.gs
 input PharoMods/Object.gs
@@ -77,6 +79,7 @@ input PharoMods/ProcessSpecificVariable.gs
 input PharoMods/Processor.gs
 input PharoMods/ProcessorScheduler.gs
 input PharoMods/ProtoObject.gs
+input PharoMods/ProtoObjectTest.gs
 input PharoMods/ReflectiveMethod.gs
 input PharoMods/ScaledDecimalGs.gs
 input PharoMods/SemaphoreWrapper.gs

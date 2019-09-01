@@ -7,7 +7,7 @@ createClass
 	<PharoGs>
 	| superClass |
 	superClass := System @env0:myUserProfile @env0:symbolList @env0:objectNamed: superclassName.
-	superClass subclassesDisallowed ifTrue: [superClass := NoSubclasses].
+	superClass @env0:subclassesDisallowed ifTrue: [superClass := NoSubclasses].
 	type == #'normal' ifTrue: [
 		^(superClass 
 			@env0:subclass: name

@@ -22,7 +22,6 @@ category: 'private'
 method: MutexWrapper
 _semaphore
 
-    <PharoGs>
 	^semaphore ifNil: [semaphore := super _semaphore signal].
 %
 

@@ -5,6 +5,7 @@ input PharoMods/Array.gs
 input PharoMods/ArrayedCollection.gs
 input PharoMods/AsyncFile.gs
 input PharoMods/Behavior.gs
+input PharoMods/BlockClosure.gs
 input PharoMods/Boolean.gs
 input PharoMods/BoxedFloat64.gs
 input PharoMods/ByteArray.gs
@@ -33,7 +34,6 @@ input PharoMods/DoubleWordArray.gs
 input PharoMods/Error.gs
 input PharoMods/Exception.gs
 input PharoMods/ExceptionSet.gs
-input PharoMods/ExecBlock.gs
 input PharoMods/ExternalAddress.gs
 input PharoMods/ExternalFunction.gs
 input PharoMods/ExternalLibrary.gs

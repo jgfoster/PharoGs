@@ -156,6 +156,30 @@ login
 
 set compile_env: 0
 run
+| gsFile |
+gsFile := GsFile openWriteOnServer: 'PharoGsMethods.txt'.
+Pharo keys asSortedCollection do: [:eachKey | 
+	| eachGlobal |
+	eachGlobal := Pharo at: eachKey.
+	eachGlobal isClass ifTrue: [
+		(Array with: eachGlobal class with: eachGlobal) do: [:eachBehavior | 
+			(eachBehavior selectorsForEnvironment: 2) asSortedCollection do: [:eachSelector |
+				(eachBehavior pragmasForMethod: eachSelector env: 2) do: [:eachPragma | 
+					(eachPragma keyword indexOfSubCollection: 'Pharo' startingAt: 1) == 1 ifTrue: [
+						| name |
+						name := eachKey.
+						eachBehavior isMeta ifTrue: [name := name , ' class'].
+						gsFile nextPutAll: name , '>>' , eachSelector; cr.
+					].
+				].
+			].
+		].
+	].
+].
+gsFile close.
+true
+%
+run
 | list stream |
 stream := (Globals at: #WriteStream) on: (Globals at: #String) new.
 list := (Globals at: #OrderedCollection) new

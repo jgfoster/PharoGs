@@ -2,7 +2,7 @@
 set compile_env: 2
 
 category: '*Debugging-Core'
-method: ExecBlock
+method: BlockClosure
 abstractBytecodeMessagesDo: aBlock 
 	
 	<PharoGsError>
@@ -10,7 +10,7 @@ abstractBytecodeMessagesDo: aBlock
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 argumentCount 
 	"Answer the number of arguments that must be used to evaluate this block"
 	
@@ -19,7 +19,7 @@ argumentCount
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 argumentNames 
 	
 	<PharoGsError>
@@ -27,7 +27,7 @@ argumentNames
 %
 
 category: 'scheduling'
-method: ExecBlock
+method: BlockClosure
 asContext 
 	
 	<PharoGsError>
@@ -35,7 +35,7 @@ asContext
 %
 
 category: 'private'
-method: ExecBlock
+method: BlockClosure
 asContextWithSender: aContext 
 	
 	<PharoGsError>
@@ -43,7 +43,7 @@ asContextWithSender: aContext
 %
 
 category: '*Jobs'
-method: ExecBlock
+method: BlockClosure
 asJob 
 	
 	<PharoGs>
@@ -51,7 +51,7 @@ asJob
 %
 
 category: 'private'
-method: ExecBlock
+method: BlockClosure
 asMinimalRepresentation 
 	
 	<PharoGs>
@@ -59,7 +59,7 @@ asMinimalRepresentation
 %
 
 category: 'exceptions'
-method: ExecBlock
+method: BlockClosure
 assert 
 	
 	<PharoGs>
@@ -67,7 +67,7 @@ assert
 %
 
 category: 'exceptions'
-method: ExecBlock
+method: BlockClosure
 assertWithDescription: aStringOrABlock 
 	
 	<PharoGs>
@@ -79,7 +79,7 @@ assertWithDescription: aStringOrABlock
 %
 
 category: '*Text-Core'
-method: ExecBlock
+method: BlockClosure
 asText 
 	
 	<PharoGs>
@@ -87,7 +87,7 @@ asText
 %
 
 category: '*Kernel-Chronology-Extras'
-method: ExecBlock
+method: BlockClosure
 bench 
 	"Return how many times the receiver can get executed in 5 seconds.  
 	Answer a string with meaningful description. 
@@ -102,7 +102,7 @@ bench
 %
 
 category: '*Kernel-Chronology-Extras'
-method: ExecBlock
+method: BlockClosure
 benchFor: duration 
 	"Run me for duration and return a BenchmarkResult" 
 	 
@@ -122,7 +122,7 @@ benchFor: duration
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 blockCreationBytecodeMessage 
 	
 	<PharoGsError>
@@ -130,7 +130,7 @@ blockCreationBytecodeMessage
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 copiedValueAt: i 
 
     <PharoGs>
@@ -138,7 +138,7 @@ copiedValueAt: i
 %
 
 category: 'private'
-method: ExecBlock
+method: BlockClosure
 copyForSaving 
 	
 	<PharoGsError>
@@ -146,7 +146,7 @@ copyForSaving
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 cull: anArg 
 	"Execute the receiver with one or zero arguments depending on the receiver" 
 	"([ 12 ] cull: 13) 
@@ -163,7 +163,7 @@ cull: anArg
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 cull: firstArg cull: secondArg 
 	"Execute the receiver with one or two arguments depending on the receiver" 
 	"([:x | x + 1] cull: 13 cull: 12) 
@@ -180,7 +180,7 @@ cull: firstArg cull: secondArg
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 cull: firstArg cull: secondArg cull: thirdArg 
 	
 	<PharoGs>
@@ -190,7 +190,7 @@ cull: firstArg cull: secondArg cull: thirdArg
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 cull: firstArg cull: secondArg cull: thirdArg cull: fourthArg 
 	
 	<PharoGs>
@@ -200,7 +200,7 @@ cull: firstArg cull: secondArg cull: thirdArg cull: fourthArg
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 doWhileFalse: conditionBlock 
 	"Evaluate the receiver once, then again as long the value of conditionBlock is false."
 	
@@ -212,7 +212,7 @@ doWhileFalse: conditionBlock
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 doWhileTrue: conditionBlock 
 	"Evaluate the receiver once, then again as long the value of conditionBlock is true."
 	
@@ -224,7 +224,7 @@ doWhileTrue: conditionBlock
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 durationToRun 
 	"Answer the duration taken to execute this block."
 	
@@ -233,7 +233,7 @@ durationToRun
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 endPC 
 	
 	<PharoGsError>
@@ -241,7 +241,7 @@ endPC
 %
 
 category: 'exceptions'
-method: ExecBlock
+method: BlockClosure
 ensure: aBlock 
 	"Evaluate a termination block after evaluating the receiver, regardless of 
 	 whether the receiver's evaluation completes.  N.B.  This method is *not* 
@@ -253,7 +253,7 @@ ensure: aBlock
     or before any return from a block that would return to the sender.
     Returns result of evaluating the receiver.
 
-    aBlock must be a zero-arg instance of ExecBlock, otherwise an
+    aBlock must be a zero-arg instance of BlockClosure, otherwise an
     error is generated. "
 
     <primitive: 2017>  "marks frame with ENSURE_Mark_NIL, always fails"
@@ -267,7 +267,7 @@ ensure: aBlock
 %
 
 category: '*metacello-core-scripting'
-method: ExecBlock
+method: BlockClosure
 execute: projectSpecBlock against: aScriptExecutor 
 	
 	<PharoGs>
@@ -275,7 +275,7 @@ execute: projectSpecBlock against: aScriptExecutor
 %
 
 category: 'scheduling'
-method: ExecBlock
+method: BlockClosure
 fork 
 	
 	<PharoGs>
@@ -283,7 +283,7 @@ fork
 %
 
 category: 'scheduling'
-method: ExecBlock
+method: BlockClosure
 forkAndWait 
 	"Suspend current process and execute self in new process, 
 	when it completes resume current process"
@@ -296,7 +296,7 @@ forkAndWait
 %
 
 category: 'scheduling'
-method: ExecBlock
+method: BlockClosure
 forkAt: priority  
 	"Create and schedule a Process running the code in the receiver 
 	at the given priority. Answer the newly created process."
@@ -308,7 +308,7 @@ forkAt: priority
 %
 
 category: 'scheduling'
-method: ExecBlock
+method: BlockClosure
 forkAt: priority named: name 
 	"Create and schedule a Process running the code in the receiver at the 
 	given priority and having the given name. Answer the newly created  
@@ -323,7 +323,7 @@ forkAt: priority named: name
 %
 
 category: 'scheduling'
-method: ExecBlock
+method: BlockClosure
 forkNamed: aString 
 	"Create and schedule a Process running the code in the receiver and 
 	having the given name."
@@ -333,7 +333,7 @@ forkNamed: aString
 %
 
 category: 'testing'
-method: ExecBlock
+method: BlockClosure
 hasMethodReturn 
 	
 	<PharoGsError>
@@ -341,7 +341,7 @@ hasMethodReturn
 %
 
 category: '*Slot-Core'
-method: ExecBlock
+method: BlockClosure
 hasTemporaryVariableNamed: aName 
 	
 	<PharoGs>
@@ -349,7 +349,7 @@ hasTemporaryVariableNamed: aName
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 home 
 	
 	<PharoGsError>
@@ -357,7 +357,7 @@ home
 %
 
 category: 'exceptions'
-method: ExecBlock
+method: BlockClosure
 ifCurtailed: aBlock 
 	"Evaluate the receiver with an abnormal termination action. 
 	 Evaluate aBlock only if execution is unwound during execution 
@@ -401,7 +401,7 @@ ifCurtailed: aBlock
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 ifError: errorHandlerBlock 
 	"Evaluate the block represented by the receiver, and normally return its value.  
 	If an error occurs, the errorHandlerBlock is evaluated, and its value is instead 
@@ -420,7 +420,7 @@ ifError: errorHandlerBlock
 %
 
 category: 'testing'
-method: ExecBlock
+method: BlockClosure
 isBlock 
 	
 	<PharoGs>
@@ -428,7 +428,7 @@ isBlock
 %
 
 category: 'testing'
-method: ExecBlock
+method: BlockClosure
 isClean 
 	
 	<PharoGsError>
@@ -436,7 +436,7 @@ isClean
 %
 
 category: 'testing'
-method: ExecBlock
+method: BlockClosure
 isClosure 
 	
 	<PharoGs>
@@ -444,7 +444,7 @@ isClosure
 %
 
 category: 'testing'
-method: ExecBlock
+method: BlockClosure
 isDead 
 	
 	<PharoGs>
@@ -452,7 +452,7 @@ isDead
 %
 
 category: 'private'
-method: ExecBlock
+method: BlockClosure
 isValid 
 	
 	<PharoGs>
@@ -460,7 +460,7 @@ isValid
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 method 
 	
 	<PharoGsError>
@@ -468,7 +468,7 @@ method
 %
 
 category: 'scheduling'
-method: ExecBlock
+method: BlockClosure
 newProcess 
 	"Answer a Process running the code in the receiver. The process is not  
 	scheduled. 
@@ -480,7 +480,7 @@ newProcess
 %
 
 category: 'scheduling'
-method: ExecBlock
+method: BlockClosure
 newProcessWith: anArray  
 	"Answer a Process running the code in the receiver. The receiver's block  
 	arguments are bound to the contents of the argument, anArray. The  
@@ -491,7 +491,7 @@ newProcessWith: anArray
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 numArgs 
 	"Answer the number of arguments that must be used to evaluate this block"
 	
@@ -501,7 +501,7 @@ numArgs
 %
 
 category: 'error handling'
-method: ExecBlock
+method: BlockClosure
 numArgsError: numArgsForInvocation 
 	
 	<PharoGs>
@@ -513,7 +513,7 @@ numArgsError: numArgsForInvocation
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 numCopiedValues 
 	"Answer the number of copied values of the receiver.  Since these are 
 	 stored in the receiver's indexable fields this is the receiver's basic size. 
@@ -525,7 +525,7 @@ numCopiedValues
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 numLocalTemps 
 	
 	<PharoGsError>
@@ -533,7 +533,7 @@ numLocalTemps
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 numTemps 
 	
 	<PharoGs>
@@ -541,7 +541,7 @@ numTemps
 %
 
 category: 'exceptions'
-method: ExecBlock
+method: BlockClosure
 on: exceptionSelector do: handlerBlock
 	"Evaluate the receiver in the scope of an exception handler. 
 	The following primitive is just a marker used to find the error handling context.  
@@ -609,46 +609,15 @@ on: exceptionSelector do: handlerBlock
 %
 
 category: 'exceptions'
-method: ExecBlock
+method: BlockClosure
 on: exception fork: handlerAction 
 
 	<PharoGs>
 	^self on: exception do: [:ex | handlerAction forkWith: ex]
 %
 
-category: '*UnifiedFFI'
-method: ExecBlock
-on: exception fork: handlerAction return: answerAction
-	<PharoGsError>
-	self _gsError "
-	""This is the same as #on:fork: but instead just fork and letting the flow continues, in 
-	 case of an error it also evaluates answerAction and returns its result.""
-		
-	^ self on: exception do: [:ex |
-		| onDoCtx handler bottom thisCtx |
-		
-		onDoCtx := thisContext.
-		thisCtx := onDoCtx home.
-		""find the context on stack for which this method's is sender""
-		[ onDoCtx sender == thisCtx] whileFalse: [ 
-			onDoCtx := onDoCtx sender.
-			onDoCtx ifNil: [ 
-				""Can't find our home context. seems like we're already forked
-				and handling another exception in new thread. In this case, just pass it through handler.""
-				^ handlerAction cull: ex ] ].
-		bottom := [ Processor terminateActive ] asContext.
-		onDoCtx privSender: bottom.
-		handler := [ handlerAction cull: ex ] asContext.
-		handler privSender: thisContext sender.
-		(Process forContext: handler priority: Processor activePriority) resume.
-		""cut the stack of current process""
-		thisContext privSender: thisCtx.
-		answerAction cull: exception ]
-"
-%
-
 category: 'exceptions'
-method: ExecBlock
+method: BlockClosure
 onDNU: selector do: handleBlock 
 	"Catch MessageNotUnderstood exceptions but only those of the given selector 
 	(DNU stands for doesNotUnderstand:)"
@@ -662,17 +631,17 @@ onDNU: selector do: handleBlock
 %
 
 category: 'exceptions'
-method: ExecBlock
+method: BlockClosure
 onException: anException do: handlerBlock
 
 	<primitive: 2018> "marks frame with Exception_Mark_NIL, always fails"
-	<PharoGs>
+	"<PharoGs>"		"we add this but it is not from Pharo"
 	^ self value
 
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 outerContext 
 	
 	<PharoGsError>
@@ -680,7 +649,7 @@ outerContext
 %
 
 category: 'initialization'
-method: ExecBlock
+method: BlockClosure
 outerContext: aContext startpc: aStartpc numArgs: argCount copiedValues: anArrayOrNil 
 	
 	<PharoGsError>
@@ -688,7 +657,7 @@ outerContext: aContext startpc: aStartpc numArgs: argCount copiedValues: anArray
 %
 
 category: 'printing'
-method: ExecBlock
+method: BlockClosure
 printOn: aStream 
 	
 	<PharoGs>
@@ -700,7 +669,7 @@ printOn: aStream
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 receiver 
 	
 	<PharoGsError>
@@ -708,7 +677,7 @@ receiver
 %
 
 category: 'private'
-method: ExecBlock
+method: BlockClosure
 reentrant 
 	
 	<PharoGsError>
@@ -716,7 +685,7 @@ reentrant
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 repeat
 	<PharoGs>
 	"Evaluate the receiver repeatedly, ending only if the block explicitly returns."
@@ -724,7 +693,7 @@ repeat
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 repeatWithGCIf: testBlock 
 	
 	<PharoGs>
@@ -737,7 +706,7 @@ repeatWithGCIf: testBlock
 %
 
 category: '*Reflectivity'
-method: ExecBlock
+method: BlockClosure
 rfEnsure: aBlock 
 	"same as #esure, carefully written to never have active meta-links as it is called in the code path that checks for recursion" 
 	
@@ -746,7 +715,7 @@ rfEnsure: aBlock
 %
 
 category: '*Reflectivity'
-method: ExecBlock
+method: BlockClosure
 rfvalue 
 	"same as value, for recursion stopping metalinks" 
 	
@@ -755,7 +724,7 @@ rfvalue
 %
 
 category: 'debugger access'
-method: ExecBlock
+method: BlockClosure
 sender 
 	
 	<PharoGsError>
@@ -763,7 +732,7 @@ sender
 %
 
 category: '*metacello-core'
-method: ExecBlock
+method: BlockClosure
 setAuthorInMetacelloConfig: aMetacelloConfig 
 	
 	<PharoGs>
@@ -771,7 +740,7 @@ setAuthorInMetacelloConfig: aMetacelloConfig
 %
 
 category: '*metacello-core'
-method: ExecBlock
+method: BlockClosure
 setBaseline: aString withInMetacelloConfig: aMetacelloConfig 
 	
 	<PharoGs>
@@ -779,7 +748,7 @@ setBaseline: aString withInMetacelloConfig: aMetacelloConfig
 %
 
 category: '*metacello-core'
-method: ExecBlock
+method: BlockClosure
 setBlessingInMetacelloConfig: aMetacelloConfig 
 	
 	<PharoGs>
@@ -787,7 +756,7 @@ setBlessingInMetacelloConfig: aMetacelloConfig
 %
 
 category: '*metacello-core'
-method: ExecBlock
+method: BlockClosure
 setConfiguration: aString withInMetacelloConfig: aMetacelloConfig 
 	
 	<PharoGs>
@@ -795,7 +764,7 @@ setConfiguration: aString withInMetacelloConfig: aMetacelloConfig
 %
 
 category: '*metacello-core'
-method: ExecBlock
+method: BlockClosure
 setDescriptionInMetacelloConfig: aMetacelloConfig 
 	
 	<PharoGs>
@@ -803,7 +772,7 @@ setDescriptionInMetacelloConfig: aMetacelloConfig
 %
 
 category: '*metacello-core'
-method: ExecBlock
+method: BlockClosure
 setPackage: aString withInMetacelloConfig: aMetacelloConfig 
 	
 	<PharoGs>
@@ -811,7 +780,7 @@ setPackage: aString withInMetacelloConfig: aMetacelloConfig
 %
 
 category: '*metacello-core'
-method: ExecBlock
+method: BlockClosure
 setProject: aString withInMetacelloConfig: aMetacelloConfig 
 	
 	<PharoGs>
@@ -819,7 +788,7 @@ setProject: aString withInMetacelloConfig: aMetacelloConfig
 %
 
 category: '*metacello-core'
-method: ExecBlock
+method: BlockClosure
 setTimestampInMetacelloConfig: aMetacelloConfig 
 	
 	<PharoGs>
@@ -827,7 +796,7 @@ setTimestampInMetacelloConfig: aMetacelloConfig
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 simulateValueWithArguments: anArray caller: aContext 
 	
 	<PharoGsError>
@@ -835,7 +804,7 @@ simulateValueWithArguments: anArray caller: aContext
 %
 
 category: '*OpalCompiler-Core'
-method: ExecBlock
+method: BlockClosure
 sourceNode 
 	
 	<PharoGsError>
@@ -843,7 +812,7 @@ sourceNode
 %
 
 category: '*Collections-Abstract-splitjoin'
-method: ExecBlock
+method: BlockClosure
 split: aSequenceableCollection indicesDo: aBlock 
 	"Perform an action specified as aBlock (with a start and end argument) 
 	to each of the indices of aSequenceableCollection that have been 
@@ -870,7 +839,7 @@ split: aSequenceableCollection indicesDo: aBlock
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 startpc 
 	
 	<PharoGsError>
@@ -878,7 +847,7 @@ startpc
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 tempNames 
 	
 	<PharoGs>
@@ -888,7 +857,7 @@ tempNames
 %
 
 category: '*Slot-Core'
-method: ExecBlock
+method: BlockClosure
 temporaryVariableNamed: aName 
 	
 	<PharoGs>
@@ -899,7 +868,7 @@ temporaryVariableNamed: aName
 %
 
 category: '*Slot-Core'
-method: ExecBlock
+method: BlockClosure
 temporaryVariables 
 	
 	<PharoGs>
@@ -907,7 +876,7 @@ temporaryVariables
 %
 
 category: '*Kernel-Chronology-Extras'
-method: ExecBlock
+method: BlockClosure
 timeToRun 
 	"Answer the number of milliseconds taken to execute this block."
 	
@@ -916,7 +885,7 @@ timeToRun
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 value 
 	"Activate the receiver, creating a closure activation (MethodContext) 
 	 whose closure is the receiver and whose caller is the sender of this message. 
@@ -936,7 +905,7 @@ value
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 value: anArg 
 	"Activate the receiver, creating a closure activation (MethodContext) 
 	 whose closure is the receiver and whose caller is the sender of this message. 
@@ -956,7 +925,7 @@ value: anArg
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 value: firstArg value: secondArg 
 	"Activate the receiver, creating a closure activation (MethodContext) 
 	 whose closure is the receiver and whose caller is the sender of this message. 
@@ -977,7 +946,7 @@ value: firstArg value: secondArg
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 value: firstArg value: secondArg value: thirdArg 
 	"Activate the receiver, creating a closure activation (MethodContext) 
 	 whose closure is the receiver and whose caller is the sender of this message. 
@@ -998,7 +967,7 @@ value: firstArg value: secondArg value: thirdArg
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 value: firstArg value: secondArg value: thirdArg value: fourthArg 
 	"Activate the receiver, creating a closure activation (MethodContext) 
 	 whose closure is the receiver and whose caller is the sender of this message. 
@@ -1019,7 +988,7 @@ value: firstArg value: secondArg value: thirdArg value: fourthArg
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueAfterWaiting: aDelay 
 	"Waits for a delay, then executes the block. Answers the process so you can terminate it"
 	
@@ -1035,7 +1004,7 @@ valueAfterWaiting: aDelay
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueAt: blockPriority  
 	"Evaluate the receiver (block), with another priority as the actual one  
 	and restore it afterwards. The caller should be careful with using  
@@ -1055,9 +1024,9 @@ valueAt: blockPriority
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueNoContextSwitch 
-	"An exact copy of ExecBlock>>value except that this version will not preempt 
+	"An exact copy of BlockClosure>>value except that this version will not preempt 
 	 the current process on block activation if a higher-priority process is runnable. 
 	 Primitive. Essential." 
     <PharoGsError>
@@ -1066,9 +1035,9 @@ valueNoContextSwitch
 %
 
 category: 'accessing'
-method: ExecBlock
+method: BlockClosure
 valueNoContextSwitch: anArg 
-	"An exact copy of ExecBlock>>value: except that this version will not preempt 
+	"An exact copy of BlockClosure>>value: except that this version will not preempt 
 	 the current process on block activation if a higher-priority process is runnable. 
 	 Primitive. Essential." 
     <PharoGsError>
@@ -1077,7 +1046,7 @@ valueNoContextSwitch: anArg
 %
 
 category: '*Reflectivity'
-method: ExecBlock
+method: BlockClosure
 valueSelector 
 	
 	<PharoGs>
@@ -1088,7 +1057,7 @@ valueSelector
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueSupplyingAnswer: anObject 
 	
 	<PharoGs>
@@ -1098,7 +1067,7 @@ valueSupplyingAnswer: anObject
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueSupplyingAnswers: aListOfPairs 
 	"evaluate the block using a list of questions / answers that might be called upon to 
 	automatically respond to Object>>confirm: or FillInTheBlank requests"
@@ -1129,7 +1098,7 @@ valueSupplyingAnswers: aListOfPairs
 %
 
 category: '*metacello-mc'
-method: ExecBlock
+method: BlockClosure
 valueSupplyingMetacelloAnswers: aListOfPairs 
 	"evaluate the block using a list of questions / answers that might be called upon to 
 	automatically respond to Object>>confirm: or FillInTheBlank requests"
@@ -1160,7 +1129,7 @@ valueSupplyingMetacelloAnswers: aListOfPairs
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueSuppressingAllMessages 
 	
 	<PharoGs>
@@ -1168,7 +1137,7 @@ valueSuppressingAllMessages
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueSuppressingMessages: aListOfStrings 
 	
 	<PharoGs>
@@ -1178,7 +1147,7 @@ valueSuppressingMessages: aListOfStrings
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueSuppressingMessages: aListOfStrings supplyingAnswers: aListOfPairs 
 	
 	<PharoGs>
@@ -1186,7 +1155,7 @@ valueSuppressingMessages: aListOfStrings supplyingAnswers: aListOfPairs
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueUninterruptably 
 	"Prevent remote returns from escaping the sender.  
 	Even attempts to terminate (unwind) this process 
@@ -1200,7 +1169,7 @@ valueUninterruptably
 %
 
 category: 'private'
-method: ExecBlock
+method: BlockClosure
 valueUnpreemptively 
 	"Evaluate the receiver (block), without the possibility of preemption 
 	by higher priority processes. Use this facility VERY sparingly!" 
@@ -1226,7 +1195,7 @@ valueUnpreemptively
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueWithArguments: anArray 
 	"Activate the receiver, creating a closure activation (MethodContext) 
 	 whose closure is the receiver and whose caller is the sender of this message. 
@@ -1243,7 +1212,7 @@ valueWithArguments: anArray
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueWithEnoughArguments: anArray 
 	"call me with enough arguments from anArray"
 	
@@ -1260,7 +1229,7 @@ valueWithEnoughArguments: anArray
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueWithExit  
 	
 	<PharoGs>
@@ -1268,7 +1237,7 @@ valueWithExit
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueWithin: aDuration onTimeout: timeoutBlock 
 	"Evaluate the receiver. 
 	If the evaluation does not complete in less than aDuration 
@@ -1301,7 +1270,7 @@ valueWithin: aDuration onTimeout: timeoutBlock
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueWithInterval: aDelay 
 	"Executes the block every x milliseconds specified in arguments. 
 	Answers the process, so you can terminate it"
@@ -1318,7 +1287,7 @@ valueWithInterval: aDelay
 %
 
 category: '*system-announcements'
-method: ExecBlock
+method: BlockClosure
 valueWithoutNotifications  
 	
 	<PharoGs>
@@ -1326,7 +1295,7 @@ valueWithoutNotifications
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueWithPossibleArgs: anArray  
 	"Execute the receiver with the correct number of arguments taken from the argument." 
 	"([:x | x + 1] valueWithPossibleArgs: #( 13 12 15)) 
@@ -1358,7 +1327,7 @@ valueWithPossibleArgs: anArray
 %
 
 category: 'evaluating'
-method: ExecBlock
+method: BlockClosure
 valueWithPossibleArgument: anArg  
 	"Evaluate the block represented by the receiver.  
 	 If the block requires one argument, use anArg, if it requires more than one, 
@@ -1375,7 +1344,7 @@ valueWithPossibleArgument: anArg
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 whileFalse
 "(Reserved selector.)  Evaluate the receiver once and then repeatedly as long 
  as the value returned by the evaluation is false.
@@ -1387,7 +1356,7 @@ whileFalse
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 whileFalse: aBlock  
 	"(Reserved selector.)  Evaluates the zero-argument block aBlock repeatedly
 	while the receiver evaluates to false.  Return nil.  Generates an error if the
@@ -1400,7 +1369,7 @@ whileFalse: aBlock
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 whileNil: aBlock  
 	"Unlike #whileTrue/False: this is not compiled inline."
 	
@@ -1409,7 +1378,7 @@ whileNil: aBlock
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 whileNotNil: aBlock  
 	"Unlike #whileTrue/False: this is not compiled inline."
 	
@@ -1418,7 +1387,7 @@ whileNotNil: aBlock
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 whileTrue
 	"(Reserved selector.)  Evaluate the receiver once and then repeatedly as long 
 	as the value returned by the evaluation is true.
@@ -1430,7 +1399,7 @@ whileTrue
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 whileTrue: aBlock
 
 	"(Reserved selector.)  Evaluates the zero-argument block aBlock repeatedly
@@ -1444,42 +1413,37 @@ whileTrue: aBlock
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 _gsReservedSelector_repeat 
 
-    <PharoGs>
     self @env0:error: 'Reserved selector'.
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 _gsReservedSelector_whileFalse 
 
-    <PharoGs>
     self @env0:error: 'Reserved selector'.
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 _gsReservedSelector_whileFalse: aBlock
 
-    <PharoGs>
     self @env0:error: 'Reserved selector'.
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 _gsReservedSelector_whileTrue 
 
-    <PharoGs>
     self @env0:error: 'Reserved selector'.
 %
 
 category: 'controlling'
-method: ExecBlock
+method: BlockClosure
 _gsReservedSelector_whileTrue: aBlock
 
-    <PharoGs>
     self @env0:error: 'Reserved selector'.
 %
 

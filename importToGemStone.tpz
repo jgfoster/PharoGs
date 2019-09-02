@@ -41,6 +41,16 @@ run
 	#'SpaceTally'
 	#'MessageTally'
 	#'EllipseMorph'
+
+	"PolyMath"
+	#'RSView'
+	#'TSScale'
+	#'RSShapeBuilder'
+	#'PackageInfo'
+	#'GrowlMorph'
+	#'DataFrame'
+	#'Cursor'
+	
 ) @env0:do: [:each | UserGlobals @env0:at: each ifAbsentPut: [nil]].
 "Seaside looks for this explictly in 'Smalltalk globals'"
 Pharo at: #'PragmaSetting' put: nil.

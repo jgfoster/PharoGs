@@ -614,8 +614,31 @@ addMethodsFor: eachBehavior
 			line := eachLine , ' '.
 			(eachLine notEmpty and: [eachLine first == $%]) ifTrue: [fileStream space].
 			eachBehavior == Class ifTrue: [	"should not use instVarNames as method argument"
-				line := line copyReplaceAll: ': instVarNames ' with: ': instVarNameList '.
+				"line := line copyReplaceAll: ': instVarNames ' with: ': instVarNameList '."
 			].
+			"https://github.com/PolyMathOrg/PolyMath/pull/150"
+			line := line copyReplaceAll: 'doStep: aState time: t stepSize: dt' with: 'doStep: aState time: t stepSize: stepSize'.
+			line := line copyReplaceAll: '| num sumNum q |' with: '| num sumNum |'.
+			line := line copyReplaceAll: '| p sumP |' with: '| sumP |'.
+			line := line copyReplaceAll: '| p d beta logU n' with: '| d beta logU n'.
+			line := line copyReplaceAll: 'ifNotNil: [.' with: 'ifNotNil: ['.
+			line := line copyReplaceAll: 
+				'^{ self parameter .self argument.self resultsAt: ''Aaa''.self numberOfDifferentParametersAt: ''Aaa''.self numberOfDifferentResultsAt:''Aaa''}'
+				with:
+				'^{ self parameter. self argument. self resultsAt: ''Aaa''. self numberOfDifferentParametersAt: ''Aaa''. self numberOfDifferentResultsAt: ''Aaa'' }'.
+			line := line copyReplaceAll:
+				'^{ self parameter .self argument.self resultsAt: ''Bbb''.self numberOfDifferentParametersAt: ''Bbb''.self numberOfDifferentResultsAt:''Bbb''}'
+				with:
+				'^{ self parameter. self argument. self resultsAt: ''Bbb''. self numberOfDifferentParametersAt: ''Bbb''. self numberOfDifferentResultsAt: ''Bbb'' }'.
+			line := line copyReplaceAll: 'doStep: aStateTime stepSize: dt' with: 'doStep: aStateTime stepSize: stepSize'.
+			line := line copyReplaceAll: 'doStep: aState time: aTime stepSize: dt' with: 'doStep: aState time: aTime stepSize: stepSize'.
+			line := line copyReplaceAll:
+				'#(1.0 2.0 3.0 5.0 10.0 2r1.0e52 2r1.0e53 2r1.0e54 0.5 0.25 2r1.0e-52 2r1.0e-53 2r1.0e-54 1.0e60 0.1 1.1e-30 1.0e-60)'
+				with:
+				'#(1.0 2.0 3.0 5.0 10.0 4.503599627370496e15 9.007199254740992e15 1.8014398509481984e16 0.5 0.25 2.220446049250313e-16 1.1102230246251565e-16 5.551115123125783e-17 1.0e60 0.1 1.1e-30 1.0e-60)'.
+			line := line copyReplaceAll: ' to: 11do:' with: ' to: 11 do:'.
+			line := line copyReplaceAll: 'c:=pos1.pos1:=pos2.' with: 'c := pos1. pos1 := pos2.'.
+
 			fileStream nextPutAll: (line copyFrom: 1 to: line size - 1); lf.
 		].
 		fileStream nextPut: $%; lf.
@@ -768,6 +791,12 @@ installPackages
 	        fileName: each.
 	    (MCSnapshot fromDefinitions: reader definitions) install.
 	].
+
+	Metacello new
+		repository: 'github://PolyMathOrg/PolyMath/src';
+		baseline: 'PolyMath';
+		onWarningLog;
+		load.
 ! !
 
 !PharoGsExport methodsFor: 'export' stamp: 'JamesFoster 7/18/2019 08:25'!

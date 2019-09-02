@@ -485,6 +485,10 @@ fixBinarySelectorsInLiteralArrayIn: aString
 				prev := next.
 				literalArrayDepth := literalArrayDepth - 1.
 			] ifFalse: [
+			(next == $- and: [readStream peek isDigit]) ifTrue: [
+				writeStream nextPut: next.
+				prev := next.
+			] ifFalse: [
 			
 			"handle binary selectors (this is why we are doing the work)"
 			(next isSpecial and: [prev ~~ $$]) ifTrue: [
@@ -504,7 +508,7 @@ fixBinarySelectorsInLiteralArrayIn: aString
 			] ifFalse: [
 				writeStream nextPut: next.
 				prev := next.
-			]]]
+			]]]]
 			"other characters outside of a literal array"
 		] ifFalse: [
 			writeStream nextPut: next.
@@ -733,7 +737,7 @@ createGlobals
 		nextPut: $%; lf;
 		nextPutAll: 'errorCount'; lf;
 		yourself.
-	Transcript show: 'globals count = ' , dict size printString; cr.
+	Transcript cr; show: 'globals count = ' , dict size printString; cr.
 ! !
 
 !PharoGsExport methodsFor: 'export' stamp: 'JamesFoster 7/23/2019 11:40'!

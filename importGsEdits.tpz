@@ -42,7 +42,6 @@ input PharoMods/False.gs
 input PharoMods/FastInflateStream.gs
 input PharoMods/File.gs
 input PharoMods/FileReference.gs
-input PharoMods/FileStream.gs
 input PharoMods/Float.gs
 input PharoMods/FloatArray.gs
 input PharoMods/FullBlockClosure.gs
@@ -92,7 +91,6 @@ input PharoMods/SmallInteger.gs
 input PharoMods/SmalltalkImage.gs
 input PharoMods/Socket.gs
 input PharoMods/SourceFileArray.gs
-input PharoMods/StandardFileStream.gs
 input PharoMods/String.gs
 input PharoMods/Symbol.gs
 input PharoMods/SymbolDictionary.gs
@@ -116,7 +114,6 @@ input PharoMods/WeakRegistry.gs
 input PharoMods/WideString.gs
 input PharoMods/WideSymbol.gs
 input PharoMods/WordArray.gs
-input PharoMods/X11Encoding.gs
 input PharoMods/ZdcByteArrayManager.gs
 input PharoMods/ZdcPluginSSLSession.gs
 input PharoMods/ZdcSecureSocketStream.gs

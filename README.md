@@ -9,7 +9,7 @@ At the lowest level, a Smalltalk class library is tightly bound to the virtual m
 - resources managed by the operating system (such as files and sockets), and 
 - external software libraries (typically with a foreign function interface or FFI). 
 
-With the exception of the primitives (of which there are over 500 in Pharo's [minimal image](https://files.pharo.org/get-files/80/pharo-minimal.zip)), the remaining code in standard Smalltalk is simply message sends to objects, which (in theory) is portable to any Smalltalk implementation. Because of this, there is a rich tradition of writing high-level libraries and frameworks in such a way that they are portable from one dialect to another. Perhaps the best-known current such framework in the Smalltalk community is [Seaside](http://seaside.st/download), with seven listed dialects supported.
+With the exception of the primitives (of which there are over 500 in Pharo's [minimal image](https://files.pharo.org/get-files/90/pharo-minimal.zip)), the remaining code in standard Smalltalk is simply message sends to objects, which (in theory) is portable to any Smalltalk implementation. Because of this, there is a rich tradition of writing high-level libraries and frameworks in such a way that they are portable from one dialect to another. Perhaps the best-known current such framework in the Smalltalk community is [Seaside](http://seaside.st/download), with seven listed dialects supported.
 
 Of course, there is a lot of code between the primitives and the portable libraries, and this leaves lots of room for [misunderstandings](https://wiki.c2.com/?DoesNotUnderstand). One approach is to provide a portability layer (of which [Grease](https://github.com/SeasideSt/Grease)) is perhaps the best known in Smalltalk. This way, if you write to the the portability layer, then you should be able to port your code to any dialect that has an equivalent version of the portability layer (customized for that dialect).
 
@@ -41,7 +41,7 @@ It is not anticipated that PharoGs will provide a platform for developing langua
 
 # Development Process
 
-The following instructions describe one development process using macOS Mojave (10.14.5), GemStone/S 64 Bit 3.5.0, and Pharo8.0. This is an attempt to describe something that is known to work and is not intended to mandate naming conventions and directories. You are welcome to adapt this to your own situation.
+The following instructions describe one development process using macOS Mojave (10.14.6), GemStone/S 64 Bit 3.5.0, and Pharo9.0. This is an attempt to describe something that is known to work and is not intended to mandate naming conventions and directories. You are welcome to adapt this to your own situation.
 
 ## Pharo
 
@@ -63,7 +63,7 @@ Use bootstrap to get a new minimal image:
 ```
 cd ./pharo
 git checkout PharoGs
-export BRANCH_NAME=Pharo8.0
+export BRANCH_NAME=Pharo9.0
 export BUILD_NUMBER=42
 export BOOTSTRAP_ARCH=64
 time ./bootstrap/scripts/bootstrap.sh; date # this takes about 20 minutes
@@ -88,7 +88,7 @@ cd ~/code # or where you want to install the code
 git clone https://github.com/jgfoster/PharoGs.git
 ```
 
-The current approach is to export _all_ class and methods from a Pharo [minimal image](https://files.pharo.org/get-files/80/pharo-minimal.zip) (to which sources has been added) using the `exportFromPharo.sh` script. This script generates a set of `.gs` files that can be loaded into GemStone using [Topaz](https://downloads.gemtalksystems.com/docs/GemStone64/3.5.x/GS64-Topaz-3.5.pdf).
+The current approach is to export _all_ class and methods from a Pharo [minimal image](https://files.pharo.org/get-files/90/pharo-minimal.zip) (to which sources has been added) using the `exportFromPharo.sh` script. This script generates a set of `.gs` files that can be loaded into GemStone using [Topaz](https://downloads.gemtalksystems.com/docs/GemStone64/3.5.x/GS64-Topaz-3.5.pdf).
 
 To log in to GemStone with Topaz you will need a `.topazini` file similar to the following:
 

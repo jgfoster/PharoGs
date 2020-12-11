@@ -750,6 +750,9 @@ installPackages
 		"Extra packages to add to GemStone"
 		add: 'System-Localization';
 		add: 'Monticello';
+		add: 'VariablesLibrary';
+		add: 'Reflectivity';
+		add: 'Text-Core';
 		add: 'SUnit-Core';
 		add: 'Kernel-Tests';
 		add: 'Files-Tests';
@@ -813,6 +816,9 @@ writeMD5
 		line := methodStream nextLine.
 		index := line indexOfSubCollection: '>>'.
 		class := self class compiler evaluate: (line copyFrom: 1 to: index - 1).
+		class ifNil: [
+			self error: 'Class not found for ''' , line , ''''.
+		].
 		selector := line copyFrom: index + 2 to: line size.
 		(class sourceCodeAt: selector asSymbol ifAbsent: [nil]) ifNil: [
 			hashStream 

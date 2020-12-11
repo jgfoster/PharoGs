@@ -45,7 +45,6 @@ COLLECTIONS
 	SortedCollection
 
 STREAMS
-	FileStream
 	PositionableStream
 	ReadStream
 	ReadWriteStream

@@ -143,10 +143,7 @@ nil
 			ProcessorScheduler ( quiescentProcessLists activeProcess )
 			Random ( seed a m q r )
 			Stream ( )
-				PositionableStream ( collection position readLimit )
-					ReadStream ( )
-					WriteStream ( writeLimit )
-						ReadWriteStream ( )
-							FileStream ( rwmode )
+				AbstractBinaryFileStream
+					BinaryFileStream ( file handle forWrite semaphore semaphoreIndex )
 				SharedQueue ( monitor items )
 			UndefinedObject ( )

@@ -599,7 +599,6 @@ File class>>truncate:to:
 File class>>unregister:
 File class>>write:from:startingAt:count:
 FileReference class>>primDropRequestFileName:
-FileStream class>>stdioHandles
 Float>>asTrueFraction
 Float>>basicAt:
 Float>>basicAt:put:
@@ -1120,24 +1119,6 @@ Socket>>waitForConnectionFor:ifTimedOut:
 Socket>>waitForDataFor:ifClosed:ifTimedOut:
 Socket>>waitForDataIfClosed:
 SourceFileArray>>initialize
-StandardFileStream class>>register:
-StandardFileStream class>>retryWithGC:until:forFileNamed:
-StandardFileStream class>>unregister:
-StandardFileStream>>primAtEnd:
-StandardFileStream>>primClose:
-StandardFileStream>>primCloseNoError:
-StandardFileStream>>primDropRequestFileHandle:
-StandardFileStream>>primDropRequestFileName:
-StandardFileStream>>primFlush:
-StandardFileStream>>primGetPosition:
-StandardFileStream>>primOpen:writable:
-StandardFileStream>>primRead:into:startingAt:count:
-StandardFileStream>>primSetPosition:to:
-StandardFileStream>>primSize:
-StandardFileStream>>primSizeNoError:
-StandardFileStream>>primSync:
-StandardFileStream>>primTruncate:to:
-StandardFileStream>>primWrite:from:startingAt:count:
 String class>>isBytes
 String class>>new:
 String>>asSymbol
@@ -1223,21 +1204,6 @@ WordArray>>primMulScalar:and:into:
 WordArray>>primSubArray:and:into:
 WordArray>>primSubScalar:and:into:
 WordArray>>replaceFrom:to:with:startingAt:
-X11Encoding class>>getEncoding
-X11Encoding class>>getLocaleEncoding
-X11Encoding class>>getPathEnc
-X11Encoding class>>getTextEnc
-X11Encoding class>>getXWinEnc
-X11Encoding class>>requestUTF8
-X11Encoding class>>requestUTF8:
-X11Encoding class>>setEncoding:
-X11Encoding class>>setEncodingToLocale
-X11Encoding class>>setPathEnc:
-X11Encoding class>>setPathEncToLocale
-X11Encoding class>>setTextEnc:
-X11Encoding class>>setTextEncToLocale
-X11Encoding class>>setXWinEnc:
-X11Encoding class>>setXWinEncToLocale
 ZdcByteArrayManager class>>current
 ZdcPluginSSLSession>>primitiveSSL:accept:startingAt:count:into:
 ZdcPluginSSLSession>>primitiveSSL:connect:startingAt:count:into:

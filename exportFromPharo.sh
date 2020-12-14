@@ -34,7 +34,7 @@ if [ -z "$PHAROGS" ]; then   # get image & changes
   unzip *.zip
   rm *.zip
 else
-  cp $PHAROGS/bootstrap-cache/Pharo9.0-SNAPSHOT-metacello-* .
+  cp $PHAROGS/bootstrap-cache/Pharo9.0-PR-metacello-* .
 fi
 cd ..
 

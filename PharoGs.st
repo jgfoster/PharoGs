@@ -52,9 +52,9 @@ createLinksToIdenticalClasses
 		nextPutAll: 'run'; lf;
 		nextPutAll: 'Pharo'; lf;
 		yourself.
-	self pharoToGsClassMap keysAndValuesDo: [:eachKey :eachValue | 
-		fileStream 
-			tab; nextPutAll: 'at: #'; nextPutAll: eachKey name; 
+	self pharoToGsClassMap keysAndValuesDo: [:eachKey :eachValue |
+		fileStream
+			tab; nextPutAll: 'at: #'; nextPutAll: eachKey name;
 			nextPutAll: ' put: (Globals at: #'; nextPutAll: eachValue;
 			nextPutAll: ');'; lf;
 			yourself.
@@ -72,7 +72,7 @@ listOfClasses
 	| list queue |
 	queue := OrderedCollection with: ProtoObject with: SharedPool with: Object.
 	list := OrderedCollection with: ProtoObject with: Object with: SharedPool.
-	[ queue notEmpty ] whileTrue: [ 
+	[ queue notEmpty ] whileTrue: [
 		| eachClass subclasses |
 		eachClass := queue removeFirst.
 		subclasses := eachClass subclasses asSortedCollection: [:a :b | a name <= b name].
@@ -106,12 +106,12 @@ addClassVarsFor: aClass
 		nextPutAll: 'names := #(';
 		yourself.
 	"add any Pharo class variable names to the GemStone class"
-	aClass classVarNames do: [ :each | 
+	aClass classVarNames do: [ :each |
 			fileStream space; nextPutAll: each.
 	].
-	aClass class notNil ifTrue: [ 
-		aClass class instVarNames do: [ :each | 
-			fileStream space; nextPutAll: each. 
+	aClass class notNil ifTrue: [
+		aClass class instVarNames do: [ :each |
+			fileStream space; nextPutAll: each.
 		]
 	].
 	fileStream
@@ -128,7 +128,7 @@ addClassVarsFor: aClass
 defineInstVarsFor: aClass
 
 	fileStream tab; nextPutAll: 'instVarNames: #('.
-	aClass instVarNames do: [ :each | 
+	aClass instVarNames do: [ :each |
 		fileStream space; nextPutAll: each.
 	].
 	fileStream nextPut: $); lf.! !
@@ -136,7 +136,7 @@ defineInstVarsFor: aClass
 !PharoGsExport methodsFor: 'classes' stamp: 'JamesFoster 7/23/2019 18:00'!
 pharoToGsClassMap
 
-	^Dictionary new 
+	^Dictionary new
 		"These have the same name"
 		at: Array 					put: #Array;
 		at: Behavior 				put: #Behavior;
@@ -199,17 +199,17 @@ addClassFor: aClass
 	"determine the subclass type (byte, indexable, or objects"
 	message := ((superclass := aClass superclass) notNil
 		and: [ superclass instSpec ~~ instSpec ])
-		ifTrue: [ 
-			(instSpec between: 16 and: 23) ifTrue: [ 
+		ifTrue: [
+			(instSpec between: 16 and: 23) ifTrue: [
 				isBytes := true.
-				' byteSubclass: ''' 
+				' byteSubclass: '''
 			] ifFalse: [
 				(instSpec between: 2 and: 4)
 					ifTrue: [ ' indexableSubclass: ''' ]
 					ifFalse: [ ' subclass: ''' ].
 			]
-		] ifFalse: [ 
-			' subclass: ''' 
+		] ifFalse: [
+			' subclass: '''
 		].
 	fileStream
 		nextPutAll: 'errorCount'; lf;
@@ -220,10 +220,10 @@ addClassFor: aClass
 		nextPutAll: aClass name;
 		nextPut: (Character codePoint: 39);
 		lf.
-	isBytes ifFalse: [ 
+	isBytes ifFalse: [
 		self defineInstVarsFor: aClass.
 	].
-	self 
+	self
 		defineClassVarsFor: aClass;
 		defineClassInstVarsFor: aClass;
 		definePoolsFor: aClass;
@@ -247,9 +247,9 @@ definePoolsFor: aClass
 
 	fileStream
 		tab; nextPutAll: 'poolDictionaries: {'.
-	aClass sharedPools do: [ :each | 
-		fileStream 
-			space; nextPutAll: each name; 
+	aClass sharedPools do: [ :each |
+		fileStream
+			space; nextPutAll: each name;
 			nextPutAll: ' _classVars ifNil: [SymbolDictionary new]. '.
 	].
 	fileStream nextPut: $}; lf.
@@ -264,11 +264,11 @@ createClasses
 		createNoSubclassesClass;
 		yourself.
 	list := self listOfClasses.
-	list do: [ :aClass | 
-		(self pharoToGsClassMap keys includes: aClass) ifTrue: [ 
+	list do: [ :aClass |
+		(self pharoToGsClassMap keys includes: aClass) ifTrue: [
 			"we are using the GemStone class, so should not create a new class"
 			self addClassVarsFor: aClass.
-		] ifFalse: [ 
+		] ifFalse: [
 			"create a new class"
 			self addClassFor: aClass.
 		].
@@ -300,7 +300,7 @@ createNoSubclassesClass
 defineClassVarsFor: aClass
 
 	fileStream tab; nextPutAll: 'classVars: #('.
-	aClass classVarNames do: [ :each | 
+	aClass classVarNames do: [ :each |
 		fileStream space; nextPutAll: each.
 	].
 	fileStream nextPut: $); lf.
@@ -310,7 +310,7 @@ defineClassVarsFor: aClass
 defineClassInstVarsFor: aClass
 
 	fileStream tab; nextPutAll: 'classInstVars: #('.
-	aClass class instVarNames do: [ :each | 
+	aClass class instVarNames do: [ :each |
 		fileStream space; nextPutAll: each.
 	].
 	fileStream nextPut: $); lf.
@@ -328,16 +328,16 @@ compileErrors
 		#(#Behavior #methodDict)
 		#(#Behavior #methodDict:)
 		#(#Behavior #superclass)
-		#(#BlockClosure $*) 
+		#(#BlockClosure $*)
 		#(#Class #copyForAnnouncement) "superclass category classPool"
 		#(#Class #basicCategory)
 		#(#Class #basicCategory:)
-		#(#Class #classPool) 
-		#(#Class #classPool:) 
-		#(#Class #environment) 
-		#(#Class #environment:) 
-		#(#Class #sharedPools) 
-		#(#Class #sharedPools:) 
+		#(#Class #classPool)
+		#(#Class #classPool:)
+		#(#Class #environment)
+		#(#Class #environment:)
+		#(#Class #sharedPools)
+		#(#Class #sharedPools:)
 		#(#ClassDescription #basicOrganization)
 		#(#ClassDescription #basicOrganization:)
 		#(#ClassDescription #definitionWithSlots)
@@ -369,7 +369,7 @@ compileErrors
 		#(#Exception signaler)
 		#(#Exception signaler:)
 		#(#Exception signalerContext)
-		#(#ExceptionSet #add:)	
+		#(#ExceptionSet #add:)
 		#(#ExceptionSet #handles:)
 		#(#ExceptionSet #initialize)
 		#(#FullBlockClosure $*)
@@ -425,7 +425,7 @@ createMethods
 		nextPutAll: 'symbolList := GsSession currentSession symbolList.'; lf;
 		nextPutAll: 'symbolList add: (symbolList remove: Pools) after: Pharo.'; lf;
 		nextPut: $%; lf.
-	self listOfClasses do: [:aClass | 
+	self listOfClasses do: [:aClass |
 		count := count + (self createMethodsFor: aClass).
 	].
 	fileStream  nextPutAll: 'errorCount'; lf.
@@ -435,7 +435,7 @@ createMethods
 !PharoGsExport methodsFor: 'methods' stamp: 'JamesFoster 7/16/2019 10:24'!
 replaceCrWithLfIn: aString
 
-	^aString collect: [:each | 
+	^aString collect: [:each |
 		each == Character cr ifTrue: [Character lf] ifFalse: [each].
 	]
 ! !
@@ -453,9 +453,9 @@ fixBinarySelectorsInLiteralArrayIn: aString
 	] whileFalse: [
 		| next |
 		next := readStream next.
-		
+
 		"deal with comments"
-		(next == (Character codePoint: 34) and: [prev ~~ $$]) ifTrue: [ 
+		(next == (Character codePoint: 34) and: [prev ~~ $$]) ifTrue: [
 			writeStream nextPut: (Character codePoint: 34); nextPutAll: (readStream upTo: (Character codePoint: 34)); nextPut: (Character codePoint: 34).
 			prev := (Character codePoint: 34).
 		] ifFalse: [
@@ -464,7 +464,7 @@ fixBinarySelectorsInLiteralArrayIn: aString
 			writeStream nextPut: (Character codePoint: 39); nextPutAll: (readStream upTo: (Character codePoint: 39)); nextPut: (Character codePoint: 39).
 			prev := (Character codePoint: 39).
 		] ifFalse: [
-		
+
 		"deal with start of literal Array"
 		(next == $# and: [readStream peekFor: $(]) ifTrue: [
 			writeStream nextPutAll: '#('.
@@ -489,7 +489,7 @@ fixBinarySelectorsInLiteralArrayIn: aString
 				writeStream nextPut: next.
 				prev := next.
 			] ifFalse: [
-			
+
 			"handle binary selectors (this is why we are doing the work)"
 			(next isSpecial and: [prev ~~ $$]) ifTrue: [
 				prev ~~ $# ifTrue: [
@@ -503,7 +503,7 @@ fixBinarySelectorsInLiteralArrayIn: aString
 				] whileTrue: [
 					writeStream nextPut: (prev := readStream next).
 				].
-			
+
 			"other characters inside a literal array"
 			] ifFalse: [
 				writeStream nextPut: next.
@@ -528,12 +528,12 @@ addClassCommentFor: aClass
 			nextPutAll: 'category: ''GemStone'''; lf;
 			nextPutAll: 'classMethod:'; lf;
 			nextPutAll: 'pharoComment'; lf;
-			nextPut: $^; 
+			nextPut: $^;
 			print: (self replaceCrWithLfIn: aClass comment); lf;
 			nextPut: $%; lf;
 			yourself.
 		] ifFalse: [
-		
+
 		"for Pharo classes, add the comment"
 		fileStream
 			nextPutAll: 'run'; lf;
@@ -567,14 +567,14 @@ addMethodsHeaderFor: aClass
 fixMethodsThatWillNotCompileInBehavior: behavior selector: selector source: source
 
 	| flag i |
-	flag := self compileErrors anySatisfy: [:pair | 
-		(pair first == $* or: [pair first = behavior name]) 
+	flag := self compileErrors anySatisfy: [:pair |
+		(pair first == $* or: [pair first = behavior name])
 		and: [pair last == $* or: [pair last == selector]]].
 	flag ifFalse: [ ^source ].
 	i :=  source indexOf: Character lf.
-	^(source copyFrom: 1 to: i - 1), Character lf asString , 
-		'	<PharoCompileError>' , Character lf asString , 
-		'	self _gsError "' , 
+	^(source copyFrom: 1 to: i - 1), Character lf asString ,
+		'	<PharoCompileError>' , Character lf asString ,
+		'	self _gsError "' ,
 		((source copyFrom: i to: source size) copyReplaceAll: '"' with: '""') , '"'
 ! !
 
@@ -585,31 +585,31 @@ addMethodsFor: eachBehavior
 	count := 0.
 	methodDict := eachBehavior methodDict.
 	organization := eachBehavior organization.
-	methodDict keys asSortedCollection do: [ :eachSelector | 
+	methodDict keys asSortedCollection do: [ :eachSelector |
 		| category source |
 		category := organization categoryOfElement: eachSelector.
 		source := (methodDict at: eachSelector) sourceCode.
 		source := self replaceCrWithLfIn: source.
 		source := self rewritePrimitiveIn: source.
 		source := self fixBinarySelectorsInLiteralArrayIn: source.
-		source := self 
+		source := self
 			fixMethodsThatWillNotCompileInBehavior: eachBehavior
-			selector: eachSelector 
+			selector: eachSelector
 			source: source.
-			
+
 		"special handling for Semaphore"
 		eachBehavior == Semaphore ifTrue: [
-			source := source 
+			source := source
 				copyReplaceAll: 'excessSignals'
 				with: 'signalCount'.
 		].
-			
+
 		"method category and instance or class side"
 		fileStream lf;
 			nextPutAll: 'category: '''; nextPutAll: category; nextPut: (Character codePoint: 39); lf;
 			nextPutAll: (eachBehavior isMeta ifTrue: ['classMethod: '] ifFalse: ['method: ']); lf.
 			"put out the method"
-		(source substrings: (Array with: Character lf)) do: [:eachLine | 
+		(source substrings: (Array with: Character lf)) do: [:eachLine |
 			| line |
 			line := eachLine , ' '.
 			(eachLine notEmpty and: [eachLine first == $%]) ifTrue: [fileStream space].
@@ -633,15 +633,15 @@ rewritePrimitiveIn: aString
 	0 < i ifTrue: [ | string inComment inString |
 		inComment := false.
 		inString := false.
-		(string := source copyFrom: 1 to: i - 1) do: [:char | 
+		(string := source copyFrom: 1 to: i - 1) do: [:char |
 			char == (Character codePoint: 34) ifTrue: [inComment := inComment not].
 			(inComment not and: [char == (Character codePoint: 39)]) ifTrue: [inString := inString not].
 		].
 		(inComment not and: [inString not]) ifTrue: [
-			source := string , '<PharoPrimitive>' , Character lf asString , 
+			source := string , '<PharoPrimitive>' , Character lf asString ,
 				'self @env0:error: ''PharoPrimitive''.' , Character lf asString ,
-				'"' , Character tab asString , 
-				((source copyFrom: i to: source size) copyReplaceAll: '"' with: '""') , 
+				'"' , Character tab asString ,
+				((source copyFrom: i to: source size) copyReplaceAll: '"' with: '""') ,
 				'"'.
 		].
 	].
@@ -657,21 +657,21 @@ createMethodsFor: aClass
 	path := 'classes/' , aClass name , '.gs'.
 	fileStream nextPutAll: 'input '; nextPutAll: path; lf.
 	savedStream := fileStream.
-	[ 
+	[
 		fileStream := path asFileReference writeStream.
-		self 
+		self
 			addMethodsHeaderFor: aClass;
 			addClassCommentFor: aClass;
 			yourself.
 		count := count + (self addMethodsFor: aClass).
 		count := count + (self addMethodsFor: aClass class).
-		fileStream 
+		fileStream
 			nextPutAll: 'set compile_env: 0'; lf;
 			nextPutAll: 'errorCount'; lf;
 			nextPutAll: 'output pop'; lf;
 			nextPutAll: 'errorCount'; lf;
 			close.
-	] ensure: [ 
+	] ensure: [
 		fileStream := savedStream.
 	].
 	^count
@@ -697,8 +697,8 @@ openFiles
 !PharoGsExport methodsFor: 'export' stamp: 'JamesFoster 7/23/2019 11:13'!
 doExport
 
-	[ 
-		self 
+	[
+		self
 			installPackages;
 			openFiles;
 			createGlobals;
@@ -708,7 +708,7 @@ doExport
 			writeMD5;
 			closeFiles;
 			yourself.
-	] on: Error do: [:ex | 
+	] on: Error do: [:ex |
 		Transcript show: ex description; cr.
 		ex signalerContext stack do: [:each |
 			Transcript show: each; cr.
@@ -725,10 +725,10 @@ createGlobals
 		nextPutAll: '!! - create Pharo globals'; lf;
 		nextPutAll: 'run'; lf;
 		nextPutAll: 'Pharo'; lf.
-	dict keys asSortedCollection do: [:eachKey | 
-		fileStream 
-			tab; nextPutAll: 'at: #'; 
-			nextPutAll: eachKey; 
+	dict keys asSortedCollection do: [:eachKey |
+		fileStream
+			tab; nextPutAll: 'at: #';
+			nextPutAll: eachKey;
 			nextPutAll: ' put: nil;';
 			lf.
 	].
@@ -743,9 +743,9 @@ createGlobals
 !PharoGsExport methodsFor: 'export' stamp: 'JamesFoster 7/23/2019 11:40'!
 installPackages
 	"Extra (or replacement) packages we want to be in GemStone"
-	
+
 	| path list |
-	path := '/Users/jfoster/code/pharo/src/' asFileReference.
+	path := '/Users/jfoster/code/pharo/pharo/src/' asFileReference.
 	list := OrderedCollection new
 		"Extra packages to add to GemStone"
 		add: 'System-Localization';
@@ -766,7 +766,7 @@ installPackages
 		yourself.
 	list do: [:each | | reader |
 	    Transcript nextPutAll: 'Installing '; nextPutAll: each value; cr.
-	    reader := TonelReader 
+	    reader := TonelReader
 	        on: path
 	        fileName: each.
 	    (MCSnapshot fromDefinitions: reader definitions) install.
@@ -782,10 +782,10 @@ createPools
 		nextPutAll: '!! - create Pharo SharedPool globals'; lf;
 		nextPutAll: 'run'; lf;
 		nextPutAll: 'Pharo'; lf.
-	(list asSortedCollection: [ :a :b | a name <= b name ]) do: [:each | 
-		fileStream 
-			tab; nextPutAll: 'at: #'; 
-			nextPutAll: each name; 
+	(list asSortedCollection: [ :a :b | a name <= b name ]) do: [:each |
+		fileStream
+			tab; nextPutAll: 'at: #';
+			nextPutAll: each name;
 			nextPutAll: ' put: nil;';
 			lf.
 	].
@@ -800,7 +800,7 @@ createPools
 !PharoGsExport methodsFor: 'export' stamp: 'JamesFoster 7/16/2019 12:53'!
 closeFiles
 
-	fileStream 
+	fileStream
 		nextPutAll: 'errorCount'; lf;
 		nextPutAll: 'output pop'; lf;
 		nextPutAll: 'errorCount'; lf;
@@ -821,11 +821,11 @@ writeMD5
 		].
 		selector := line copyFrom: index + 2 to: line size.
 		(class sourceCodeAt: selector asSymbol ifAbsent: [nil]) ifNil: [
-			hashStream 
+			hashStream
 				nextPutAll: class name , '>>' , selector;
 				cr; flush.
-		] ifNotNil: [:source | 
-			hashStream 
+		] ifNotNil: [:source |
+			hashStream
 				nextPutAll: class name , '>>' , selector;
 				tab; print: (MD5 hashMessage: source);
 				cr; flush.

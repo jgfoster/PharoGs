@@ -543,10 +543,6 @@ ExternalAddress class>>allocate:
 ExternalAddress class>>loadSymbol:module:
 ExternalAddress>>clone
 ExternalAddress>>free
-ExternalFunction class>>getLastError
-ExternalFunction>>invokeWithArguments:
-ExternalFunction>>tryInvokeWithArguments:
-ExternalLibrary>>forceLoading
 ExternalSemaphoreTable class>>clearExternalObjects
 ExternalSemaphoreTable class>>externalObjects
 ExternalSemaphoreTable class>>initialize

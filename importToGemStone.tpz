@@ -29,6 +29,16 @@ run
 	"Iceberg"
 	#'thunk'
 
+	"Pragma"
+	#'pragmaCache'
+
+	"Class"
+	#'sharedPools'
+	#'classPool'
+
+	"MessageNotUnderstood"
+	#'message'
+
 	"Seaside"
 	#'ObjectExplorerWrapper'
 	#'ProcessBrowser'
@@ -90,7 +100,7 @@ Pharo
 	at: #'Undeclared' put: Dictionary @env2:new;
 	yourself.
 systemDictionary := SystemDictionary @env2:new.
-Pharo keysAndValuesDo: [:eachKey :eachValue | 
+Pharo keysAndValuesDo: [:eachKey :eachValue |
 	eachKey ~~ #'Pharo' ifTrue: [
 		systemDictionary @env2:at: eachKey put: eachValue.
 	].
@@ -158,13 +168,13 @@ set compile_env: 0
 run
 | gsFile |
 gsFile := GsFile openWriteOnServer: 'PharoGsMethods.txt'.
-Pharo keys asSortedCollection do: [:eachKey | 
+Pharo keys asSortedCollection do: [:eachKey |
 	| eachGlobal |
 	eachGlobal := Pharo at: eachKey.
 	eachGlobal isClass ifTrue: [
-		(Array with: eachGlobal class with: eachGlobal) do: [:eachBehavior | 
+		(Array with: eachGlobal class with: eachGlobal) do: [:eachBehavior |
 			(eachBehavior selectorsForEnvironment: 2) asSortedCollection do: [:eachSelector |
-				(eachBehavior pragmasForMethod: eachSelector env: 2) do: [:eachPragma | 
+				(eachBehavior pragmasForMethod: eachSelector env: 2) do: [:eachPragma |
 					(eachPragma keyword indexOfSubCollection: 'Pharo' startingAt: 1) == 1 ifTrue: [
 						| name |
 						name := eachKey.
@@ -209,7 +219,7 @@ list := (Globals at: #OrderedCollection) new
 	add: ZipExtensionTest;
 	add: ZipWriteStreamTest;
 	yourself.
-list do: [:each | 
+list do: [:each |
 	| string |
 	string := each @env2:suite @env2:run @env2:printString.
 	(string at: 2) == Character space ifTrue: [
@@ -228,7 +238,7 @@ list do: [:each |
 		string := string copyFrom: 1 to: 28.
 	].
 	stream
-		nextPutAll: each name; 
+		nextPutAll: each name;
 		nextPutAll: ('                         ' copyFrom: each name size + 1 to: 25);
 		nextPutAll: string;
 		lf.

@@ -35,7 +35,6 @@ input PharoMods/Error.gs
 input PharoMods/Exception.gs
 input PharoMods/ExceptionSet.gs
 input PharoMods/ExternalAddress.gs
-input PharoMods/ExternalFunction.gs
 input PharoMods/ExternalLibrary.gs
 input PharoMods/ExternalSemaphoreTable.gs
 input PharoMods/False.gs

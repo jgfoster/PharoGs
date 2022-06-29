@@ -9,9 +9,9 @@ fi
 cd pharo
 if [ ! -d Pharo.app ]; then   # get VM
   if [ `uname` == 'Darwin' ]; then
-    wget https://files.pharo.org/get-files/90/pharo64-mac-headless-latest.zip
-  else 
-    wget https://files.pharo.org/get-files/90/pharo64-linux-headless-latest.zip
+    wget https://files.pharo.org/get-files/110/pharo-vm-Darwin-x86_64-stable.zip
+  else
+    wget https://files.pharo.org/get-files/110/pharo-vm-Linux-x86_64-stable.zip
   fi
   unzip *.zip
   rm *.zip
@@ -24,7 +24,7 @@ fi
 
 echo "Get Pharo minimal image"
 if [ -z "$PHAROGS" ]; then   # get image & changes
-  wget https://files.pharo.org/get-files/90/pharo64-minimal.zip
+  wget http://files.pharo.org/image/110/latest-minimal-64.zip
   if [ -f *.changes ]; then
     rm *.changes
   fi
@@ -34,7 +34,7 @@ if [ -z "$PHAROGS" ]; then   # get image & changes
   unzip *.zip
   rm *.zip
 else
-  cp $PHAROGS/bootstrap-cache/Pharo9.0-PR-metacello-* .
+  cp $PHAROGS/bootstrap-cache/Pharo11.0-SNAPSHOT-metacello-* .
 fi
 cd ..
 
@@ -57,7 +57,7 @@ if [ -f PharoDebug.log ]; then
   rm PharoDebug.log
 fi
 if [ `uname` == 'Darwin' ]; then
-  ./pharo/Pharo.app/Contents/MacOS/pharo ./pharo/Pharo9.0-*.image exportFromPharo.st
+  ./pharo/Pharo.app/Contents/MacOS/pharo ./pharo/Pharo11.0-*.image exportFromPharo.st
 else
-  ./pharo/pharo ./pharo/Pharo9.0-*.image exportFromPharo.st
+  ./pharo/pharo ./pharo/Pharo11.0-*.image exportFromPharo.st
 fi

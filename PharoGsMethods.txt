@@ -52,12 +52,16 @@ BlockClosure>>asText
 BlockClosure>>bench
 BlockClosure>>benchFor:
 BlockClosure>>blockCreationBytecodeMessage
+BlockClosure>>clearTemporariesOn:
+BlockClosure>>compiledBlock
+BlockClosure>>compiledBlock:
 BlockClosure>>copiedValueAt:
 BlockClosure>>copyForSaving
 BlockClosure>>cull:
 BlockClosure>>cull:cull:
 BlockClosure>>cull:cull:cull:
 BlockClosure>>cull:cull:cull:cull:
+BlockClosure>>doPrintOn:
 BlockClosure>>doWhileFalse:
 BlockClosure>>doWhileTrue:
 BlockClosure>>durationToRun
@@ -74,22 +78,28 @@ BlockClosure>>hasTemporaryVariableNamed:
 BlockClosure>>home
 BlockClosure>>ifCurtailed:
 BlockClosure>>ifError:
+BlockClosure>>initialStackPointer
 BlockClosure>>isBlock
 BlockClosure>>isClean
 BlockClosure>>isClosure
 BlockClosure>>isDead
+BlockClosure>>isFullBlock
 BlockClosure>>isValid
 BlockClosure>>method
 BlockClosure>>newProcess
 BlockClosure>>newProcessWith:
 BlockClosure>>numArgs
+BlockClosure>>numArgs:
 BlockClosure>>numArgsError:
 BlockClosure>>numCopiedValues
 BlockClosure>>numLocalTemps
 BlockClosure>>numTemps
 BlockClosure>>on:fork:
+BlockClosure>>on:fork:return:
 BlockClosure>>onDNU:do:
+BlockClosure>>onErrorDo:
 BlockClosure>>outerContext
+BlockClosure>>outerContext:
 BlockClosure>>outerContext:startpc:numArgs:copiedValues:
 BlockClosure>>printOn:
 BlockClosure>>receiver
@@ -98,6 +108,7 @@ BlockClosure>>repeat
 BlockClosure>>repeatWithGCIf:
 BlockClosure>>rfEnsure:
 BlockClosure>>rfvalue
+BlockClosure>>rfvalueNoContextSwitch
 BlockClosure>>sender
 BlockClosure>>setAuthorInMetacelloConfig:
 BlockClosure>>setBaseline:withInMetacelloConfig:
@@ -111,6 +122,7 @@ BlockClosure>>simulateValueWithArguments:caller:
 BlockClosure>>sourceNode
 BlockClosure>>split:indicesDo:
 BlockClosure>>startpc
+BlockClosure>>startpcOrOuterCode
 BlockClosure>>tempNames
 BlockClosure>>temporaryVariableNamed:
 BlockClosure>>temporaryVariables
@@ -147,6 +159,7 @@ BlockClosure>>whileNil:
 BlockClosure>>whileNotNil:
 BlockClosure>>whileTrue
 BlockClosure>>whileTrue:
+BlockClosure>>withAllBlocksDo:
 Boolean class>>new
 Boolean>>&
 Boolean>>and:
@@ -185,14 +198,44 @@ ByteArray class>>hashBytes:startingWith:
 ByteArray>>at:
 ByteArray>>at:put:
 ByteArray>>atAllPut:
+ByteArray>>boolean8AtOffset:
+ByteArray>>boolean8AtOffset:put:
 ByteArray>>byteAt:
 ByteArray>>byteAt:put:
+ByteArray>>char16AtOffset:
+ByteArray>>char16AtOffset:put:
+ByteArray>>char32AtOffset:
+ByteArray>>char32AtOffset:put:
+ByteArray>>char8AtOffset:
+ByteArray>>char8AtOffset:put:
 ByteArray>>doubleAt:
 ByteArray>>doubleAt:put:
+ByteArray>>float32AtOffset:
+ByteArray>>float32AtOffset:put:
+ByteArray>>float64AtOffset:
+ByteArray>>float64AtOffset:put:
 ByteArray>>floatAt:
 ByteArray>>floatAt:put:
+ByteArray>>int16AtOffset:
+ByteArray>>int16AtOffset:put:
+ByteArray>>int32AtOffset:
+ByteArray>>int32AtOffset:put:
+ByteArray>>int64AtOffset:
+ByteArray>>int64AtOffset:put:
+ByteArray>>int8AtOffset:
+ByteArray>>int8AtOffset:put:
 ByteArray>>integerAt:put:size:signed:
+ByteArray>>pointerAtOffset:
+ByteArray>>pointerAtOffset:put:
 ByteArray>>replaceFrom:to:with:startingAt:
+ByteArray>>uint16AtOffset:
+ByteArray>>uint16AtOffset:put:
+ByteArray>>uint32AtOffset:
+ByteArray>>uint32AtOffset:put:
+ByteArray>>uint64AtOffset:
+ByteArray>>uint64AtOffset:put:
+ByteArray>>uint8AtOffset:
+ByteArray>>uint8AtOffset:put:
 ByteString class>>basicNew:
 ByteString class>>compare:with:collated:
 ByteString class>>findFirstInString:inSet:startingAt:
@@ -280,17 +323,21 @@ CompiledMethod>>argumentNames
 CompiledMethod>>asActiveRingDefinition
 CompiledMethod>>asFullRingDefinition
 CompiledMethod>>asHistoricalRingDefinition
+CompiledMethod>>asMCMethodDefinition
 CompiledMethod>>asPassiveRingDefinition
 CompiledMethod>>asRingDefinition
 CompiledMethod>>assignmentNodes
 CompiledMethod>>ast
+CompiledMethod>>basicAsMCMethodDefinition
 CompiledMethod>>blockNodes
+CompiledMethod>>cachePragmas
 CompiledMethod>>category
 CompiledMethod>>classBinding
 CompiledMethod>>classBinding:
 CompiledMethod>>codeForNoSource
 CompiledMethod>>comments
 CompiledMethod>>compiledMethod
+CompiledMethod>>containsHalt
 CompiledMethod>>copyWithSource:
 CompiledMethod>>copyWithTrailerBytes:
 CompiledMethod>>createTwin
@@ -299,7 +346,9 @@ CompiledMethod>>decompile
 CompiledMethod>>decompileIR
 CompiledMethod>>defaultSelector
 CompiledMethod>>destroyTwin
+CompiledMethod>>displayStringOn:
 CompiledMethod>>embeddSourceInTrailer
+CompiledMethod>>endPC
 CompiledMethod>>ffiArgumentNames
 CompiledMethod>>firstComment
 CompiledMethod>>flushCache
@@ -307,8 +356,10 @@ CompiledMethod>>getPreambleFrom:at:
 CompiledMethod>>getSourceFromFile
 CompiledMethod>>getSourceReplacingSelectorWith:
 CompiledMethod>>hasBreakpoint
+CompiledMethod>>hasComment
 CompiledMethod>>hasLinks
 CompiledMethod>>hasMetaLinks
+CompiledMethod>>hasPragma
 CompiledMethod>>hasPragmaNamed:
 CompiledMethod>>hasProperties
 CompiledMethod>>hasProperty:
@@ -324,6 +375,7 @@ CompiledMethod>>ir
 CompiledMethod>>irPrimitive
 CompiledMethod>>isAbstract
 CompiledMethod>>isBinarySelector
+CompiledMethod>>isClassSide
 CompiledMethod>>isCompiledMethod
 CompiledMethod>>isConflict
 CompiledMethod>>isDefinedInPackage:
@@ -337,6 +389,7 @@ CompiledMethod>>isExplicitlyRequired:
 CompiledMethod>>isExtension
 CompiledMethod>>isExtensionInPackage:
 CompiledMethod>>isFailedTest
+CompiledMethod>>isFaulty
 CompiledMethod>>isFFIMethod
 CompiledMethod>>isFromTrait
 CompiledMethod>>isInstalled
@@ -355,6 +408,9 @@ CompiledMethod>>isSubclassResponsibility:
 CompiledMethod>>isTaggedWith:
 CompiledMethod>>isTestMethod
 CompiledMethod>>linesOfCode
+CompiledMethod>>link:toVariableNamed:option:
+CompiledMethod>>literalsToSkip
+CompiledMethod>>lookupVar:
 CompiledMethod>>markerOrNil
 CompiledMethod>>metaLinkOptions
 CompiledMethod>>method
@@ -363,6 +419,7 @@ CompiledMethod>>methodClass:
 CompiledMethod>>methodNode
 CompiledMethod>>methodReference
 CompiledMethod>>name
+CompiledMethod>>newBreakpointForVariable:
 CompiledMethod>>numberOfReservedLiterals
 CompiledMethod>>origin
 CompiledMethod>>originMethod
@@ -373,7 +430,9 @@ CompiledMethod>>penultimateLiteral
 CompiledMethod>>penultimateLiteral:
 CompiledMethod>>postCopy
 CompiledMethod>>pragmaAt:
+CompiledMethod>>pragmaRefersToLiteral:
 CompiledMethod>>pragmas
+CompiledMethod>>pragmasDo:
 CompiledMethod>>prepareForSimulationWith:
 CompiledMethod>>primitive
 CompiledMethod>>printOn:
@@ -394,8 +453,10 @@ CompiledMethod>>putSource:class:category:withStamp:priorMethod:
 CompiledMethod>>putSource:withPreamble:
 CompiledMethod>>readsField:
 CompiledMethod>>realClass
+CompiledMethod>>receiver:withArguments:executeMethod:
 CompiledMethod>>recompile
 CompiledMethod>>referencedClasses
+CompiledMethod>>refersToLiteral:
 CompiledMethod>>reflectiveMethod
 CompiledMethod>>reflectiveMethod:
 CompiledMethod>>reflectivityDisabled
@@ -406,6 +467,7 @@ CompiledMethod>>removeProperty:
 CompiledMethod>>removeProperty:ifAbsent:
 CompiledMethod>>removeSavedTemp:
 CompiledMethod>>returnField
+CompiledMethod>>sameAsMCDefinition:
 CompiledMethod>>savedTemps
 CompiledMethod>>saveTemp:
 CompiledMethod>>selector
@@ -418,14 +480,17 @@ CompiledMethod>>sourceNode
 CompiledMethod>>sourceNodeExecutedForPC:
 CompiledMethod>>sourceNodeForPC:
 CompiledMethod>>sourcePointer
+CompiledMethod>>stepIntoQuickMethods:
 CompiledMethod>>storeOn:
 CompiledMethod>>tags
 CompiledMethod>>tagWith:
 CompiledMethod>>tempNames
 CompiledMethod>>temporaryVariableNamed:
 CompiledMethod>>temporaryVariables
+CompiledMethod>>trailer
 CompiledMethod>>traitSource
 CompiledMethod>>untagFrom:
+CompiledMethod>>usesUndeclareds
 CompiledMethod>>valueWithReceiver:arguments:
 CompiledMethod>>variableNodes
 CompiledMethod>>variableReadNodes
@@ -576,6 +641,7 @@ File class>>primFileAttribute:number:
 File class>>primFileAttributes:mask:
 File class>>primFileMasks
 File class>>primFromPlatformPath:
+File class>>primitiveWaitForDataOn:signalling:
 File class>>primLogicalDrives
 File class>>primOpendir:
 File class>>primPathMax
@@ -601,22 +667,23 @@ Float>>basicAt:put:
 Float>>negative
 Float>>positive
 Float>>significandAsInteger
-FloatArray class>>new:
-FloatArray>>=
-FloatArray>>at:
-FloatArray>>at:put:
-FloatArray>>dot:
-FloatArray>>hash
-FloatArray>>primAddArray:
-FloatArray>>primAddScalar:
-FloatArray>>primDivArray:
-FloatArray>>primDivScalar:
-FloatArray>>primMulArray:
-FloatArray>>primMulScalar:
-FloatArray>>primSubArray:
-FloatArray>>primSubScalar:
-FloatArray>>replaceFrom:to:with:startingAt:
-FloatArray>>sum
+Float32Array>>=
+Float32Array>>at:
+Float32Array>>at:put:
+Float32Array>>dot:
+Float32Array>>hash
+Float32Array>>primAddArray:
+Float32Array>>primAddScalar:
+Float32Array>>primDivArray:
+Float32Array>>primDivScalar:
+Float32Array>>primMulArray:
+Float32Array>>primMulScalar:
+Float32Array>>primSubArray:
+Float32Array>>primSubScalar:
+Float32Array>>replaceFrom:to:with:startingAt:
+Float32Array>>sum
+Float64Array>>at64Bits:
+Float64Array>>at64Bits:put:
 FullBlockClosure>>abstractBytecodeMessagesDo:
 FullBlockClosure>>asContextWithSender:
 FullBlockClosure>>compiledBlock
@@ -631,6 +698,7 @@ FullBlockClosure>>outerContext:
 FullBlockClosure>>printOn:
 FullBlockClosure>>receiver
 FullBlockClosure>>receiver:
+FullBlockClosure>>sender
 FullBlockClosure>>simulateValueWithArguments:caller:
 FullBlockClosure>>sourceNode
 FullBlockClosure>>startpc
@@ -643,11 +711,14 @@ FullBlockClosure>>valueNoContextSwitch
 FullBlockClosure>>valueNoContextSwitch:
 FullBlockClosure>>valueWithArguments:
 Halt>>defaultAction
+IndexedSlot>>object:instVarAt:
+IndexedSlot>>object:instVarAt:put:
 Integer>>anyBitOfMagnitudeFrom:to:
 Integer>>bitAnd:
 Integer>>bitOr:
 Integer>>bitShiftMagnitude:
 Integer>>bitXor:
+Integer>>bytesCompare:
 Integer>>digitAdd:
 Integer>>digitCompare:
 Integer>>digitDiv:neg:
@@ -673,6 +744,9 @@ LargeInteger>><=
 LargeInteger>>>
 LargeInteger>>>=
 LargeInteger>>bitAt:
+LargeInteger>>byteAt:
+LargeInteger>>byteAt:put:
+LargeInteger>>bytesCount
 LargeInteger>>digitAt:
 LargeInteger>>digitAt:put:
 LargeInteger>>digitLength
@@ -822,6 +896,7 @@ Object>>perform:with:with:with:with:
 Object>>perform:withArguments:
 Object>>perform:withArguments:inSuperclass:
 Object>>primitiveChangeClassTo:
+Object>>retrySetPinnedInMemory:
 Object>>setIsReadOnlyObject:
 Object>>setPinnedInMemory:
 Object>>shallowCopy
@@ -850,7 +925,11 @@ Process>>debug
 Process>>debug:title:
 Process>>debug:title:full:
 Process>>debugWithTitle:
+Process>>doTerminationFromAnotherProcess
+Process>>doTerminationFromYourself
 Process>>effectiveProcess
+Process>>effectiveProcess:
+Process>>endProcess
 Process>>environmentKeyNotFound
 Process>>evaluate:onBehalfOf:
 Process>>initialize
@@ -933,12 +1012,14 @@ ProcessorScheduler>>backgroundProcess
 ProcessorScheduler>>highestPriority
 ProcessorScheduler>>highestPriority:
 ProcessorScheduler>>highIOPriority
+ProcessorScheduler>>interpriorityYield:
 ProcessorScheduler>>isSelfEvaluating
 ProcessorScheduler>>lowestPriority
 ProcessorScheduler>>lowIOPriority
 ProcessorScheduler>>nextReadyProcess
 ProcessorScheduler>>preemptedProcess
 ProcessorScheduler>>printOn:
+ProcessorScheduler>>realActiveProcess
 ProcessorScheduler>>remove:ifAbsent:
 ProcessorScheduler>>rfactiveProcess
 ProcessorScheduler>>scanSchedule:startingAt:
@@ -948,6 +1029,7 @@ ProcessorScheduler>>systemBackgroundPriority
 ProcessorScheduler>>tallyCPUUsageFor:
 ProcessorScheduler>>tallyCPUUsageFor:every:
 ProcessorScheduler>>terminateActive
+ProcessorScheduler>>terminateRealActive
 ProcessorScheduler>>timingPriority
 ProcessorScheduler>>userBackgroundPriority
 ProcessorScheduler>>userInterruptPriority
@@ -971,12 +1053,16 @@ ProtoObject>>_gsError
 ProtoObject>>_gsReservedSelector_equal_equal_:
 ProtoObject>>_gsReservedSelector_tilde_tilde_:
 ProtoObject>>~~
+ProtoObjectTest>>classToBeTested
+ProtoObjectTest>>testFastPointersTo
 ProtoObjectTest>>testFlag
 ProtoObjectTest>>testIfNil
 ProtoObjectTest>>testIfNilIfNotNil
 ProtoObjectTest>>testIfNotNil
 ProtoObjectTest>>testIfNotNilIfNil
+ProtoObjectTest>>testIsImmediateObject
 ProtoObjectTest>>testIsNil
+ProtoObjectTest>>testNextObject
 ProtoObjectTest>>testNotTheSame
 ProtoObjectTest>>testPointersTo
 ReflectiveMethod>>flushCache
@@ -1156,6 +1242,7 @@ UndefinedObject>>doesNotUnderstand:
 UUIDGenerator class>>default
 VariableNotDeclared>>smartDescription
 VirtualMachine>>disableModuleLoading
+VirtualMachine>>doGetSystemAttribute:
 VirtualMachine>>forgetModule:
 VirtualMachine>>gcBiasToGrowLimit:
 VirtualMachine>>getParameters

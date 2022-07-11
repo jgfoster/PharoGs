@@ -51,6 +51,7 @@ run
 	#'SpaceTally'
 	#'MessageTally'
 	#'EllipseMorph'
+	#'TEmpty'
 ) @env0:do: [:each | UserGlobals @env0:at: each ifAbsentPut: [nil]].
 "Seaside looks for this explictly in 'Smalltalk globals'"
 Pharo at: #'PragmaSetting' put: nil.
@@ -133,7 +134,6 @@ File initialize.
 OSPlatform initialize.
 Base64MimeConverter initialize.
 ZnBase64Encoder initialize.
-ISO88592TextConverter initialize.
 Socket initialize.
 FileLocator initialize.
 ZnHeaders initialize.
@@ -149,7 +149,6 @@ MetacelloPharoPlatform initialize.
 MCFileTreeFileSystemUtils initialize.
 MD5NonPrimitive initialize.
 TonelFileSystemUtils initialize.
-ByteTextConverter initialize.
 
 SharedPool allSubclasses do: [:each | each initialize].
 
@@ -212,7 +211,6 @@ list := (Globals at: #OrderedCollection) new
 	add: TCPSocketTest;
 	add: SocketStreamTest;
 	add: TCPSocketEchoTest;
-	add: FileStreamTest;
 	add: MCAncestryTest;
 	add: ZipArchiveTest;
 	add: ZipCrcTest;

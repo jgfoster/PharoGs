@@ -5,9 +5,9 @@
 ## Background
 
 At the lowest level, a Smalltalk class library is tightly bound to the virtual machine on which it runs. This is because Smalltalk uses _primitives_ to invoke operations that involve:
-- hardware (such as arithmetic and other binary operations in the CPU), 
-- resources managed by the operating system (such as files and sockets), and 
-- external software libraries (typically with a foreign function interface or FFI). 
+- hardware (such as arithmetic and other binary operations in the CPU),
+- resources managed by the operating system (such as files and sockets), and
+- external software libraries (typically with a foreign function interface or FFI).
 
 With the exception of the primitives (of which there are over 500 in Pharo's [minimal image](https://files.pharo.org/get-files/90/pharo-minimal.zip)), the remaining code in standard Smalltalk is simply message sends to objects, which (in theory) is portable to any Smalltalk implementation. Because of this, there is a rich tradition of writing high-level libraries and frameworks in such a way that they are portable from one dialect to another. Perhaps the best-known current such framework in the Smalltalk community is [Seaside](http://seaside.st/download), with seven listed dialects supported.
 
@@ -41,15 +41,9 @@ It is not anticipated that PharoGs will provide a platform for developing langua
 
 # Development Process
 
-The following instructions describe one development process using macOS Mojave (10.14.6), GemStone/S 64 Bit 3.5.0, and Pharo9.0. This is an attempt to describe something that is known to work and is not intended to mandate naming conventions and directories. You are welcome to adapt this to your own situation.
+The following instructions describe one development process using macOS Mojave (10.15.7), GemStone/S 64 Bit 3.6.4, and Pharo11.0. This is an attempt to describe something that is known to work and is not intended to mandate naming conventions and directories. You are welcome to adapt this to your own situation.
 
 ## Pharo
-
-### Unmodified
-
-Our goal is to work with an standard Pharo minimal image and most of the time that is possible. Unless you have reason to believe it will not work, skip the rest of this section and go to the section on installing GemStone.
-
-### Modified
 
 Depending on the state of development, some modifications may be required to the [Pharo code base](https://github.com/pharo-project/pharo) for PharoGs to work. These changes are being [submitted](https://github.com/pharo-project/pharo/pulls/jgfoster) back to the base, but unless and until they are all incorporated you need to use a branch (of course, if you already have a Git checkout of Pharo, you can add this repository as a remote and checkout the appropriate branch):
 
@@ -63,21 +57,13 @@ Use bootstrap to get a new minimal image:
 ```
 cd ./pharo
 git checkout PharoGs
-export BRANCH_NAME=Pharo9.0
-export BUILD_NUMBER=42
-export BOOTSTRAP_ARCH=64
-time ./bootstrap/scripts/bootstrap.sh; date # this takes about 20 minutes
-```
-
-Finally, set an environment variable to indicate that a local image is available:
-
-```
-export PHAROGS=~/code/pharo
+# the next step takes about 20 minutes
+time ./bootstrap/scripts/bootstrap.sh; date
 ```
 
 ## GemStone
 
-On macOS it is easiest to use [GemStone.app](https://github.com/jgfoster/GemStoneApp) to install and run GemStone 3.5.0. From the Databases tab and the Login subtab, click `Terminal` to open a Terminal with appropriate GemStone environment variables set. Use this Terminal for the next step (skip the clone if it has already been done).
+On macOS it is easiest to use [GemStone.app](https://github.com/jgfoster/GemStoneApp) to install and run GemStone 3.6.4. From the Databases tab and the Login subtab, click `Terminal` to open a Terminal with appropriate GemStone environment variables set. Use this Terminal for the next step (skip the clone if it has already been done).
 
 ## PharoGs
 
@@ -87,6 +73,13 @@ Get a copy of this code:
 cd ~/code # or where you want to install the code
 git clone https://github.com/jgfoster/PharoGs.git
 ```
+
+Create a symbolic link named `pharo` to the Pharo checkout:
+
+```
+ln -s ~/code/pharo pharo
+```
+
 
 The current approach is to export _all_ class and methods from a Pharo [minimal image](https://files.pharo.org/get-files/90/pharo-minimal.zip) (to which sources has been added) using the `exportFromPharo.sh` script. This script generates a set of `.gs` files that can be loaded into GemStone using [Topaz](https://downloads.gemtalksystems.com/docs/GemStone64/3.5.x/GS64-Topaz-3.5.pdf).
 

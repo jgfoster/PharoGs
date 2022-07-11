@@ -1,63 +1,19 @@
 #!/bin/sh
 
-set -x
-set -e
+set -e -x
+pwd
 
 if [ ! -d pharo ]; then   # create Pharo directory
-  mkdir -p pharo
-fi
-cd pharo
-if [ ! -d Pharo.app ]; then   # get VM
-  if [ `uname` == 'Darwin' ]; then
-    wget https://files.pharo.org/get-files/110/pharo-vm-Darwin-x86_64-stable.zip
-  else
-    wget https://files.pharo.org/get-files/110/pharo-vm-Linux-x86_64-stable.zip
-  fi
-  unzip *.zip
-  rm *.zip
-fi
-if [ ! -f PharoV60.sources ]; then   # get sources
-  wget https://files.pharo.org/get-files/70/sources.zip
-  unzip *.zip
-  rm *.zip
+  echo "./pharo directory not found. Please clone from GitHub or create a symbolic link to a clone."
+  exit 1
 fi
 
-echo "Get Pharo minimal image"
-if [ -z "$PHAROGS" ]; then   # get image & changes
-  wget http://files.pharo.org/image/110/latest-minimal-64.zip
-  if [ -f *.changes ]; then
-    rm *.changes
-  fi
-  if [ -f *.image ]; then
-    rm *.image
-  fi
-  unzip *.zip
-  rm *.zip
-else
-  cp $PHAROGS/bootstrap-cache/Pharo11.0-SNAPSHOT-metacello-* .
+if [ ! -e ./pharo/bootstrap-cache/PharoV60.sources ]; then
+  cp ./pharo/bootstrap-cache/Pharo*.sources ./pharo/bootstrap-cache/PharoV60.sources
 fi
-cd ..
 
-if [ ! -d classes ]; then
-  mkdir -p classes
-fi
-if [ -f classes/Object.gs ]; then
-  rm classes/*
-fi
-if [ -f output/Object.out ]; then
-  rm output/*
-fi
-if [ -f PharoGs.tpz ]; then
-  rm PharoGs.tpz
-fi
-if [ -f PharoGs.out ]; then
-  rm *.out
-fi
-if [ -f PharoDebug.log ]; then
-  rm PharoDebug.log
-fi
-if [ `uname` == 'Darwin' ]; then
-  ./pharo/Pharo.app/Contents/MacOS/pharo ./pharo/Pharo11.0-*.image exportFromPharo.st
-else
-  ./pharo/pharo ./pharo/Pharo11.0-*.image exportFromPharo.st
-fi
+rm -rf classes output PharoGs.tpz PharoGs.out PharoDebug.log
+mkdir classes output
+
+./pharo/bootstrap-downloads/vmtarget/pharo --headless \
+  ./pharo/bootstrap-cache/Pharo*-metacello-*.image exportFromPharo.st

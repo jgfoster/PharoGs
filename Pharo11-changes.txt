@@ -1,0 +1,397 @@
+Array class>>new:
+Array>>atWrap:
+Array>>elementsExchangeIdentityWith:
+AsyncFile>>primClose:
+AsyncFile>>primOpen:forWrite:semaIndex:
+AsyncFile>>primReadResult:intoBuffer:at:count:
+AsyncFile>>primReadStart:fPosition:count:
+AsyncFile>>primWriteResult:
+AsyncFile>>primWriteStart:fPosition:fromBuffer:at:count:
+Behavior>>properties
+BlockClosure>>abstractBytecodeMessagesDo:
+BlockClosure>>argumentCount
+BlockClosure>>asContextWithSender:
+BlockClosure>>assert
+BlockClosure>>bench
+BlockClosure>>blockCreationBytecodeMessage
+BlockClosure>>clearTemporariesOn:
+BlockClosure>>compiledBlock
+BlockClosure>>compiledBlock:
+BlockClosure>>cull:
+BlockClosure>>cull:cull:
+BlockClosure>>cull:cull:cull:
+BlockClosure>>cull:cull:cull:cull:
+BlockClosure>>doPrintOn:
+BlockClosure>>durationToRun
+BlockClosure>>endPC
+BlockClosure>>forkAndWait
+BlockClosure>>forkAt:named:
+BlockClosure>>forkNamed:
+BlockClosure>>hasMethodReturn
+BlockClosure>>home
+BlockClosure>>initialStackPointer
+BlockClosure>>isFullBlock
+BlockClosure>>method
+BlockClosure>>newProcess
+BlockClosure>>newProcessWith:
+BlockClosure>>numArgs:
+BlockClosure>>numArgsError:
+BlockClosure>>numLocalTemps
+BlockClosure>>numTemps
+BlockClosure>>on:fork:
+BlockClosure>>on:fork:return:
+BlockClosure>>onErrorDo:
+BlockClosure>>outerContext:
+BlockClosure>>outerContext:startpc:numArgs:copiedValues:
+BlockClosure>>receiver
+BlockClosure>>rfvalue
+BlockClosure>>rfvalueNoContextSwitch
+BlockClosure>>sender
+BlockClosure>>simulateValueWithArguments:caller:
+BlockClosure>>sourceNode
+BlockClosure>>startpc
+BlockClosure>>startpcOrOuterCode
+BlockClosure>>tempNames
+BlockClosure>>temporaryVariables
+BlockClosure>>value
+BlockClosure>>value:
+BlockClosure>>value:value:
+BlockClosure>>value:value:value:
+BlockClosure>>value:value:value:value:
+BlockClosure>>valueAt:
+BlockClosure>>valueNoContextSwitch
+BlockClosure>>valueNoContextSwitch:
+BlockClosure>>valueWithArguments:
+BlockClosure>>valueWithExit
+BlockClosure>>valueWithPossibleArgs:
+BlockClosure>>whileNil:
+BlockClosure>>whileNotNil:
+BlockClosure>>withAllBlocksDo:
+BoxedFloat64>>truncated
+ByteArray>>boolean8AtOffset:
+ByteArray>>boolean8AtOffset:put:
+ByteArray>>char16AtOffset:
+ByteArray>>char16AtOffset:put:
+ByteArray>>char32AtOffset:
+ByteArray>>char32AtOffset:put:
+ByteArray>>char8AtOffset:
+ByteArray>>char8AtOffset:put:
+ByteArray>>float32AtOffset:
+ByteArray>>float32AtOffset:put:
+ByteArray>>float64AtOffset:
+ByteArray>>float64AtOffset:put:
+ByteArray>>int16AtOffset:
+ByteArray>>int16AtOffset:put:
+ByteArray>>int32AtOffset:
+ByteArray>>int32AtOffset:put:
+ByteArray>>int64AtOffset:
+ByteArray>>int64AtOffset:put:
+ByteArray>>int8AtOffset:
+ByteArray>>int8AtOffset:put:
+ByteArray>>pointerAtOffset:
+ByteArray>>pointerAtOffset:put:
+ByteArray>>replaceFrom:to:with:startingAt:
+ByteArray>>uint16AtOffset:
+ByteArray>>uint16AtOffset:put:
+ByteArray>>uint32AtOffset:
+ByteArray>>uint32AtOffset:put:
+ByteArray>>uint64AtOffset:
+ByteArray>>uint64AtOffset:put:
+ByteArray>>uint8AtOffset:
+ByteArray>>uint8AtOffset:put:
+ByteString class>>findFirstInString:inSet:startingAt:
+ByteString>>at:put:
+ByteString>>replaceFrom:to:with:startingAt:
+ByteSymbol>>privateAt:put:
+ChangeSet class>>gatherChangeSets
+Class>>classPool
+Class>>sharedPools
+ClassDescription>>basicOrganization
+CompiledMethod class>>basicNew
+CompiledMethod class>>basicNew:
+CompiledMethod class>>initialize
+CompiledMethod>>asActiveRingDefinition
+CompiledMethod>>asMCMethodDefinition
+CompiledMethod>>basicAsMCMethodDefinition
+CompiledMethod>>cachePragmas
+CompiledMethod>>containsHalt
+CompiledMethod>>copyWithSource:
+CompiledMethod>>displayStringOn:
+CompiledMethod>>embeddSourceInTrailer
+CompiledMethod>>endPC
+CompiledMethod>>flushCache
+CompiledMethod>>hasBreakpoint
+CompiledMethod>>hasComment
+CompiledMethod>>hasMetaLinks
+CompiledMethod>>hasPragma
+CompiledMethod>>invalidate
+CompiledMethod>>isAbstract
+CompiledMethod>>isClassSide
+CompiledMethod>>isDeprecated
+CompiledMethod>>isFaulty
+CompiledMethod>>isOverridden
+CompiledMethod>>link:toVariableNamed:option:
+CompiledMethod>>literalsToSkip
+CompiledMethod>>lookupVar:
+CompiledMethod>>methodClass:
+CompiledMethod>>methodReference
+CompiledMethod>>newBreakpointForVariable:
+CompiledMethod>>postCopy
+CompiledMethod>>pragmaRefersToLiteral:
+CompiledMethod>>pragmasDo:
+CompiledMethod>>putSource:withPreamble:
+CompiledMethod>>readsField:
+CompiledMethod>>receiver:withArguments:executeMethod:
+CompiledMethod>>referencedClasses
+CompiledMethod>>refersToLiteral:
+CompiledMethod>>sameAsMCDefinition:
+CompiledMethod>>selector:
+CompiledMethod>>setSourcePointer:
+CompiledMethod>>sourcePointer
+CompiledMethod>>stepIntoQuickMethods:
+CompiledMethod>>temporaryVariableNamed:
+CompiledMethod>>trailer
+CompiledMethod>>usesUndeclareds
+CompiledMethod>>valueWithReceiver:arguments:
+Context>>closureCopy:copiedValues:
+Context>>tryNamedPrimitiveIn:for:withArgs:
+Delay class>>anyActive
+Delay class>>delaySchedulerClass:
+Delay class>>forDuration:
+Delay class>>forMilliseconds:
+Delay class>>forSeconds:
+Delay class>>initialize
+Delay class>>nextWakeUpTime
+Delay class>>scheduler
+Delay class>>scheduler:
+Delay class>>schedulingProcess
+Delay class>>shutDown
+Delay class>>startTimerEventLoop
+Delay class>>startUp
+Delay class>>stopTimerEventLoop
+Delay class>>systemSettingOn:
+Delay class>>timeoutSemaphore:afterMSecs:
+Delay>>isExpired
+Delay>>resumptionTick
+Delay>>resumptionTickAdjustFrom:to:
+Delay>>schedule
+Delay>>unschedule
+Delay>>wait
+DelayMillisecondTicker>>primSignal:atMilliseconds:
+DelayWaitTimeout>>schedulerSignalWaitingProcess
+DelayWaitTimeout>>timingPrioritySignalExpired
+DelayWaitTimeout>>wait
+Exception>>resumeUnchecked:
+Exception>>retryUsing:
+ExternalAddress class>>loadSymbol:module:
+ExternalSemaphoreTable class>>clearExternalObjects
+ExternalSemaphoreTable class>>registerExternalObject:
+ExternalSemaphoreTable class>>unregisterExternalObject:
+File class>>atEnd:
+File class>>close:
+File class>>connectToFile:writable:
+File class>>connectToFileDescriptor:writable:
+File class>>createDirectory:
+File class>>deleteDirectory:
+File class>>delimiter
+File class>>getMacFile:type:creator:
+File class>>getPosition:
+File class>>lookupDirectory:filename:
+File class>>lookupEntryIn:index:
+File class>>open:writable:
+File class>>primDeleteFile:
+File class>>primExists:
+File class>>primFileAttribute:number:
+File class>>primFileAttributes:mask:
+File class>>primitiveWaitForDataOn:signalling:
+File class>>primRewinddir:
+File class>>setPosition:to:
+File class>>sizeOf:
+File class>>truncate:to:
+File class>>write:from:startingAt:count:
+FileReference class>>primDropRequestFileName:
+Float>>asTrueFraction
+Float>>basicAt:
+Float32Array>>=
+Float32Array>>at:
+Float32Array>>at:put:
+Float32Array>>dot:
+Float32Array>>hash
+Float32Array>>primAddArray:
+Float32Array>>primAddScalar:
+Float32Array>>primDivArray:
+Float32Array>>primDivScalar:
+Float32Array>>primMulArray:
+Float32Array>>primMulScalar:
+Float32Array>>primSubArray:
+Float32Array>>primSubScalar:
+Float32Array>>replaceFrom:to:with:startingAt:
+Float32Array>>sum
+Float64Array>>at64Bits:
+Float64Array>>at64Bits:put:
+FullBlockClosure>>abstractBytecodeMessagesDo:
+FullBlockClosure>>asContextWithSender:
+FullBlockClosure>>compiledBlock
+FullBlockClosure>>compiledBlock:
+FullBlockClosure>>endPC
+FullBlockClosure>>hasMethodReturn
+FullBlockClosure>>home
+FullBlockClosure>>method
+FullBlockClosure>>numArgs:
+FullBlockClosure>>numTemps
+FullBlockClosure>>outerContext:
+FullBlockClosure>>sender
+FullBlockClosure>>simulateValueWithArguments:caller:
+FullBlockClosure>>sourceNode
+FullBlockClosure>>startpc
+FullBlockClosure>>value
+FullBlockClosure>>value:
+FullBlockClosure>>value:value:
+FullBlockClosure>>value:value:value:
+FullBlockClosure>>value:value:value:value:
+FullBlockClosure>>valueNoContextSwitch
+FullBlockClosure>>valueNoContextSwitch:
+FullBlockClosure>>valueWithArguments:
+IndexedSlot>>object:instVarAt:
+IndexedSlot>>object:instVarAt:put:
+Integer>>bytesCompare:
+InternetConfiguration class>>primitiveGetMacintoshFileTypeAndCreatorFrom:
+InternetConfiguration class>>primitiveGetStringKeyedBy:
+Interval class>>new
+LargeInteger>>byteAt:
+LargeInteger>>byteAt:put:
+LargeInteger>>bytesCount
+LargeInteger>>\\
+Locale>>primLongDateFormat
+Locale>>primMeasurement
+Locale>>primShortDateFormat
+Locale>>primTimeFormat
+MCTraitDefinition>>createClass
+MessageNotUnderstood>>initialize
+MessageNotUnderstood>>messageText
+MethodDictionary class>>newForCapacity:
+MethodDictionary class>>sizeFor:
+MethodDictionary>>scanFor:
+MethodDictionary>>swap:with:
+MonitorDelay>>schedulerSignalWaitingProcess
+MonitorDelay>>timingPrioritySignalExpired
+NetNameResolver class>>initializeNetwork
+NetNameResolver class>>primAbortLookup
+NetNameResolver class>>primAddressLookupResult
+NetNameResolver class>>primInitializeNetwork:
+NetNameResolver class>>primLocalAddress
+NetNameResolver class>>primNameLookupResult
+NetNameResolver class>>primNameResolverError
+NetNameResolver class>>primNameResolverStatus
+NetNameResolver class>>primStartLookupOfAddress:
+NetNameResolver class>>primStartLookupOfName:
+Object>>at:put:
+Object>>basicAt:put:
+Object>>basicSize
+Object>>primitiveChangeClassTo:
+Object>>retrySetPinnedInMemory:
+Object>>setIsReadOnlyObject:
+Object>>setPinnedInMemory:
+OSPlatform>>currentWorkingDirectoryPathWithBuffer:
+Process>>doTerminationFromAnotherProcess
+Process>>doTerminationFromYourself
+Process>>effectiveProcess
+Process>>effectiveProcess:
+Process>>endProcess
+Process>>isActive:
+Process>>isTerminated
+Process>>on:do:
+Process>>priority:
+Process>>pvtSignal:list:
+Process>>restartTopWith:
+Process>>rfeffectiveProcess
+Process>>signalException:
+Process>>stepToHome:
+Process>>terminate
+ProcessorScheduler>>activePriority
+ProcessorScheduler>>activeProcess
+ProcessorScheduler>>scanSchedule:startingAt:
+ProcessorScheduler>>tallyCPUUsageFor:
+ProcessorScheduler>>terminateActive
+ProcessorScheduler class>>relinquishProcessorForMicroseconds:
+ProcessorScheduler>>activePriority
+ProcessorScheduler>>activeProcess
+ProcessorScheduler>>interpriorityYield:
+ProcessorScheduler>>realActiveProcess
+ProcessorScheduler>>scanSchedule:startingAt:
+ProcessorScheduler>>tallyCPUUsageFor:
+ProcessorScheduler>>terminateActive
+ProcessorScheduler>>terminateRealActive
+ProtoObjectTest>>classToBeTested
+ProtoObjectTest>>testFastPointersTo
+ProtoObjectTest>>testIsImmediateObject
+ProtoObjectTest>>testNextObject
+Semaphore>>signal
+Semaphore>>wait
+SessionManager class>>default
+SHA1>>primExpandBlock:into:
+SHA1>>primHashBlock:using:
+SHA1>>primHasSecureHashPrimitive
+SmallFloat64>>truncated
+SmallInteger>>/
+SmalltalkImage>>bytesLeft:
+SmalltalkImage>>isHeadless
+SmalltalkImage>>unbindExternalPrimitives
+Socket class>>newTCP
+Socket class>>newUDP
+Socket>>isConnected
+Socket>>listenOn:backlogSize:interface:
+Socket>>primSocket:bindTo:
+Socket>>primSocket:connectTo:
+Socket>>primSocket:connectTo:port:
+Socket>>primSocket:getOption:
+Socket>>primSocket:listenOn:
+Socket>>primSocket:listenWithBacklog:
+Socket>>primSocket:localAddressResult:
+Socket>>primSocket:receiveDataInto:startingAt:count:
+Socket>>primSocket:receiveUDPDataInto:startingAt:count:
+Socket>>primSocket:remoteAddressResult:
+Socket>>primSocket:setPort:
+Socket>>primSocketAbortConnection:
+Socket>>primSocketCloseConnection:
+Socket>>primSocketConnectionStatus:
+Socket>>primSocketCreateNetwork:type:receiveBufferSize:sendBufSize:semaIndex:
+Socket>>primSocketDestroy:
+Socket>>primSocketDestroyGently:
+Socket>>primSocketError:
+Socket>>primSocketLocalAddress:
+Socket>>primSocketLocalAddressSize:
+Socket>>primSocketLocalPort:
+Socket>>primSocketReceiveDataAvailable:
+Socket>>primSocketRemoteAddress:
+Socket>>primSocketRemoteAddressSize:
+Socket>>primSocketRemotePort:
+Socket>>primSocketSendDone:
+Socket>>waitForDataFor:ifClosed:ifTimedOut:
+Socket>>waitForDataIfClosed:
+String>>asSymbol
+Symbol class>>lookup:
+Symbol>>flushCache
+SystemDictionary>>at:put:
+SystemDictionary>>maxIdentityHash
+ThirtyTwoBitRegister>>copy
+UndefinedObject>>doesNotUnderstand:
+VirtualMachine>>disableModuleLoading
+VirtualMachine>>doGetSystemAttribute:
+VirtualMachine>>getSystemAttribute:
+VirtualMachine>>parameterAt:
+WideString class>>from:
+WideString>>replaceFrom:to:with:startingAt:
+WideString>>wordAt:
+WideString>>wordAt:put:
+WideSymbol>>privateAt:put:
+WideSymbol>>wordAt:
+WordArray>>primAddArray:and:into:
+WordArray>>primAddScalar:and:into:
+WordArray>>primDivArray:and:into:
+WordArray>>primDivScalar:and:into:
+WordArray>>primMulArray:and:into:
+WordArray>>primMulScalar:and:into:
+WordArray>>primSubArray:and:into:
+WordArray>>primSubScalar:and:into:
+WordArray>>replaceFrom:to:with:startingAt:

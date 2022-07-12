@@ -823,12 +823,12 @@ writeMD5
 		(class sourceCodeAt: selector asSymbol ifAbsent: [nil]) ifNil: [
 			hashStream
 				nextPutAll: class name , '>>' , selector;
-				cr; flush.
+				lf; flush.
 		] ifNotNil: [:source |
 			hashStream
 				nextPutAll: class name , '>>' , selector;
 				tab; print: (MD5 hashMessage: source);
-				cr; flush.
+				lf; flush.
 		].
 	].
 ! !

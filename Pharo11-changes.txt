@@ -1,182 +1,182 @@
-Array class>>new:
-Array>>atWrap:
-Array>>elementsExchangeIdentityWith:
-AsyncFile>>primClose:
-AsyncFile>>primOpen:forWrite:semaIndex:
-AsyncFile>>primReadResult:intoBuffer:at:count:
-AsyncFile>>primReadStart:fPosition:count:
-AsyncFile>>primWriteResult:
-AsyncFile>>primWriteStart:fPosition:fromBuffer:at:count:
-Behavior>>properties
-BlockClosure>>abstractBytecodeMessagesDo:
-BlockClosure>>argumentCount
-BlockClosure>>asContextWithSender:
-BlockClosure>>assert
-BlockClosure>>bench
-BlockClosure>>blockCreationBytecodeMessage
-BlockClosure>>clearTemporariesOn:
-BlockClosure>>compiledBlock
-BlockClosure>>compiledBlock:
-BlockClosure>>cull:
-BlockClosure>>cull:cull:
-BlockClosure>>cull:cull:cull:
-BlockClosure>>cull:cull:cull:cull:
-BlockClosure>>doPrintOn:
-BlockClosure>>durationToRun
-BlockClosure>>endPC
-BlockClosure>>forkAndWait
-BlockClosure>>forkAt:named:
-BlockClosure>>forkNamed:
-BlockClosure>>hasMethodReturn
-BlockClosure>>home
-BlockClosure>>initialStackPointer
-BlockClosure>>isFullBlock
-BlockClosure>>method
-BlockClosure>>newProcess
-BlockClosure>>newProcessWith:
-BlockClosure>>numArgs:
-BlockClosure>>numArgsError:
-BlockClosure>>numLocalTemps
-BlockClosure>>numTemps
-BlockClosure>>on:fork:
-BlockClosure>>on:fork:return:
-BlockClosure>>onErrorDo:
-BlockClosure>>outerContext:
-BlockClosure>>outerContext:startpc:numArgs:copiedValues:
-BlockClosure>>receiver
-BlockClosure>>rfvalue
-BlockClosure>>rfvalueNoContextSwitch
-BlockClosure>>sender
-BlockClosure>>simulateValueWithArguments:caller:
-BlockClosure>>sourceNode
-BlockClosure>>startpc
-BlockClosure>>startpcOrOuterCode
-BlockClosure>>tempNames
-BlockClosure>>temporaryVariables
-BlockClosure>>value
-BlockClosure>>value:
-BlockClosure>>value:value:
-BlockClosure>>value:value:value:
-BlockClosure>>value:value:value:value:
-BlockClosure>>valueAt:
-BlockClosure>>valueNoContextSwitch
-BlockClosure>>valueNoContextSwitch:
-BlockClosure>>valueWithArguments:
-BlockClosure>>valueWithExit
-BlockClosure>>valueWithPossibleArgs:
-BlockClosure>>whileNil:
-BlockClosure>>whileNotNil:
-BlockClosure>>withAllBlocksDo:
-BoxedFloat64>>truncated
-ByteArray>>boolean8AtOffset:
-ByteArray>>boolean8AtOffset:put:
-ByteArray>>char16AtOffset:
-ByteArray>>char16AtOffset:put:
-ByteArray>>char32AtOffset:
-ByteArray>>char32AtOffset:put:
-ByteArray>>char8AtOffset:
-ByteArray>>char8AtOffset:put:
-ByteArray>>float32AtOffset:
-ByteArray>>float32AtOffset:put:
-ByteArray>>float64AtOffset:
-ByteArray>>float64AtOffset:put:
-ByteArray>>int16AtOffset:
-ByteArray>>int16AtOffset:put:
-ByteArray>>int32AtOffset:
-ByteArray>>int32AtOffset:put:
-ByteArray>>int64AtOffset:
-ByteArray>>int64AtOffset:put:
-ByteArray>>int8AtOffset:
-ByteArray>>int8AtOffset:put:
-ByteArray>>pointerAtOffset:
-ByteArray>>pointerAtOffset:put:
-ByteArray>>replaceFrom:to:with:startingAt:
-ByteArray>>uint16AtOffset:
-ByteArray>>uint16AtOffset:put:
-ByteArray>>uint32AtOffset:
-ByteArray>>uint32AtOffset:put:
-ByteArray>>uint64AtOffset:
-ByteArray>>uint64AtOffset:put:
-ByteArray>>uint8AtOffset:
-ByteArray>>uint8AtOffset:put:
-ByteString class>>findFirstInString:inSet:startingAt:
-ByteString>>at:put:
-ByteString>>replaceFrom:to:with:startingAt:
-ByteSymbol>>privateAt:put:
-ChangeSet class>>gatherChangeSets
-Class>>classPool
-Class>>sharedPools
-ClassDescription>>basicOrganization
-CompiledMethod class>>basicNew
-CompiledMethod class>>basicNew:
-CompiledMethod class>>initialize
-CompiledMethod>>asActiveRingDefinition
-CompiledMethod>>asMCMethodDefinition
-CompiledMethod>>basicAsMCMethodDefinition
-CompiledMethod>>cachePragmas
-CompiledMethod>>containsHalt
-CompiledMethod>>copyWithSource:
-CompiledMethod>>displayStringOn:
-CompiledMethod>>embeddSourceInTrailer
-CompiledMethod>>endPC
-CompiledMethod>>flushCache
-CompiledMethod>>hasBreakpoint
-CompiledMethod>>hasComment
-CompiledMethod>>hasMetaLinks
-CompiledMethod>>hasPragma
-CompiledMethod>>invalidate
-CompiledMethod>>isAbstract
-CompiledMethod>>isClassSide
-CompiledMethod>>isDeprecated
-CompiledMethod>>isFaulty
-CompiledMethod>>isOverridden
-CompiledMethod>>link:toVariableNamed:option:
-CompiledMethod>>literalsToSkip
-CompiledMethod>>lookupVar:
-CompiledMethod>>methodClass:
-CompiledMethod>>methodReference
-CompiledMethod>>newBreakpointForVariable:
-CompiledMethod>>postCopy
-CompiledMethod>>pragmaRefersToLiteral:
-CompiledMethod>>pragmasDo:
-CompiledMethod>>putSource:withPreamble:
-CompiledMethod>>readsField:
-CompiledMethod>>receiver:withArguments:executeMethod:
-CompiledMethod>>referencedClasses
-CompiledMethod>>refersToLiteral:
-CompiledMethod>>sameAsMCDefinition:
-CompiledMethod>>selector:
-CompiledMethod>>setSourcePointer:
-CompiledMethod>>sourcePointer
-CompiledMethod>>stepIntoQuickMethods:
-CompiledMethod>>temporaryVariableNamed:
-CompiledMethod>>trailer
-CompiledMethod>>usesUndeclareds
-CompiledMethod>>valueWithReceiver:arguments:
-Context>>closureCopy:copiedValues:
-Context>>tryNamedPrimitiveIn:for:withArgs:
-Delay class>>anyActive
-Delay class>>delaySchedulerClass:
-Delay class>>forDuration:
-Delay class>>forMilliseconds:
-Delay class>>forSeconds:
-Delay class>>initialize
-Delay class>>nextWakeUpTime
-Delay class>>scheduler
-Delay class>>scheduler:
-Delay class>>schedulingProcess
-Delay class>>shutDown
-Delay class>>startTimerEventLoop
-Delay class>>startUp
-Delay class>>stopTimerEventLoop
-Delay class>>systemSettingOn:
-Delay class>>timeoutSemaphore:afterMSecs:
-Delay>>isExpired
-Delay>>resumptionTick
-Delay>>resumptionTickAdjustFrom:to:
-Delay>>schedule
-Delay>>unschedule
-Delay>>wait
+// Array class>>new:
+// Array>>atWrap:
+Array>>elementsExchangeIdentityWith: // significant change (MinimalRequiredSize)
+// AsyncFile>>primClose:
+// AsyncFile>>primOpen:forWrite:semaIndex:
+// AsyncFile>>primReadResult:intoBuffer:at:count:
+// AsyncFile>>primReadStart:fPosition:count:
+// AsyncFile>>primWriteResult:
+// AsyncFile>>primWriteStart:fPosition:fromBuffer:at:count:
+// Behavior>>properties
+BlockClosure>>abstractBytecodeMessagesDo: // does not exist in Pharo 11.0
+// BlockClosure>>argumentCount
+BlockClosure>>asContextWithSender: // significant change, more references to self instead of OuterContext
+// BlockClosure>>assert
+// BlockClosure>>bench
+BlockClosure>>blockCreationBytecodeMessage // does not exist in Pharo 11.0
+BlockClosure>>clearTemporariesOn: // does not exist in Pharo 8.0
+BlockClosure>>compiledBlock // does not exist in Pharo 8.0
+BlockClosure>>compiledBlock: // does not exist in Pharo 8.0
+BlockClosure>>cull: // significant change, debuggerCompleteToSender removed
+BlockClosure>>cull:cull: // formatting change?
+// BlockClosure>>cull:cull:cull:
+// BlockClosure>>cull:cull:cull:cull:
+BlockClosure>>doPrintOn: // does not exist in Pharo 8.0
+// BlockClosure>>durationToRun
+BlockClosure>>endPC // significatn change
+// BlockClosure>>forkAndWait
+// BlockClosure>>forkAt:named:
+// BlockClosure>>forkNamed:
+BlockClosure>>hasMethodReturn // significant change
+BlockClosure>>home // signicificant change, ifNotNil added
+BlockClosure>>initialStackPointer // does not exist in Pharo 8.0
+BlockClosure>>isFullBlock // does not exist in Pharo 8.0
+BlockClosure>>method // significant change, now returns compiledBlock
+// BlockClosure>>newProcess // comment added
+// BlockClosure>>newProcessWith: // comment added
+BlockClosure>>numArgs: // does not exist in Pharo 8.0
+// BlockClosure>>numArgsError:
+BlockClosure>>numLocalTemps // does not exist in Pharo 11.0
+BlockClosure>>numTemps // significant changes
+BlockClosure>>on:fork: // significant changes, global variables copy and process removed
+BlockClosure>>on:fork:return: // terminateActive replaced with terminateRealActive
+BlockClosure>>onErrorDo: // does not exist in Pharo 8.0
+BlockClosure>>outerContext: // does not exist in Pharo 8.0
+BlockClosure>>outerContext:startpc:numArgs:copiedValues: // does not exist in Pharo 11.0
+BlockClosure>>receiver // returns subclassResponsibility instead of receiver
+BlockClosure>>rfvalue // significant changes
+BlockClosure>>rfvalueNoContextSwitch // primitive value changed from 221 to 209
+BlockClosure>>sender // returns subclassResponsibility instead of sender
+BlockClosure>>simulateValueWithArguments:caller: // significant changes
+BlockClosure>>sourceNode // significant changes
+BlockClosure>>startpc // returns compiledBlock initialPC instead of startpc
+BlockClosure>>startpcOrOuterCode // does not exist in Pharo 8.0
+// BlockClosure>>tempNames
+BlockClosure>>temporaryVariables // significant changes
+BlockClosure>>value // primitive changed from 201 to 207
+BlockClosure>>value: // significant changes
+BlockClosure>>value:value: // significatn changes
+BlockClosure>>value:value:value: // significant changes
+BlockClosure>>value:value:value:value: // significant changes
+BlockClosure>>valueAt: // significant changes
+BlockClosure>>valueNoContextSwitch // primitive changed from 221 to 209
+BlockClosure>>valueNoContextSwitch: // primitive changed from 222 to 209
+BlockClosure>>valueWithArguments: // significant changes
+// BlockClosure>>valueWithExit
+// BlockClosure>>valueWithPossibleArgs: // formatting changes?
+// BlockClosure>>whileNil:
+// BlockClosure>>whileNotNil:
+BlockClosure>>withAllBlocksDo: // does not exist in Pharo 8.0
+// BoxedFloat64>>truncated
+ByteArray>>boolean8AtOffset: // does not exist in Pharo 8.0
+ByteArray>>boolean8AtOffset:put: // does not exist in Pharo 8.0
+ByteArray>>char16AtOffset: // does not exist in Pharo 8.0
+ByteArray>>char16AtOffset:put: // does not exist in Pharo 8.0
+ByteArray>>char32AtOffset: // does not exist in Pharo 8.0
+ByteArray>>char32AtOffset:put: // does not exist in Pharo 8.0
+ByteArray>>char8AtOffset: // does not exist in Pharo 8.0
+ByteArray>>char8AtOffset:put: // does not exist in Pharo 8.0
+ByteArray>>float32AtOffset: // does not exist in Pharo 8.0
+ByteArray>>float32AtOffset:put: // does not exist in Pharo 8.0
+ByteArray>>float64AtOffset: // does not exist in Pharo 8.0
+ByteArray>>float64AtOffset:put: // does not exist in Pharo 8.0
+ByteArray>>int16AtOffset: // does not exist in Pharo 8.0
+ByteArray>>int16AtOffset:put: // does not exist in Pharo 8.0
+ByteArray>>int32AtOffset: // does not exist in Pharo 8.0
+ByteArray>>int32AtOffset:put: // does not exist in Pharo 8.0
+ByteArray>>int64AtOffset: // does not exist in Pharo 8.0
+ByteArray>>int64AtOffset:put: // does not exist in Pharo 8.0
+ByteArray>>int8AtOffset: // does not exist in Pharo 8.0
+ByteArray>>int8AtOffset:put: // does not exist in Pharo 8.0
+ByteArray>>pointerAtOffset: // does not exist in Pharo 8.0
+ByteArray>>pointerAtOffset:put: // does not exist in Pharo 8.0
+// ByteArray>>replaceFrom:to:with:startingAt:
+ByteArray>>uint16AtOffset: // does not exist in Pharo 8.0
+ByteArray>>uint16AtOffset:put: // does not exist in Pharo 8.0
+ByteArray>>uint32AtOffset: // does not exist in Pharo 8.0
+ByteArray>>uint32AtOffset:put: // does not exist in Pharo 8.0
+ByteArray>>uint64AtOffset: // does not exist in Pharo 8.0
+ByteArray>>uint64AtOffset:put: // does not exist in Pharo 8.0
+ByteArray>>uint8AtOffset: // does not exist in Pharo 8.0
+ByteArray>>uint8AtOffset:put: // does not exist in Pharo 8.0
+// ByteString class>>findFirstInString:inSet:startingAt:
+// ByteString>>at:put:
+// ByteString>>replaceFrom:to:with:startingAt:
+// ByteSymbol>>privateAt:put:
+ChangeSet class>>gatherChangeSets // <script> added
+Class>>classPool // return statement changed
+Class>>sharedPools // return statement changed
+// ClassDescription>>basicOrganization
+// CompiledMethod class>>basicNew
+// CompiledMethod class>>basicNew:
+CompiledMethod class>>initialize // old encoder removed
+// CompiledMethod>>asActiveRingDefinition
+CompiledMethod>>asMCMethodDefinition // does not exist in Pharo 8.0
+CompiledMethod>>basicAsMCMethodDefinition // does not exist in Pharo 8.0
+CompiledMethod>>cachePragmas // does not exist in Pharo 8.0
+CompiledMethod>>containsHalt // does not exist in Pharo 8.0
+// CompiledMethod>>copyWithSource:
+CompiledMethod>>displayStringOn: // does not exist in Pharo 8.0
+// CompiledMethod>>embeddSourceInTrailer
+CompiledMethod>>endPC // does not exist in Pharo 8.0
+// CompiledMethod>>flushCache
+// CompiledMethod>>hasBreakpoint
+CompiledMethod>>hasComment // does not exist in Pharo 8.0
+// CompiledMethod>>hasMetaLinks
+CompiledMethod>>hasPragma // does not exist in Pharo 8.0
+// CompiledMethod>>invalidate
+// CompiledMethod>>isAbstract
+CompiledMethod>>isClassSide // does not exist in Pharo 8.0
+CompiledMethod>>isDeprecated // significant change
+CompiledMethod>>isFaulty // does not exist in Pharo 8.0
+// CompiledMethod>>isOverridden
+CompiledMethod>>link:toVariableNamed:option: // does not exist in Pharo 8.0
+CompiledMethod>>literalsToSkip // does not exist in Pharo 8.0
+CompiledMethod>>lookupVar: // does not exist in Pharo 8.0
+// CompiledMethod>>methodClass:
+// CompiledMethod>>methodReference
+CompiledMethod>>newBreakpointForVariable: // does not exist in Pharo 8.0
+// CompiledMethod>>postCopy
+CompiledMethod>>pragmaRefersToLiteral: // does not exist in Pharo 8.0
+CompiledMethod>>pragmasDo: // does not exist in Pharo 8.0
+// CompiledMethod>>putSource:withPreamble:
+// CompiledMethod>>readsField:
+CompiledMethod>>receiver:withArguments:executeMethod: // does not exist in Pharo 8.0
+CompiledMethod>>referencedClasses // significant changes
+CompiledMethod>>refersToLiteral: // does not exist in Pharo 8.0
+CompiledMethod>>sameAsMCDefinition: // does not exist in Pharo 8.0
+CompiledMethod>>selector: // internSelector definition removed
+// CompiledMethod>>setSourcePointer:
+// CompiledMethod>>sourcePointer
+CompiledMethod>>stepIntoQuickMethods: // does not exist in Pharo 8.0
+CompiledMethod>>temporaryVariableNamed: // return statement changed
+CompiledMethod>>trailer // does not exist in Pharo 8.0
+CompiledMethod>>usesUndeclareds // significant changes
+CompiledMethod>>valueWithReceiver:arguments: // return statement changed
+Context>>closureCopy:copiedValues: // does not exist in Pharo 11.0
+// Context>>tryNamedPrimitiveIn:for:withArgs:
+// Delay class>>anyActive
+// Delay class>>delaySchedulerClass:
+// Delay class>>forDuration:
+// Delay class>>forMilliseconds:
+// Delay class>>forSeconds:
+// Delay class>>initialize
+// Delay class>>nextWakeUpTime
+// Delay class>>scheduler
+// Delay class>>scheduler:
+// Delay class>>schedulingProcess
+// Delay class>>shutDown
+// Delay class>>startTimerEventLoop
+// Delay class>>startUp
+// Delay class>>stopTimerEventLoop
+// Delay class>>systemSettingOn:
+// Delay class>>timeoutSemaphore:afterMSecs:
+// Delay>>isExpired
+// Delay>>resumptionTick
+// Delay>>resumptionTickAdjustFrom:to:
+// Delay>>schedule
+// Delay>>unschedule
+// Delay>>wait
 DelayMillisecondTicker>>primSignal:atMilliseconds:
 DelayWaitTimeout>>schedulerSignalWaitingProcess
 DelayWaitTimeout>>timingPrioritySignalExpired

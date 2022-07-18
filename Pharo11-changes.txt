@@ -177,58 +177,58 @@ Context>>closureCopy:copiedValues: // does not exist in Pharo 11.0
 // Delay>>schedule
 // Delay>>unschedule
 // Delay>>wait
-DelayMillisecondTicker>>primSignal:atMilliseconds:
-DelayWaitTimeout>>schedulerSignalWaitingProcess
-DelayWaitTimeout>>timingPrioritySignalExpired
-DelayWaitTimeout>>wait
-Exception>>resumeUnchecked:
-Exception>>retryUsing:
-ExternalAddress class>>loadSymbol:module:
-ExternalSemaphoreTable class>>clearExternalObjects
-ExternalSemaphoreTable class>>registerExternalObject:
-ExternalSemaphoreTable class>>unregisterExternalObject:
-File class>>atEnd:
-File class>>close:
-File class>>connectToFile:writable:
-File class>>connectToFileDescriptor:writable:
-File class>>createDirectory:
-File class>>deleteDirectory:
-File class>>delimiter
-File class>>getMacFile:type:creator:
-File class>>getPosition:
-File class>>lookupDirectory:filename:
-File class>>lookupEntryIn:index:
-File class>>open:writable:
-File class>>primDeleteFile:
-File class>>primExists:
-File class>>primFileAttribute:number:
-File class>>primFileAttributes:mask:
-File class>>primitiveWaitForDataOn:signalling:
-File class>>primRewinddir:
-File class>>setPosition:to:
-File class>>sizeOf:
-File class>>truncate:to:
-File class>>write:from:startingAt:count:
-FileReference class>>primDropRequestFileName:
-Float>>asTrueFraction
-Float>>basicAt:
-Float32Array>>=
-Float32Array>>at:
-Float32Array>>at:put:
-Float32Array>>dot:
-Float32Array>>hash
-Float32Array>>primAddArray:
-Float32Array>>primAddScalar:
-Float32Array>>primDivArray:
-Float32Array>>primDivScalar:
-Float32Array>>primMulArray:
-Float32Array>>primMulScalar:
-Float32Array>>primSubArray:
-Float32Array>>primSubScalar:
-Float32Array>>replaceFrom:to:with:startingAt:
-Float32Array>>sum
-Float64Array>>at64Bits:
-Float64Array>>at64Bits:put:
+// DelayMillisecondTicker>>primSignal:atMilliseconds:
+DelayWaitTimeout>>schedulerSignalWaitingProcess // does not exist in Pharo 11.0
+// DelayWaitTimeout>>timingPrioritySignalExpired
+// DelayWaitTimeout>>wait
+// Exception>>resumeUnchecked:
+// Exception>>retryUsing:
+ExternalAddress class>>loadSymbol:module: // return statement changed
+// ExternalSemaphoreTable class>>clearExternalObjects
+// ExternalSemaphoreTable class>>registerExternalObject:
+// ExternalSemaphoreTable class>>unregisterExternalObject:
+// File class>>atEnd:
+// File class>>close:
+// File class>>connectToFile:writable:
+// File class>>connectToFileDescriptor:writable:
+// File class>>createDirectory:
+// File class>>deleteDirectory:
+// File class>>delimiter
+// File class>>getMacFile:type:creator:
+// File class>>getPosition:
+// File class>>lookupDirectory:filename:
+// File class>>lookupEntryIn:index:
+// File class>>open:writable:
+// File class>>primDeleteFile:
+// File class>>primExists:
+// File class>>primFileAttribute:number:
+// File class>>primFileAttributes:mask:
+File class>>primitiveWaitForDataOn:signalling: // does not exist in Pharo 8.0
+// File class>>primRewinddir:
+// File class>>setPosition:to:
+// File class>>sizeOf:
+// File class>>truncate:to:
+// File class>>write:from:startingAt:count:
+FileReference class>>primDropRequestFileName: // does not exist in Pharo 11.0
+// Float>>asTrueFraction // for what I can see, 213-231 do not exist in either version 
+// Float>>basicAt:
+// Float32Array>>=
+// Float32Array>>at:
+// Float32Array>>at:put:
+// Float32Array>>dot:
+// Float32Array>>hash
+// Float32Array>>primAddArray:
+// Float32Array>>primAddScalar:
+// Float32Array>>primDivArray:
+// Float32Array>>primDivScalar:
+// Float32Array>>primMulArray:
+// Float32Array>>primMulScalar:
+// Float32Array>>primSubArray:
+// Float32Array>>primSubScalar:
+// Float32Array>>replaceFrom:to:with:startingAt:
+// Float32Array>>sum
+// Float64Array>>at64Bits:
+// Float64Array>>at64Bits:put:
 FullBlockClosure>>abstractBytecodeMessagesDo:
 FullBlockClosure>>asContextWithSender:
 FullBlockClosure>>compiledBlock

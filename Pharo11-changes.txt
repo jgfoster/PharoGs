@@ -328,70 +328,70 @@ ProtoObjectTest>>testIsImmediateObject // does not exist in Pharo 8.0
 ProtoObjectTest>>testNextObject // does not exist in Pharo 8.0
 // Semaphore>>signal
 // Semaphore>>wait
-SessionManager class>>default
-SHA1>>primExpandBlock:into:
-SHA1>>primHashBlock:using:
-SHA1>>primHasSecureHashPrimitive
-SmallFloat64>>truncated
-SmallInteger>>/
-SmalltalkImage>>bytesLeft:
-SmalltalkImage>>isHeadless
-SmalltalkImage>>unbindExternalPrimitives
-Socket class>>newTCP
-Socket class>>newUDP
-Socket>>isConnected
-Socket>>listenOn:backlogSize:interface:
-Socket>>primSocket:bindTo:
-Socket>>primSocket:connectTo:
-Socket>>primSocket:connectTo:port:
-Socket>>primSocket:getOption:
-Socket>>primSocket:listenOn:
-Socket>>primSocket:listenWithBacklog:
-Socket>>primSocket:localAddressResult:
-Socket>>primSocket:receiveDataInto:startingAt:count:
-Socket>>primSocket:receiveUDPDataInto:startingAt:count:
-Socket>>primSocket:remoteAddressResult:
-Socket>>primSocket:setPort:
-Socket>>primSocketAbortConnection:
-Socket>>primSocketCloseConnection:
-Socket>>primSocketConnectionStatus:
-Socket>>primSocketCreateNetwork:type:receiveBufferSize:sendBufSize:semaIndex:
-Socket>>primSocketDestroy:
-Socket>>primSocketDestroyGently:
-Socket>>primSocketError:
-Socket>>primSocketLocalAddress:
-Socket>>primSocketLocalAddressSize:
-Socket>>primSocketLocalPort:
-Socket>>primSocketReceiveDataAvailable:
-Socket>>primSocketRemoteAddress:
-Socket>>primSocketRemoteAddressSize:
-Socket>>primSocketRemotePort:
-Socket>>primSocketSendDone:
-Socket>>waitForDataFor:ifClosed:ifTimedOut:
-Socket>>waitForDataIfClosed:
-String>>asSymbol
-Symbol class>>lookup:
-Symbol>>flushCache
-SystemDictionary>>at:put:
-SystemDictionary>>maxIdentityHash
-ThirtyTwoBitRegister>>copy
-UndefinedObject>>doesNotUnderstand:
-VirtualMachine>>disableModuleLoading
-VirtualMachine>>doGetSystemAttribute:
-VirtualMachine>>getSystemAttribute:
-VirtualMachine>>parameterAt:
-WideString class>>from:
-WideString>>replaceFrom:to:with:startingAt:
-WideString>>wordAt:
-WideString>>wordAt:put:
-WideSymbol>>privateAt:put:
-WideSymbol>>wordAt:
-WordArray>>primAddArray:and:into:
-WordArray>>primAddScalar:and:into:
-WordArray>>primDivArray:and:into:
-WordArray>>primDivScalar:and:into:
-WordArray>>primMulArray:and:into:
-WordArray>>primMulScalar:and:into:
-WordArray>>primSubArray:and:into:
-WordArray>>primSubScalar:and:into:
-WordArray>>replaceFrom:to:with:startingAt:
+// SessionManager class>>default
+// SHA1>>primExpandBlock:into:
+// SHA1>>primHashBlock:using:
+// SHA1>>primHasSecureHashPrimitive
+// SmallFloat64>>truncated
+// SmallInteger>>/ // note added
+// SmalltalkImage>>bytesLeft:
+// SmalltalkImage>>isHeadless
+// SmalltalkImage>>unbindExternalPrimitives
+// Socket class>>newTCP
+// Socket class>>newUDP
+// Socket>>isConnected
+// Socket>>listenOn:backlogSize:interface:
+// Socket>>primSocket:bindTo:
+// Socket>>primSocket:connectTo:
+// Socket>>primSocket:connectTo:port:
+// Socket>>primSocket:getOption:
+// Socket>>primSocket:listenOn:
+// Socket>>primSocket:listenWithBacklog:
+// Socket>>primSocket:localAddressResult:
+// Socket>>primSocket:receiveDataInto:startingAt:count:
+// Socket>>primSocket:receiveUDPDataInto:startingAt:count:
+// Socket>>primSocket:remoteAddressResult:
+// Socket>>primSocket:setPort:
+// Socket>>primSocketAbortConnection:
+// Socket>>primSocketCloseConnection:
+// Socket>>primSocketConnectionStatus:
+// Socket>>primSocketCreateNetwork:type:receiveBufferSize:sendBufSize:semaIndex:
+// Socket>>primSocketDestroy:
+// Socket>>primSocketDestroyGently:
+// Socket>>primSocketError:
+// Socket>>primSocketLocalAddress:
+// Socket>>primSocketLocalAddressSize:
+// Socket>>primSocketLocalPort:
+// Socket>>primSocketReceiveDataAvailable: // comment changed
+// Socket>>primSocketRemoteAddress:
+// Socket>>primSocketRemoteAddressSize:
+// Socket>>primSocketRemotePort:
+// Socket>>primSocketSendDone:
+Socket>>waitForDataFor:ifClosed:ifTimedOut: // significant change
+// Socket>>waitForDataIfClosed:
+// String>>asSymbol
+Symbol class>>lookup: // significant change
+// Symbol>>flushCache
+// SystemDictionary>>at:put:
+// SystemDictionary>>maxIdentityHash
+// ThirtyTwoBitRegister>>copy
+UndefinedObject>>doesNotUnderstand: // significant change
+// VirtualMachine>>disableModuleLoading
+VirtualMachine>>doGetSystemAttribute: // does not exist in Pharo 8.0
+VirtualMachine>>getSystemAttribute: // return statement changed
+// VirtualMachine>>parameterAt: // comment regarding parameters changed
+// WideString class>>from:
+// WideString>>replaceFrom:to:with:startingAt:
+// WideString>>wordAt:
+// WideString>>wordAt:put:
+// WideSymbol>>privateAt:put:
+// WideSymbol>>wordAt:
+// WordArray>>primAddArray:and:into:
+// WordArray>>primAddScalar:and:into:
+// WordArray>>primDivArray:and:into:
+// WordArray>>primDivScalar:and:into:
+// WordArray>>primMulArray:and:into:
+// WordArray>>primMulScalar:and:into:
+// WordArray>>primSubArray:and:into:
+// WordArray>>primSubScalar:and:into:
+// WordArray>>replaceFrom:to:with:startingAt:

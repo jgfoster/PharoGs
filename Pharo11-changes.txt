@@ -229,105 +229,105 @@ FileReference class>>primDropRequestFileName: // does not exist in Pharo 11.0
 // Float32Array>>sum
 // Float64Array>>at64Bits:
 // Float64Array>>at64Bits:put:
-FullBlockClosure>>abstractBytecodeMessagesDo:
-FullBlockClosure>>asContextWithSender:
-FullBlockClosure>>compiledBlock
-FullBlockClosure>>compiledBlock:
-FullBlockClosure>>endPC
-FullBlockClosure>>hasMethodReturn
-FullBlockClosure>>home
-FullBlockClosure>>method
-FullBlockClosure>>numArgs:
-FullBlockClosure>>numTemps
-FullBlockClosure>>outerContext:
-FullBlockClosure>>sender
-FullBlockClosure>>simulateValueWithArguments:caller:
-FullBlockClosure>>sourceNode
-FullBlockClosure>>startpc
-FullBlockClosure>>value
-FullBlockClosure>>value:
-FullBlockClosure>>value:value:
-FullBlockClosure>>value:value:value:
-FullBlockClosure>>value:value:value:value:
-FullBlockClosure>>valueNoContextSwitch
-FullBlockClosure>>valueNoContextSwitch:
-FullBlockClosure>>valueWithArguments:
-IndexedSlot>>object:instVarAt:
-IndexedSlot>>object:instVarAt:put:
-Integer>>bytesCompare:
-InternetConfiguration class>>primitiveGetMacintoshFileTypeAndCreatorFrom:
-InternetConfiguration class>>primitiveGetStringKeyedBy:
-Interval class>>new
-LargeInteger>>byteAt:
-LargeInteger>>byteAt:put:
-LargeInteger>>bytesCount
-LargeInteger>>\\
-Locale>>primLongDateFormat
-Locale>>primMeasurement
-Locale>>primShortDateFormat
-Locale>>primTimeFormat
-MCTraitDefinition>>createClass
-MessageNotUnderstood>>initialize
-MessageNotUnderstood>>messageText
-MethodDictionary class>>newForCapacity:
-MethodDictionary class>>sizeFor:
-MethodDictionary>>scanFor:
-MethodDictionary>>swap:with:
-MonitorDelay>>schedulerSignalWaitingProcess
-MonitorDelay>>timingPrioritySignalExpired
-NetNameResolver class>>initializeNetwork
-NetNameResolver class>>primAbortLookup
-NetNameResolver class>>primAddressLookupResult
-NetNameResolver class>>primInitializeNetwork:
-NetNameResolver class>>primLocalAddress
-NetNameResolver class>>primNameLookupResult
-NetNameResolver class>>primNameResolverError
-NetNameResolver class>>primNameResolverStatus
-NetNameResolver class>>primStartLookupOfAddress:
-NetNameResolver class>>primStartLookupOfName:
-Object>>at:put:
-Object>>basicAt:put:
-Object>>basicSize
-Object>>primitiveChangeClassTo:
-Object>>retrySetPinnedInMemory:
-Object>>setIsReadOnlyObject:
-Object>>setPinnedInMemory:
-OSPlatform>>currentWorkingDirectoryPathWithBuffer:
-Process>>doTerminationFromAnotherProcess
-Process>>doTerminationFromYourself
-Process>>effectiveProcess
-Process>>effectiveProcess:
-Process>>endProcess
-Process>>isActive:
-Process>>isTerminated
-Process>>on:do:
-Process>>priority:
-Process>>pvtSignal:list:
-Process>>restartTopWith:
-Process>>rfeffectiveProcess
-Process>>signalException:
-Process>>stepToHome:
-Process>>terminate
-ProcessorScheduler>>activePriority
-ProcessorScheduler>>activeProcess
-ProcessorScheduler>>scanSchedule:startingAt:
-ProcessorScheduler>>tallyCPUUsageFor:
-ProcessorScheduler>>terminateActive
-ProcessorScheduler class>>relinquishProcessorForMicroseconds:
-ProcessorScheduler>>activePriority
-ProcessorScheduler>>activeProcess
-ProcessorScheduler>>interpriorityYield:
-ProcessorScheduler>>realActiveProcess
-ProcessorScheduler>>scanSchedule:startingAt:
-ProcessorScheduler>>tallyCPUUsageFor:
-ProcessorScheduler>>terminateActive
-ProcessorScheduler>>terminateRealActive
-ProtoObjectTest>>classToBeTested
-ProtoObjectTest>>testFastPointersTo
-ProtoObjectTest>>testIsImmediateObject
-ProtoObjectTest>>testNextObject
-Semaphore>>signal
-Semaphore>>wait
+FullBlockClosure>>abstractBytecodeMessagesDo: // does not exist in Pharo 11.0
+FullBlockClosure>>asContextWithSender: // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>compiledBlock // moved to BlockClosure in Pharo 11.0, return statement changed
+FullBlockClosure>>compiledBlock: // moved to BlockClosure in Pharo 11.0, return statement changed
+FullBlockClosure>>endPC // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>hasMethodReturn // moved to BlockClosure in Pharo 11.0, return statement changed
+FullBlockClosure>>home // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>method // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>numArgs: // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>numTemps // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>outerContext: // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>sender // does not exist in Pharo 8.0
+FullBlockClosure>>simulateValueWithArguments:caller: // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>sourceNode // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>startpc // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>value // moved to BlockClosure in Pharo 11.0, significant change
+FullBlockClosure>>value: // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>value:value: // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>value:value:value: // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>value:value:value:value: // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>valueNoContextSwitch // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>valueNoContextSwitch: // moved to BlockClosure in Pharo 11.0, no change
+FullBlockClosure>>valueWithArguments: // moved to BlockClosure in Pharo 11.0, significant change
+IndexedSlot>>object:instVarAt: // does not exist in Pharo 8.0
+IndexedSlot>>object:instVarAt:put: // does not exist in Pharo 8.0
+// Integer>>bytesCompare:
+// InternetConfiguration class>>primitiveGetMacintoshFileTypeAndCreatorFrom:
+// InternetConfiguration class>>primitiveGetStringKeyedBy:
+// Interval class>>new
+// LargeInteger>>byteAt:
+// LargeInteger>>byteAt:put:
+// LargeInteger>>bytesCount
+// LargeInteger>>\\
+// Locale>>primLongDateFormat
+// Locale>>primMeasurement
+// Locale>>primShortDateFormat
+// Locale>>primTimeFormat
+MCTraitDefinition>>createClass // significant change
+// MessageNotUnderstood>>initialize
+MessageNotUnderstood>>messageText // message not understood message added
+// MethodDictionary class>>newForCapacity:
+// MethodDictionary class>>sizeFor:
+MethodDictionary>>scanFor: // isNil changed to == nil
+// MethodDictionary>>swap:with:
+MonitorDelay>>schedulerSignalWaitingProcess // does not exist in Pharo 11.0
+// MonitorDelay>>timingPrioritySignalExpired
+// NetNameResolver class>>initializeNetwork
+// NetNameResolver class>>primAbortLookup
+// NetNameResolver class>>primAddressLookupResult
+// NetNameResolver class>>primInitializeNetwork:
+// NetNameResolver class>>primLocalAddress
+// NetNameResolver class>>primNameLookupResult
+// NetNameResolver class>>primNameResolverError
+// NetNameResolver class>>primNameResolverStatus
+// NetNameResolver class>>primStartLookupOfAddress:
+// NetNameResolver class>>primStartLookupOfName:
+// Object>>at:put:
+Object>>basicAt:put: // small change, third ifFalse conditional changed
+// Object>>basicSize
+// Object>>primitiveChangeClassTo: // comment changed
+Object>>retrySetPinnedInMemory: // does not exist in Pharo 8.0
+// Object>>setIsReadOnlyObject:
+Object>>setPinnedInMemory: // significant change
+OSPlatform>>currentWorkingDirectoryPathWithBuffer: // return statement changed
+Process>>doTerminationFromAnotherProcess // does not exist in Pharo 8.0
+Process>>doTerminationFromYourself // does not exist in Pharo 8.0
+// Process>>effectiveProcess
+Process>>effectiveProcess: // does not exist in Pharo 8.0
+Process>>endProcess // does not exist in Pharo 8.0
+// Process>>isActive:
+Process>>isTerminated // significant change
+Process>>on:do: // terminateActive changed to terminateRealActive
+Process>>priority: // significant change
+// Process>>pvtSignal:list:
+Process>>restartTopWith: // significant change
+// Process>>rfeffectiveProcess
+// Process>>signalException:
+Process>>stepToHome: // error ifNotNil changed
+Process>>terminate // significant change
+ProcessorScheduler>>activePriority // return statement changed
+// ProcessorScheduler>>activeProcess // comment changed
+// ProcessorScheduler>>scanSchedule:startingAt:
+// ProcessorScheduler>>tallyCPUUsageFor:
+ProcessorScheduler>>terminateActive // significant change
+// ProcessorScheduler class>>relinquishProcessorForMicroseconds:
+// ProcessorScheduler>>activePriority // shown twice?
+// ProcessorScheduler>>activeProcess // shown twice?
+ProcessorScheduler>>interpriorityYield: // does not exist in Pharo 8.0
+ProcessorScheduler>>realActiveProcess // does not exist in Pharo 8.0
+// ProcessorScheduler>>scanSchedule:startingAt: // shown twice
+// ProcessorScheduler>>tallyCPUUsageFor: // shown twice
+// ProcessorScheduler>>terminateActive // shown twice
+ProcessorScheduler>>terminateRealActive // does not exist in Pharo 8.0
+ProtoObjectTest>>classToBeTested // does not exist in Pharo 8.0
+ProtoObjectTest>>testFastPointersTo // does not exist in Pharo 8.0
+ProtoObjectTest>>testIsImmediateObject // does not exist in Pharo 8.0
+ProtoObjectTest>>testNextObject // does not exist in Pharo 8.0
+// Semaphore>>signal
+// Semaphore>>wait
 SessionManager class>>default
 SHA1>>primExpandBlock:into:
 SHA1>>primHashBlock:using:

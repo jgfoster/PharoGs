@@ -1,73 +1,16 @@
-// Array class>>new:
-// Array>>atWrap:
-Array>>elementsExchangeIdentityWith: // significant change (MinimalRequiredSize)
-// AsyncFile>>primClose:
-// AsyncFile>>primOpen:forWrite:semaIndex:
-// AsyncFile>>primReadResult:intoBuffer:at:count:
-// AsyncFile>>primReadStart:fPosition:count:
-// AsyncFile>>primWriteResult:
-// AsyncFile>>primWriteStart:fPosition:fromBuffer:at:count:
-// Behavior>>properties
-BlockClosure>>abstractBytecodeMessagesDo: // does not exist in Pharo 11.0
-// BlockClosure>>argumentCount
-BlockClosure>>asContextWithSender: // significant change, more references to self instead of OuterContext
-// BlockClosure>>assert
-// BlockClosure>>bench
-BlockClosure>>blockCreationBytecodeMessage // does not exist in Pharo 11.0
+New in Pharo 11.0
+-----------------
 BlockClosure>>clearTemporariesOn: // does not exist in Pharo 8.0
 BlockClosure>>compiledBlock // does not exist in Pharo 8.0
 BlockClosure>>compiledBlock: // does not exist in Pharo 8.0
-BlockClosure>>cull: // significant change, debuggerCompleteToSender removed
-BlockClosure>>cull:cull: // formatting change?
-// BlockClosure>>cull:cull:cull:
-// BlockClosure>>cull:cull:cull:cull:
 BlockClosure>>doPrintOn: // does not exist in Pharo 8.0
-// BlockClosure>>durationToRun
-BlockClosure>>endPC // significatn change
-// BlockClosure>>forkAndWait
-// BlockClosure>>forkAt:named:
-// BlockClosure>>forkNamed:
-BlockClosure>>hasMethodReturn // significant change
-BlockClosure>>home // signicificant change, ifNotNil added
 BlockClosure>>initialStackPointer // does not exist in Pharo 8.0
 BlockClosure>>isFullBlock // does not exist in Pharo 8.0
-BlockClosure>>method // significant change, now returns compiledBlock
-// BlockClosure>>newProcess // comment added
-// BlockClosure>>newProcessWith: // comment added
 BlockClosure>>numArgs: // does not exist in Pharo 8.0
-// BlockClosure>>numArgsError:
-BlockClosure>>numLocalTemps // does not exist in Pharo 11.0
-BlockClosure>>numTemps // significant changes
-BlockClosure>>on:fork: // significant changes, global variables copy and process removed
-BlockClosure>>on:fork:return: // terminateActive replaced with terminateRealActive
 BlockClosure>>onErrorDo: // does not exist in Pharo 8.0
 BlockClosure>>outerContext: // does not exist in Pharo 8.0
-BlockClosure>>outerContext:startpc:numArgs:copiedValues: // does not exist in Pharo 11.0
-BlockClosure>>receiver // returns subclassResponsibility instead of receiver
-BlockClosure>>rfvalue // significant changes
-BlockClosure>>rfvalueNoContextSwitch // primitive value changed from 221 to 209
-BlockClosure>>sender // returns subclassResponsibility instead of sender
-BlockClosure>>simulateValueWithArguments:caller: // significant changes
-BlockClosure>>sourceNode // significant changes
-BlockClosure>>startpc // returns compiledBlock initialPC instead of startpc
 BlockClosure>>startpcOrOuterCode // does not exist in Pharo 8.0
-// BlockClosure>>tempNames
-BlockClosure>>temporaryVariables // significant changes
-BlockClosure>>value // primitive changed from 201 to 207
-BlockClosure>>value: // significant changes
-BlockClosure>>value:value: // significatn changes
-BlockClosure>>value:value:value: // significant changes
-BlockClosure>>value:value:value:value: // significant changes
-BlockClosure>>valueAt: // significant changes
-BlockClosure>>valueNoContextSwitch // primitive changed from 221 to 209
-BlockClosure>>valueNoContextSwitch: // primitive changed from 222 to 209
-BlockClosure>>valueWithArguments: // significant changes
-// BlockClosure>>valueWithExit
-// BlockClosure>>valueWithPossibleArgs: // formatting changes?
-// BlockClosure>>whileNil:
-// BlockClosure>>whileNotNil:
 BlockClosure>>withAllBlocksDo: // does not exist in Pharo 8.0
-// BoxedFloat64>>truncated
 ByteArray>>boolean8AtOffset: // does not exist in Pharo 8.0
 ByteArray>>boolean8AtOffset:put: // does not exist in Pharo 8.0
 ByteArray>>char16AtOffset: // does not exist in Pharo 8.0
@@ -90,7 +33,6 @@ ByteArray>>int8AtOffset: // does not exist in Pharo 8.0
 ByteArray>>int8AtOffset:put: // does not exist in Pharo 8.0
 ByteArray>>pointerAtOffset: // does not exist in Pharo 8.0
 ByteArray>>pointerAtOffset:put: // does not exist in Pharo 8.0
-// ByteArray>>replaceFrom:to:with:startingAt:
 ByteArray>>uint16AtOffset: // does not exist in Pharo 8.0
 ByteArray>>uint16AtOffset:put: // does not exist in Pharo 8.0
 ByteArray>>uint32AtOffset: // does not exist in Pharo 8.0
@@ -99,137 +41,98 @@ ByteArray>>uint64AtOffset: // does not exist in Pharo 8.0
 ByteArray>>uint64AtOffset:put: // does not exist in Pharo 8.0
 ByteArray>>uint8AtOffset: // does not exist in Pharo 8.0
 ByteArray>>uint8AtOffset:put: // does not exist in Pharo 8.0
-// ByteString class>>findFirstInString:inSet:startingAt:
-// ByteString>>at:put:
-// ByteString>>replaceFrom:to:with:startingAt:
-// ByteSymbol>>privateAt:put:
-ChangeSet class>>gatherChangeSets // <script> added
-Class>>classPool // return statement changed
-Class>>sharedPools // return statement changed
-// ClassDescription>>basicOrganization
-// CompiledMethod class>>basicNew
-// CompiledMethod class>>basicNew:
-CompiledMethod class>>initialize // old encoder removed
-// CompiledMethod>>asActiveRingDefinition
 CompiledMethod>>asMCMethodDefinition // does not exist in Pharo 8.0
 CompiledMethod>>basicAsMCMethodDefinition // does not exist in Pharo 8.0
 CompiledMethod>>cachePragmas // does not exist in Pharo 8.0
 CompiledMethod>>containsHalt // does not exist in Pharo 8.0
-// CompiledMethod>>copyWithSource:
 CompiledMethod>>displayStringOn: // does not exist in Pharo 8.0
-// CompiledMethod>>embeddSourceInTrailer
 CompiledMethod>>endPC // does not exist in Pharo 8.0
-// CompiledMethod>>flushCache
-// CompiledMethod>>hasBreakpoint
 CompiledMethod>>hasComment // does not exist in Pharo 8.0
-// CompiledMethod>>hasMetaLinks
 CompiledMethod>>hasPragma // does not exist in Pharo 8.0
-// CompiledMethod>>invalidate
-// CompiledMethod>>isAbstract
 CompiledMethod>>isClassSide // does not exist in Pharo 8.0
-CompiledMethod>>isDeprecated // significant change
 CompiledMethod>>isFaulty // does not exist in Pharo 8.0
-// CompiledMethod>>isOverridden
 CompiledMethod>>link:toVariableNamed:option: // does not exist in Pharo 8.0
 CompiledMethod>>literalsToSkip // does not exist in Pharo 8.0
 CompiledMethod>>lookupVar: // does not exist in Pharo 8.0
-// CompiledMethod>>methodClass:
-// CompiledMethod>>methodReference
 CompiledMethod>>newBreakpointForVariable: // does not exist in Pharo 8.0
-// CompiledMethod>>postCopy
 CompiledMethod>>pragmaRefersToLiteral: // does not exist in Pharo 8.0
 CompiledMethod>>pragmasDo: // does not exist in Pharo 8.0
-// CompiledMethod>>putSource:withPreamble:
-// CompiledMethod>>readsField:
 CompiledMethod>>receiver:withArguments:executeMethod: // does not exist in Pharo 8.0
-CompiledMethod>>referencedClasses // significant changes
 CompiledMethod>>refersToLiteral: // does not exist in Pharo 8.0
 CompiledMethod>>sameAsMCDefinition: // does not exist in Pharo 8.0
-CompiledMethod>>selector: // internSelector definition removed
-// CompiledMethod>>setSourcePointer:
-// CompiledMethod>>sourcePointer
 CompiledMethod>>stepIntoQuickMethods: // does not exist in Pharo 8.0
-CompiledMethod>>temporaryVariableNamed: // return statement changed
 CompiledMethod>>trailer // does not exist in Pharo 8.0
+File class>>primitiveWaitForDataOn:signalling: // does not exist in Pharo 8.0
+FullBlockClosure>>sender // does not exist in Pharo 8.0
+IndexedSlot>>object:instVarAt: // does not exist in Pharo 8.0
+IndexedSlot>>object:instVarAt:put: // does not exist in Pharo 8.0
+Object>>retrySetPinnedInMemory: // does not exist in Pharo 8.0
+Process>>doTerminationFromAnotherProcess // does not exist in Pharo 8.0
+Process>>doTerminationFromYourself // does not exist in Pharo 8.0
+Process>>effectiveProcess: // does not exist in Pharo 8.0
+Process>>endProcess // does not exist in Pharo 8.0
+ProcessorScheduler>>interpriorityYield: // does not exist in Pharo 8.0
+ProcessorScheduler>>realActiveProcess // does not exist in Pharo 8.0
+ProcessorScheduler>>terminateRealActive // does not exist in Pharo 8.0
+ProtoObjectTest>>classToBeTested // does not exist in Pharo 8.0
+ProtoObjectTest>>testFastPointersTo // does not exist in Pharo 8.0
+ProtoObjectTest>>testIsImmediateObject // does not exist in Pharo 8.0
+ProtoObjectTest>>testNextObject // does not exist in Pharo 8.0
+VirtualMachine>>doGetSystemAttribute: // does not exist in Pharo 8.0
+
+Removed from Pharo 11.0
+-----------------------
+BlockClosure>>abstractBytecodeMessagesDo: // does not exist in Pharo 11.0
+BlockClosure>>blockCreationBytecodeMessage // does not exist in Pharo 11.0
+BlockClosure>>numLocalTemps // does not exist in Pharo 11.0
+BlockClosure>>outerContext:startpc:numArgs:copiedValues: // does not exist in Pharo 11.0
+Context>>closureCopy:copiedValues: // does not exist in Pharo 11.0
+DelayWaitTimeout>>schedulerSignalWaitingProcess // does not exist in Pharo 11.0
+FileReference class>>primDropRequestFileName: // does not exist in Pharo 11.0
+FullBlockClosure>>abstractBytecodeMessagesDo: // does not exist in Pharo 11.0
+MonitorDelay>>schedulerSignalWaitingProcess // does not exist in Pharo 11.0
+
+Other Changes
+-------------
+Array>>elementsExchangeIdentityWith: // significant change (MinimalRequiredSize)
+BlockClosure>>asContextWithSender: // significant change, more references to self instead of OuterContext
+BlockClosure>>cull: // significant change, debuggerCompleteToSender removed
+BlockClosure>>cull:cull: // formatting change?
+BlockClosure>>endPC // significatn change
+BlockClosure>>hasMethodReturn // significant change
+BlockClosure>>home // signicificant change, ifNotNil added
+BlockClosure>>method // significant change, now returns compiledBlock
+BlockClosure>>numTemps // significant changes
+BlockClosure>>on:fork: // significant changes, global variables copy and process removed
+BlockClosure>>on:fork:return: // terminateActive replaced with terminateRealActive
+BlockClosure>>receiver // returns subclassResponsibility instead of receiver
+BlockClosure>>rfvalue // significant changes
+BlockClosure>>rfvalueNoContextSwitch // primitive value changed from 221 to 209
+BlockClosure>>sender // returns subclassResponsibility instead of sender
+BlockClosure>>simulateValueWithArguments:caller: // significant changes
+BlockClosure>>sourceNode // significant changes
+BlockClosure>>startpc // returns compiledBlock initialPC instead of startpc
+BlockClosure>>temporaryVariables // significant changes
+BlockClosure>>value // primitive changed from 201 to 207
+BlockClosure>>value: // significant changes
+BlockClosure>>value:value: // significatn changes
+BlockClosure>>value:value:value: // significant changes
+BlockClosure>>value:value:value:value: // significant changes
+BlockClosure>>valueAt: // significant changes
+BlockClosure>>valueNoContextSwitch // primitive changed from 221 to 209
+BlockClosure>>valueNoContextSwitch: // primitive changed from 222 to 209
+BlockClosure>>valueWithArguments: // significant changes
+ChangeSet class>>gatherChangeSets // <script> added
+Class>>classPool // return statement changed
+Class>>sharedPools // return statement changed
+CompiledMethod class>>initialize // old encoder removed
+CompiledMethod>>isDeprecated // significant change
+CompiledMethod>>referencedClasses // significant changes
+CompiledMethod>>selector: // internSelector definition removed
+CompiledMethod>>temporaryVariableNamed: // return statement changed
 CompiledMethod>>usesUndeclareds // significant changes
 CompiledMethod>>valueWithReceiver:arguments: // return statement changed
-Context>>closureCopy:copiedValues: // does not exist in Pharo 11.0
-// Context>>tryNamedPrimitiveIn:for:withArgs:
-// Delay class>>anyActive
-// Delay class>>delaySchedulerClass:
-// Delay class>>forDuration:
-// Delay class>>forMilliseconds:
-// Delay class>>forSeconds:
-// Delay class>>initialize
-// Delay class>>nextWakeUpTime
-// Delay class>>scheduler
-// Delay class>>scheduler:
-// Delay class>>schedulingProcess
-// Delay class>>shutDown
-// Delay class>>startTimerEventLoop
-// Delay class>>startUp
-// Delay class>>stopTimerEventLoop
-// Delay class>>systemSettingOn:
-// Delay class>>timeoutSemaphore:afterMSecs:
-// Delay>>isExpired
-// Delay>>resumptionTick
-// Delay>>resumptionTickAdjustFrom:to:
-// Delay>>schedule
-// Delay>>unschedule
-// Delay>>wait
-// DelayMillisecondTicker>>primSignal:atMilliseconds:
-DelayWaitTimeout>>schedulerSignalWaitingProcess // does not exist in Pharo 11.0
-// DelayWaitTimeout>>timingPrioritySignalExpired
-// DelayWaitTimeout>>wait
-// Exception>>resumeUnchecked:
-// Exception>>retryUsing:
 ExternalAddress class>>loadSymbol:module: // return statement changed
-// ExternalSemaphoreTable class>>clearExternalObjects
-// ExternalSemaphoreTable class>>registerExternalObject:
-// ExternalSemaphoreTable class>>unregisterExternalObject:
-// File class>>atEnd:
-// File class>>close:
-// File class>>connectToFile:writable:
-// File class>>connectToFileDescriptor:writable:
-// File class>>createDirectory:
-// File class>>deleteDirectory:
-// File class>>delimiter
-// File class>>getMacFile:type:creator:
-// File class>>getPosition:
-// File class>>lookupDirectory:filename:
-// File class>>lookupEntryIn:index:
-// File class>>open:writable:
-// File class>>primDeleteFile:
-// File class>>primExists:
-// File class>>primFileAttribute:number:
-// File class>>primFileAttributes:mask:
-File class>>primitiveWaitForDataOn:signalling: // does not exist in Pharo 8.0
-// File class>>primRewinddir:
-// File class>>setPosition:to:
-// File class>>sizeOf:
-// File class>>truncate:to:
-// File class>>write:from:startingAt:count:
-FileReference class>>primDropRequestFileName: // does not exist in Pharo 11.0
-// Float>>asTrueFraction // for what I can see, 213-231 do not exist in either version 
-// Float>>basicAt:
-// Float32Array>>=
-// Float32Array>>at:
-// Float32Array>>at:put:
-// Float32Array>>dot:
-// Float32Array>>hash
-// Float32Array>>primAddArray:
-// Float32Array>>primAddScalar:
-// Float32Array>>primDivArray:
-// Float32Array>>primDivScalar:
-// Float32Array>>primMulArray:
-// Float32Array>>primMulScalar:
-// Float32Array>>primSubArray:
-// Float32Array>>primSubScalar:
-// Float32Array>>replaceFrom:to:with:startingAt:
-// Float32Array>>sum
-// Float64Array>>at64Bits:
-// Float64Array>>at64Bits:put:
-FullBlockClosure>>abstractBytecodeMessagesDo: // does not exist in Pharo 11.0
 FullBlockClosure>>asContextWithSender: // moved to BlockClosure in Pharo 11.0, no change
 FullBlockClosure>>compiledBlock // moved to BlockClosure in Pharo 11.0, return statement changed
 FullBlockClosure>>compiledBlock: // moved to BlockClosure in Pharo 11.0, return statement changed
@@ -240,7 +143,6 @@ FullBlockClosure>>method // moved to BlockClosure in Pharo 11.0, no change
 FullBlockClosure>>numArgs: // moved to BlockClosure in Pharo 11.0, no change
 FullBlockClosure>>numTemps // moved to BlockClosure in Pharo 11.0, no change
 FullBlockClosure>>outerContext: // moved to BlockClosure in Pharo 11.0, no change
-FullBlockClosure>>sender // does not exist in Pharo 8.0
 FullBlockClosure>>simulateValueWithArguments:caller: // moved to BlockClosure in Pharo 11.0, no change
 FullBlockClosure>>sourceNode // moved to BlockClosure in Pharo 11.0, no change
 FullBlockClosure>>startpc // moved to BlockClosure in Pharo 11.0, no change
@@ -252,146 +154,21 @@ FullBlockClosure>>value:value:value:value: // moved to BlockClosure in Pharo 11.
 FullBlockClosure>>valueNoContextSwitch // moved to BlockClosure in Pharo 11.0, no change
 FullBlockClosure>>valueNoContextSwitch: // moved to BlockClosure in Pharo 11.0, no change
 FullBlockClosure>>valueWithArguments: // moved to BlockClosure in Pharo 11.0, significant change
-IndexedSlot>>object:instVarAt: // does not exist in Pharo 8.0
-IndexedSlot>>object:instVarAt:put: // does not exist in Pharo 8.0
-// Integer>>bytesCompare:
-// InternetConfiguration class>>primitiveGetMacintoshFileTypeAndCreatorFrom:
-// InternetConfiguration class>>primitiveGetStringKeyedBy:
-// Interval class>>new
-// LargeInteger>>byteAt:
-// LargeInteger>>byteAt:put:
-// LargeInteger>>bytesCount
-// LargeInteger>>\\
-// Locale>>primLongDateFormat
-// Locale>>primMeasurement
-// Locale>>primShortDateFormat
-// Locale>>primTimeFormat
 MCTraitDefinition>>createClass // significant change
-// MessageNotUnderstood>>initialize
 MessageNotUnderstood>>messageText // message not understood message added
-// MethodDictionary class>>newForCapacity:
-// MethodDictionary class>>sizeFor:
 MethodDictionary>>scanFor: // isNil changed to == nil
-// MethodDictionary>>swap:with:
-MonitorDelay>>schedulerSignalWaitingProcess // does not exist in Pharo 11.0
-// MonitorDelay>>timingPrioritySignalExpired
-// NetNameResolver class>>initializeNetwork
-// NetNameResolver class>>primAbortLookup
-// NetNameResolver class>>primAddressLookupResult
-// NetNameResolver class>>primInitializeNetwork:
-// NetNameResolver class>>primLocalAddress
-// NetNameResolver class>>primNameLookupResult
-// NetNameResolver class>>primNameResolverError
-// NetNameResolver class>>primNameResolverStatus
-// NetNameResolver class>>primStartLookupOfAddress:
-// NetNameResolver class>>primStartLookupOfName:
-// Object>>at:put:
 Object>>basicAt:put: // small change, third ifFalse conditional changed
-// Object>>basicSize
-// Object>>primitiveChangeClassTo: // comment changed
-Object>>retrySetPinnedInMemory: // does not exist in Pharo 8.0
-// Object>>setIsReadOnlyObject:
 Object>>setPinnedInMemory: // significant change
 OSPlatform>>currentWorkingDirectoryPathWithBuffer: // return statement changed
-Process>>doTerminationFromAnotherProcess // does not exist in Pharo 8.0
-Process>>doTerminationFromYourself // does not exist in Pharo 8.0
-// Process>>effectiveProcess
-Process>>effectiveProcess: // does not exist in Pharo 8.0
-Process>>endProcess // does not exist in Pharo 8.0
-// Process>>isActive:
 Process>>isTerminated // significant change
 Process>>on:do: // terminateActive changed to terminateRealActive
 Process>>priority: // significant change
-// Process>>pvtSignal:list:
 Process>>restartTopWith: // significant change
-// Process>>rfeffectiveProcess
-// Process>>signalException:
 Process>>stepToHome: // error ifNotNil changed
 Process>>terminate // significant change
 ProcessorScheduler>>activePriority // return statement changed
-// ProcessorScheduler>>activeProcess // comment changed
-// ProcessorScheduler>>scanSchedule:startingAt:
-// ProcessorScheduler>>tallyCPUUsageFor:
 ProcessorScheduler>>terminateActive // significant change
-// ProcessorScheduler class>>relinquishProcessorForMicroseconds:
-// ProcessorScheduler>>activePriority // shown twice?
-// ProcessorScheduler>>activeProcess // shown twice?
-ProcessorScheduler>>interpriorityYield: // does not exist in Pharo 8.0
-ProcessorScheduler>>realActiveProcess // does not exist in Pharo 8.0
-// ProcessorScheduler>>scanSchedule:startingAt: // shown twice
-// ProcessorScheduler>>tallyCPUUsageFor: // shown twice
-// ProcessorScheduler>>terminateActive // shown twice
-ProcessorScheduler>>terminateRealActive // does not exist in Pharo 8.0
-ProtoObjectTest>>classToBeTested // does not exist in Pharo 8.0
-ProtoObjectTest>>testFastPointersTo // does not exist in Pharo 8.0
-ProtoObjectTest>>testIsImmediateObject // does not exist in Pharo 8.0
-ProtoObjectTest>>testNextObject // does not exist in Pharo 8.0
-// Semaphore>>signal
-// Semaphore>>wait
-// SessionManager class>>default
-// SHA1>>primExpandBlock:into:
-// SHA1>>primHashBlock:using:
-// SHA1>>primHasSecureHashPrimitive
-// SmallFloat64>>truncated
-// SmallInteger>>/ // note added
-// SmalltalkImage>>bytesLeft:
-// SmalltalkImage>>isHeadless
-// SmalltalkImage>>unbindExternalPrimitives
-// Socket class>>newTCP
-// Socket class>>newUDP
-// Socket>>isConnected
-// Socket>>listenOn:backlogSize:interface:
-// Socket>>primSocket:bindTo:
-// Socket>>primSocket:connectTo:
-// Socket>>primSocket:connectTo:port:
-// Socket>>primSocket:getOption:
-// Socket>>primSocket:listenOn:
-// Socket>>primSocket:listenWithBacklog:
-// Socket>>primSocket:localAddressResult:
-// Socket>>primSocket:receiveDataInto:startingAt:count:
-// Socket>>primSocket:receiveUDPDataInto:startingAt:count:
-// Socket>>primSocket:remoteAddressResult:
-// Socket>>primSocket:setPort:
-// Socket>>primSocketAbortConnection:
-// Socket>>primSocketCloseConnection:
-// Socket>>primSocketConnectionStatus:
-// Socket>>primSocketCreateNetwork:type:receiveBufferSize:sendBufSize:semaIndex:
-// Socket>>primSocketDestroy:
-// Socket>>primSocketDestroyGently:
-// Socket>>primSocketError:
-// Socket>>primSocketLocalAddress:
-// Socket>>primSocketLocalAddressSize:
-// Socket>>primSocketLocalPort:
-// Socket>>primSocketReceiveDataAvailable: // comment changed
-// Socket>>primSocketRemoteAddress:
-// Socket>>primSocketRemoteAddressSize:
-// Socket>>primSocketRemotePort:
-// Socket>>primSocketSendDone:
 Socket>>waitForDataFor:ifClosed:ifTimedOut: // significant change
-// Socket>>waitForDataIfClosed:
-// String>>asSymbol
 Symbol class>>lookup: // significant change
-// Symbol>>flushCache
-// SystemDictionary>>at:put:
-// SystemDictionary>>maxIdentityHash
-// ThirtyTwoBitRegister>>copy
 UndefinedObject>>doesNotUnderstand: // significant change
-// VirtualMachine>>disableModuleLoading
-VirtualMachine>>doGetSystemAttribute: // does not exist in Pharo 8.0
 VirtualMachine>>getSystemAttribute: // return statement changed
-// VirtualMachine>>parameterAt: // comment regarding parameters changed
-// WideString class>>from:
-// WideString>>replaceFrom:to:with:startingAt:
-// WideString>>wordAt:
-// WideString>>wordAt:put:
-// WideSymbol>>privateAt:put:
-// WideSymbol>>wordAt:
-// WordArray>>primAddArray:and:into:
-// WordArray>>primAddScalar:and:into:
-// WordArray>>primDivArray:and:into:
-// WordArray>>primDivScalar:and:into:
-// WordArray>>primMulArray:and:into:
-// WordArray>>primMulScalar:and:into:
-// WordArray>>primSubArray:and:into:
-// WordArray>>primSubScalar:and:into:
-// WordArray>>replaceFrom:to:with:startingAt:

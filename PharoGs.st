@@ -581,13 +581,12 @@ fixMethodsThatWillNotCompileInBehavior: behavior selector: selector source: sour
 !PharoGsExport methodsFor: 'methods' stamp: 'JamesFoster 7/16/2019 12:02'!
 addMethodsFor: eachBehavior
 
-	| count methodDict organization  |
+	| count methodDict |
 	count := 0.
 	methodDict := eachBehavior methodDict.
-	organization := eachBehavior organization.
 	methodDict keys asSortedCollection do: [ :eachSelector |
 		| category source |
-		category := organization categoryOfElement: eachSelector.
+		category := eachBehavior protocolNameOfSelector: eachSelector.
 		source := (methodDict at: eachSelector) sourceCode.
 		source := self replaceCrWithLfIn: source.
 		source := self rewritePrimitiveIn: source.
@@ -745,12 +744,13 @@ installPackages
 	"Extra (or replacement) packages we want to be in GemStone"
 
 	| path list |
-	path := '/Users/jfoster/code/pharo/pharo/src/' asFileReference.
+
+	path := './pharo/src/' asFileReference.
 	list := OrderedCollection new
 		"Extra packages to add to GemStone"
 		add: 'System-Localization';
 		add: 'Monticello';
-		add: 'VariablesLibrary';
+		"add: 'VariablesLibrary';
 		add: 'Reflectivity';
 		add: 'Text-Core';
 		add: 'SUnit-Core';
@@ -761,7 +761,7 @@ installPackages
 		add: 'RPackage-Tests';
 		add: 'Monticello-Tests';
 		add: 'MonticelloMocks';
-		add: 'Compression-Tests';
+		add: 'Compression-Tests';"
 		"Edited packages to load from the checkout (not yet in a bootstrap image) can be added as well"
 		yourself.
 	list do: [:each | | reader |
@@ -812,10 +812,15 @@ closeFiles
 !PharoGsExport methodsFor: 'export' stamp: 'JamesFoster 9/1/2019 20:30'!
 writeMD5
 	[methodStream atEnd not] whileTrue: [
-		| class index line selector |
+		| class index line selector source |
 		line := methodStream nextLine.
 		index := line indexOfSubCollection: '>>'.
-		class := self class compiler evaluate: (line copyFrom: 1 to: index - 1).
+		[
+			class := self class compiler evaluate: (source := line copyFrom: 1 to: index - 1).
+		] on: Error do: [:ex | 
+			Transcript show: 'ERROR compiling the following line:'; cr; show: line; cr.
+			ex pass.
+		].
 		class ifNil: [
 			self error: 'Class not found for ''' , line , ''''.
 		].

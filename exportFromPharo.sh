@@ -8,12 +8,12 @@ if [ ! -d pharo ]; then   # create Pharo directory
   exit 1
 fi
 
-if [ ! -e ./pharo/bootstrap-cache/PharoV60.sources ]; then
-  cp ./pharo/bootstrap-cache/Pharo*.sources ./pharo/bootstrap-cache/PharoV60.sources
+if [ ! -e ./pharo/build/bootstrap-cache/PharoV60.sources ]; then
+  cp ./pharo/build/bootstrap-cache/Pharo12*.sources ./pharo/build/bootstrap-cache/PharoV60.sources
 fi
 
 rm -rf classes output PharoGs.tpz PharoGs.out PharoDebug.log
 mkdir classes output
 
-./pharo/bootstrap-downloads/vmtarget/pharo --headless \
-  ./pharo/bootstrap-cache/Pharo*-metacello-*.image exportFromPharo.st
+./pharo/build/bootstrap-downloads/vmtarget/pharo --headless \
+  ./pharo/build/bootstrap-cache/Pharo*-metacello-*.image exportFromPharo.st

@@ -1,5 +1,5 @@
 Metacello new
-  repository: 'github://pharo-vcs/tonel';
+  repository: 'github://pharo-vcs/tonel:Pharo12';
   baseline: 'Tonel';
   load: 'core'.
 Transcript cr.

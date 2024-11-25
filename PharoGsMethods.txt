@@ -255,7 +255,6 @@ ByteSymbol>>flushCache
 ByteSymbol>>privateAt:put:
 CannotReturn>>result
 CannotReturn>>result:
-ChangeSet class>>gatherChangeSets
 Character class>>value:
 Character>>=
 Character>>asciiValue
@@ -284,7 +283,6 @@ ClassDescription>>definitionWithSlots
 ClassDescription>>oldDefinition
 ClassDescription>>slots
 ClassDescription>>superclass:layout:
-ClassOrganization>>initializeClass:
 CompiledCode class>>newMethod:header:
 CompiledCode>>objectAt:
 CompiledCode>>objectAt:put:
@@ -795,8 +793,6 @@ Metaclass>>new
 Metaclass>>postCopy
 Metaclass>>soleInstance
 MetaclassForTraits>>name
-MethodAddition>>createCompiledMethod
-MethodAddition>>installMethod
 MethodDictionary class>>compactAllInstances
 MethodDictionary class>>new
 MethodDictionary class>>new:
@@ -1053,19 +1049,6 @@ ProtoObject>>_gsError
 ProtoObject>>_gsReservedSelector_equal_equal_:
 ProtoObject>>_gsReservedSelector_tilde_tilde_:
 ProtoObject>>~~
-ProtoObjectTest>>classToBeTested
-ProtoObjectTest>>testFastPointersTo
-ProtoObjectTest>>testFlag
-ProtoObjectTest>>testIfNil
-ProtoObjectTest>>testIfNilIfNotNil
-ProtoObjectTest>>testIfNotNil
-ProtoObjectTest>>testIfNotNilIfNil
-ProtoObjectTest>>testIsImmediateObject
-ProtoObjectTest>>testIsNil
-ProtoObjectTest>>testNextObject
-ProtoObjectTest>>testNotTheSame
-ProtoObjectTest>>testPointersTo
-ReflectiveMethod>>flushCache
 Semaphore class>>forMutualExclusion
 Semaphore class>>new
 Semaphore>>signal
@@ -1229,7 +1212,6 @@ SystemNavigation>>allObjects
 SystemNavigation>>allObjectsOrNil
 SystemResolver>>imageDirectory
 SystemResolver>>localDirectory
-TestCase class>>historyAnnouncer
 ThirtyTwoBitRegister>>copy
 Time class>>millisecondClockValue
 Time class>>primMillisecondClock
@@ -1240,7 +1222,6 @@ True class>>new
 UIManager class>>default
 UndefinedObject>>doesNotUnderstand:
 UUIDGenerator class>>default
-VariableNotDeclared>>smartDescription
 VirtualMachine>>disableModuleLoading
 VirtualMachine>>doGetSystemAttribute:
 VirtualMachine>>forgetModule:
@@ -1264,7 +1245,6 @@ VirtualMachine>>voidCogVMState
 WeakArray class>>addWeakDependent:
 WeakArray class>>primitiveFetchMourner
 WeakArray class>>removeWeakDependent:
-WeakRegistry class>>default
 WideString class>>from:
 WideString>>at:
 WideString>>at:put:

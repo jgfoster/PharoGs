@@ -1,42 +1,6 @@
-PackageManifest subclass: #ManifestPharoGs
-	instanceVariableNames: ''
-	classVariableNames: ''
-	package: 'PharoGs'!
-!ManifestPharoGs commentStamp: '<historical>' prior: 0!
-I store metadata for this package. These meta data are used by other tools such as the SmalllintManifestChecker and the critics Browser!
-
-"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
-
-ManifestPharoGs class
-	instanceVariableNames: ''!
-
-!ManifestPharoGs class methodsFor: 'code-critics' stamp: 'JamesFoster 7/16/2019 08:20'!
-ruleRBCascadedNextPutAllsRuleV1FalsePositive
-	^ #(#(#(#RGPackageDefinition #(#PharoGs)) #'2019-07-16T08:20:25.643541-07:00') )! !
-
-!ManifestPharoGs class methodsFor: 'code-critics' stamp: 'JamesFoster 7/16/2019 08:20'!
-ruleRBUtilityMethodsRuleV1FalsePositive
-	^ #(#(#(#RGMethodDefinition #(#PharoGsExport #createMissingInstVarsAsGlobalsIn: #false)) #'2019-07-16T08:20:52.291696-07:00') )! !
-
-!ManifestPharoGs class methodsFor: 'code-critics' stamp: 'JamesFoster 7/16/2019 08:12'!
-ruleRBCodeCruftLeftInMethodsRuleV1FalsePositive
-	^ #(#(#(#RGPackageDefinition #(#PharoGs)) #'2019-07-16T08:12:30.933457-07:00') )! !
-
-!ManifestPharoGs class methodsFor: 'code-critics' stamp: 'JamesFoster 7/16/2019 08:19'!
-ruleRBYourselfNotUsedRuleV1FalsePositive
-	^ #(#(#(#RGPackageDefinition #(#PharoGs)) #'2019-07-16T08:19:15.840946-07:00') )! !
-
-!ManifestPharoGs class methodsFor: 'code-critics' stamp: 'JamesFoster 7/16/2019 09:30'!
-ruleRBUsesAddRuleV1FalsePositive
-	^ #(#(#(#RGMethodDefinition #(#PharoGsExport #listOfClasses #false)) #'2019-07-16T09:30:48.65773-07:00') )! !
-
-!ManifestPharoGs class methodsFor: 'code-critics' stamp: 'JamesFoster 7/16/2019 08:48'!
-ruleFloatReferencesRuleV1FalsePositive
-	^ #(#(#(#RGMethodDefinition #(#PharoGsExport #pharoToGsClassMap #false)) #'2019-07-16T08:48:17.324327-07:00') )! !
-
-
+'From Pharo13.0.0PR of 25 November 2024 [Build information: Pharo-13.0.0+PR.build.0.sha.a8181fe20a7eb714fe845c6f7d4037ea433c203b (64 Bit)] on 24 November 2024 at 9:00:47.374009 pm'!
 Object subclass: #PharoGsExport
-	instanceVariableNames: 'fileStream hashStream methodStream'
+	instanceVariableNames: 'classListCache fileStream hashStream methodStream path'
 	classVariableNames: ''
 	package: 'PharoGs'!
 !PharoGsExport commentStamp: 'JamesFoster 7/16/2019 08:08' prior: 0!
@@ -66,10 +30,11 @@ createLinksToIdenticalClasses
 		yourself.
 ! !
 
-!PharoGsExport methodsFor: 'classes' stamp: 'JamesFoster 7/18/2019 08:30'!
+!PharoGsExport methodsFor: 'classes' stamp: '11/24/2024 20:48'!
 listOfClasses
 
 	| list queue |
+	classListCache ifNotNil: [ ^classListCache ].
 	queue := OrderedCollection with: ProtoObject with: SharedPool with: Object.
 	list := OrderedCollection with: ProtoObject with: Object with: SharedPool.
 	[ queue notEmpty ] whileTrue: [
@@ -80,6 +45,7 @@ listOfClasses
 		list addAll: (subclasses reject: [:each | list includes: each]).
 	].
 	list := list reject: [:each | each isMeta or: [#(ManifestPharoGs PharoGsExport) includes: each name]].
+	classListCache := list.
 	^list! !
 
 !PharoGsExport methodsFor: 'classes' stamp: 'JamesFoster 7/17/2019 16:24'!
@@ -138,55 +104,54 @@ pharoToGsClassMap
 
 	^Dictionary new
 		"These have the same name"
-		at: Array 					put: #Array;
-		at: Behavior 				put: #Behavior;
-		at: Boolean 				put: #Boolean;
-		at: ByteArray 				put: #ByteArray;
-		at: CannotReturn 			put: #CannotReturn;
-		at: Character 				put: #Character;
-		at: Class 					put: #Class;
-		at: Collection 				put: #Collection;
-		at: Delay 					put: #Delay;
-		at: Error 					put: #Error;
-		at: Exception				put: #Exception;
-		at: ExceptionSet 			put: #ExceptionSet;
-		at: Fraction 				put: #Fraction;
-		at: Integer 				put: #Integer;
-		at: LargeInteger 			put: #LargeInteger;
-		at: Magnitude 				put: #Magnitude;
-		at: Message 				put: #Message;
-		at: MessageNotUnderstood 	put: #MessageNotUnderstood;
-		at: Notification 			put: #Notification;
-		at: Number 					put: #Number;
-		at: Object 					put: #Object;
-		at: Pragma 					put: #Pragma;
-		at: ProcessorScheduler 		put: #ProcessorScheduler;
-		at: Semaphore 				put: #Semaphore;
+		at: Array 					        put: #Array;
+		at: Behavior 				        put: #Behavior;
+		at: Boolean 				        put: #Boolean;
+		at: ByteArray 				      put: #ByteArray;
+		at: CannotReturn 			      put: #CannotReturn;
+		at: Character 				      put: #Character;
+		at: Class 					        put: #Class;
+		at: Collection 				      put: #Collection;
+		at: Delay 					        put: #Delay;
+		at: Error 					        put: #Error;
+		at: Exception				        put: #Exception;
+		at: ExceptionSet 			      put: #ExceptionSet;
+		at: Fraction 				        put: #Fraction;
+		at: Integer 				        put: #Integer;
+		at: LargeInteger 			      put: #LargeInteger;
+		at: Magnitude 				      put: #Magnitude;
+		at: Message 				        put: #Message;
+		at: MessageNotUnderstood 	  put: #MessageNotUnderstood;
+		at: Notification 			      put: #Notification;
+		at: Number 					        put: #Number;
+		at: Object 					        put: #Object;
+		at: Pragma 					        put: #Pragma;
+		at: ProcessorScheduler 		  put: #ProcessorScheduler;
+		at: Semaphore 				      put: #Semaphore;
 		at: SequenceableCollection 	put: #SequenceableCollection;
-		at: SmallInteger 			put: #SmallInteger;
-		at: Symbol 					put: #Symbol;
-		at: UndefinedObject 		put: #UndefinedObject;
-		at: Warning 				put: #Warning;
-		at: ZeroDivide 				put: #ZeroDivide;
+		at: SmallInteger 			      put: #SmallInteger;
+		at: Symbol 					        put: #Symbol;
+		at: UndefinedObject 		    put: #UndefinedObject;
+		at: Warning 				        put: #Warning;
+		at: ZeroDivide 				      put: #ZeroDivide;
 
 		"These have different names"
-		at: ArithmeticError 		put: #NumericError;
-		at: BlockClosure 			put: #ExecBlock;
-		at: BoxedFloat64 			put: #Float;
-		at: ByteString 				put: #String;
-		at: ByteSymbol 				put: #Symbol;
-		at: ClassDescription 		put: #Module;
-		at: CompiledMethod 			put: #GsNMethod;
-		at: Float 					put: #BinaryFloat;
-		at: Metaclass 				put: #Metaclass3;
-		at: MethodDictionary 		put: #GsMethodDictionary;
-		at: Process 				put: #GsProcess;
-		at: ScaledDecimal 			put: #FixedPoint;
-		at: SmallFloat64 			put: #SmallDouble;
-		at: String 					put: #CharacterCollection;
-		at: WideString 				put: #QuadByteString;
-		at: WideSymbol 				put: #QuadByteSymbol;
-
+		at: ArithmeticError 				put: #NumericError;
+		at: BlockClosure 						put: #ExecBlock;
+		at: BoxedFloat64 						put: #Float;
+		at: ByteString 							put: #String;
+		at: ByteSymbol 							put: #Symbol;
+		at: ClassDescription 				put: #Module;
+		at: CompiledMethod 					put: #GsNMethod;
+		at: Float 					  			put: #BinaryFloat;
+		at: Metaclass 							put: #Metaclass3;
+		at: MethodDictionary 				put: #GsMethodDictionary;
+		at: Process 				  			put: #GsProcess;
+		at: ScaledDecimal 					put: #FixedPoint;
+		at: SmallFloat64 						put: #SmallDouble;
+		at: String 					  			put: #CharacterCollection;
+		at: WideString 							put: #QuadByteString;
+		at: WideSymbol 							put: #QuadByteSymbol;
 		yourself! !
 
 !PharoGsExport methodsFor: 'classes' stamp: 'JamesFoster 7/18/2019 08:32'!
@@ -646,18 +611,18 @@ rewritePrimitiveIn: aString
 	].
 	^source! !
 
-!PharoGsExport methodsFor: 'methods' stamp: 'JamesFoster 7/16/2019 11:01'!
+!PharoGsExport methodsFor: 'methods' stamp: '11/24/2024 20:37'!
 createMethodsFor: aClass
 
-	| count path savedStream |
+	| count methodsPath savedStream |
 	count := 0.
 	aClass isMeta ifTrue: [^count].
 	"generate file-in for methods"
-	path := 'classes/' , aClass name , '.gs'.
-	fileStream nextPutAll: 'input '; nextPutAll: path; lf.
+	methodsPath := path , '/classes/' , aClass name , '.gs'.
+	fileStream nextPutAll: 'input '; nextPutAll: methodsPath; lf.
 	savedStream := fileStream.
 	[
-		fileStream := path asFileReference writeStream.
+		fileStream := methodsPath asFileReference writeStream.
 		self
 			addMethodsHeaderFor: aClass;
 			addClassCommentFor: aClass;
@@ -677,26 +642,27 @@ createMethodsFor: aClass
 	! !
 
 
-!PharoGsExport methodsFor: 'export' stamp: 'JamesFoster 7/16/2019 10:40'!
+!PharoGsExport methodsFor: 'export' stamp: '11/24/2024 20:31'!
 openFiles
 
-	fileStream := 'PharoGs.tpz' asFileReference writeStream
+	fileStream := (path , '/PharoGs.tpz') asFileReference writeStream
 		nextPutAll: '!! generated by PharoGs.st in Pharo minimal image'; lf;
 		nextPutAll: 'errorCount'; lf;
 		nextPutAll: 'output push PharoGs.out only'; lf;
 		nextPutAll: 'errorCount'; lf;
 		yourself.
-	hashStream := 'PharoGs.md5' asFileReference writeStream
+	hashStream := (path , '/PharoGs.md5') asFileReference writeStream
 		nextPutAll: 'Generated by PharoGs.st in Pharo minimal image.'; lf;
 		nextPutAll: 'Changes here imply edits to Pharo that may affect PharoGs'; lf;
 		yourself.
-	methodStream := 'PharoGsMethods.txt' asFileReference readStream.
+	methodStream := (path , '/PharoGsMethods.txt') asFileReference readStream.
 ! !
 
-!PharoGsExport methodsFor: 'export' stamp: 'JamesFoster 7/23/2019 11:13'!
+!PharoGsExport methodsFor: 'export' stamp: '11/24/2024 20:22'!
 doExport
 
 	[
+		path ifNil: [ path := '.' ].
 		self
 			installPackages;
 			openFiles;
@@ -739,13 +705,13 @@ createGlobals
 	Transcript cr; show: 'globals count = ' , dict size printString; cr.
 ! !
 
-!PharoGsExport methodsFor: 'export' stamp: 'JamesFoster 7/23/2019 11:40'!
+!PharoGsExport methodsFor: 'export' stamp: '11/24/2024 20:30'!
 installPackages
 	"Extra (or replacement) packages we want to be in GemStone"
 
-	| path list |
+	| srcPath list |
 
-	path := './pharo/src/' asFileReference.
+	srcPath := (path , '/pharo/src/') asFileReference.
 	list := OrderedCollection new
 		"Extra packages to add to GemStone"
 		add: 'System-Localization';
@@ -765,9 +731,9 @@ installPackages
 		"Edited packages to load from the checkout (not yet in a bootstrap image) can be added as well"
 		yourself.
 	list do: [:each | | reader |
-	    Transcript nextPutAll: 'Installing '; nextPutAll: each value; cr.
+	    Transcript nextPutAll: 'Installing '; nextPutAll: each value; cr; flush.
 	    reader := TonelReader
-	        on: path
+	        on: srcPath
 	        fileName: each.
 	    (MCSnapshot fromDefinitions: reader definitions) install.
 	].
@@ -836,4 +802,10 @@ writeMD5
 				lf; flush.
 		].
 	].
+! !
+
+!PharoGsExport methodsFor: 'export' stamp: '11/24/2024 20:15'!
+path: aString
+
+	path := aString.
 ! !

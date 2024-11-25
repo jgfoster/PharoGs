@@ -5,7 +5,7 @@ Metacello new
 Transcript cr.
 !
 Transcript show: 'installing PharoGs class ...'.
-CodeImporter evaluateFileStream: 'PharoGs.st' asFileReference readStream.
+CodeImporter evaluateFileStream: 'PharoGsExport.st' asFileReference readStream.
 Transcript show: 'Completed PharoGs install'; cr.
 !
 PharoGsExport new doExport.

@@ -41,7 +41,7 @@ It is not anticipated that PharoGs will provide a platform for developing langua
 
 # Development Process
 
-The following instructions describe one development process using macOS Mojave (10.15.7), GemStone/S 64 Bit 3.6.4, and Pharo11.0. This is an attempt to describe something that is known to work and is not intended to mandate naming conventions and directories. You are welcome to adapt this to your own situation.
+The following instructions describe one development process using macOS Sequoia (15.1.1), GemStone/S 64 Bit 3.7.1, and Pharo13.0. This is an attempt to describe something that is known to work and is not intended to mandate naming conventions and directories. You are welcome to adapt this to your own situation.
 
 ## Pharo
 
@@ -57,13 +57,13 @@ Use bootstrap to get a new minimal image:
 ```
 cd ./pharo
 git checkout PharoGs
-# the next step takes about 20 minutes
+# the next step takes about 12 minutes (on an Apple M1 Pro)
 time ./bootstrap/scripts/bootstrap.sh; date
 ```
 
 ## GemStone
 
-On macOS it is easiest to use [GemStone.app](https://github.com/jgfoster/GemStoneApp) to install and run GemStone 3.6.4. From the Databases tab and the Login subtab, click `Terminal` to open a Terminal with appropriate GemStone environment variables set. Use this Terminal for the next step (skip the clone if it has already been done).
+On macOS it is easiest to use [GemStone.app](https://github.com/jgfoster/GemStoneApp) to install and run GemStone 3.7.1. From the Databases tab and the Login subtab, click `Terminal` to open a Terminal with appropriate GemStone environment variables set. Use this Terminal for the next step (skip the clone if it has already been done).
 
 ## PharoGs
 
@@ -80,10 +80,17 @@ Create a symbolic link named `pharo` to the Pharo checkout:
 ln -s ~/code/pharo pharo
 ```
 
+### Initial Steps
 
-The current approach is to export _all_ class and methods from a Pharo [minimal image](https://files.pharo.org/get-files/90/pharo-minimal.zip) (to which sources has been added) using the `exportFromPharo.sh` script. This script generates a set of `.gs` files that can be loaded into GemStone using [Topaz](https://downloads.gemtalksystems.com/docs/GemStone64/3.5.x/GS64-Topaz-3.5.pdf).
+* Bootstrap a Pharo image (see above).
+* Export Pharo classes and methods using the `exportFromPharo.sh` script. This script generates a set of `.gs` files that can be loaded into GemStone (see below).
+  * This should end with a list of globals, pools, classes, and methods that were exported.
+  * If there are errors at this stage, you need to find and fix them. Typically they will involve `PharoMods` that applied in a previous version of Pharo but no longer apply. The simplest thing is to just remove them until you get past this step (we will add appropriate mods later).
 
-To log in to GemStone with Topaz you will need a `.topazini` file similar to the following:
+
+### Other steps
+
+To log in to GemStone with [Topaz](https://downloads.gemtalksystems.com/docs/GemStone64/3.7.x/GS64-Topaz-3.7.pdf) you will need a `.topazini` file similar to the following:
 
 ```
 set user SystemUser pass swordfish

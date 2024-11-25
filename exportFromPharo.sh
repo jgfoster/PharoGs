@@ -9,7 +9,7 @@ if [ ! -d pharo ]; then   # create Pharo directory
 fi
 
 if [ ! -e ./pharo/build/bootstrap-cache/PharoV60.sources ]; then
-  cp ./pharo/build/bootstrap-cache/Pharo12*.sources ./pharo/build/bootstrap-cache/PharoV60.sources
+  cp ./pharo/build/bootstrap-cache/Pharo13*.sources ./pharo/build/bootstrap-cache/PharoV60.sources
 fi
 
 rm -rf classes output PharoGs.tpz PharoGs.out PharoDebug.log

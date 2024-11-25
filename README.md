@@ -107,11 +107,11 @@ ln -s ~/code/pharo pharo
 * Bootstrap a Pharo image from source files (skip if already done above).
   * `time cd pharo; ./bootstrap/scripts/bootstrap.sh; cd ..; date`
   * The `time` and `date` commands aren't necessary but helpful to give some experience at what to expect on subsequent iterations.
+  * If this errors, then there is a problem with Pharo's bootstrap and this should be reported back to the Pharo dev team.
 * Export Pharo classes and methods and generate a set of `.gs` files that can be loaded into GemStone (next).
   * `time ./exportFromPharo.sh; date`
   * This should end with a list of globals (currently 6), pools (5), classes (1293), and methods (22470) that were exported.
-  * If it ends before the export, then there is a problem with Pharo's bootstrap and this should be reported back to the Pharo dev team.
-  * If there are errors after the list of export counts, then we need to find and fix them. Typically they will involve `PharoMods` that applied in a previous version of Pharo but no longer apply. The simplest thing is to just remove them until you get past this step (we will add appropriate mods later).
+  * If there are errors here, then we need to find and fix them. Typically they will involve `PharoMods` that applied in a previous version of Pharo but no longer apply. The simplest thing is to just remove them until you get past this step (we will add appropriate mods later).
 * Import Pharo classes and methods to GemStone.
   * `time ./importToGemStone.sh; date`
   * This should end with an errorCount of 0 and a commit.

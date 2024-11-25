@@ -39,11 +39,11 @@ As in any Smalltalk, there is some low-level Pharo code that is tied to the VM a
 
 It is not anticipated that PharoGs will provide a platform for developing language tools, but will instead be a platform for running higher-level headless applications built on popular libraries, such as Seaside. In particular, supporting a GUI is beyond the anticipated scope of PharoGs at this time.
 
-# Development Process
+## Environment
 
-The following instructions describe one development process using macOS Sequoia (15.1.1), GemStone/S 64 Bit 3.7.1, and Pharo13.0. This is an attempt to describe something that is known to work and is not intended to mandate naming conventions and directories. You are welcome to adapt this to your own situation.
+The following instructions describe one development process using macOS Sequoia (15.1.1), GemStone/S 64 Bit 3.7.1, and Pharo 13.0. This is an attempt to describe something that is known to work and is not intended to mandate naming conventions and directories. You are welcome to adapt this to your own situation.
 
-## Pharo
+### Pharo
 
 Depending on the state of development, some modifications may be required to the [Pharo code base](https://github.com/pharo-project/pharo) for PharoGs to work. These changes are being [submitted](https://github.com/pharo-project/pharo/pulls/jgfoster) back to the base, but unless and until they are all incorporated you need to use a branch (of course, if you already have a Git checkout of Pharo, you can add this repository as a remote and checkout the appropriate branch):
 
@@ -52,20 +52,41 @@ cd ~/code/ # or where you want to put the checkout
 git clone https://github.com/jgfoster/pharo.git
 ```
 
-Use bootstrap to get a new minimal image:
+Pharo's bootstrap script generates a number of images, including the one we want:
 
 ```
 cd ./pharo
 git checkout PharoGs
-# the next step takes about 12 minutes (on an Apple M1 Pro)
+# the next step takes about 12 minutes (on a 2021 MBP with M1 Pro CPU)
 time ./bootstrap/scripts/bootstrap.sh; date
 ```
 
-## GemStone
+### GemStone
 
-On macOS it is easiest to use [GemStone.app](https://github.com/jgfoster/GemStoneApp) to install and run GemStone 3.7.1. From the Databases tab and the Login subtab, click `Terminal` to open a Terminal with appropriate GemStone environment variables set. Use this Terminal for the next step (skip the clone if it has already been done).
+On macOS it is easiest to use [GemStone.app](https://github.com/jgfoster/GemStoneApp) to install and run GemStone 3.7.1. From the Databases tab and the Login subtab, click `Terminal` to open a Terminal with appropriate GemStone environment variables set. 
 
-## PharoGs
+To log in to GemStone with [Topaz](https://downloads.gemtalksystems.com/docs/GemStone64/3.7.x/GS64-Topaz-3.7.pdf) you will need a `.topazini` file similar to the following:
+
+```
+set user SystemUser pass swordfish
+set gems gs64stone
+login
+```
+
+Use this Terminal to test the GemStone connectivitiy with the following:
+
+```
+topaz -l
+run
+2 + 3
+%
+logout
+exit
+```
+
+If the above does not work you need to get GemStone working (which is beyond the scope for this README.md). Continue in the terminal for the next step (skip the clone if it has already been done).
+
+### PharoGs
 
 Get a copy of this code:
 
@@ -77,35 +98,29 @@ git clone https://github.com/jgfoster/PharoGs.git
 Create a symbolic link named `pharo` to the Pharo checkout:
 
 ```
+cd PharoGs
 ln -s ~/code/pharo pharo
 ```
 
-### Initial Steps
+## Development Process
 
-* Bootstrap a Pharo image (see above).
-* Export Pharo classes and methods using the `exportFromPharo.sh` script. This script generates a set of `.gs` files that can be loaded into GemStone (see below).
-  * This should end with a list of globals, pools, classes, and methods that were exported.
-  * If there are errors at this stage, you need to find and fix them. Typically they will involve `PharoMods` that applied in a previous version of Pharo but no longer apply. The simplest thing is to just remove them until you get past this step (we will add appropriate mods later).
-
-
-### Other steps
-
-To log in to GemStone with [Topaz](https://downloads.gemtalksystems.com/docs/GemStone64/3.7.x/GS64-Topaz-3.7.pdf) you will need a `.topazini` file similar to the following:
-
-```
-set user SystemUser pass swordfish
-set gems gs64stone
-login
-```
-
-After following the above instructions, run the following script to export the code from Pharo and import it to GemStone:
-
-```
-./exportFromPharo.sh
-./importToGemStone.sh
-```
-
-The import script will run a number of SUnit tests from Pharo. With a few noted exceptions, all should pass! Watching the list of passing tests gives you a good idea of where we are in the process.
+* Bootstrap a Pharo image from source files (skip if already done above).
+  * `time cd pharo; ./bootstrap/scripts/bootstrap.sh; cd ..; date`
+  * The `time` and `date` commands aren't necessary but helpful to give some experience at what to expect on subsequent iterations.
+* Export Pharo classes and methods and generate a set of `.gs` files that can be loaded into GemStone (next).
+  * `time ./exportFromPharo.sh; date`
+  * This should end with a list of globals (currently 6), pools (5), classes (1293), and methods (22470) that were exported.
+  * If it ends before the export, then there is a problem with Pharo's bootstrap and this should be reported back to the Pharo dev team.
+  * If there are errors after the list of export counts, then we need to find and fix them. Typically they will involve `PharoMods` that applied in a previous version of Pharo but no longer apply. The simplest thing is to just remove them until you get past this step (we will add appropriate mods later).
+* Import Pharo classes and methods to GemStone.
+  * `time ./importToGemStone.sh; date`
+  * This should end with an errorCount of 0 and a commit.
+  * Look at `PharoGs.out` to find the import attempt. Then look at the `./output` directory to find the file with the error.
+  * An error at this point typically means that there was code in Pharo that cannot be loaded into GemStone, such as two dots at the end of a line. This code needs to be fixed in Pharo (which is why we work on a separate branch) and then start over.
+    * You can explicitly fix the `.gs` file as a way to postpone the bootstrap step.
+  * The import script will run a number of SUnit tests from Pharo. With a few noted exceptions, all should pass! Watching the list of passing tests gives you a good idea of where we are in the process.
+* Other
+  * The purpose of `PharoGs.md5` is to track changes made to Pharo methods that have overrides (replacements) in PharoGs. These are typically methods that don't compile in GemStone (typically because of primitives or differences in instvar names) so have been rewritten in GemStone. When the code changes in Pharo we need to revisit our overrides to see if they are still appropriate.
 
 ### SystemUser
 

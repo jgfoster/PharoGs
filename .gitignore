@@ -8,10 +8,9 @@ Session.vim
 .topazini
 *.out
 PharoDebug.log
-Pharo-minimal.changes
-Pharo-minimal.image
 classes
 pharo
+output
 pools.gs
 globals.gs
 classes.gs

@@ -114,9 +114,11 @@ ln -s ~/code/pharo pharo
   * If there are errors here, then we need to find and fix them. Typically they will involve `PharoMods` that applied in a previous version of Pharo but no longer apply. The simplest thing is to just remove them until you get past this step (we will add appropriate mods later).
 * Import Pharo classes and methods to GemStone.
   * `time ./importToGemStone.sh; date`
-  * This should end with an errorCount of 0 and a commit.
+  * This should start and end with an errorCount of 0.
   * Look at `PharoGs.out` to find the import attempt. Then look at the `./output` directory to find the file with the error.
-  * An error at this point typically means that there was code in Pharo that cannot be loaded into GemStone, such as two dots at the end of a line. This code needs to be fixed in Pharo (which is why we work on a separate branch) and then start over.
+  * An error at this point typically means that there was code in Pharo that cannot be loaded into GemStone. This code needs to be fixed in Pharo (which is why we work on a separate branch) and then start over.
+    * Common errors include two dots at the end of a line, a dot after a comment.
+    * If there is an unrecognized variable, you can add it to `importToGemStone.tpz` and then fix it in `PharoMods`.
     * You can explicitly fix the `.gs` file as a way to postpone the bootstrap step.
   * The import script will run a number of SUnit tests from Pharo. With a few noted exceptions, all should pass! Watching the list of passing tests gives you a good idea of where we are in the process.
 * Other

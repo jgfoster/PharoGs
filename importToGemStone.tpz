@@ -17,14 +17,8 @@ symbolList := (Globals at: #System) myUserProfile symbolList.
 run
 "allow methods to compile; may need to fix this!"
 #(
-	"VM"
-	#'thisContext'
-
-	"tests"
-	#'Trait1'
-	#'Trait2'
-	#'Trait3'
-	#'TSortable'
+	"ClassDescription"
+	#'protocols'
 
 	"Iceberg"
 	#'thunk'
@@ -33,8 +27,13 @@ run
 	#'pragmaCache'
 
 	"Class"
-	#'sharedPools'
 	#'classPool'
+	#'commentSourcePointer'
+	#'sharedPools'
+	#'packageTag'
+
+	"Message"
+	#'arguments'
 
 	"MessageNotUnderstood"
 	#'message'
@@ -52,6 +51,15 @@ run
 	#'MessageTally'
 	#'EllipseMorph'
 	#'TEmpty'
+
+	"tests"
+	#'Trait1'
+	#'Trait2'
+	#'Trait3'
+	#'TSortable'
+
+	"VM"
+	#'thisContext'
 ) @env0:do: [:each | UserGlobals @env0:at: each ifAbsentPut: [nil]].
 "Seaside looks for this explictly in 'Smalltalk globals'"
 Pharo at: #'PragmaSetting' put: nil.
